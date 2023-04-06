@@ -1,8 +1,8 @@
 {
   "name": "@react/infra",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
