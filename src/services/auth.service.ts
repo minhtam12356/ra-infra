@@ -1,5 +1,4 @@
 import { LocalStorageKeys } from '../common';
-import { decrypt } from '../utilities';
 
 export class AuthService {
   private static instance: AuthService;
@@ -34,12 +33,11 @@ export class AuthService {
   // ------------------------------------------------------------------------------------
   getToken() {
     try {
-      const user = this.getUser();
-      const sr = this.getSr(user);
+      // const user = this.getUser();
+      // const sr = this.getSr(user);
 
       const encryptedToken = localStorage.getItem(LocalStorageKeys.KEY_AUTH_TOKEN) ?? '';
-      const de = decrypt(encryptedToken, sr);
-      return JSON.parse(de);
+      return JSON.parse(encryptedToken);
     } catch (e) {
       return null;
     }
