@@ -57885,7 +57885,6 @@ var Application = function (props) {
             rs.dataProvider = dataProvider;
             rs.authProvider = getAuthProvider({ dataProvider: dataProvider });
         }
-        logger.info('RA props: %o', rs);
         return rs;
     }, [restProps]);
     React__default.useEffect(function () {
