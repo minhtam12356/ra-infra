@@ -26,3 +26,4 @@ dist-ssr
 /app_data
 package-lock.json
 yarn.lock
+deploy-local.sh
