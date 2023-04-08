@@ -14,8 +14,9 @@
     "rebuild": "yarn clean && yarn build"
   },
   "dependencies": {
+    "ra-i18n-polyglot": "^4.9.1",
     "react-admin": "^4.9.1",
-    "ra-i18n-polyglot": "^4.9.1"
+    "util": "^0.12.5"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"
