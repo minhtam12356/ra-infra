@@ -1,7 +1,8 @@
 import { IParam, IRequestProps, TRequestMethod } from '../common';
 import { Logger } from './logger.helper';
-import { getError, int, isEmpty } from '../utilities';
+import { getError, int } from '../utilities';
 import { NetworkHelper } from './network.helper';
+import isEmpty from 'lodash/isEmpty';
 
 export const GET_LIST = 'GET_LIST';
 export const GET_ONE = 'GET_ONE';

@@ -2,7 +2,7 @@ import React from 'react';
 import { Admin, AdminProps, Resource, ResourceProps } from 'react-admin';
 import { ApplicationContext, IApplication } from '../common';
 import { getAuthProvider, getDataProvider, getI18nProvider } from '../providers';
-import { isEmpty } from '../utilities';
+import isEmpty from 'lodash/isEmpty';
 
 export const Application: React.FC<IApplication> = (props: IApplication) => {
   const { resources, ...restProps } = props;
