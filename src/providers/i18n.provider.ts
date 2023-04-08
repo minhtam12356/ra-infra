@@ -1,5 +1,4 @@
 import polyglotI18nProvider from 'ra-i18n-polyglot';
-import get from 'lodash/get';
 
 const [language] = (navigator?.language || 'ko-KR').split('-');
 
@@ -8,7 +7,7 @@ export const getI18nProvider = (opts: { i18n: Record<string | symbol, any> }) =>
 
   return polyglotI18nProvider(
     (locale) => {
-      return get(i18nSources, locale);
+      return i18nSources?.[locale];
     },
     language,
     {

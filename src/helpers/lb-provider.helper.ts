@@ -1,8 +1,6 @@
-import isEmpty from 'lodash/isEmpty';
-import set from 'lodash/set';
 import { IParam, IRequestProps, TRequestMethod } from '../common';
 import { Logger } from './logger.helper';
-import { getError, int } from '../utilities';
+import { getError, int, isEmpty } from '../utilities';
 import { NetworkHelper } from './network.helper';
 
 export const GET_LIST = 'GET_LIST';
@@ -179,20 +177,20 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
     const filter: Record<string, any> = {};
 
     if (where) {
-      set(filter, 'where', where);
+      filter['where'] = where;
     }
 
     if (sort?.field) {
-      set(filter, 'order', `${sort.field} ${sort.order}`);
+      filter['order'] = `${sort.field} ${sort.order}`;
     }
 
     const { page = 0, perPage = 0 } = pagination;
     if (perPage >= 0) {
-      set(filter, 'limit', perPage);
+      filter['limit'] = perPage;
     }
 
     if (perPage > 0 && page >= 0) {
-      set(filter, 'skip', (page - 1) * perPage);
+      filter['skip'] = (page - 1) * perPage;
     }
 
     for (const key in rest) {
@@ -200,7 +198,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
         continue;
       }
 
-      set(filter, key, params[key]);
+      filter[key] = params[key];
     }
 
     const paths = [resource];
@@ -230,43 +228,47 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
   // -------------------------------------------------------------
   getMany(resource: string, params: { [key: string]: any }) {
     const ids = params?.ids?.map((id: string | number) => id) || [];
-    const query: Record<string, any> = {
-      filter: {},
-    };
+    const filter: Record<string, any> = {};
 
     if (ids?.length > 0) {
-      set(query, 'filter.where', { id: { inq: ids } });
+      filter['where'] = { id: { inq: ids } };
     }
 
     const paths = [resource];
-    const response = doRequest({ type: GET_MANY, baseUrl: opts.baseUrl, method: 'get', query, paths, params });
+    const response = doRequest({
+      type: GET_MANY,
+      baseUrl: opts.baseUrl,
+      method: 'get',
+      query: { filter },
+      paths,
+      params,
+    });
     return response;
   },
   // -------------------------------------------------------------
   // GET_MANY_REFERENCE
   // -------------------------------------------------------------
   getManyReference(resource: string, params: { [key: string]: any }) {
-    const { pagination = {}, sort = {}, where = null, target, id, ...rest } = params;
+    const { pagination = {}, sort = {}, filter: where, target, id, ...rest } = params;
 
-    const query: Record<string, any> = {
-      filter: {},
-    };
+    const filter: Record<string, any> = {};
+
     if (where) {
-      set(query, 'filter.where', where);
+      filter['where'] = where;
     }
-    query.where[target] = id;
+    filter.where[target] = id;
 
     if (sort?.field) {
-      set(query, 'filter.order', `${sort.field} ${sort.order}`);
+      filter['order'] = `${sort.field} ${sort.order}`;
     }
 
     const { page = 0, perPage = 0 } = pagination;
     if (perPage >= 0) {
-      set(query, 'filter.limit', perPage);
+      filter['limit'] = perPage;
     }
 
     if (perPage > 0 && page >= 0) {
-      set(query, 'filter.skip', (page - 1) * perPage);
+      filter['skip'] = (page - 1) * perPage;
     }
 
     for (const key in rest) {
@@ -274,7 +276,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
         continue;
       }
 
-      set(query, `filter.${key}`, params[key]);
+      filter[key] = params[key];
     }
 
     const paths = [resource];
@@ -282,7 +284,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
       type: GET_MANY_REFERENCE,
       baseUrl: opts.baseUrl,
       method: 'get',
-      query,
+      query: { filter },
       paths,
       params,
     });

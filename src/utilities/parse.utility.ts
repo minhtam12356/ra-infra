@@ -1,5 +1,4 @@
-import get from 'lodash/get';
-import round from 'lodash/round';
+import { get, round } from "./lodash-min.utility";
 
 // -------------------------------------------------------------------------
 const INTL_0_DIGITS_FORMATER = new Intl.NumberFormat('en-US', {
