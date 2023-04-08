@@ -9,7 +9,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin typescript"
+    "clean": "sh clean.sh",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "rebuild": "yarn clean && yarn build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",

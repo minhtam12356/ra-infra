@@ -1,6 +1,6 @@
 #!/bin/sh
 
 echo "Clean up ...START"
-rm -rf build *.tsbuildinfo .eslintcache
+rm -rf dist types *.tsbuildinfo .eslintcache
 
 echo "Clean up ...DONE"
