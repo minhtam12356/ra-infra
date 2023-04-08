@@ -1,8 +1,10 @@
 import { AdminProps, LegacyDataProvider, ResourceProps } from 'react-admin';
 
 export interface IApplication extends AdminProps {
-  baseUrl?: string;
-  authPath?: string;
+  urls: {
+    base: string;
+    auth?: string;
+  };
   resources: ResourceProps[];
   i18n?: Record<string | symbol, any>;
 

@@ -57896,23 +57896,28 @@ var getAuthProvider = function (opts) {
 
 var Application = function (props) {
     var resources = props.resources, restProps = __rest$u(props, ["resources"]);
-    var logger = React.useContext(ApplicationContext).logger;
+    // const { logger } = React.useContext(ApplicationContext);
     var adminProps = React.useMemo(function () {
-        var baseUrl = restProps.baseUrl, _a = restProps.authPath, authPath = _a === void 0 ? 'login' : _a, _b = restProps.i18n, i18n = _b === void 0 ? {} : _b, rest = __rest$u(restProps, ["baseUrl", "authPath", "i18n"]);
+        var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$u(restProps, ["urls", "i18n"]);
+        var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
         var rs = __assign$C({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
+        if (!baseUrl || isEmpty_1(baseUrl)) {
+            throw getError({ message: 'Missing urls.base property' });
+        }
         if (baseUrl && !isEmpty_1(baseUrl)) {
             var dataProvider = getDataProvider({ baseUrl: baseUrl });
             rs.dataProvider = dataProvider;
-            rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: authPath });
+            rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth });
         }
         return rs;
     }, [restProps]);
-    React.useEffect(function () {
-        logger.info('Mounted RA application');
-        return function () {
-            logger.info('Unmount RA application');
-        };
-    }, []);
+    /* React.useEffect(() => {
+      logger.info('Mounted RA application');
+  
+      return () => {
+        logger.info('Unmount RA application');
+      };
+    }, []); */
     return (React.createElement(Admin, __assign$C({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {
         return React.createElement(Resource, __assign$C({ key: resource.name }, resource));
     })));

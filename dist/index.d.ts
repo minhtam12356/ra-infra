@@ -78,8 +78,10 @@ interface IApplicationContext {
 declare const ApplicationContext: React.Context<IApplicationContext>;
 
 interface IApplication extends AdminProps {
-    baseUrl?: string;
-    authPath?: string;
+    urls: {
+        base: string;
+        auth?: string;
+    };
     resources: ResourceProps[];
     i18n?: Record<string | symbol, any>;
     [key: string | symbol]: any;
