@@ -55,7 +55,7 @@ declare const Application: React.FC<IApplication>;
 declare const ApplicationWrapper: React.FC<{
     children: React.ReactNode;
 }>;
-declare const MainApplication: React.FC<IApplication>;
+declare const Ra: React.FC<IApplication>;
 
 declare class Logger {
     private static instance;
@@ -135,4 +135,4 @@ declare class AuthService {
     getAuthorizationToken(): void;
 }
 
-export { App, Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, MainApplication, SEND, TRequestMethod, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };
+export { App, Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TRequestMethod, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };

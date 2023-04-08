@@ -22,7 +22,7 @@ export const ApplicationWrapper: React.FC<{
 };
 
 // -------------------------------------------------------------------------------
-export const MainApplication: React.FC<IApplication> = (props) => {
+export const Ra: React.FC<IApplication> = (props) => {
   return (
     <ApplicationWrapper>
       <Application {...props} />

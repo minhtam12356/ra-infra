@@ -84617,10 +84617,13 @@ var Application = function (props) {
     var logger = React.useContext(ApplicationContext).logger;
     var adminProps = React.useMemo(function () {
         var baseUrl = restProps.baseUrl, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$w(restProps, ["baseUrl", "i18n"]);
-        var dataProvider = getDataProvider({ baseUrl: baseUrl });
-        var i18nProvider = getI18nProvider({ i18n: i18n });
-        var authProvider = getAuthProvider({ dataProvider: dataProvider });
-        return __assign$C({ dataProvider: dataProvider, i18nProvider: i18nProvider, authProvider: authProvider }, rest);
+        var rs = __assign$C({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
+        if (baseUrl) {
+            var dataProvider = getDataProvider({ baseUrl: baseUrl });
+            rs.dataProvider = dataProvider;
+            rs.authProvider = getAuthProvider({ dataProvider: dataProvider });
+        }
+        return rs;
     }, [restProps]);
     React.useEffect(function () {
         logger.info('[Application] Mount main application');
@@ -84643,7 +84646,7 @@ var ApplicationWrapper = function (_a) {
             } }, children)));
 };
 // -------------------------------------------------------------------------------
-var MainApplication = function (props) {
+var Ra = function (props) {
     return (React.createElement(ApplicationWrapper, null,
         React.createElement(Application, __assign$C({}, props))));
 };
@@ -84665,7 +84668,7 @@ exports.GET_ONE = GET_ONE;
 exports.LbProviderGetter = LbProviderGetter;
 exports.LocalStorageKeys = LocalStorageKeys;
 exports.Logger = Logger;
-exports.MainApplication = MainApplication;
+exports.Ra = Ra;
 exports.SEND = SEND;
 exports.UPDATE = UPDATE;
 exports.UPDATE_MANY = UPDATE_MANY;

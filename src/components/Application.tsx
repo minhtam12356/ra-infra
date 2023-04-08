@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource, ResourceProps } from 'react-admin';
+import { Admin, AdminProps, Resource, ResourceProps } from 'react-admin';
 import { ApplicationContext, IApplication } from '../common';
 import { getAuthProvider, getDataProvider, getI18nProvider } from '../providers';
 
@@ -10,17 +10,18 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
 
   const adminProps = React.useMemo(() => {
     const { baseUrl, i18n = {}, ...rest } = restProps;
-
-    const dataProvider = getDataProvider({ baseUrl });
-    const i18nProvider = getI18nProvider({ i18n });
-    const authProvider = getAuthProvider({ dataProvider });
-
-    return {
-      dataProvider,
-      i18nProvider,
-      authProvider,
+    const rs: AdminProps = {
+      i18nProvider: getI18nProvider({ i18n }),
       ...rest,
     };
+
+    if (baseUrl) {
+      const dataProvider = getDataProvider({ baseUrl });
+      rs.dataProvider = dataProvider;
+      rs.authProvider = getAuthProvider({ dataProvider });
+    }
+
+    return rs;
   }, [restProps]);
 
   React.useEffect(() => {

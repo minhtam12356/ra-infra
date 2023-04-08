@@ -1,2 +1,2 @@
 export * from './Application';
-export * from './MainApplication';
+export * from './Ra';
