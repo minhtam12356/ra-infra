@@ -1,8 +1,9 @@
-import { getError, int, NetworkHelper } from '@tanphat199/utilities';
 import isEmpty from 'lodash/isEmpty';
 import set from 'lodash/set';
 import { IParam, IRequestProps, TRequestMethod } from '../common';
 import { Logger } from './logger.helper';
+import { getError, int } from '../utilities';
+import { NetworkHelper } from './network.helper';
 
 export const GET_LIST = 'GET_LIST';
 export const GET_ONE = 'GET_ONE';

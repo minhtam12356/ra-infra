@@ -1,13 +1,7 @@
 import React from 'react';
-import { AdminProps, ResourceProps, LegacyDataProvider, AuthProvider } from 'react-admin';
+import { AuthProvider, AdminProps, ResourceProps, LegacyDataProvider } from 'react-admin';
 import * as ra_core from 'ra-core';
-export { default as dayjs } from 'dayjs';
 
-declare class App {
-    static readonly TIME_OFFSET = "+07:00";
-    static readonly DEFAULT_LOCALE = "en.UTF-8";
-    static readonly SECRET = "application.secret";
-}
 declare class Authentication {
     static readonly TYPE_BASIC = "Basic";
     static readonly TYPE_BEARER = "Bearer";
@@ -21,41 +15,6 @@ declare class LocalStorageKeys {
     static readonly KEY_AUTH_IDENTITY = "@app/auth/identity";
     static readonly KEY_AUTH_PERMISSION = "@app/auth/permission";
 }
-
-declare const ApplicationContext: React.Context<any>;
-
-interface IApplication extends AdminProps {
-    baseUrl?: string;
-    resources: ResourceProps[];
-    i18n?: Record<string | symbol, any>;
-    [key: string | symbol]: any;
-}
-type TRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
-interface IRequestProps {
-    headers?: {
-        [key: string]: string | number;
-    };
-    body?: any;
-    query?: any;
-}
-interface IParam {
-    id?: string | number;
-    method?: TRequestMethod;
-    bodyType?: string;
-    body?: any;
-    file?: any;
-    query?: {
-        [key: string]: string | number;
-    };
-}
-type IDataProvider = LegacyDataProvider;
-
-declare const Application: React.FC<IApplication>;
-
-declare const ApplicationWrapper: React.FC<{
-    children: React.ReactNode;
-}>;
-declare const Ra: React.FC<IApplication>;
 
 declare class Logger {
     private static instance;
@@ -112,6 +71,44 @@ declare const AuthProviderGetter: (opts: {
     dataProvider: IDataProvider;
 }) => AuthProvider;
 
+interface IApplicationContext {
+    logger: Logger;
+}
+declare const ApplicationContext: React.Context<IApplicationContext>;
+
+interface IApplication extends AdminProps {
+    baseUrl?: string;
+    resources: ResourceProps[];
+    i18n?: Record<string | symbol, any>;
+    [key: string | symbol]: any;
+}
+type TRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
+interface IRequestProps {
+    headers?: {
+        [key: string]: string | number;
+    };
+    body?: any;
+    query?: any;
+}
+interface IParam {
+    id?: string | number;
+    method?: TRequestMethod;
+    bodyType?: string;
+    body?: any;
+    file?: any;
+    query?: {
+        [key: string]: string | number;
+    };
+}
+type IDataProvider = LegacyDataProvider;
+
+declare const Application: React.FC<IApplication>;
+
+declare const ApplicationWrapper: React.FC<{
+    children: React.ReactNode;
+}>;
+declare const Ra: React.FC<IApplication>;
+
 declare const getDataProvider: (opts: {
     baseUrl: string;
 }) => (type: string, resource: string, params: any) => Promise<any>;
@@ -135,4 +132,4 @@ declare class AuthService {
     getAuthorizationToken(): void;
 }
 
-export { App, Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TRequestMethod, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };
+export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TRequestMethod, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };

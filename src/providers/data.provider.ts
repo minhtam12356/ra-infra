@@ -1,7 +1,7 @@
-import { getError } from '@tanphat199/utilities';
 import get from 'lodash/get';
 import { sanitizeFetchType } from 'react-admin';
 import { LbProviderGetter } from '../helpers';
+import { getError } from '../utilities';
 
 export const getDataProvider = (opts: { baseUrl: string }) => {
   const dataProviderHelper = LbProviderGetter(opts);

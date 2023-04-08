@@ -1,3 +1,10 @@
 import React from 'react';
+import { Logger } from '../helpers';
 
-export const ApplicationContext = React.createContext<any>({});
+interface IApplicationContext {
+  logger: Logger;
+}
+
+export const ApplicationContext = React.createContext<IApplicationContext>({
+  logger: Logger.getInstance(),
+});

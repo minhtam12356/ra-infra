@@ -1,2 +1,7 @@
 import React from 'react';
-export declare const ApplicationContext: React.Context<any>;
+import { Logger } from '../helpers';
+interface IApplicationContext {
+    logger: Logger;
+}
+export declare const ApplicationContext: React.Context<IApplicationContext>;
+export {};

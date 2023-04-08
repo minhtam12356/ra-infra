@@ -1,5 +1,4 @@
-import { getError } from '@tanphat199/utilities';
-import { dayjs } from '../utilities';
+import { getError } from "../utilities";
 
 const applicationLogger = console;
 
@@ -17,7 +16,7 @@ export class Logger {
   }
 
   getTimestamp() {
-    return dayjs().toISOString();
+    return new Date().toISOString();
   }
 
   generateLog(opts: { level: 'INFO' | 'WARN' | 'ERROR'; message: string }) {

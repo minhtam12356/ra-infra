@@ -1,7 +1,7 @@
-import { getError } from '@tanphat199/utilities';
 import { AuthProvider } from 'react-admin';
 import { IDataProvider } from '../common';
 import { AuthService } from '../services';
+import { getError } from '../utilities';
 
 const DEFAULT_FETCH_METHOD = 'send';
 const authService = AuthService.getInstance();

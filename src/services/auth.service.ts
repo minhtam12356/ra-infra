@@ -1,5 +1,5 @@
-import { decrypt } from '@tanphat199/utilities';
 import { LocalStorageKeys } from '../common';
+import { decrypt } from '../utilities';
 
 export class AuthService {
   private static instance: AuthService;
