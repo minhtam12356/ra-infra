@@ -134,16 +134,6 @@ const getRequestUrl = (opts: { baseUrl?: string; paths: Array<string> }) => {
 // -------------------------------------------------------------
 const networkService = new NetworkHelper({
   name: 'APPLICATION_NETWORK_SERVICE',
-  requestConfigs: {
-    withCredentials: true,
-    timeout: 60 * 1000,
-    validateStatus: (status: number) => {
-      return status < 500;
-    },
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-    },
-  },
   logger: Logger.getInstance(),
 });
 

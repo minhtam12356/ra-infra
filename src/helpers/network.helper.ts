@@ -1,4 +1,3 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { stringify } from '../utilities';
 
 const HTTP = 'http';
@@ -15,17 +14,11 @@ interface IRequestOptions {
 // -------------------------------------------------------------
 export class NetworkHelper {
   private name: string;
-  private worker: AxiosInstance;
 
-  constructor(opts: { name: string; requestConfigs: AxiosRequestConfig; logger?: any }) {
-    const { name, requestConfigs } = opts;
+  constructor(opts: { name: string; logger?: any }) {
+    const { name } = opts;
     this.name = name;
     opts?.logger?.info('Creating new network request worker instance! Name: %s', this.name);
-    // const defaultConfigs = require('axios/lib/defaults/index');
-    this.worker = axios.create({
-      // ...defaultConfigs,
-      ...requestConfigs,
-    });
   }
 
   getProtocol(url: string) {
@@ -39,19 +32,19 @@ export class NetworkHelper {
     const t = new Date().getTime();
 
     const { url, method = 'get', params, body, configs } = opts;
-    const props: AxiosRequestConfig = {
-      url,
+    const props = {
       method,
-      params,
-      data: body,
-      paramsSerializer: (p) => {
-        return stringify(p);
-      },
+      body: JSON.stringify(body),
       ...configs,
     };
 
-    logger?.info('[send] URL: %s | Props: %o', url, props);
-    const response = await this.worker.request(props);
+    let requestUrl = url;
+    if (params) {
+      requestUrl = `${url}?${stringify(params)}`;
+    }
+
+    logger?.info('[send] URL: %s | Props: %o', requestUrl, props);
+    const response = await fetch(requestUrl, props);
 
     logger?.info(`[network]][send] Took: %s(ms)`, new Date().getTime() - t);
     return response;
