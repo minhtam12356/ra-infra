@@ -1,6 +1,6 @@
 import { AdminProps, LegacyDataProvider, ResourceProps } from 'react-admin';
 export interface IApplication extends AdminProps {
-    baseUrl: string;
+    baseUrl?: string;
     resources: ResourceProps[];
     i18n?: Record<string | symbol, any>;
     [key: string | symbol]: any;

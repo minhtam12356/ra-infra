@@ -84598,7 +84598,7 @@ var Application = function (props) {
     var adminProps = React.useMemo(function () {
         var baseUrl = restProps.baseUrl, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$w(restProps, ["baseUrl", "i18n"]);
         var rs = __assign$C({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
-        if (baseUrl) {
+        if (baseUrl && !isEmpty_1$2(baseUrl)) {
             var dataProvider = getDataProvider({ baseUrl: baseUrl });
             rs.dataProvider = dataProvider;
             rs.authProvider = getAuthProvider({ dataProvider: dataProvider });
@@ -84606,9 +84606,9 @@ var Application = function (props) {
         return rs;
     }, [restProps]);
     React.useEffect(function () {
-        logger.info('[Application] Mount main application');
+        logger.info('Mounted RA application');
         return function () {
-            logger.info('[Application] Unmount main application');
+            logger.info('Unmount RA application');
         };
     }, []);
     return (React.createElement(Admin, __assign$C({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {

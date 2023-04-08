@@ -2,6 +2,7 @@ import React from 'react';
 import { Admin, AdminProps, Resource, ResourceProps } from 'react-admin';
 import { ApplicationContext, IApplication } from '../common';
 import { getAuthProvider, getDataProvider, getI18nProvider } from '../providers';
+import isEmpty from 'lodash/isEmpty';
 
 export const Application: React.FC<IApplication> = (props: IApplication) => {
   const { resources, ...restProps } = props;
@@ -15,7 +16,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
       ...rest,
     };
 
-    if (baseUrl) {
+    if (baseUrl && !isEmpty(baseUrl)) {
       const dataProvider = getDataProvider({ baseUrl });
       rs.dataProvider = dataProvider;
       rs.authProvider = getAuthProvider({ dataProvider });
@@ -25,10 +26,10 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   }, [restProps]);
 
   React.useEffect(() => {
-    logger.info('[Application] Mount main application');
+    logger.info('Mounted RA application');
 
     return () => {
-      logger.info('[Application] Unmount main application');
+      logger.info('Unmount RA application');
     };
   }, []);
 
