@@ -26,6 +26,3 @@ dist-ssr
 /app_data
 package-lock.json
 yarn.lock
-.prettierrc.json
-clean.sh
-rollup.config.ts
