@@ -22,6 +22,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
       rs.authProvider = getAuthProvider({ dataProvider });
     }
 
+    logger.info('RA props: %o', rs);
     return rs;
   }, [restProps]);
 
