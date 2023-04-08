@@ -9717,7 +9717,7 @@ var AuthService = /** @class */ (function () {
 var DEFAULT_FETCH_METHOD = 'send';
 var authService = AuthService.getInstance();
 var AuthProviderGetter = function (opts) {
-    var dataProvider = opts.dataProvider;
+    var dataProvider = opts.dataProvider, authPath = opts.authPath;
     if (!dataProvider) {
         throw getError({ message: '[AuthProviderGetter] Invalid data provider to init auth provider!' });
     }
@@ -9727,7 +9727,7 @@ var AuthProviderGetter = function (opts) {
         // -------------------------------------------------------------
         login: function (params) {
             return new Promise(function (resolve, reject) {
-                dataProvider(DEFAULT_FETCH_METHOD, 'login', { method: 'post', body: params })
+                dataProvider(DEFAULT_FETCH_METHOD, authPath, { method: 'post', body: params })
                     .then(function (rs) {
                     resolve(rs);
                 })
@@ -57878,12 +57878,12 @@ var Application = function (props) {
     var resources = props.resources, restProps = __rest$u(props, ["resources"]);
     var logger = React__default.useContext(ApplicationContext).logger;
     var adminProps = React__default.useMemo(function () {
-        var baseUrl = restProps.baseUrl, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$u(restProps, ["baseUrl", "i18n"]);
+        var baseUrl = restProps.baseUrl, _a = restProps.authPath, authPath = _a === void 0 ? 'login' : _a, _b = restProps.i18n, i18n = _b === void 0 ? {} : _b, rest = __rest$u(restProps, ["baseUrl", "authPath", "i18n"]);
         var rs = __assign$C({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
         if (baseUrl && !isEmpty_1(baseUrl)) {
             var dataProvider = getDataProvider({ baseUrl: baseUrl });
             rs.dataProvider = dataProvider;
-            rs.authProvider = getAuthProvider({ dataProvider: dataProvider });
+            rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: authPath });
         }
         return rs;
     }, [restProps]);

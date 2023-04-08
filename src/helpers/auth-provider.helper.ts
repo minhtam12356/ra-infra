@@ -6,8 +6,8 @@ import { getError } from '../utilities';
 const DEFAULT_FETCH_METHOD = 'send';
 const authService = AuthService.getInstance();
 
-export const AuthProviderGetter = (opts: { dataProvider: IDataProvider }): AuthProvider => {
-  const { dataProvider } = opts;
+export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath: string }): AuthProvider => {
+  const { dataProvider, authPath } = opts;
 
   if (!dataProvider) {
     throw getError({ message: '[AuthProviderGetter] Invalid data provider to init auth provider!' });
@@ -19,7 +19,7 @@ export const AuthProviderGetter = (opts: { dataProvider: IDataProvider }): AuthP
     // -------------------------------------------------------------
     login: (params: any) => {
       return new Promise((resolve, reject) => {
-        dataProvider(DEFAULT_FETCH_METHOD, 'login', { method: 'post', body: params })
+        dataProvider(DEFAULT_FETCH_METHOD, authPath, { method: 'post', body: params })
           .then((rs) => {
             resolve(rs);
           })

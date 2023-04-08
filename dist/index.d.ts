@@ -69,6 +69,7 @@ declare const LbProviderGetter: (opts: {
 
 declare const AuthProviderGetter: (opts: {
     dataProvider: IDataProvider;
+    authPath: string;
 }) => AuthProvider;
 
 interface IApplicationContext {
@@ -78,6 +79,7 @@ declare const ApplicationContext: React.Context<IApplicationContext>;
 
 interface IApplication extends AdminProps {
     baseUrl?: string;
+    authPath?: string;
     resources: ResourceProps[];
     i18n?: Record<string | symbol, any>;
     [key: string | symbol]: any;
@@ -119,6 +121,7 @@ declare const getI18nProvider: (opts: {
 
 declare const getAuthProvider: (opts: {
     dataProvider: IDataProvider;
+    authPath: string;
 }) => AuthProvider;
 
 declare class AuthService {

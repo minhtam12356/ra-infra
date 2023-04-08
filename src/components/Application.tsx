@@ -10,7 +10,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   const { logger } = React.useContext(ApplicationContext);
 
   const adminProps = React.useMemo(() => {
-    const { baseUrl, i18n = {}, ...rest } = restProps;
+    const { baseUrl, authPath = 'login', i18n = {}, ...rest } = restProps;
     const rs: AdminProps = {
       i18nProvider: getI18nProvider({ i18n }),
       ...rest,
@@ -19,7 +19,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     if (baseUrl && !isEmpty(baseUrl)) {
       const dataProvider = getDataProvider({ baseUrl });
       rs.dataProvider = dataProvider;
-      rs.authProvider = getAuthProvider({ dataProvider });
+      rs.authProvider = getAuthProvider({ dataProvider, authPath });
     }
 
     return rs;
