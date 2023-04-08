@@ -9,7 +9,3 @@ const tz = 'Asia/Ho_Chi_Minh';
 dayjs.tz.setDefault(tz);
 
 export { dayjs };
-
-export const sleep = (ms: number) => {
-  return new Promise(resolve => setTimeout(resolve, ms));
-};
