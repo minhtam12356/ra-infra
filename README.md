@@ -8,7 +8,7 @@ Install through git
 
 Refer IApplication type for more information!
 
-```
+```javascript
 <Ra
   urls={{
     base: '<your_api_endpoint>',
@@ -34,7 +34,7 @@ Note: There are warning from this lib, please just ignore it!
 
 **React app - Vite**
 
-```
+```javascript
 export default defineConfig({
   ...
   // Add these lines to your vite.config.ts
