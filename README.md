@@ -37,6 +37,7 @@ Note: There are warning from this lib, please just ignore it!
 ```
 export default defineConfig({
   ...
+  // Add these lines to your vite.config.ts
   define: {
     process: {
       env: {},
