@@ -57876,7 +57876,7 @@ var getAuthProvider = function (opts) {
 
 var Application = function (props) {
     var resources = props.resources, restProps = __rest$u(props, ["resources"]);
-    // const { logger } = React.useContext(ApplicationContext);
+    var logger = React__default.useContext(ApplicationContext).logger;
     var adminProps = React__default.useMemo(function () {
         var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$u(restProps, ["urls", "i18n"]);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
@@ -57891,13 +57891,12 @@ var Application = function (props) {
         }
         return rs;
     }, [restProps]);
-    /* React.useEffect(() => {
-      logger.info('Mounted RA application');
-  
-      return () => {
-        logger.info('Unmount RA application');
-      };
-    }, []); */
+    React__default.useEffect(function () {
+        logger.info('Mounted RA application | Admin props: %o', adminProps);
+        return function () {
+            logger.info('Unmount RA application');
+        };
+    }, [logger, adminProps]);
     return (React__default.createElement(Admin, __assign$C({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {
         return React__default.createElement(Resource, __assign$C({ key: resource.name }, resource));
     })));
