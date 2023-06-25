@@ -2,6 +2,7 @@ export class App {
   static readonly TIME_OFFSET = '+07:00';
   static readonly DEFAULT_LOCALE = 'en.UTF-8';
   static readonly SECRET = 'application.secret';
+  static readonly DEFAULT_FETCH_METHOD = 'send';
 }
 
 export class Authentication {

@@ -86,7 +86,7 @@ interface IApplication extends AdminProps {
     i18n?: Record<string | symbol, any>;
     [key: string | symbol]: any;
 }
-type TRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
+type TRequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS';
 interface IRequestProps {
     headers?: {
         [key: string]: string | number;
@@ -103,18 +103,21 @@ interface IParam {
     query?: {
         [key: string]: string | number;
     };
+    headers?: {
+        [key: string]: string | number;
+    };
 }
 type IDataProvider = LegacyDataProvider;
-
-declare const Application: React.FC<IApplication>;
-
-declare const ApplicationWrapper: React.FC<{
-    children: React.ReactNode;
-}>;
-declare const Ra: React.FC<IApplication>;
+type TDataProvider = (type: string, resource: string, params: IParam) => Promise<any>;
+interface IDispatchAction<E> {
+    type: string;
+    payload?: E;
+    log?: boolean;
+}
 
 declare const getDataProvider: (opts: {
     baseUrl: string;
+    authPath: string;
 }) => (type: string, resource: string, params: any) => Promise<any>;
 
 declare const getI18nProvider: (opts: {
@@ -128,13 +131,23 @@ declare const getAuthProvider: (opts: {
 
 declare class AuthService {
     private static instance;
-    constructor();
     static getInstance(): AuthService;
     getSr(user: any): string;
     getUser(): any;
     getRoles: () => Set<unknown>;
-    getToken(): any;
-    getAuthorizationToken(): void;
+    getAuthToken(): any;
+    saveAuthToken(opts: {
+        value: string;
+        type: string;
+    }): void;
+    cleanUp(): void;
 }
 
-export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TRequestMethod, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };
+declare const Application: React.FC<IApplication>;
+
+declare const ApplicationWrapper: React.FC<{
+    children: React.ReactNode;
+}>;
+declare const Ra: React.FC<IApplication>;
+
+export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IDispatchAction, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TDataProvider, TRequestMethod, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };

@@ -1,8 +1,10 @@
 import { IParam, IRequestProps, TRequestMethod } from '../common';
 import { Logger } from './logger.helper';
-import { getError, int } from '../utilities';
+import { getError } from '../utilities';
 import { NetworkHelper } from './network.helper';
 import isEmpty from 'lodash/isEmpty';
+import get from 'lodash/get';
+import omit from 'lodash/omit';
 
 export const GET_LIST = 'GET_LIST';
 export const GET_ONE = 'GET_ONE';
@@ -17,12 +19,19 @@ export const SEND = 'SEND';
 
 // -------------------------------------------------------------
 const getRequestProps = (params: IParam) => {
-  const { bodyType: type, body, file, query } = params;
-  const rs: IRequestProps = { headers: {}, body: null, query };
+  const { bodyType: type, body, file, query, headers = {} } = params;
+  const rs: IRequestProps = {
+    headers,
+    body: null,
+    query,
+  };
 
   switch (type) {
     case 'form': {
-      rs.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+      rs.headers = {
+        ...headers,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      };
       const formData = new FormData();
 
       for (const key in body) {
@@ -35,7 +44,10 @@ const getRequestProps = (params: IParam) => {
       break;
     }
     case 'file': {
-      rs.headers = { 'Content-Type': 'multipart/form-data' };
+      rs.headers = {
+        ...headers,
+        'Content-Type': 'multipart/form-data',
+      };
       const formData = new FormData();
 
       formData.append('files', file);
@@ -43,7 +55,10 @@ const getRequestProps = (params: IParam) => {
       break;
     }
     default: {
-      rs.headers = { 'Content-Type': 'application/json' };
+      rs.headers = {
+        ...headers,
+        'Content-Type': 'application/json',
+      };
       rs.body = body;
       break;
     }
@@ -54,8 +69,7 @@ const getRequestProps = (params: IParam) => {
 
 // -------------------------------------------------------------
 const convertResponse = (opts: { response: any; type: string; params: any }) => {
-  const { response, type, params } = opts;
-  const { headers, data } = response;
+  const { response: data, type, params } = opts;
 
   switch (type) {
     case GET_LIST:
@@ -67,9 +81,10 @@ const convertResponse = (opts: { response: any; type: string; params: any }) => 
         });
       } */
 
+      // console.log(data);
       return {
         data,
-        total: int(headers['content-range']?.split('/')?.pop()) ?? data.length,
+        // total: int(headers['content-range']?.split('/')?.pop()) ?? data.length,
       };
     }
     case CREATE: {
@@ -155,9 +170,13 @@ const doRequest = (
   }
 
   const url = getRequestUrl({ baseUrl, paths });
+
   return new Promise((resolve, reject) => {
     networkService
       .send({ url, method, params: query, body, configs: { headers } })
+      .then((rs) => {
+        return rs.json();
+      })
       .then((response) => {
         const normalized = convertResponse({ response, type, params });
         resolve(normalized);
@@ -177,8 +196,13 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
 
     const filter: Record<string, any> = {};
 
+    const include = get(where, 'include', null);
+    if (include) {
+      filter['include'] = include;
+    }
+
     if (where) {
-      filter['where'] = where;
+      filter['where'] = omit(where, ['include']);
     }
 
     if (sort?.field) {
@@ -206,7 +230,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
     const response = doRequest({
       type: GET_LIST,
       baseUrl: opts.baseUrl,
-      method: 'get',
+      method: 'GET',
       query: { filter },
       paths,
       params,
@@ -221,7 +245,14 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
       filter: params?.filter || {},
     };
     const paths = [resource, params.id];
-    const response = doRequest({ type: GET_ONE, baseUrl: opts.baseUrl, method: 'get', query, paths, params });
+    const response = doRequest({
+      type: GET_ONE,
+      baseUrl: opts.baseUrl,
+      method: 'GET',
+      query,
+      paths,
+      params,
+    });
     return response;
   },
   // -------------------------------------------------------------
@@ -239,7 +270,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
     const response = doRequest({
       type: GET_MANY,
       baseUrl: opts.baseUrl,
-      method: 'get',
+      method: 'GET',
       query: { filter },
       paths,
       params,
@@ -284,7 +315,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
     const response = doRequest({
       type: GET_MANY_REFERENCE,
       baseUrl: opts.baseUrl,
-      method: 'get',
+      method: 'GET',
       query: { filter },
       paths,
       params,
@@ -297,7 +328,14 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
   create(resource: string, params: IParam) {
     const request = getRequestProps(params);
     const paths = [resource];
-    const response = doRequest({ type: CREATE, baseUrl: opts.baseUrl, method: 'post', paths, params, ...request });
+    const response = doRequest({
+      type: CREATE,
+      baseUrl: opts.baseUrl,
+      method: 'POST',
+      paths,
+      params,
+      ...request,
+    });
     return response;
   },
   // -------------------------------------------------------------
@@ -306,7 +344,14 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
   update(resource: string, params: IParam) {
     const request = getRequestProps(params);
     const paths = [resource, params?.id ? params.id.toString() : ''];
-    const response = doRequest({ type: UPDATE, baseUrl: opts.baseUrl, method: 'patch', paths, params, ...request });
+    const response = doRequest({
+      type: UPDATE,
+      baseUrl: opts.baseUrl,
+      method: 'PATCH',
+      paths,
+      params,
+      ...request,
+    });
     return response;
   },
   async updateMany(resource: string, params: { [key: string]: any }) {
@@ -324,7 +369,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
     const response = doRequest({
       type: UPDATE_MANY,
       baseUrl: opts.baseUrl,
-      method: 'patch',
+      method: 'PATCH',
       paths,
       params,
       query,
@@ -337,7 +382,13 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
   // -------------------------------------------------------------
   delete(resource: string, params: { [key: string]: any }) {
     const paths = [resource, params.id];
-    const response = doRequest({ type: DELETE, baseUrl: opts.baseUrl, method: 'delete', paths, params });
+    const response = doRequest({
+      type: DELETE,
+      baseUrl: opts.baseUrl,
+      method: 'DELETE',
+      paths,
+      params,
+    });
     return response;
   },
   // -------------------------------------------------------------
@@ -349,7 +400,7 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
     const response = doRequest({
       type: DELETE_MANY,
       baseUrl: opts.baseUrl,
-      method: 'delete',
+      method: 'DELETE',
       paths,
       params,
       ...request,
@@ -367,7 +418,15 @@ export const LbProviderGetter = (opts: { baseUrl: string }) => ({
     const { method, ...rest } = params;
     const request = getRequestProps(rest);
     const paths = [resource];
-    const response = doRequest({ type: SEND, baseUrl: opts.baseUrl, method, paths, params, ...request });
+
+    const response = doRequest({
+      type: SEND,
+      baseUrl: opts.baseUrl,
+      method,
+      paths,
+      params,
+      ...request,
+    });
     return response;
   },
 });

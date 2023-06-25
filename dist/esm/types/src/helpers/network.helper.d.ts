@@ -1,6 +1,6 @@
 interface IRequestOptions {
     url: string;
-    method?: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
+    method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS';
     params?: object;
     body?: object;
     configs?: object;

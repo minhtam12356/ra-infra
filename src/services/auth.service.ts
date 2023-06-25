@@ -1,9 +1,9 @@
-import { LocalStorageKeys } from '../common';
+import { LocalStorageKeys } from './../common';
 
 export class AuthService {
   private static instance: AuthService;
 
-  constructor() { }
+  // constructor() { }
 
   static getInstance(): AuthService {
     if (!this.instance) {
@@ -31,7 +31,7 @@ export class AuthService {
   };
 
   // ------------------------------------------------------------------------------------
-  getToken() {
+  getAuthToken() {
     try {
       // const user = this.getUser();
       // const sr = this.getSr(user);
@@ -44,5 +44,12 @@ export class AuthService {
   }
 
   // ------------------------------------------------------------------------------------
-  getAuthorizationToken() { }
+  saveAuthToken(opts: { value: string; type: string }) {
+    localStorage.setItem(LocalStorageKeys.KEY_AUTH_TOKEN, JSON.stringify(opts));
+  }
+
+  // ------------------------------------------------------------------------------------
+  cleanUp() {
+    localStorage.removeItem(LocalStorageKeys.KEY_AUTH_TOKEN);
+  }
 }

@@ -11,7 +11,7 @@ export interface IApplication extends AdminProps {
   [key: string | symbol]: any;
 }
 
-export type TRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
+export type TRequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS';
 
 export interface IRequestProps {
   headers?: { [key: string]: string | number };
@@ -26,6 +26,14 @@ export interface IParam {
   body?: any;
   file?: any;
   query?: { [key: string]: string | number };
+  headers?: { [key: string]: string | number };
 }
 
 export type IDataProvider = LegacyDataProvider;
+export type TDataProvider = (type: string, resource: string, params: IParam) => Promise<any>;
+
+export interface IDispatchAction<E> {
+  type: string;
+  payload?: E;
+  log?: boolean;
+}

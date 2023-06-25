@@ -1,10 +1,19 @@
 import * as React from 'react';
-import React__default, { createContext, useContext, useEffect as useEffect$1, useState as useState$1, useCallback, useMemo, useLayoutEffect as useLayoutEffect$2, useRef, Children, Fragment, isValidElement, createElement, memo, forwardRef, cloneElement } from 'react';
+import React__default, { createContext, useContext, useEffect, useState, useCallback, useMemo, useLayoutEffect as useLayoutEffect$1, useRef, Children, Fragment, isValidElement, createElement, memo, forwardRef, cloneElement } from 'react';
 import require$$0$1 from 'util';
 import * as ReactDOM from 'react-dom';
 import ReactDOM__default, { createPortal } from 'react-dom';
 import require$$2, { jsx, jsxs } from 'react/jsx-runtime';
 
+var App = /** @class */ (function () {
+    function App() {
+    }
+    App.TIME_OFFSET = '+07:00';
+    App.DEFAULT_LOCALE = 'en.UTF-8';
+    App.SECRET = 'application.secret';
+    App.DEFAULT_FETCH_METHOD = 'send';
+    return App;
+}());
 var Authentication = /** @class */ (function () {
     function Authentication() {
     }
@@ -58,18 +67,18 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
-var __assign$C = function() {
-    __assign$C = Object.assign || function __assign(t) {
+var __assign$E = function() {
+    __assign$E = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
         }
         return t;
     };
-    return __assign$C.apply(this, arguments);
+    return __assign$E.apply(this, arguments);
 };
 
-function __rest$u(s, e) {
+function __rest$v(s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
@@ -131,6 +140,10 @@ function __spreadArray$5(to, from, pack) {
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
 function getAugmentedNamespace(n) {
   if (n.__esModule) return n;
   var f = n.default;
@@ -159,26 +172,18 @@ function getAugmentedNamespace(n) {
 	return a;
 }
 
-var cryptoJsExports = {};
-var cryptoJs = {
-  get exports(){ return cryptoJsExports; },
-  set exports(v){ cryptoJsExports = v; },
-};
+var cryptoJs = {exports: {}};
 
 function commonjsRequire(path) {
 	throw new Error('Could not dynamically require "' + path + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
 
-var coreExports = {};
-var core = {
-  get exports(){ return coreExports; },
-  set exports(v){ coreExports = v; },
-};
+var core = {exports: {}};
 
 var hasRequiredCore;
 
 function requireCore () {
-	if (hasRequiredCore) return coreExports;
+	if (hasRequiredCore) return core.exports;
 	hasRequiredCore = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -979,21 +984,17 @@ function requireCore () {
 
 			return CryptoJS;
 
-		}));
-} (core));
-	return coreExports;
+		})); 
+	} (core));
+	return core.exports;
 }
 
-var x64CoreExports = {};
-var x64Core = {
-  get exports(){ return x64CoreExports; },
-  set exports(v){ x64CoreExports = v; },
-};
+var x64Core = {exports: {}};
 
 var hasRequiredX64Core;
 
 function requireX64Core () {
-	if (hasRequiredX64Core) return x64CoreExports;
+	if (hasRequiredX64Core) return x64Core.exports;
 	hasRequiredX64Core = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -1291,21 +1292,17 @@ function requireX64Core () {
 
 			return CryptoJS;
 
-		}));
-} (x64Core));
-	return x64CoreExports;
+		})); 
+	} (x64Core));
+	return x64Core.exports;
 }
 
-var libTypedarraysExports = {};
-var libTypedarrays = {
-  get exports(){ return libTypedarraysExports; },
-  set exports(v){ libTypedarraysExports = v; },
-};
+var libTypedarrays = {exports: {}};
 
 var hasRequiredLibTypedarrays;
 
 function requireLibTypedarrays () {
-	if (hasRequiredLibTypedarrays) return libTypedarraysExports;
+	if (hasRequiredLibTypedarrays) return libTypedarrays.exports;
 	hasRequiredLibTypedarrays = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -1375,21 +1372,17 @@ function requireLibTypedarrays () {
 
 			return CryptoJS.lib.WordArray;
 
-		}));
-} (libTypedarrays));
-	return libTypedarraysExports;
+		})); 
+	} (libTypedarrays));
+	return libTypedarrays.exports;
 }
 
-var encUtf16Exports = {};
-var encUtf16 = {
-  get exports(){ return encUtf16Exports; },
-  set exports(v){ encUtf16Exports = v; },
-};
+var encUtf16 = {exports: {}};
 
 var hasRequiredEncUtf16;
 
 function requireEncUtf16 () {
-	if (hasRequiredEncUtf16) return encUtf16Exports;
+	if (hasRequiredEncUtf16) return encUtf16.exports;
 	hasRequiredEncUtf16 = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -1532,21 +1525,17 @@ function requireEncUtf16 () {
 
 			return CryptoJS.enc.Utf16;
 
-		}));
-} (encUtf16));
-	return encUtf16Exports;
+		})); 
+	} (encUtf16));
+	return encUtf16.exports;
 }
 
-var encBase64Exports = {};
-var encBase64 = {
-  get exports(){ return encBase64Exports; },
-  set exports(v){ encBase64Exports = v; },
-};
+var encBase64 = {exports: {}};
 
 var hasRequiredEncBase64;
 
 function requireEncBase64 () {
-	if (hasRequiredEncBase64) return encBase64Exports;
+	if (hasRequiredEncBase64) return encBase64.exports;
 	hasRequiredEncBase64 = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -1676,21 +1665,17 @@ function requireEncBase64 () {
 
 			return CryptoJS.enc.Base64;
 
-		}));
-} (encBase64));
-	return encBase64Exports;
+		})); 
+	} (encBase64));
+	return encBase64.exports;
 }
 
-var encBase64urlExports = {};
-var encBase64url = {
-  get exports(){ return encBase64urlExports; },
-  set exports(v){ encBase64urlExports = v; },
-};
+var encBase64url = {exports: {}};
 
 var hasRequiredEncBase64url;
 
 function requireEncBase64url () {
-	if (hasRequiredEncBase64url) return encBase64urlExports;
+	if (hasRequiredEncBase64url) return encBase64url.exports;
 	hasRequiredEncBase64url = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -1824,21 +1809,17 @@ function requireEncBase64url () {
 
 			return CryptoJS.enc.Base64url;
 
-		}));
-} (encBase64url));
-	return encBase64urlExports;
+		})); 
+	} (encBase64url));
+	return encBase64url.exports;
 }
 
-var md5Exports = {};
-var md5 = {
-  get exports(){ return md5Exports; },
-  set exports(v){ md5Exports = v; },
-};
+var md5 = {exports: {}};
 
 var hasRequiredMd5;
 
 function requireMd5 () {
-	if (hasRequiredMd5) return md5Exports;
+	if (hasRequiredMd5) return md5.exports;
 	hasRequiredMd5 = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -2100,21 +2081,17 @@ function requireMd5 () {
 
 			return CryptoJS.MD5;
 
-		}));
-} (md5));
-	return md5Exports;
+		})); 
+	} (md5));
+	return md5.exports;
 }
 
-var sha1Exports = {};
-var sha1 = {
-  get exports(){ return sha1Exports; },
-  set exports(v){ sha1Exports = v; },
-};
+var sha1 = {exports: {}};
 
 var hasRequiredSha1;
 
 function requireSha1 () {
-	if (hasRequiredSha1) return sha1Exports;
+	if (hasRequiredSha1) return sha1.exports;
 	hasRequiredSha1 = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -2258,21 +2235,17 @@ function requireSha1 () {
 
 			return CryptoJS.SHA1;
 
-		}));
-} (sha1));
-	return sha1Exports;
+		})); 
+	} (sha1));
+	return sha1.exports;
 }
 
-var sha256Exports = {};
-var sha256 = {
-  get exports(){ return sha256Exports; },
-  set exports(v){ sha256Exports = v; },
-};
+var sha256 = {exports: {}};
 
 var hasRequiredSha256;
 
 function requireSha256 () {
-	if (hasRequiredSha256) return sha256Exports;
+	if (hasRequiredSha256) return sha256.exports;
 	hasRequiredSha256 = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -2465,21 +2438,17 @@ function requireSha256 () {
 
 			return CryptoJS.SHA256;
 
-		}));
-} (sha256));
-	return sha256Exports;
+		})); 
+	} (sha256));
+	return sha256.exports;
 }
 
-var sha224Exports = {};
-var sha224 = {
-  get exports(){ return sha224Exports; },
-  set exports(v){ sha224Exports = v; },
-};
+var sha224 = {exports: {}};
 
 var hasRequiredSha224;
 
 function requireSha224 () {
-	if (hasRequiredSha224) return sha224Exports;
+	if (hasRequiredSha224) return sha224.exports;
 	hasRequiredSha224 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -2553,21 +2522,17 @@ function requireSha224 () {
 
 			return CryptoJS.SHA224;
 
-		}));
-} (sha224));
-	return sha224Exports;
+		})); 
+	} (sha224));
+	return sha224.exports;
 }
 
-var sha512Exports = {};
-var sha512 = {
-  get exports(){ return sha512Exports; },
-  set exports(v){ sha512Exports = v; },
-};
+var sha512 = {exports: {}};
 
 var hasRequiredSha512;
 
 function requireSha512 () {
-	if (hasRequiredSha512) return sha512Exports;
+	if (hasRequiredSha512) return sha512.exports;
 	hasRequiredSha512 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -2887,21 +2852,17 @@ function requireSha512 () {
 
 			return CryptoJS.SHA512;
 
-		}));
-} (sha512));
-	return sha512Exports;
+		})); 
+	} (sha512));
+	return sha512.exports;
 }
 
-var sha384Exports = {};
-var sha384 = {
-  get exports(){ return sha384Exports; },
-  set exports(v){ sha384Exports = v; },
-};
+var sha384 = {exports: {}};
 
 var hasRequiredSha384;
 
 function requireSha384 () {
-	if (hasRequiredSha384) return sha384Exports;
+	if (hasRequiredSha384) return sha384.exports;
 	hasRequiredSha384 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -2978,21 +2939,17 @@ function requireSha384 () {
 
 			return CryptoJS.SHA384;
 
-		}));
-} (sha384));
-	return sha384Exports;
+		})); 
+	} (sha384));
+	return sha384.exports;
 }
 
-var sha3Exports = {};
-var sha3 = {
-  get exports(){ return sha3Exports; },
-  set exports(v){ sha3Exports = v; },
-};
+var sha3 = {exports: {}};
 
 var hasRequiredSha3;
 
 function requireSha3 () {
-	if (hasRequiredSha3) return sha3Exports;
+	if (hasRequiredSha3) return sha3.exports;
 	hasRequiredSha3 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -3312,21 +3269,17 @@ function requireSha3 () {
 
 			return CryptoJS.SHA3;
 
-		}));
-} (sha3));
-	return sha3Exports;
+		})); 
+	} (sha3));
+	return sha3.exports;
 }
 
-var ripemd160Exports = {};
-var ripemd160 = {
-  get exports(){ return ripemd160Exports; },
-  set exports(v){ ripemd160Exports = v; },
-};
+var ripemd160 = {exports: {}};
 
 var hasRequiredRipemd160;
 
 function requireRipemd160 () {
-	if (hasRequiredRipemd160) return ripemd160Exports;
+	if (hasRequiredRipemd160) return ripemd160.exports;
 	hasRequiredRipemd160 = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -3587,21 +3540,17 @@ function requireRipemd160 () {
 
 			return CryptoJS.RIPEMD160;
 
-		}));
-} (ripemd160));
-	return ripemd160Exports;
+		})); 
+	} (ripemd160));
+	return ripemd160.exports;
 }
 
-var hmacExports = {};
-var hmac = {
-  get exports(){ return hmacExports; },
-  set exports(v){ hmacExports = v; },
-};
+var hmac = {exports: {}};
 
 var hasRequiredHmac;
 
 function requireHmac () {
-	if (hasRequiredHmac) return hmacExports;
+	if (hasRequiredHmac) return hmac.exports;
 	hasRequiredHmac = 1;
 	(function (module, exports) {
 (function (root, factory) {
@@ -3738,21 +3687,17 @@ function requireHmac () {
 			}());
 
 
-		}));
-} (hmac));
-	return hmacExports;
+		})); 
+	} (hmac));
+	return hmac.exports;
 }
 
-var pbkdf2Exports = {};
-var pbkdf2 = {
-  get exports(){ return pbkdf2Exports; },
-  set exports(v){ pbkdf2Exports = v; },
-};
+var pbkdf2 = {exports: {}};
 
 var hasRequiredPbkdf2;
 
 function requirePbkdf2 () {
-	if (hasRequiredPbkdf2) return pbkdf2Exports;
+	if (hasRequiredPbkdf2) return pbkdf2.exports;
 	hasRequiredPbkdf2 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -3891,21 +3836,17 @@ function requirePbkdf2 () {
 
 			return CryptoJS.PBKDF2;
 
-		}));
-} (pbkdf2));
-	return pbkdf2Exports;
+		})); 
+	} (pbkdf2));
+	return pbkdf2.exports;
 }
 
-var evpkdfExports = {};
-var evpkdf = {
-  get exports(){ return evpkdfExports; },
-  set exports(v){ evpkdfExports = v; },
-};
+var evpkdf = {exports: {}};
 
 var hasRequiredEvpkdf;
 
 function requireEvpkdf () {
-	if (hasRequiredEvpkdf) return evpkdfExports;
+	if (hasRequiredEvpkdf) return evpkdf.exports;
 	hasRequiredEvpkdf = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -4033,21 +3974,17 @@ function requireEvpkdf () {
 
 			return CryptoJS.EvpKDF;
 
-		}));
-} (evpkdf));
-	return evpkdfExports;
+		})); 
+	} (evpkdf));
+	return evpkdf.exports;
 }
 
-var cipherCoreExports = {};
-var cipherCore = {
-  get exports(){ return cipherCoreExports; },
-  set exports(v){ cipherCoreExports = v; },
-};
+var cipherCore = {exports: {}};
 
 var hasRequiredCipherCore;
 
 function requireCipherCore () {
-	if (hasRequiredCipherCore) return cipherCoreExports;
+	if (hasRequiredCipherCore) return cipherCore.exports;
 	hasRequiredCipherCore = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -4931,21 +4868,17 @@ function requireCipherCore () {
 			}());
 
 
-		}));
-} (cipherCore));
-	return cipherCoreExports;
+		})); 
+	} (cipherCore));
+	return cipherCore.exports;
 }
 
-var modeCfbExports = {};
-var modeCfb = {
-  get exports(){ return modeCfbExports; },
-  set exports(v){ modeCfbExports = v; },
-};
+var modeCfb = {exports: {}};
 
 var hasRequiredModeCfb;
 
 function requireModeCfb () {
-	if (hasRequiredModeCfb) return modeCfbExports;
+	if (hasRequiredModeCfb) return modeCfb.exports;
 	hasRequiredModeCfb = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5019,21 +4952,17 @@ function requireModeCfb () {
 
 			return CryptoJS.mode.CFB;
 
-		}));
-} (modeCfb));
-	return modeCfbExports;
+		})); 
+	} (modeCfb));
+	return modeCfb.exports;
 }
 
-var modeCtrExports = {};
-var modeCtr = {
-  get exports(){ return modeCtrExports; },
-  set exports(v){ modeCtrExports = v; },
-};
+var modeCtr = {exports: {}};
 
 var hasRequiredModeCtr;
 
 function requireModeCtr () {
-	if (hasRequiredModeCtr) return modeCtrExports;
+	if (hasRequiredModeCtr) return modeCtr.exports;
 	hasRequiredModeCtr = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5085,21 +5014,17 @@ function requireModeCtr () {
 
 			return CryptoJS.mode.CTR;
 
-		}));
-} (modeCtr));
-	return modeCtrExports;
+		})); 
+	} (modeCtr));
+	return modeCtr.exports;
 }
 
-var modeCtrGladmanExports = {};
-var modeCtrGladman = {
-  get exports(){ return modeCtrGladmanExports; },
-  set exports(v){ modeCtrGladmanExports = v; },
-};
+var modeCtrGladman = {exports: {}};
 
 var hasRequiredModeCtrGladman;
 
 function requireModeCtrGladman () {
-	if (hasRequiredModeCtrGladman) return modeCtrGladmanExports;
+	if (hasRequiredModeCtrGladman) return modeCtrGladman.exports;
 	hasRequiredModeCtrGladman = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5209,21 +5134,17 @@ function requireModeCtrGladman () {
 
 			return CryptoJS.mode.CTRGladman;
 
-		}));
-} (modeCtrGladman));
-	return modeCtrGladmanExports;
+		})); 
+	} (modeCtrGladman));
+	return modeCtrGladman.exports;
 }
 
-var modeOfbExports = {};
-var modeOfb = {
-  get exports(){ return modeOfbExports; },
-  set exports(v){ modeOfbExports = v; },
-};
+var modeOfb = {exports: {}};
 
 var hasRequiredModeOfb;
 
 function requireModeOfb () {
-	if (hasRequiredModeOfb) return modeOfbExports;
+	if (hasRequiredModeOfb) return modeOfb.exports;
 	hasRequiredModeOfb = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5271,21 +5192,17 @@ function requireModeOfb () {
 
 			return CryptoJS.mode.OFB;
 
-		}));
-} (modeOfb));
-	return modeOfbExports;
+		})); 
+	} (modeOfb));
+	return modeOfb.exports;
 }
 
-var modeEcbExports = {};
-var modeEcb = {
-  get exports(){ return modeEcbExports; },
-  set exports(v){ modeEcbExports = v; },
-};
+var modeEcb = {exports: {}};
 
 var hasRequiredModeEcb;
 
 function requireModeEcb () {
-	if (hasRequiredModeEcb) return modeEcbExports;
+	if (hasRequiredModeEcb) return modeEcb.exports;
 	hasRequiredModeEcb = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5319,21 +5236,17 @@ function requireModeEcb () {
 
 			return CryptoJS.mode.ECB;
 
-		}));
-} (modeEcb));
-	return modeEcbExports;
+		})); 
+	} (modeEcb));
+	return modeEcb.exports;
 }
 
-var padAnsix923Exports = {};
-var padAnsix923 = {
-  get exports(){ return padAnsix923Exports; },
-  set exports(v){ padAnsix923Exports = v; },
-};
+var padAnsix923 = {exports: {}};
 
 var hasRequiredPadAnsix923;
 
 function requirePadAnsix923 () {
-	if (hasRequiredPadAnsix923) return padAnsix923Exports;
+	if (hasRequiredPadAnsix923) return padAnsix923.exports;
 	hasRequiredPadAnsix923 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5376,21 +5289,17 @@ function requirePadAnsix923 () {
 
 			return CryptoJS.pad.Ansix923;
 
-		}));
-} (padAnsix923));
-	return padAnsix923Exports;
+		})); 
+	} (padAnsix923));
+	return padAnsix923.exports;
 }
 
-var padIso10126Exports = {};
-var padIso10126 = {
-  get exports(){ return padIso10126Exports; },
-  set exports(v){ padIso10126Exports = v; },
-};
+var padIso10126 = {exports: {}};
 
 var hasRequiredPadIso10126;
 
 function requirePadIso10126 () {
-	if (hasRequiredPadIso10126) return padIso10126Exports;
+	if (hasRequiredPadIso10126) return padIso10126.exports;
 	hasRequiredPadIso10126 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5428,21 +5337,17 @@ function requirePadIso10126 () {
 
 			return CryptoJS.pad.Iso10126;
 
-		}));
-} (padIso10126));
-	return padIso10126Exports;
+		})); 
+	} (padIso10126));
+	return padIso10126.exports;
 }
 
-var padIso97971Exports = {};
-var padIso97971 = {
-  get exports(){ return padIso97971Exports; },
-  set exports(v){ padIso97971Exports = v; },
-};
+var padIso97971 = {exports: {}};
 
 var hasRequiredPadIso97971;
 
 function requirePadIso97971 () {
-	if (hasRequiredPadIso97971) return padIso97971Exports;
+	if (hasRequiredPadIso97971) return padIso97971.exports;
 	hasRequiredPadIso97971 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5476,21 +5381,17 @@ function requirePadIso97971 () {
 
 			return CryptoJS.pad.Iso97971;
 
-		}));
-} (padIso97971));
-	return padIso97971Exports;
+		})); 
+	} (padIso97971));
+	return padIso97971.exports;
 }
 
-var padZeropaddingExports = {};
-var padZeropadding = {
-  get exports(){ return padZeropaddingExports; },
-  set exports(v){ padZeropaddingExports = v; },
-};
+var padZeropadding = {exports: {}};
 
 var hasRequiredPadZeropadding;
 
 function requirePadZeropadding () {
-	if (hasRequiredPadZeropadding) return padZeropaddingExports;
+	if (hasRequiredPadZeropadding) return padZeropadding.exports;
 	hasRequiredPadZeropadding = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5531,21 +5432,17 @@ function requirePadZeropadding () {
 
 			return CryptoJS.pad.ZeroPadding;
 
-		}));
-} (padZeropadding));
-	return padZeropaddingExports;
+		})); 
+	} (padZeropadding));
+	return padZeropadding.exports;
 }
 
-var padNopaddingExports = {};
-var padNopadding = {
-  get exports(){ return padNopaddingExports; },
-  set exports(v){ padNopaddingExports = v; },
-};
+var padNopadding = {exports: {}};
 
 var hasRequiredPadNopadding;
 
 function requirePadNopadding () {
-	if (hasRequiredPadNopadding) return padNopaddingExports;
+	if (hasRequiredPadNopadding) return padNopadding.exports;
 	hasRequiredPadNopadding = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5569,21 +5466,17 @@ function requirePadNopadding () {
 
 			return CryptoJS.pad.NoPadding;
 
-		}));
-} (padNopadding));
-	return padNopaddingExports;
+		})); 
+	} (padNopadding));
+	return padNopadding.exports;
 }
 
-var formatHexExports = {};
-var formatHex = {
-  get exports(){ return formatHexExports; },
-  set exports(v){ formatHexExports = v; },
-};
+var formatHex = {exports: {}};
 
 var hasRequiredFormatHex;
 
 function requireFormatHex () {
-	if (hasRequiredFormatHex) return formatHexExports;
+	if (hasRequiredFormatHex) return formatHex.exports;
 	hasRequiredFormatHex = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5643,21 +5536,17 @@ function requireFormatHex () {
 
 			return CryptoJS.format.Hex;
 
-		}));
-} (formatHex));
-	return formatHexExports;
+		})); 
+	} (formatHex));
+	return formatHex.exports;
 }
 
-var aesExports = {};
-var aes = {
-  get exports(){ return aesExports; },
-  set exports(v){ aesExports = v; },
-};
+var aes = {exports: {}};
 
 var hasRequiredAes;
 
 function requireAes () {
-	if (hasRequiredAes) return aesExports;
+	if (hasRequiredAes) return aes.exports;
 	hasRequiredAes = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -5885,21 +5774,17 @@ function requireAes () {
 
 			return CryptoJS.AES;
 
-		}));
-} (aes));
-	return aesExports;
+		})); 
+	} (aes));
+	return aes.exports;
 }
 
-var tripledesExports = {};
-var tripledes = {
-  get exports(){ return tripledesExports; },
-  set exports(v){ tripledesExports = v; },
-};
+var tripledes = {exports: {}};
 
 var hasRequiredTripledes;
 
 function requireTripledes () {
-	if (hasRequiredTripledes) return tripledesExports;
+	if (hasRequiredTripledes) return tripledes.exports;
 	hasRequiredTripledes = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -6672,21 +6557,17 @@ function requireTripledes () {
 
 			return CryptoJS.TripleDES;
 
-		}));
-} (tripledes));
-	return tripledesExports;
+		})); 
+	} (tripledes));
+	return tripledes.exports;
 }
 
-var rc4Exports = {};
-var rc4 = {
-  get exports(){ return rc4Exports; },
-  set exports(v){ rc4Exports = v; },
-};
+var rc4 = {exports: {}};
 
 var hasRequiredRc4;
 
 function requireRc4 () {
-	if (hasRequiredRc4) return rc4Exports;
+	if (hasRequiredRc4) return rc4.exports;
 	hasRequiredRc4 = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -6819,21 +6700,17 @@ function requireRc4 () {
 
 			return CryptoJS.RC4;
 
-		}));
-} (rc4));
-	return rc4Exports;
+		})); 
+	} (rc4));
+	return rc4.exports;
 }
 
-var rabbitExports = {};
-var rabbit = {
-  get exports(){ return rabbitExports; },
-  set exports(v){ rabbitExports = v; },
-};
+var rabbit = {exports: {}};
 
 var hasRequiredRabbit;
 
 function requireRabbit () {
-	if (hasRequiredRabbit) return rabbitExports;
+	if (hasRequiredRabbit) return rabbit.exports;
 	hasRequiredRabbit = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -7019,21 +6896,17 @@ function requireRabbit () {
 
 			return CryptoJS.Rabbit;
 
-		}));
-} (rabbit));
-	return rabbitExports;
+		})); 
+	} (rabbit));
+	return rabbit.exports;
 }
 
-var rabbitLegacyExports = {};
-var rabbitLegacy = {
-  get exports(){ return rabbitLegacyExports; },
-  set exports(v){ rabbitLegacyExports = v; },
-};
+var rabbitLegacy = {exports: {}};
 
 var hasRequiredRabbitLegacy;
 
 function requireRabbitLegacy () {
-	if (hasRequiredRabbitLegacy) return rabbitLegacyExports;
+	if (hasRequiredRabbitLegacy) return rabbitLegacy.exports;
 	hasRequiredRabbitLegacy = 1;
 	(function (module, exports) {
 (function (root, factory, undef) {
@@ -7217,9 +7090,9 @@ function requireRabbitLegacy () {
 
 			return CryptoJS.RabbitLegacy;
 
-		}));
-} (rabbitLegacy));
-	return rabbitLegacyExports;
+		})); 
+	} (rabbitLegacy));
+	return rabbitLegacy.exports;
 }
 
 (function (module, exports) {
@@ -7232,7 +7105,7 @@ function requireRabbitLegacy () {
 
 		return CryptoJS;
 
-	}));
+	})); 
 } (cryptoJs));
 
 var ApplicationError = /** @class */ (function (_super) {
@@ -7276,9 +7149,9 @@ var getError = function (opts) {
  * // => false
  */
 
-var isArray$8 = Array.isArray;
+var isArray$a = Array.isArray;
 
-var isArray_1 = isArray$8;
+var isArray_1 = isArray$a;
 
 /** Detect free variable `global` from Node.js. */
 
@@ -7299,27 +7172,27 @@ var _root = root$9;
 var root$8 = _root;
 
 /** Built-in value references. */
-var Symbol$5 = root$8.Symbol;
+var Symbol$7 = root$8.Symbol;
 
-var _Symbol = Symbol$5;
+var _Symbol = Symbol$7;
 
-var Symbol$4 = _Symbol;
+var Symbol$6 = _Symbol;
 
 /** Used for built-in method references. */
-var objectProto$f = Object.prototype;
+var objectProto$g = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$d = objectProto$f.hasOwnProperty;
+var hasOwnProperty$e = objectProto$g.hasOwnProperty;
 
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
  */
-var nativeObjectToString$1 = objectProto$f.toString;
+var nativeObjectToString$1 = objectProto$g.toString;
 
 /** Built-in value references. */
-var symToStringTag$1 = Symbol$4 ? Symbol$4.toStringTag : undefined;
+var symToStringTag$1 = Symbol$6 ? Symbol$6.toStringTag : undefined;
 
 /**
  * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
@@ -7329,7 +7202,7 @@ var symToStringTag$1 = Symbol$4 ? Symbol$4.toStringTag : undefined;
  * @returns {string} Returns the raw `toStringTag`.
  */
 function getRawTag$1(value) {
-  var isOwn = hasOwnProperty$d.call(value, symToStringTag$1),
+  var isOwn = hasOwnProperty$e.call(value, symToStringTag$1),
       tag = value[symToStringTag$1];
 
   try {
@@ -7352,14 +7225,14 @@ var _getRawTag = getRawTag$1;
 
 /** Used for built-in method references. */
 
-var objectProto$e = Object.prototype;
+var objectProto$f = Object.prototype;
 
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
  */
-var nativeObjectToString = objectProto$e.toString;
+var nativeObjectToString = objectProto$f.toString;
 
 /**
  * Converts `value` to a string using `Object.prototype.toString`.
@@ -7374,7 +7247,7 @@ function objectToString$1(value) {
 
 var _objectToString = objectToString$1;
 
-var Symbol$3 = _Symbol,
+var Symbol$5 = _Symbol,
     getRawTag = _getRawTag,
     objectToString = _objectToString;
 
@@ -7383,7 +7256,7 @@ var nullTag = '[object Null]',
     undefinedTag = '[object Undefined]';
 
 /** Built-in value references. */
-var symToStringTag = Symbol$3 ? Symbol$3.toStringTag : undefined;
+var symToStringTag = Symbol$5 ? Symbol$5.toStringTag : undefined;
 
 /**
  * The base implementation of `getTag` without fallbacks for buggy environments.
@@ -7428,17 +7301,17 @@ var _baseGetTag = baseGetTag$6;
  * // => false
  */
 
-function isObjectLike$7(value) {
+function isObjectLike$9(value) {
   return value != null && typeof value == 'object';
 }
 
-var isObjectLike_1 = isObjectLike$7;
+var isObjectLike_1 = isObjectLike$9;
 
 var baseGetTag$5 = _baseGetTag,
-    isObjectLike$6 = isObjectLike_1;
+    isObjectLike$8 = isObjectLike_1;
 
 /** `Object#toString` result references. */
-var symbolTag$1 = '[object Symbol]';
+var symbolTag$3 = '[object Symbol]';
 
 /**
  * Checks if `value` is classified as a `Symbol` primitive or object.
@@ -7459,12 +7332,12 @@ var symbolTag$1 = '[object Symbol]';
  */
 function isSymbol$4(value) {
   return typeof value == 'symbol' ||
-    (isObjectLike$6(value) && baseGetTag$5(value) == symbolTag$1);
+    (isObjectLike$8(value) && baseGetTag$5(value) == symbolTag$3);
 }
 
 var isSymbol_1 = isSymbol$4;
 
-var isArray$7 = isArray_1,
+var isArray$9 = isArray_1,
     isSymbol$3 = isSymbol_1;
 
 /** Used to match property names within property paths. */
@@ -7480,7 +7353,7 @@ var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
  * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
  */
 function isKey$2(value, object) {
-  if (isArray$7(value)) {
+  if (isArray$9(value)) {
     return false;
   }
   var type = typeof value;
@@ -7520,20 +7393,20 @@ var _isKey = isKey$2;
  * // => false
  */
 
-function isObject$9(value) {
+function isObject$a(value) {
   var type = typeof value;
   return value != null && (type == 'object' || type == 'function');
 }
 
-var isObject_1 = isObject$9;
+var isObject_1 = isObject$a;
 
 var baseGetTag$4 = _baseGetTag,
-    isObject$8 = isObject_1;
+    isObject$9 = isObject_1;
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
-    funcTag$1 = '[object Function]',
-    genTag = '[object GeneratorFunction]',
+    funcTag$2 = '[object Function]',
+    genTag$1 = '[object GeneratorFunction]',
     proxyTag = '[object Proxy]';
 
 /**
@@ -7554,13 +7427,13 @@ var asyncTag = '[object AsyncFunction]',
  * // => false
  */
 function isFunction$6(value) {
-  if (!isObject$8(value)) {
+  if (!isObject$9(value)) {
     return false;
   }
   // The use of `Object#toString` avoids issues with the `typeof` operator
   // in Safari 9 which returns 'object' for typed arrays and other constructors.
   var tag = baseGetTag$4(value);
-  return tag == funcTag$1 || tag == genTag || tag == asyncTag || tag == proxyTag;
+  return tag == funcTag$2 || tag == genTag$1 || tag == asyncTag || tag == proxyTag;
 }
 
 var isFunction_1 = isFunction$6;
@@ -7623,7 +7496,7 @@ var _toSource = toSource$2;
 
 var isFunction$5 = isFunction_1,
     isMasked = _isMasked,
-    isObject$7 = isObject_1,
+    isObject$8 = isObject_1,
     toSource$1 = _toSource;
 
 /**
@@ -7637,17 +7510,17 @@ var reIsHostCtor = /^\[object .+?Constructor\]$/;
 
 /** Used for built-in method references. */
 var funcProto$1 = Function.prototype,
-    objectProto$d = Object.prototype;
+    objectProto$e = Object.prototype;
 
 /** Used to resolve the decompiled source of functions. */
 var funcToString$1 = funcProto$1.toString;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$c = objectProto$d.hasOwnProperty;
+var hasOwnProperty$d = objectProto$e.hasOwnProperty;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  funcToString$1.call(hasOwnProperty$c).replace(reRegExpChar, '\\$&')
+  funcToString$1.call(hasOwnProperty$d).replace(reRegExpChar, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -7660,7 +7533,7 @@ var reIsNative = RegExp('^' +
  *  else `false`.
  */
 function baseIsNative$1(value) {
-  if (!isObject$7(value) || isMasked(value)) {
+  if (!isObject$8(value) || isMasked(value)) {
     return false;
   }
   var pattern = isFunction$5(value) ? reIsNative : reIsHostCtor;
@@ -7750,10 +7623,10 @@ var nativeCreate$2 = _nativeCreate;
 var HASH_UNDEFINED$2 = '__lodash_hash_undefined__';
 
 /** Used for built-in method references. */
-var objectProto$c = Object.prototype;
+var objectProto$d = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$b = objectProto$c.hasOwnProperty;
+var hasOwnProperty$c = objectProto$d.hasOwnProperty;
 
 /**
  * Gets the hash value for `key`.
@@ -7770,7 +7643,7 @@ function hashGet$1(key) {
     var result = data[key];
     return result === HASH_UNDEFINED$2 ? undefined : result;
   }
-  return hasOwnProperty$b.call(data, key) ? data[key] : undefined;
+  return hasOwnProperty$c.call(data, key) ? data[key] : undefined;
 }
 
 var _hashGet = hashGet$1;
@@ -7778,10 +7651,10 @@ var _hashGet = hashGet$1;
 var nativeCreate$1 = _nativeCreate;
 
 /** Used for built-in method references. */
-var objectProto$b = Object.prototype;
+var objectProto$c = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$a = objectProto$b.hasOwnProperty;
+var hasOwnProperty$b = objectProto$c.hasOwnProperty;
 
 /**
  * Checks if a hash value for `key` exists.
@@ -7794,7 +7667,7 @@ var hasOwnProperty$a = objectProto$b.hasOwnProperty;
  */
 function hashHas$1(key) {
   var data = this.__data__;
-  return nativeCreate$1 ? (data[key] !== undefined) : hasOwnProperty$a.call(data, key);
+  return nativeCreate$1 ? (data[key] !== undefined) : hasOwnProperty$b.call(data, key);
 }
 
 var _hashHas = hashHas$1;
@@ -8314,6 +8187,8 @@ memoize$4.Cache = MapCache$2;
 
 var memoize_1 = memoize$4;
 
+var lodashMemoize = /*@__PURE__*/getDefaultExportFromCjs(memoize_1);
+
 var memoize$3 = memoize_1;
 
 /** Used as the maximum memoize cache size. */
@@ -8379,7 +8254,7 @@ var _stringToPath = stringToPath$3;
  * @returns {Array} Returns the new mapped array.
  */
 
-function arrayMap$1(array, iteratee) {
+function arrayMap$2(array, iteratee) {
   var index = -1,
       length = array == null ? 0 : array.length,
       result = Array(length);
@@ -8390,19 +8265,19 @@ function arrayMap$1(array, iteratee) {
   return result;
 }
 
-var _arrayMap = arrayMap$1;
+var _arrayMap = arrayMap$2;
 
-var Symbol$2 = _Symbol,
-    arrayMap = _arrayMap,
-    isArray$6 = isArray_1,
+var Symbol$4 = _Symbol,
+    arrayMap$1 = _arrayMap,
+    isArray$8 = isArray_1,
     isSymbol$2 = isSymbol_1;
 
 /** Used as references for various `Number` constants. */
 var INFINITY$1 = 1 / 0;
 
 /** Used to convert symbols to primitives and strings. */
-var symbolProto$1 = Symbol$2 ? Symbol$2.prototype : undefined,
-    symbolToString = symbolProto$1 ? symbolProto$1.toString : undefined;
+var symbolProto$2 = Symbol$4 ? Symbol$4.prototype : undefined,
+    symbolToString = symbolProto$2 ? symbolProto$2.toString : undefined;
 
 /**
  * The base implementation of `_.toString` which doesn't convert nullish
@@ -8417,9 +8292,9 @@ function baseToString$1(value) {
   if (typeof value == 'string') {
     return value;
   }
-  if (isArray$6(value)) {
+  if (isArray$8(value)) {
     // Recursively convert values (susceptible to call stack limits).
-    return arrayMap(value, baseToString$1) + '';
+    return arrayMap$1(value, baseToString$1) + '';
   }
   if (isSymbol$2(value)) {
     return symbolToString ? symbolToString.call(value) : '';
@@ -8459,7 +8334,7 @@ function toString$1(value) {
 
 var toString_1 = toString$1;
 
-var isArray$5 = isArray_1,
+var isArray$7 = isArray_1,
     isKey$1 = _isKey,
     stringToPath$2 = _stringToPath,
     toString = toString_1;
@@ -8472,14 +8347,14 @@ var isArray$5 = isArray_1,
  * @param {Object} [object] The object to query keys on.
  * @returns {Array} Returns the cast property path array.
  */
-function castPath$3(value, object) {
-  if (isArray$5(value)) {
+function castPath$4(value, object) {
+  if (isArray$7(value)) {
     return value;
   }
   return isKey$1(value, object) ? [value] : stringToPath$2(toString(value));
 }
 
-var _castPath = castPath$3;
+var _castPath = castPath$4;
 
 var isSymbol$1 = isSymbol_1;
 
@@ -8503,7 +8378,7 @@ function toKey$3(value) {
 
 var _toKey = toKey$3;
 
-var castPath$2 = _castPath,
+var castPath$3 = _castPath,
     toKey$2 = _toKey;
 
 /**
@@ -8515,7 +8390,7 @@ var castPath$2 = _castPath,
  * @returns {*} Returns the resolved value.
  */
 function baseGet$3(object, path) {
-  path = castPath$2(path, object);
+  path = castPath$3(path, object);
 
   var index = 0,
       length = path.length;
@@ -8562,20 +8437,12 @@ function get$1(object, path, defaultValue) {
 
 var get_1 = get$1;
 
+var get$2 = /*@__PURE__*/getDefaultExportFromCjs(get_1);
+
 var root$5 = _root;
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 root$5.isFinite;
-
-// -------------------------------------------------------------------------
-var int = function (input) {
-    var _a;
-    if (!input || Number.isNaN(input)) {
-        return 0;
-    }
-    var normalized = (_a = input === null || input === void 0 ? void 0 : input.toString()) === null || _a === void 0 ? void 0 : _a.replace(/,/g, '');
-    return Number.parseInt(normalized, 10);
-};
 
 var stringify$1 = function (params) {
     var normalizedParams = {};
@@ -8670,8 +8537,8 @@ var NetworkHelper = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         t = new Date().getTime();
-                        url = opts.url, _a = opts.method, method = _a === void 0 ? 'get' : _a, params = opts.params, body = opts.body, configs = opts.configs;
-                        props = __assign$C({ method: method, body: JSON.stringify(body) }, configs);
+                        url = opts.url, _a = opts.method, method = _a === void 0 ? 'GET' : _a, params = opts.params, body = opts.body, configs = opts.configs;
+                        props = __assign$E({ method: method, body: JSON.stringify(body) }, configs);
                         requestUrl = url;
                         if (params) {
                             requestUrl = "".concat(url, "?").concat(stringify$1(params));
@@ -8695,8 +8562,8 @@ var NetworkHelper = /** @class */ (function () {
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = opts.url, params = opts.params, configs = opts.configs, rest = __rest$u(opts, ["url", "params", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$C(__assign$C({}, rest), { url: url, method: 'get', params: params, configs: configs }))];
+                        url = opts.url, params = opts.params, configs = opts.configs, rest = __rest$v(opts, ["url", "params", "configs"]);
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'GET', params: params, configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8713,8 +8580,8 @@ var NetworkHelper = /** @class */ (function () {
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$u(opts, ["url", "body", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$C(__assign$C({}, rest), { url: url, method: 'post', body: body, configs: configs }))];
+                        url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$v(opts, ["url", "body", "configs"]);
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'POST', body: body, configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8729,8 +8596,8 @@ var NetworkHelper = /** @class */ (function () {
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$u(opts, ["url", "body", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$C(__assign$C(__assign$C({}, rest), { url: url, method: 'put', body: body, configs: configs }), rest))];
+                        url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$v(opts, ["url", "body", "configs"]);
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E(__assign$E({}, rest), { url: url, method: 'PUT', body: body, configs: configs }), rest))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8745,8 +8612,8 @@ var NetworkHelper = /** @class */ (function () {
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$u(opts, ["url", "body", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$C(__assign$C({}, rest), { url: url, method: 'patch', body: body, configs: configs }))];
+                        url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$v(opts, ["url", "body", "configs"]);
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'PATCH', body: body, configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8761,8 +8628,8 @@ var NetworkHelper = /** @class */ (function () {
             return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = opts.url, configs = opts.configs, rest = __rest$u(opts, ["url", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$C(__assign$C({}, rest), { url: url, method: 'delete', configs: configs }))];
+                        url = opts.url, configs = opts.configs, rest = __rest$v(opts, ["url", "configs"]);
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'DELETE', configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8775,7 +8642,7 @@ var NetworkHelper = /** @class */ (function () {
 
 /** Used for built-in method references. */
 
-var objectProto$a = Object.prototype;
+var objectProto$b = Object.prototype;
 
 /**
  * Checks if `value` is likely a prototype object.
@@ -8786,7 +8653,7 @@ var objectProto$a = Object.prototype;
  */
 function isPrototype$4(value) {
   var Ctor = value && value.constructor,
-      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$a;
+      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$b;
 
   return value === proto;
 }
@@ -8821,10 +8688,10 @@ var isPrototype$3 = _isPrototype,
     nativeKeys = _nativeKeys;
 
 /** Used for built-in method references. */
-var objectProto$9 = Object.prototype;
+var objectProto$a = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$9 = objectProto$9.hasOwnProperty;
+var hasOwnProperty$a = objectProto$a.hasOwnProperty;
 
 /**
  * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
@@ -8839,7 +8706,7 @@ function baseKeys$2(object) {
   }
   var result = [];
   for (var key in Object(object)) {
-    if (hasOwnProperty$9.call(object, key) && key != 'constructor') {
+    if (hasOwnProperty$a.call(object, key) && key != 'constructor') {
       result.push(key);
     }
   }
@@ -8889,13 +8756,13 @@ var DataView$1 = _DataView,
     toSource = _toSource;
 
 /** `Object#toString` result references. */
-var mapTag$3 = '[object Map]',
-    objectTag$3 = '[object Object]',
+var mapTag$6 = '[object Map]',
+    objectTag$4 = '[object Object]',
     promiseTag = '[object Promise]',
-    setTag$3 = '[object Set]',
-    weakMapTag$1 = '[object WeakMap]';
+    setTag$6 = '[object Set]',
+    weakMapTag$2 = '[object WeakMap]';
 
-var dataViewTag$2 = '[object DataView]';
+var dataViewTag$4 = '[object DataView]';
 
 /** Used to detect maps, sets, and weakmaps. */
 var dataViewCtorString = toSource(DataView$1),
@@ -8911,39 +8778,39 @@ var dataViewCtorString = toSource(DataView$1),
  * @param {*} value The value to query.
  * @returns {string} Returns the `toStringTag`.
  */
-var getTag$2 = baseGetTag$3;
+var getTag$5 = baseGetTag$3;
 
 // Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
-if ((DataView$1 && getTag$2(new DataView$1(new ArrayBuffer(1))) != dataViewTag$2) ||
-    (Map$2 && getTag$2(new Map$2) != mapTag$3) ||
-    (Promise$1 && getTag$2(Promise$1.resolve()) != promiseTag) ||
-    (Set$1 && getTag$2(new Set$1) != setTag$3) ||
-    (WeakMap$1 && getTag$2(new WeakMap$1) != weakMapTag$1)) {
-  getTag$2 = function(value) {
+if ((DataView$1 && getTag$5(new DataView$1(new ArrayBuffer(1))) != dataViewTag$4) ||
+    (Map$2 && getTag$5(new Map$2) != mapTag$6) ||
+    (Promise$1 && getTag$5(Promise$1.resolve()) != promiseTag) ||
+    (Set$1 && getTag$5(new Set$1) != setTag$6) ||
+    (WeakMap$1 && getTag$5(new WeakMap$1) != weakMapTag$2)) {
+  getTag$5 = function(value) {
     var result = baseGetTag$3(value),
-        Ctor = result == objectTag$3 ? value.constructor : undefined,
+        Ctor = result == objectTag$4 ? value.constructor : undefined,
         ctorString = Ctor ? toSource(Ctor) : '';
 
     if (ctorString) {
       switch (ctorString) {
-        case dataViewCtorString: return dataViewTag$2;
-        case mapCtorString: return mapTag$3;
+        case dataViewCtorString: return dataViewTag$4;
+        case mapCtorString: return mapTag$6;
         case promiseCtorString: return promiseTag;
-        case setCtorString: return setTag$3;
-        case weakMapCtorString: return weakMapTag$1;
+        case setCtorString: return setTag$6;
+        case weakMapCtorString: return weakMapTag$2;
       }
     }
     return result;
   };
 }
 
-var _getTag = getTag$2;
+var _getTag = getTag$5;
 
 var baseGetTag$2 = _baseGetTag,
-    isObjectLike$5 = isObjectLike_1;
+    isObjectLike$7 = isObjectLike_1;
 
 /** `Object#toString` result references. */
-var argsTag$2 = '[object Arguments]';
+var argsTag$3 = '[object Arguments]';
 
 /**
  * The base implementation of `_.isArguments`.
@@ -8953,22 +8820,22 @@ var argsTag$2 = '[object Arguments]';
  * @returns {boolean} Returns `true` if `value` is an `arguments` object,
  */
 function baseIsArguments$1(value) {
-  return isObjectLike$5(value) && baseGetTag$2(value) == argsTag$2;
+  return isObjectLike$7(value) && baseGetTag$2(value) == argsTag$3;
 }
 
 var _baseIsArguments = baseIsArguments$1;
 
 var baseIsArguments = _baseIsArguments,
-    isObjectLike$4 = isObjectLike_1;
+    isObjectLike$6 = isObjectLike_1;
 
 /** Used for built-in method references. */
-var objectProto$8 = Object.prototype;
+var objectProto$9 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$8 = objectProto$8.hasOwnProperty;
+var hasOwnProperty$9 = objectProto$9.hasOwnProperty;
 
 /** Built-in value references. */
-var propertyIsEnumerable$1 = objectProto$8.propertyIsEnumerable;
+var propertyIsEnumerable$1 = objectProto$9.propertyIsEnumerable;
 
 /**
  * Checks if `value` is likely an `arguments` object.
@@ -8988,12 +8855,12 @@ var propertyIsEnumerable$1 = objectProto$8.propertyIsEnumerable;
  * _.isArguments([1, 2, 3]);
  * // => false
  */
-var isArguments$4 = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
-  return isObjectLike$4(value) && hasOwnProperty$8.call(value, 'callee') &&
+var isArguments$5 = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
+  return isObjectLike$6(value) && hasOwnProperty$9.call(value, 'callee') &&
     !propertyIsEnumerable$1.call(value, 'callee');
 };
 
-var isArguments_1 = isArguments$4;
+var isArguments_1 = isArguments$5;
 
 /** Used as references for various `Number` constants. */
 
@@ -9066,11 +8933,7 @@ function isArrayLike$5(value) {
 
 var isArrayLike_1 = isArrayLike$5;
 
-var isBufferExports = {};
-var isBuffer$4 = {
-  get exports(){ return isBufferExports; },
-  set exports(v){ isBufferExports = v; },
-};
+var isBuffer$5 = {exports: {}};
 
 /**
  * This method returns `false`.
@@ -9091,6 +8954,8 @@ function stubFalse() {
 }
 
 var stubFalse_1 = stubFalse;
+
+isBuffer$5.exports;
 
 (function (module, exports) {
 	var root = _root,
@@ -9130,55 +8995,57 @@ var stubFalse_1 = stubFalse;
 	 */
 	var isBuffer = nativeIsBuffer || stubFalse;
 
-	module.exports = isBuffer;
-} (isBuffer$4, isBufferExports));
+	module.exports = isBuffer; 
+} (isBuffer$5, isBuffer$5.exports));
+
+var isBufferExports = isBuffer$5.exports;
 
 var baseGetTag$1 = _baseGetTag,
     isLength = isLength_1,
-    isObjectLike$3 = isObjectLike_1;
+    isObjectLike$5 = isObjectLike_1;
 
 /** `Object#toString` result references. */
-var argsTag$1 = '[object Arguments]',
-    arrayTag$1 = '[object Array]',
-    boolTag$1 = '[object Boolean]',
-    dateTag$1 = '[object Date]',
-    errorTag$1 = '[object Error]',
-    funcTag = '[object Function]',
-    mapTag$2 = '[object Map]',
-    numberTag$1 = '[object Number]',
-    objectTag$2 = '[object Object]',
-    regexpTag$1 = '[object RegExp]',
-    setTag$2 = '[object Set]',
-    stringTag$1 = '[object String]',
-    weakMapTag = '[object WeakMap]';
+var argsTag$2 = '[object Arguments]',
+    arrayTag$2 = '[object Array]',
+    boolTag$3 = '[object Boolean]',
+    dateTag$3 = '[object Date]',
+    errorTag$2 = '[object Error]',
+    funcTag$1 = '[object Function]',
+    mapTag$5 = '[object Map]',
+    numberTag$3 = '[object Number]',
+    objectTag$3 = '[object Object]',
+    regexpTag$3 = '[object RegExp]',
+    setTag$5 = '[object Set]',
+    stringTag$3 = '[object String]',
+    weakMapTag$1 = '[object WeakMap]';
 
-var arrayBufferTag$1 = '[object ArrayBuffer]',
-    dataViewTag$1 = '[object DataView]',
-    float32Tag = '[object Float32Array]',
-    float64Tag = '[object Float64Array]',
-    int8Tag = '[object Int8Array]',
-    int16Tag = '[object Int16Array]',
-    int32Tag = '[object Int32Array]',
-    uint8Tag = '[object Uint8Array]',
-    uint8ClampedTag = '[object Uint8ClampedArray]',
-    uint16Tag = '[object Uint16Array]',
-    uint32Tag = '[object Uint32Array]';
+var arrayBufferTag$3 = '[object ArrayBuffer]',
+    dataViewTag$3 = '[object DataView]',
+    float32Tag$2 = '[object Float32Array]',
+    float64Tag$2 = '[object Float64Array]',
+    int8Tag$2 = '[object Int8Array]',
+    int16Tag$2 = '[object Int16Array]',
+    int32Tag$2 = '[object Int32Array]',
+    uint8Tag$2 = '[object Uint8Array]',
+    uint8ClampedTag$2 = '[object Uint8ClampedArray]',
+    uint16Tag$2 = '[object Uint16Array]',
+    uint32Tag$2 = '[object Uint32Array]';
 
 /** Used to identify `toStringTag` values of typed arrays. */
 var typedArrayTags = {};
-typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
-typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
-typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
-typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
-typedArrayTags[uint32Tag] = true;
-typedArrayTags[argsTag$1] = typedArrayTags[arrayTag$1] =
-typedArrayTags[arrayBufferTag$1] = typedArrayTags[boolTag$1] =
-typedArrayTags[dataViewTag$1] = typedArrayTags[dateTag$1] =
-typedArrayTags[errorTag$1] = typedArrayTags[funcTag] =
-typedArrayTags[mapTag$2] = typedArrayTags[numberTag$1] =
-typedArrayTags[objectTag$2] = typedArrayTags[regexpTag$1] =
-typedArrayTags[setTag$2] = typedArrayTags[stringTag$1] =
-typedArrayTags[weakMapTag] = false;
+typedArrayTags[float32Tag$2] = typedArrayTags[float64Tag$2] =
+typedArrayTags[int8Tag$2] = typedArrayTags[int16Tag$2] =
+typedArrayTags[int32Tag$2] = typedArrayTags[uint8Tag$2] =
+typedArrayTags[uint8ClampedTag$2] = typedArrayTags[uint16Tag$2] =
+typedArrayTags[uint32Tag$2] = true;
+typedArrayTags[argsTag$2] = typedArrayTags[arrayTag$2] =
+typedArrayTags[arrayBufferTag$3] = typedArrayTags[boolTag$3] =
+typedArrayTags[dataViewTag$3] = typedArrayTags[dateTag$3] =
+typedArrayTags[errorTag$2] = typedArrayTags[funcTag$1] =
+typedArrayTags[mapTag$5] = typedArrayTags[numberTag$3] =
+typedArrayTags[objectTag$3] = typedArrayTags[regexpTag$3] =
+typedArrayTags[setTag$5] = typedArrayTags[stringTag$3] =
+typedArrayTags[weakMapTag$1] = false;
 
 /**
  * The base implementation of `_.isTypedArray` without Node.js optimizations.
@@ -9188,7 +9055,7 @@ typedArrayTags[weakMapTag] = false;
  * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
  */
 function baseIsTypedArray$1(value) {
-  return isObjectLike$3(value) &&
+  return isObjectLike$5(value) &&
     isLength(value.length) && !!typedArrayTags[baseGetTag$1(value)];
 }
 
@@ -9202,19 +9069,17 @@ var _baseIsTypedArray = baseIsTypedArray$1;
  * @returns {Function} Returns the new capped function.
  */
 
-function baseUnary$1(func) {
+function baseUnary$3(func) {
   return function(value) {
     return func(value);
   };
 }
 
-var _baseUnary = baseUnary$1;
+var _baseUnary = baseUnary$3;
 
-var _nodeUtilExports = {};
-var _nodeUtil = {
-  get exports(){ return _nodeUtilExports; },
-  set exports(v){ _nodeUtilExports = v; },
-};
+var _nodeUtil = {exports: {}};
+
+_nodeUtil.exports;
 
 (function (module, exports) {
 	var freeGlobal = _freeGlobal;
@@ -9246,15 +9111,17 @@ var _nodeUtil = {
 	  } catch (e) {}
 	}());
 
-	module.exports = nodeUtil;
-} (_nodeUtil, _nodeUtilExports));
+	module.exports = nodeUtil; 
+} (_nodeUtil, _nodeUtil.exports));
+
+var _nodeUtilExports = _nodeUtil.exports;
 
 var baseIsTypedArray = _baseIsTypedArray,
-    baseUnary = _baseUnary,
-    nodeUtil = _nodeUtilExports;
+    baseUnary$2 = _baseUnary,
+    nodeUtil$2 = _nodeUtilExports;
 
 /* Node.js helper references. */
-var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
+var nodeIsTypedArray = nodeUtil$2 && nodeUtil$2.isTypedArray;
 
 /**
  * Checks if `value` is classified as a typed array.
@@ -9273,28 +9140,28 @@ var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
  * _.isTypedArray([]);
  * // => false
  */
-var isTypedArray$4 = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
+var isTypedArray$4 = nodeIsTypedArray ? baseUnary$2(nodeIsTypedArray) : baseIsTypedArray;
 
 var isTypedArray_1 = isTypedArray$4;
 
 var baseKeys$1 = _baseKeys,
-    getTag$1 = _getTag,
-    isArguments$3 = isArguments_1,
-    isArray$4 = isArray_1,
+    getTag$4 = _getTag,
+    isArguments$4 = isArguments_1,
+    isArray$6 = isArray_1,
     isArrayLike$4 = isArrayLike_1,
-    isBuffer$3 = isBufferExports,
+    isBuffer$4 = isBufferExports,
     isPrototype$2 = _isPrototype,
     isTypedArray$3 = isTypedArray_1;
 
 /** `Object#toString` result references. */
-var mapTag$1 = '[object Map]',
-    setTag$1 = '[object Set]';
+var mapTag$4 = '[object Map]',
+    setTag$4 = '[object Set]';
 
 /** Used for built-in method references. */
-var objectProto$7 = Object.prototype;
+var objectProto$8 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$7 = objectProto$7.hasOwnProperty;
+var hasOwnProperty$8 = objectProto$8.hasOwnProperty;
 
 /**
  * Checks if `value` is an empty object, collection, map, or set.
@@ -9334,19 +9201,19 @@ function isEmpty$6(value) {
     return true;
   }
   if (isArrayLike$4(value) &&
-      (isArray$4(value) || typeof value == 'string' || typeof value.splice == 'function' ||
-        isBuffer$3(value) || isTypedArray$3(value) || isArguments$3(value))) {
+      (isArray$6(value) || typeof value == 'string' || typeof value.splice == 'function' ||
+        isBuffer$4(value) || isTypedArray$3(value) || isArguments$4(value))) {
     return !value.length;
   }
-  var tag = getTag$1(value);
-  if (tag == mapTag$1 || tag == setTag$1) {
+  var tag = getTag$4(value);
+  if (tag == mapTag$4 || tag == setTag$4) {
     return !value.size;
   }
   if (isPrototype$2(value)) {
     return !baseKeys$1(value).length;
   }
   for (var key in value) {
-    if (hasOwnProperty$7.call(value, key)) {
+    if (hasOwnProperty$8.call(value, key)) {
       return false;
     }
   }
@@ -9354,6 +9221,1861 @@ function isEmpty$6(value) {
 }
 
 var isEmpty_1 = isEmpty$6;
+
+var isEmpty$7 = /*@__PURE__*/getDefaultExportFromCjs(isEmpty_1);
+
+var ListCache$2 = _ListCache;
+
+/**
+ * Removes all key-value entries from the stack.
+ *
+ * @private
+ * @name clear
+ * @memberOf Stack
+ */
+function stackClear$1() {
+  this.__data__ = new ListCache$2;
+  this.size = 0;
+}
+
+var _stackClear = stackClear$1;
+
+/**
+ * Removes `key` and its value from the stack.
+ *
+ * @private
+ * @name delete
+ * @memberOf Stack
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+
+function stackDelete$1(key) {
+  var data = this.__data__,
+      result = data['delete'](key);
+
+  this.size = data.size;
+  return result;
+}
+
+var _stackDelete = stackDelete$1;
+
+/**
+ * Gets the stack value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf Stack
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+
+function stackGet$1(key) {
+  return this.__data__.get(key);
+}
+
+var _stackGet = stackGet$1;
+
+/**
+ * Checks if a stack value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf Stack
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+
+function stackHas$1(key) {
+  return this.__data__.has(key);
+}
+
+var _stackHas = stackHas$1;
+
+var ListCache$1 = _ListCache,
+    Map$1 = _Map,
+    MapCache$1 = _MapCache;
+
+/** Used as the size to enable large array optimizations. */
+var LARGE_ARRAY_SIZE = 200;
+
+/**
+ * Sets the stack `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf Stack
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the stack cache instance.
+ */
+function stackSet$1(key, value) {
+  var data = this.__data__;
+  if (data instanceof ListCache$1) {
+    var pairs = data.__data__;
+    if (!Map$1 || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
+      pairs.push([key, value]);
+      this.size = ++data.size;
+      return this;
+    }
+    data = this.__data__ = new MapCache$1(pairs);
+  }
+  data.set(key, value);
+  this.size = data.size;
+  return this;
+}
+
+var _stackSet = stackSet$1;
+
+var ListCache = _ListCache,
+    stackClear = _stackClear,
+    stackDelete = _stackDelete,
+    stackGet = _stackGet,
+    stackHas = _stackHas,
+    stackSet = _stackSet;
+
+/**
+ * Creates a stack cache object to store key-value pairs.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function Stack$3(entries) {
+  var data = this.__data__ = new ListCache(entries);
+  this.size = data.size;
+}
+
+// Add methods to `Stack`.
+Stack$3.prototype.clear = stackClear;
+Stack$3.prototype['delete'] = stackDelete;
+Stack$3.prototype.get = stackGet;
+Stack$3.prototype.has = stackHas;
+Stack$3.prototype.set = stackSet;
+
+var _Stack = Stack$3;
+
+/**
+ * A specialized version of `_.forEach` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns `array`.
+ */
+
+function arrayEach$1(array, iteratee) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  while (++index < length) {
+    if (iteratee(array[index], index, array) === false) {
+      break;
+    }
+  }
+  return array;
+}
+
+var _arrayEach = arrayEach$1;
+
+var getNative = _getNative;
+
+var defineProperty$3 = (function() {
+  try {
+    var func = getNative(Object, 'defineProperty');
+    func({}, '', {});
+    return func;
+  } catch (e) {}
+}());
+
+var _defineProperty = defineProperty$3;
+
+var defineProperty$2 = _defineProperty;
+
+/**
+ * The base implementation of `assignValue` and `assignMergeValue` without
+ * value checks.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function baseAssignValue$3(object, key, value) {
+  if (key == '__proto__' && defineProperty$2) {
+    defineProperty$2(object, key, {
+      'configurable': true,
+      'enumerable': true,
+      'value': value,
+      'writable': true
+    });
+  } else {
+    object[key] = value;
+  }
+}
+
+var _baseAssignValue = baseAssignValue$3;
+
+var baseAssignValue$2 = _baseAssignValue,
+    eq$3 = eq_1;
+
+/** Used for built-in method references. */
+var objectProto$7 = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty$7 = objectProto$7.hasOwnProperty;
+
+/**
+ * Assigns `value` to `key` of `object` if the existing value is not equivalent
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function assignValue$3(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty$7.call(object, key) && eq$3(objValue, value)) ||
+      (value === undefined && !(key in object))) {
+    baseAssignValue$2(object, key, value);
+  }
+}
+
+var _assignValue = assignValue$3;
+
+var assignValue$2 = _assignValue,
+    baseAssignValue$1 = _baseAssignValue;
+
+/**
+ * Copies properties of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy properties from.
+ * @param {Array} props The property identifiers to copy.
+ * @param {Object} [object={}] The object to copy properties to.
+ * @param {Function} [customizer] The function to customize copied values.
+ * @returns {Object} Returns `object`.
+ */
+function copyObject$6(source, props, object, customizer) {
+  var isNew = !object;
+  object || (object = {});
+
+  var index = -1,
+      length = props.length;
+
+  while (++index < length) {
+    var key = props[index];
+
+    var newValue = customizer
+      ? customizer(object[key], source[key], key, object, source)
+      : undefined;
+
+    if (newValue === undefined) {
+      newValue = source[key];
+    }
+    if (isNew) {
+      baseAssignValue$1(object, key, newValue);
+    } else {
+      assignValue$2(object, key, newValue);
+    }
+  }
+  return object;
+}
+
+var _copyObject = copyObject$6;
+
+/**
+ * The base implementation of `_.times` without support for iteratee shorthands
+ * or max array length checks.
+ *
+ * @private
+ * @param {number} n The number of times to invoke `iteratee`.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the array of results.
+ */
+
+function baseTimes$1(n, iteratee) {
+  var index = -1,
+      result = Array(n);
+
+  while (++index < n) {
+    result[index] = iteratee(index);
+  }
+  return result;
+}
+
+var _baseTimes = baseTimes$1;
+
+/** Used as references for various `Number` constants. */
+
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/** Used to detect unsigned integer values. */
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+/**
+ * Checks if `value` is a valid array-like index.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+ */
+function isIndex$3(value, length) {
+  var type = typeof value;
+  length = length == null ? MAX_SAFE_INTEGER : length;
+
+  return !!length &&
+    (type == 'number' ||
+      (type != 'symbol' && reIsUint.test(value))) &&
+        (value > -1 && value % 1 == 0 && value < length);
+}
+
+var _isIndex = isIndex$3;
+
+var baseTimes = _baseTimes,
+    isArguments$3 = isArguments_1,
+    isArray$5 = isArray_1,
+    isBuffer$3 = isBufferExports,
+    isIndex$2 = _isIndex,
+    isTypedArray$2 = isTypedArray_1;
+
+/** Used for built-in method references. */
+var objectProto$6 = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty$6 = objectProto$6.hasOwnProperty;
+
+/**
+ * Creates an array of the enumerable property names of the array-like `value`.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @param {boolean} inherited Specify returning inherited property names.
+ * @returns {Array} Returns the array of property names.
+ */
+function arrayLikeKeys$2(value, inherited) {
+  var isArr = isArray$5(value),
+      isArg = !isArr && isArguments$3(value),
+      isBuff = !isArr && !isArg && isBuffer$3(value),
+      isType = !isArr && !isArg && !isBuff && isTypedArray$2(value),
+      skipIndexes = isArr || isArg || isBuff || isType,
+      result = skipIndexes ? baseTimes(value.length, String) : [],
+      length = result.length;
+
+  for (var key in value) {
+    if ((inherited || hasOwnProperty$6.call(value, key)) &&
+        !(skipIndexes && (
+           // Safari 9 has enumerable `arguments.length` in strict mode.
+           key == 'length' ||
+           // Node.js 0.10 has enumerable non-index properties on buffers.
+           (isBuff && (key == 'offset' || key == 'parent')) ||
+           // PhantomJS 2 has enumerable non-index properties on typed arrays.
+           (isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset')) ||
+           // Skip index properties.
+           isIndex$2(key, length)
+        ))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+var _arrayLikeKeys = arrayLikeKeys$2;
+
+var arrayLikeKeys$1 = _arrayLikeKeys,
+    baseKeys = _baseKeys,
+    isArrayLike$3 = isArrayLike_1;
+
+/**
+ * Creates an array of the own enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects. See the
+ * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+ * for more details.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.keys(new Foo);
+ * // => ['a', 'b'] (iteration order is not guaranteed)
+ *
+ * _.keys('hi');
+ * // => ['0', '1']
+ */
+function keys$4(object) {
+  return isArrayLike$3(object) ? arrayLikeKeys$1(object) : baseKeys(object);
+}
+
+var keys_1 = keys$4;
+
+var copyObject$5 = _copyObject,
+    keys$3 = keys_1;
+
+/**
+ * The base implementation of `_.assign` without support for multiple sources
+ * or `customizer` functions.
+ *
+ * @private
+ * @param {Object} object The destination object.
+ * @param {Object} source The source object.
+ * @returns {Object} Returns `object`.
+ */
+function baseAssign$1(object, source) {
+  return object && copyObject$5(source, keys$3(source), object);
+}
+
+var _baseAssign = baseAssign$1;
+
+/**
+ * This function is like
+ * [`Object.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+ * except that it includes inherited enumerable properties.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+
+function nativeKeysIn$1(object) {
+  var result = [];
+  if (object != null) {
+    for (var key in Object(object)) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+var _nativeKeysIn = nativeKeysIn$1;
+
+var isObject$7 = isObject_1,
+    isPrototype$1 = _isPrototype,
+    nativeKeysIn = _nativeKeysIn;
+
+/** Used for built-in method references. */
+var objectProto$5 = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty$5 = objectProto$5.hasOwnProperty;
+
+/**
+ * The base implementation of `_.keysIn` which doesn't treat sparse arrays as dense.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function baseKeysIn$1(object) {
+  if (!isObject$7(object)) {
+    return nativeKeysIn(object);
+  }
+  var isProto = isPrototype$1(object),
+      result = [];
+
+  for (var key in object) {
+    if (!(key == 'constructor' && (isProto || !hasOwnProperty$5.call(object, key)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+var _baseKeysIn = baseKeysIn$1;
+
+var arrayLikeKeys = _arrayLikeKeys,
+    baseKeysIn = _baseKeysIn,
+    isArrayLike$2 = isArrayLike_1;
+
+/**
+ * Creates an array of the own and inherited enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.keysIn(new Foo);
+ * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
+ */
+function keysIn$5(object) {
+  return isArrayLike$2(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
+}
+
+var keysIn_1 = keysIn$5;
+
+var copyObject$4 = _copyObject,
+    keysIn$4 = keysIn_1;
+
+/**
+ * The base implementation of `_.assignIn` without support for multiple sources
+ * or `customizer` functions.
+ *
+ * @private
+ * @param {Object} object The destination object.
+ * @param {Object} source The source object.
+ * @returns {Object} Returns `object`.
+ */
+function baseAssignIn$1(object, source) {
+  return object && copyObject$4(source, keysIn$4(source), object);
+}
+
+var _baseAssignIn = baseAssignIn$1;
+
+var _cloneBuffer = {exports: {}};
+
+_cloneBuffer.exports;
+
+(function (module, exports) {
+	var root = _root;
+
+	/** Detect free variable `exports`. */
+	var freeExports = exports && !exports.nodeType && exports;
+
+	/** Detect free variable `module`. */
+	var freeModule = freeExports && 'object' == 'object' && module && !module.nodeType && module;
+
+	/** Detect the popular CommonJS extension `module.exports`. */
+	var moduleExports = freeModule && freeModule.exports === freeExports;
+
+	/** Built-in value references. */
+	var Buffer = moduleExports ? root.Buffer : undefined,
+	    allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
+
+	/**
+	 * Creates a clone of  `buffer`.
+	 *
+	 * @private
+	 * @param {Buffer} buffer The buffer to clone.
+	 * @param {boolean} [isDeep] Specify a deep clone.
+	 * @returns {Buffer} Returns the cloned buffer.
+	 */
+	function cloneBuffer(buffer, isDeep) {
+	  if (isDeep) {
+	    return buffer.slice();
+	  }
+	  var length = buffer.length,
+	      result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+
+	  buffer.copy(result);
+	  return result;
+	}
+
+	module.exports = cloneBuffer; 
+} (_cloneBuffer, _cloneBuffer.exports));
+
+var _cloneBufferExports = _cloneBuffer.exports;
+
+/**
+ * Copies the values of `source` to `array`.
+ *
+ * @private
+ * @param {Array} source The array to copy values from.
+ * @param {Array} [array=[]] The array to copy values to.
+ * @returns {Array} Returns `array`.
+ */
+
+function copyArray$2(source, array) {
+  var index = -1,
+      length = source.length;
+
+  array || (array = Array(length));
+  while (++index < length) {
+    array[index] = source[index];
+  }
+  return array;
+}
+
+var _copyArray = copyArray$2;
+
+/**
+ * A specialized version of `_.filter` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {Array} Returns the new filtered array.
+ */
+
+function arrayFilter$1(array, predicate) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      resIndex = 0,
+      result = [];
+
+  while (++index < length) {
+    var value = array[index];
+    if (predicate(value, index, array)) {
+      result[resIndex++] = value;
+    }
+  }
+  return result;
+}
+
+var _arrayFilter = arrayFilter$1;
+
+/**
+ * This method returns a new empty array.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.13.0
+ * @category Util
+ * @returns {Array} Returns the new empty array.
+ * @example
+ *
+ * var arrays = _.times(2, _.stubArray);
+ *
+ * console.log(arrays);
+ * // => [[], []]
+ *
+ * console.log(arrays[0] === arrays[1]);
+ * // => false
+ */
+
+function stubArray$2() {
+  return [];
+}
+
+var stubArray_1 = stubArray$2;
+
+var arrayFilter = _arrayFilter,
+    stubArray$1 = stubArray_1;
+
+/** Used for built-in method references. */
+var objectProto$4 = Object.prototype;
+
+/** Built-in value references. */
+var propertyIsEnumerable = objectProto$4.propertyIsEnumerable;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeGetSymbols$1 = Object.getOwnPropertySymbols;
+
+/**
+ * Creates an array of the own enumerable symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of symbols.
+ */
+var getSymbols$3 = !nativeGetSymbols$1 ? stubArray$1 : function(object) {
+  if (object == null) {
+    return [];
+  }
+  object = Object(object);
+  return arrayFilter(nativeGetSymbols$1(object), function(symbol) {
+    return propertyIsEnumerable.call(object, symbol);
+  });
+};
+
+var _getSymbols = getSymbols$3;
+
+var copyObject$3 = _copyObject,
+    getSymbols$2 = _getSymbols;
+
+/**
+ * Copies own symbols of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy symbols from.
+ * @param {Object} [object={}] The object to copy symbols to.
+ * @returns {Object} Returns `object`.
+ */
+function copySymbols$1(source, object) {
+  return copyObject$3(source, getSymbols$2(source), object);
+}
+
+var _copySymbols = copySymbols$1;
+
+/**
+ * Appends the elements of `values` to `array`.
+ *
+ * @private
+ * @param {Array} array The array to modify.
+ * @param {Array} values The values to append.
+ * @returns {Array} Returns `array`.
+ */
+
+function arrayPush$3(array, values) {
+  var index = -1,
+      length = values.length,
+      offset = array.length;
+
+  while (++index < length) {
+    array[offset + index] = values[index];
+  }
+  return array;
+}
+
+var _arrayPush = arrayPush$3;
+
+var overArg = _overArg;
+
+/** Built-in value references. */
+var getPrototype$3 = overArg(Object.getPrototypeOf, Object);
+
+var _getPrototype = getPrototype$3;
+
+var arrayPush$2 = _arrayPush,
+    getPrototype$2 = _getPrototype,
+    getSymbols$1 = _getSymbols,
+    stubArray = stubArray_1;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeGetSymbols = Object.getOwnPropertySymbols;
+
+/**
+ * Creates an array of the own and inherited enumerable symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of symbols.
+ */
+var getSymbolsIn$2 = !nativeGetSymbols ? stubArray : function(object) {
+  var result = [];
+  while (object) {
+    arrayPush$2(result, getSymbols$1(object));
+    object = getPrototype$2(object);
+  }
+  return result;
+};
+
+var _getSymbolsIn = getSymbolsIn$2;
+
+var copyObject$2 = _copyObject,
+    getSymbolsIn$1 = _getSymbolsIn;
+
+/**
+ * Copies own and inherited symbols of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy symbols from.
+ * @param {Object} [object={}] The object to copy symbols to.
+ * @returns {Object} Returns `object`.
+ */
+function copySymbolsIn$1(source, object) {
+  return copyObject$2(source, getSymbolsIn$1(source), object);
+}
+
+var _copySymbolsIn = copySymbolsIn$1;
+
+var arrayPush$1 = _arrayPush,
+    isArray$4 = isArray_1;
+
+/**
+ * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
+ * `keysFunc` and `symbolsFunc` to get the enumerable property names and
+ * symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Function} keysFunc The function to get the keys of `object`.
+ * @param {Function} symbolsFunc The function to get the symbols of `object`.
+ * @returns {Array} Returns the array of property names and symbols.
+ */
+function baseGetAllKeys$2(object, keysFunc, symbolsFunc) {
+  var result = keysFunc(object);
+  return isArray$4(object) ? result : arrayPush$1(result, symbolsFunc(object));
+}
+
+var _baseGetAllKeys = baseGetAllKeys$2;
+
+var baseGetAllKeys$1 = _baseGetAllKeys,
+    getSymbols = _getSymbols,
+    keys$2 = keys_1;
+
+/**
+ * Creates an array of own enumerable property names and symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names and symbols.
+ */
+function getAllKeys$2(object) {
+  return baseGetAllKeys$1(object, keys$2, getSymbols);
+}
+
+var _getAllKeys = getAllKeys$2;
+
+var baseGetAllKeys = _baseGetAllKeys,
+    getSymbolsIn = _getSymbolsIn,
+    keysIn$3 = keysIn_1;
+
+/**
+ * Creates an array of own and inherited enumerable property names and
+ * symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names and symbols.
+ */
+function getAllKeysIn$2(object) {
+  return baseGetAllKeys(object, keysIn$3, getSymbolsIn);
+}
+
+var _getAllKeysIn = getAllKeysIn$2;
+
+/** Used for built-in method references. */
+
+var objectProto$3 = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty$4 = objectProto$3.hasOwnProperty;
+
+/**
+ * Initializes an array clone.
+ *
+ * @private
+ * @param {Array} array The array to clone.
+ * @returns {Array} Returns the initialized clone.
+ */
+function initCloneArray$1(array) {
+  var length = array.length,
+      result = new array.constructor(length);
+
+  // Add properties assigned by `RegExp#exec`.
+  if (length && typeof array[0] == 'string' && hasOwnProperty$4.call(array, 'index')) {
+    result.index = array.index;
+    result.input = array.input;
+  }
+  return result;
+}
+
+var _initCloneArray = initCloneArray$1;
+
+var root = _root;
+
+/** Built-in value references. */
+var Uint8Array$3 = root.Uint8Array;
+
+var _Uint8Array = Uint8Array$3;
+
+var Uint8Array$2 = _Uint8Array;
+
+/**
+ * Creates a clone of `arrayBuffer`.
+ *
+ * @private
+ * @param {ArrayBuffer} arrayBuffer The array buffer to clone.
+ * @returns {ArrayBuffer} Returns the cloned array buffer.
+ */
+function cloneArrayBuffer$3(arrayBuffer) {
+  var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
+  new Uint8Array$2(result).set(new Uint8Array$2(arrayBuffer));
+  return result;
+}
+
+var _cloneArrayBuffer = cloneArrayBuffer$3;
+
+var cloneArrayBuffer$2 = _cloneArrayBuffer;
+
+/**
+ * Creates a clone of `dataView`.
+ *
+ * @private
+ * @param {Object} dataView The data view to clone.
+ * @param {boolean} [isDeep] Specify a deep clone.
+ * @returns {Object} Returns the cloned data view.
+ */
+function cloneDataView$1(dataView, isDeep) {
+  var buffer = isDeep ? cloneArrayBuffer$2(dataView.buffer) : dataView.buffer;
+  return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
+}
+
+var _cloneDataView = cloneDataView$1;
+
+/** Used to match `RegExp` flags from their coerced string values. */
+
+var reFlags = /\w*$/;
+
+/**
+ * Creates a clone of `regexp`.
+ *
+ * @private
+ * @param {Object} regexp The regexp to clone.
+ * @returns {Object} Returns the cloned regexp.
+ */
+function cloneRegExp$1(regexp) {
+  var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
+  result.lastIndex = regexp.lastIndex;
+  return result;
+}
+
+var _cloneRegExp = cloneRegExp$1;
+
+var Symbol$3 = _Symbol;
+
+/** Used to convert symbols to primitives and strings. */
+var symbolProto$1 = Symbol$3 ? Symbol$3.prototype : undefined,
+    symbolValueOf$1 = symbolProto$1 ? symbolProto$1.valueOf : undefined;
+
+/**
+ * Creates a clone of the `symbol` object.
+ *
+ * @private
+ * @param {Object} symbol The symbol object to clone.
+ * @returns {Object} Returns the cloned symbol object.
+ */
+function cloneSymbol$1(symbol) {
+  return symbolValueOf$1 ? Object(symbolValueOf$1.call(symbol)) : {};
+}
+
+var _cloneSymbol = cloneSymbol$1;
+
+var cloneArrayBuffer$1 = _cloneArrayBuffer;
+
+/**
+ * Creates a clone of `typedArray`.
+ *
+ * @private
+ * @param {Object} typedArray The typed array to clone.
+ * @param {boolean} [isDeep] Specify a deep clone.
+ * @returns {Object} Returns the cloned typed array.
+ */
+function cloneTypedArray$2(typedArray, isDeep) {
+  var buffer = isDeep ? cloneArrayBuffer$1(typedArray.buffer) : typedArray.buffer;
+  return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
+}
+
+var _cloneTypedArray = cloneTypedArray$2;
+
+var cloneArrayBuffer = _cloneArrayBuffer,
+    cloneDataView = _cloneDataView,
+    cloneRegExp = _cloneRegExp,
+    cloneSymbol = _cloneSymbol,
+    cloneTypedArray$1 = _cloneTypedArray;
+
+/** `Object#toString` result references. */
+var boolTag$2 = '[object Boolean]',
+    dateTag$2 = '[object Date]',
+    mapTag$3 = '[object Map]',
+    numberTag$2 = '[object Number]',
+    regexpTag$2 = '[object RegExp]',
+    setTag$3 = '[object Set]',
+    stringTag$2 = '[object String]',
+    symbolTag$2 = '[object Symbol]';
+
+var arrayBufferTag$2 = '[object ArrayBuffer]',
+    dataViewTag$2 = '[object DataView]',
+    float32Tag$1 = '[object Float32Array]',
+    float64Tag$1 = '[object Float64Array]',
+    int8Tag$1 = '[object Int8Array]',
+    int16Tag$1 = '[object Int16Array]',
+    int32Tag$1 = '[object Int32Array]',
+    uint8Tag$1 = '[object Uint8Array]',
+    uint8ClampedTag$1 = '[object Uint8ClampedArray]',
+    uint16Tag$1 = '[object Uint16Array]',
+    uint32Tag$1 = '[object Uint32Array]';
+
+/**
+ * Initializes an object clone based on its `toStringTag`.
+ *
+ * **Note:** This function only supports cloning values with tags of
+ * `Boolean`, `Date`, `Error`, `Map`, `Number`, `RegExp`, `Set`, or `String`.
+ *
+ * @private
+ * @param {Object} object The object to clone.
+ * @param {string} tag The `toStringTag` of the object to clone.
+ * @param {boolean} [isDeep] Specify a deep clone.
+ * @returns {Object} Returns the initialized clone.
+ */
+function initCloneByTag$1(object, tag, isDeep) {
+  var Ctor = object.constructor;
+  switch (tag) {
+    case arrayBufferTag$2:
+      return cloneArrayBuffer(object);
+
+    case boolTag$2:
+    case dateTag$2:
+      return new Ctor(+object);
+
+    case dataViewTag$2:
+      return cloneDataView(object, isDeep);
+
+    case float32Tag$1: case float64Tag$1:
+    case int8Tag$1: case int16Tag$1: case int32Tag$1:
+    case uint8Tag$1: case uint8ClampedTag$1: case uint16Tag$1: case uint32Tag$1:
+      return cloneTypedArray$1(object, isDeep);
+
+    case mapTag$3:
+      return new Ctor;
+
+    case numberTag$2:
+    case stringTag$2:
+      return new Ctor(object);
+
+    case regexpTag$2:
+      return cloneRegExp(object);
+
+    case setTag$3:
+      return new Ctor;
+
+    case symbolTag$2:
+      return cloneSymbol(object);
+  }
+}
+
+var _initCloneByTag = initCloneByTag$1;
+
+var isObject$6 = isObject_1;
+
+/** Built-in value references. */
+var objectCreate = Object.create;
+
+/**
+ * The base implementation of `_.create` without support for assigning
+ * properties to the created object.
+ *
+ * @private
+ * @param {Object} proto The object to inherit from.
+ * @returns {Object} Returns the new object.
+ */
+var baseCreate$1 = (function() {
+  function object() {}
+  return function(proto) {
+    if (!isObject$6(proto)) {
+      return {};
+    }
+    if (objectCreate) {
+      return objectCreate(proto);
+    }
+    object.prototype = proto;
+    var result = new object;
+    object.prototype = undefined;
+    return result;
+  };
+}());
+
+var _baseCreate = baseCreate$1;
+
+var baseCreate = _baseCreate,
+    getPrototype$1 = _getPrototype,
+    isPrototype = _isPrototype;
+
+/**
+ * Initializes an object clone.
+ *
+ * @private
+ * @param {Object} object The object to clone.
+ * @returns {Object} Returns the initialized clone.
+ */
+function initCloneObject$2(object) {
+  return (typeof object.constructor == 'function' && !isPrototype(object))
+    ? baseCreate(getPrototype$1(object))
+    : {};
+}
+
+var _initCloneObject = initCloneObject$2;
+
+var getTag$3 = _getTag,
+    isObjectLike$4 = isObjectLike_1;
+
+/** `Object#toString` result references. */
+var mapTag$2 = '[object Map]';
+
+/**
+ * The base implementation of `_.isMap` without Node.js optimizations.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+ */
+function baseIsMap$1(value) {
+  return isObjectLike$4(value) && getTag$3(value) == mapTag$2;
+}
+
+var _baseIsMap = baseIsMap$1;
+
+var baseIsMap = _baseIsMap,
+    baseUnary$1 = _baseUnary,
+    nodeUtil$1 = _nodeUtilExports;
+
+/* Node.js helper references. */
+var nodeIsMap = nodeUtil$1 && nodeUtil$1.isMap;
+
+/**
+ * Checks if `value` is classified as a `Map` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+ * @example
+ *
+ * _.isMap(new Map);
+ * // => true
+ *
+ * _.isMap(new WeakMap);
+ * // => false
+ */
+var isMap$1 = nodeIsMap ? baseUnary$1(nodeIsMap) : baseIsMap;
+
+var isMap_1 = isMap$1;
+
+var getTag$2 = _getTag,
+    isObjectLike$3 = isObjectLike_1;
+
+/** `Object#toString` result references. */
+var setTag$2 = '[object Set]';
+
+/**
+ * The base implementation of `_.isSet` without Node.js optimizations.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+ */
+function baseIsSet$1(value) {
+  return isObjectLike$3(value) && getTag$2(value) == setTag$2;
+}
+
+var _baseIsSet = baseIsSet$1;
+
+var baseIsSet = _baseIsSet,
+    baseUnary = _baseUnary,
+    nodeUtil = _nodeUtilExports;
+
+/* Node.js helper references. */
+var nodeIsSet = nodeUtil && nodeUtil.isSet;
+
+/**
+ * Checks if `value` is classified as a `Set` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+ * @example
+ *
+ * _.isSet(new Set);
+ * // => true
+ *
+ * _.isSet(new WeakSet);
+ * // => false
+ */
+var isSet$1 = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
+
+var isSet_1 = isSet$1;
+
+var Stack$2 = _Stack,
+    arrayEach = _arrayEach,
+    assignValue$1 = _assignValue,
+    baseAssign = _baseAssign,
+    baseAssignIn = _baseAssignIn,
+    cloneBuffer$1 = _cloneBufferExports,
+    copyArray$1 = _copyArray,
+    copySymbols = _copySymbols,
+    copySymbolsIn = _copySymbolsIn,
+    getAllKeys$1 = _getAllKeys,
+    getAllKeysIn$1 = _getAllKeysIn,
+    getTag$1 = _getTag,
+    initCloneArray = _initCloneArray,
+    initCloneByTag = _initCloneByTag,
+    initCloneObject$1 = _initCloneObject,
+    isArray$3 = isArray_1,
+    isBuffer$2 = isBufferExports,
+    isMap = isMap_1,
+    isObject$5 = isObject_1,
+    isSet = isSet_1,
+    keys$1 = keys_1,
+    keysIn$2 = keysIn_1;
+
+/** Used to compose bitmasks for cloning. */
+var CLONE_DEEP_FLAG$1 = 1,
+    CLONE_FLAT_FLAG$1 = 2,
+    CLONE_SYMBOLS_FLAG$1 = 4;
+
+/** `Object#toString` result references. */
+var argsTag$1 = '[object Arguments]',
+    arrayTag$1 = '[object Array]',
+    boolTag$1 = '[object Boolean]',
+    dateTag$1 = '[object Date]',
+    errorTag$1 = '[object Error]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]',
+    mapTag$1 = '[object Map]',
+    numberTag$1 = '[object Number]',
+    objectTag$2 = '[object Object]',
+    regexpTag$1 = '[object RegExp]',
+    setTag$1 = '[object Set]',
+    stringTag$1 = '[object String]',
+    symbolTag$1 = '[object Symbol]',
+    weakMapTag = '[object WeakMap]';
+
+var arrayBufferTag$1 = '[object ArrayBuffer]',
+    dataViewTag$1 = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
+
+/** Used to identify `toStringTag` values supported by `_.clone`. */
+var cloneableTags = {};
+cloneableTags[argsTag$1] = cloneableTags[arrayTag$1] =
+cloneableTags[arrayBufferTag$1] = cloneableTags[dataViewTag$1] =
+cloneableTags[boolTag$1] = cloneableTags[dateTag$1] =
+cloneableTags[float32Tag] = cloneableTags[float64Tag] =
+cloneableTags[int8Tag] = cloneableTags[int16Tag] =
+cloneableTags[int32Tag] = cloneableTags[mapTag$1] =
+cloneableTags[numberTag$1] = cloneableTags[objectTag$2] =
+cloneableTags[regexpTag$1] = cloneableTags[setTag$1] =
+cloneableTags[stringTag$1] = cloneableTags[symbolTag$1] =
+cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] =
+cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
+cloneableTags[errorTag$1] = cloneableTags[funcTag] =
+cloneableTags[weakMapTag] = false;
+
+/**
+ * The base implementation of `_.clone` and `_.cloneDeep` which tracks
+ * traversed objects.
+ *
+ * @private
+ * @param {*} value The value to clone.
+ * @param {boolean} bitmask The bitmask flags.
+ *  1 - Deep clone
+ *  2 - Flatten inherited properties
+ *  4 - Clone symbols
+ * @param {Function} [customizer] The function to customize cloning.
+ * @param {string} [key] The key of `value`.
+ * @param {Object} [object] The parent object of `value`.
+ * @param {Object} [stack] Tracks traversed objects and their clone counterparts.
+ * @returns {*} Returns the cloned value.
+ */
+function baseClone$1(value, bitmask, customizer, key, object, stack) {
+  var result,
+      isDeep = bitmask & CLONE_DEEP_FLAG$1,
+      isFlat = bitmask & CLONE_FLAT_FLAG$1,
+      isFull = bitmask & CLONE_SYMBOLS_FLAG$1;
+
+  if (customizer) {
+    result = object ? customizer(value, key, object, stack) : customizer(value);
+  }
+  if (result !== undefined) {
+    return result;
+  }
+  if (!isObject$5(value)) {
+    return value;
+  }
+  var isArr = isArray$3(value);
+  if (isArr) {
+    result = initCloneArray(value);
+    if (!isDeep) {
+      return copyArray$1(value, result);
+    }
+  } else {
+    var tag = getTag$1(value),
+        isFunc = tag == funcTag || tag == genTag;
+
+    if (isBuffer$2(value)) {
+      return cloneBuffer$1(value, isDeep);
+    }
+    if (tag == objectTag$2 || tag == argsTag$1 || (isFunc && !object)) {
+      result = (isFlat || isFunc) ? {} : initCloneObject$1(value);
+      if (!isDeep) {
+        return isFlat
+          ? copySymbolsIn(value, baseAssignIn(result, value))
+          : copySymbols(value, baseAssign(result, value));
+      }
+    } else {
+      if (!cloneableTags[tag]) {
+        return object ? value : {};
+      }
+      result = initCloneByTag(value, tag, isDeep);
+    }
+  }
+  // Check for circular references and return its corresponding clone.
+  stack || (stack = new Stack$2);
+  var stacked = stack.get(value);
+  if (stacked) {
+    return stacked;
+  }
+  stack.set(value, result);
+
+  if (isSet(value)) {
+    value.forEach(function(subValue) {
+      result.add(baseClone$1(subValue, bitmask, customizer, subValue, value, stack));
+    });
+  } else if (isMap(value)) {
+    value.forEach(function(subValue, key) {
+      result.set(key, baseClone$1(subValue, bitmask, customizer, key, value, stack));
+    });
+  }
+
+  var keysFunc = isFull
+    ? (isFlat ? getAllKeysIn$1 : getAllKeys$1)
+    : (isFlat ? keysIn$2 : keys$1);
+
+  var props = isArr ? undefined : keysFunc(value);
+  arrayEach(props || value, function(subValue, key) {
+    if (props) {
+      key = subValue;
+      subValue = value[key];
+    }
+    // Recursively populate clone (susceptible to call stack limits).
+    assignValue$1(result, key, baseClone$1(subValue, bitmask, customizer, key, value, stack));
+  });
+  return result;
+}
+
+var _baseClone = baseClone$1;
+
+/**
+ * Gets the last element of `array`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {Array} array The array to query.
+ * @returns {*} Returns the last element of `array`.
+ * @example
+ *
+ * _.last([1, 2, 3]);
+ * // => 3
+ */
+
+function last$1(array) {
+  var length = array == null ? 0 : array.length;
+  return length ? array[length - 1] : undefined;
+}
+
+var last_1 = last$1;
+
+/**
+ * The base implementation of `_.slice` without an iteratee call guard.
+ *
+ * @private
+ * @param {Array} array The array to slice.
+ * @param {number} [start=0] The start position.
+ * @param {number} [end=array.length] The end position.
+ * @returns {Array} Returns the slice of `array`.
+ */
+
+function baseSlice$1(array, start, end) {
+  var index = -1,
+      length = array.length;
+
+  if (start < 0) {
+    start = -start > length ? 0 : (length + start);
+  }
+  end = end > length ? length : end;
+  if (end < 0) {
+    end += length;
+  }
+  length = start > end ? 0 : ((end - start) >>> 0);
+  start >>>= 0;
+
+  var result = Array(length);
+  while (++index < length) {
+    result[index] = array[index + start];
+  }
+  return result;
+}
+
+var _baseSlice = baseSlice$1;
+
+var baseGet$1 = _baseGet,
+    baseSlice = _baseSlice;
+
+/**
+ * Gets the parent value at `path` of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array} path The path to get the parent value of.
+ * @returns {*} Returns the parent value.
+ */
+function parent$1(object, path) {
+  return path.length < 2 ? object : baseGet$1(object, baseSlice(path, 0, -1));
+}
+
+var _parent = parent$1;
+
+var castPath$2 = _castPath,
+    last = last_1,
+    parent = _parent,
+    toKey$1 = _toKey;
+
+/**
+ * The base implementation of `_.unset`.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {Array|string} path The property path to unset.
+ * @returns {boolean} Returns `true` if the property is deleted, else `false`.
+ */
+function baseUnset$2(object, path) {
+  path = castPath$2(path, object);
+  object = parent(object, path);
+  return object == null || delete object[toKey$1(last(path))];
+}
+
+var _baseUnset = baseUnset$2;
+
+var baseGetTag = _baseGetTag,
+    getPrototype = _getPrototype,
+    isObjectLike$2 = isObjectLike_1;
+
+/** `Object#toString` result references. */
+var objectTag$1 = '[object Object]';
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    objectProto$2 = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty$3 = objectProto$2.hasOwnProperty;
+
+/** Used to infer the `Object` constructor. */
+var objectCtorString = funcToString.call(Object);
+
+/**
+ * Checks if `value` is a plain object, that is, an object created by the
+ * `Object` constructor or one with a `[[Prototype]]` of `null`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.8.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ * }
+ *
+ * _.isPlainObject(new Foo);
+ * // => false
+ *
+ * _.isPlainObject([1, 2, 3]);
+ * // => false
+ *
+ * _.isPlainObject({ 'x': 0, 'y': 0 });
+ * // => true
+ *
+ * _.isPlainObject(Object.create(null));
+ * // => true
+ */
+function isPlainObject$5(value) {
+  if (!isObjectLike$2(value) || baseGetTag(value) != objectTag$1) {
+    return false;
+  }
+  var proto = getPrototype(value);
+  if (proto === null) {
+    return true;
+  }
+  var Ctor = hasOwnProperty$3.call(proto, 'constructor') && proto.constructor;
+  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
+    funcToString.call(Ctor) == objectCtorString;
+}
+
+var isPlainObject_1 = isPlainObject$5;
+
+var isPlainObject$4 = isPlainObject_1;
+
+/**
+ * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
+ * objects.
+ *
+ * @private
+ * @param {*} value The value to inspect.
+ * @param {string} key The key of the property to inspect.
+ * @returns {*} Returns the uncloned value or `undefined` to defer cloning to `_.cloneDeep`.
+ */
+function customOmitClone$1(value) {
+  return isPlainObject$4(value) ? undefined : value;
+}
+
+var _customOmitClone = customOmitClone$1;
+
+var Symbol$2 = _Symbol,
+    isArguments$2 = isArguments_1,
+    isArray$2 = isArray_1;
+
+/** Built-in value references. */
+var spreadableSymbol = Symbol$2 ? Symbol$2.isConcatSpreadable : undefined;
+
+/**
+ * Checks if `value` is a flattenable `arguments` object or array.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
+ */
+function isFlattenable$1(value) {
+  return isArray$2(value) || isArguments$2(value) ||
+    !!(spreadableSymbol && value && value[spreadableSymbol]);
+}
+
+var _isFlattenable = isFlattenable$1;
+
+var arrayPush = _arrayPush,
+    isFlattenable = _isFlattenable;
+
+/**
+ * The base implementation of `_.flatten` with support for restricting flattening.
+ *
+ * @private
+ * @param {Array} array The array to flatten.
+ * @param {number} depth The maximum recursion depth.
+ * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
+ * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
+ * @param {Array} [result=[]] The initial result value.
+ * @returns {Array} Returns the new flattened array.
+ */
+function baseFlatten$1(array, depth, predicate, isStrict, result) {
+  var index = -1,
+      length = array.length;
+
+  predicate || (predicate = isFlattenable);
+  result || (result = []);
+
+  while (++index < length) {
+    var value = array[index];
+    if (depth > 0 && predicate(value)) {
+      if (depth > 1) {
+        // Recursively flatten arrays (susceptible to call stack limits).
+        baseFlatten$1(value, depth - 1, predicate, isStrict, result);
+      } else {
+        arrayPush(result, value);
+      }
+    } else if (!isStrict) {
+      result[result.length] = value;
+    }
+  }
+  return result;
+}
+
+var _baseFlatten = baseFlatten$1;
+
+var baseFlatten = _baseFlatten;
+
+/**
+ * Flattens `array` a single level deep.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {Array} array The array to flatten.
+ * @returns {Array} Returns the new flattened array.
+ * @example
+ *
+ * _.flatten([1, [2, [3, [4]], 5]]);
+ * // => [1, 2, [3, [4]], 5]
+ */
+function flatten$2(array) {
+  var length = array == null ? 0 : array.length;
+  return length ? baseFlatten(array, 1) : [];
+}
+
+var flatten_1 = flatten$2;
+
+/**
+ * A faster alternative to `Function#apply`, this function invokes `func`
+ * with the `this` binding of `thisArg` and the arguments of `args`.
+ *
+ * @private
+ * @param {Function} func The function to invoke.
+ * @param {*} thisArg The `this` binding of `func`.
+ * @param {Array} args The arguments to invoke `func` with.
+ * @returns {*} Returns the result of `func`.
+ */
+
+function apply$1(func, thisArg, args) {
+  switch (args.length) {
+    case 0: return func.call(thisArg);
+    case 1: return func.call(thisArg, args[0]);
+    case 2: return func.call(thisArg, args[0], args[1]);
+    case 3: return func.call(thisArg, args[0], args[1], args[2]);
+  }
+  return func.apply(thisArg, args);
+}
+
+var _apply = apply$1;
+
+var apply = _apply;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max;
+
+/**
+ * A specialized version of `baseRest` which transforms the rest array.
+ *
+ * @private
+ * @param {Function} func The function to apply a rest parameter to.
+ * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @param {Function} transform The rest array transform.
+ * @returns {Function} Returns the new function.
+ */
+function overRest$2(func, start, transform) {
+  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+  return function() {
+    var args = arguments,
+        index = -1,
+        length = nativeMax(args.length - start, 0),
+        array = Array(length);
+
+    while (++index < length) {
+      array[index] = args[start + index];
+    }
+    index = -1;
+    var otherArgs = Array(start + 1);
+    while (++index < start) {
+      otherArgs[index] = args[index];
+    }
+    otherArgs[start] = transform(array);
+    return apply(func, this, otherArgs);
+  };
+}
+
+var _overRest = overRest$2;
+
+/**
+ * Creates a function that returns `value`.
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Util
+ * @param {*} value The value to return from the new function.
+ * @returns {Function} Returns the new constant function.
+ * @example
+ *
+ * var objects = _.times(2, _.constant({ 'a': 1 }));
+ *
+ * console.log(objects);
+ * // => [{ 'a': 1 }, { 'a': 1 }]
+ *
+ * console.log(objects[0] === objects[1]);
+ * // => true
+ */
+
+function constant$1(value) {
+  return function() {
+    return value;
+  };
+}
+
+var constant_1 = constant$1;
+
+/**
+ * This method returns the first argument it receives.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Util
+ * @param {*} value Any value.
+ * @returns {*} Returns `value`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ *
+ * console.log(_.identity(object) === object);
+ * // => true
+ */
+
+function identity$3(value) {
+  return value;
+}
+
+var identity_1 = identity$3;
+
+var constant = constant_1,
+    defineProperty$1 = _defineProperty,
+    identity$2 = identity_1;
+
+/**
+ * The base implementation of `setToString` without support for hot loop shorting.
+ *
+ * @private
+ * @param {Function} func The function to modify.
+ * @param {Function} string The `toString` result.
+ * @returns {Function} Returns `func`.
+ */
+var baseSetToString$1 = !defineProperty$1 ? identity$2 : function(func, string) {
+  return defineProperty$1(func, 'toString', {
+    'configurable': true,
+    'enumerable': false,
+    'value': constant(string),
+    'writable': true
+  });
+};
+
+var _baseSetToString = baseSetToString$1;
+
+/** Used to detect hot functions by number of calls within a span of milliseconds. */
+
+var HOT_COUNT = 800,
+    HOT_SPAN = 16;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeNow = Date.now;
+
+/**
+ * Creates a function that'll short out and invoke `identity` instead
+ * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+ * milliseconds.
+ *
+ * @private
+ * @param {Function} func The function to restrict.
+ * @returns {Function} Returns the new shortable function.
+ */
+function shortOut$1(func) {
+  var count = 0,
+      lastCalled = 0;
+
+  return function() {
+    var stamp = nativeNow(),
+        remaining = HOT_SPAN - (stamp - lastCalled);
+
+    lastCalled = stamp;
+    if (remaining > 0) {
+      if (++count >= HOT_COUNT) {
+        return arguments[0];
+      }
+    } else {
+      count = 0;
+    }
+    return func.apply(undefined, arguments);
+  };
+}
+
+var _shortOut = shortOut$1;
+
+var baseSetToString = _baseSetToString,
+    shortOut = _shortOut;
+
+/**
+ * Sets the `toString` method of `func` to return `string`.
+ *
+ * @private
+ * @param {Function} func The function to modify.
+ * @param {Function} string The `toString` result.
+ * @returns {Function} Returns `func`.
+ */
+var setToString$2 = shortOut(baseSetToString);
+
+var _setToString = setToString$2;
+
+var flatten$1 = flatten_1,
+    overRest$1 = _overRest,
+    setToString$1 = _setToString;
+
+/**
+ * A specialized version of `baseRest` which flattens the rest array.
+ *
+ * @private
+ * @param {Function} func The function to apply a rest parameter to.
+ * @returns {Function} Returns the new function.
+ */
+function flatRest$1(func) {
+  return setToString$1(overRest$1(func, undefined, flatten$1), func + '');
+}
+
+var _flatRest = flatRest$1;
+
+var arrayMap = _arrayMap,
+    baseClone = _baseClone,
+    baseUnset$1 = _baseUnset,
+    castPath$1 = _castPath,
+    copyObject$1 = _copyObject,
+    customOmitClone = _customOmitClone,
+    flatRest = _flatRest,
+    getAllKeysIn = _getAllKeysIn;
+
+/** Used to compose bitmasks for cloning. */
+var CLONE_DEEP_FLAG = 1,
+    CLONE_FLAT_FLAG = 2,
+    CLONE_SYMBOLS_FLAG = 4;
+
+/**
+ * The opposite of `_.pick`; this method creates an object composed of the
+ * own and inherited enumerable property paths of `object` that are not omitted.
+ *
+ * **Note:** This method is considerably slower than `_.pick`.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The source object.
+ * @param {...(string|string[])} [paths] The property paths to omit.
+ * @returns {Object} Returns the new object.
+ * @example
+ *
+ * var object = { 'a': 1, 'b': '2', 'c': 3 };
+ *
+ * _.omit(object, ['a', 'c']);
+ * // => { 'b': '2' }
+ */
+var omit = flatRest(function(object, paths) {
+  var result = {};
+  if (object == null) {
+    return result;
+  }
+  var isDeep = false;
+  paths = arrayMap(paths, function(path) {
+    path = castPath$1(path, object);
+    isDeep || (isDeep = path.length > 1);
+    return path;
+  });
+  copyObject$1(object, getAllKeysIn(object), result);
+  if (isDeep) {
+    result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);
+  }
+  var length = paths.length;
+  while (length--) {
+    baseUnset$1(result, paths[length]);
+  }
+  return result;
+});
+
+var omit_1 = omit;
+
+var omit$1 = /*@__PURE__*/getDefaultExportFromCjs(omit_1);
 
 var GET_LIST$1 = 'GET_LIST';
 var GET_ONE$1 = 'GET_ONE';
@@ -9367,11 +11089,15 @@ var DELETE_MANY$1 = 'DELETE_MANY';
 var SEND = 'SEND';
 // -------------------------------------------------------------
 var getRequestProps = function (params) {
-    var type = params.bodyType, body = params.body, file = params.file, query = params.query;
-    var rs = { headers: {}, body: null, query: query };
+    var type = params.bodyType, body = params.body, file = params.file, query = params.query, _a = params.headers, headers = _a === void 0 ? {} : _a;
+    var rs = {
+        headers: headers,
+        body: null,
+        query: query,
+    };
     switch (type) {
         case 'form': {
-            rs.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+            rs.headers = __assign$E(__assign$E({}, headers), { 'Content-Type': 'application/x-www-form-urlencoded' });
             var formData = new FormData();
             for (var key in body) {
                 if (!params.body[key]) {
@@ -9383,14 +11109,14 @@ var getRequestProps = function (params) {
             break;
         }
         case 'file': {
-            rs.headers = { 'Content-Type': 'multipart/form-data' };
+            rs.headers = __assign$E(__assign$E({}, headers), { 'Content-Type': 'multipart/form-data' });
             var formData = new FormData();
             formData.append('files', file);
             rs.body = formData;
             break;
         }
         default: {
-            rs.headers = { 'Content-Type': 'application/json' };
+            rs.headers = __assign$E(__assign$E({}, headers), { 'Content-Type': 'application/json' });
             rs.body = body;
             break;
         }
@@ -9399,9 +11125,7 @@ var getRequestProps = function (params) {
 };
 // -------------------------------------------------------------
 var convertResponse = function (opts) {
-    var _a, _b, _c;
-    var response = opts.response, type = opts.type, params = opts.params;
-    var headers = response.headers, data = response.data;
+    var data = opts.response, type = opts.type, params = opts.params;
     switch (type) {
         case GET_LIST$1:
         case GET_MANY_REFERENCE$1: {
@@ -9411,20 +11135,21 @@ var convertResponse = function (opts) {
                   'Missing "Content-Range" header in the HTTP Response. The REST data provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. In case CORS, did you declare Content-Range in the Access-Control-Expose-Headers header?',
               });
             } */
+            // console.log(data);
             return {
                 data: data,
-                total: (_c = int((_b = (_a = headers['content-range']) === null || _a === void 0 ? void 0 : _a.split('/')) === null || _b === void 0 ? void 0 : _b.pop())) !== null && _c !== void 0 ? _c : data.length,
+                // total: int(headers['content-range']?.split('/')?.pop()) ?? data.length,
             };
         }
         case CREATE$1: {
             var rs = { id: data === null || data === void 0 ? void 0 : data.id };
             switch (params === null || params === void 0 ? void 0 : params.type) {
                 case 'file': {
-                    rs = __assign$C(__assign$C({}, rs), { files: data });
+                    rs = __assign$E(__assign$E({}, rs), { files: data });
                     break;
                 }
                 default: {
-                    rs = __assign$C(__assign$C({}, data), { id: data.id });
+                    rs = __assign$E(__assign$E({}, data), { id: data.id });
                     break;
                 }
             }
@@ -9432,7 +11157,7 @@ var convertResponse = function (opts) {
         }
         case DELETE$1: {
             return {
-                data: __assign$C(__assign$C({}, data), { id: params.id }),
+                data: __assign$E(__assign$E({}, data), { id: params.id }),
             };
         }
         default: {
@@ -9445,7 +11170,7 @@ var getRequestUrl = function (opts) {
     var _a;
     var baseUrl = opts === null || opts === void 0 ? void 0 : opts.baseUrl;
     var paths = (_a = opts === null || opts === void 0 ? void 0 : opts.paths) !== null && _a !== void 0 ? _a : [];
-    if (!baseUrl || isEmpty_1(baseUrl)) {
+    if (!baseUrl || isEmpty$7(baseUrl)) {
         throw getError({
             statusCode: 500,
             message: '[getRequestUrl] Invalid configuration for third party request base url!',
@@ -9476,13 +11201,16 @@ var networkService = new NetworkHelper({
 // -------------------------------------------------------------
 var doRequest = function (opts) {
     var type = opts.type, baseUrl = opts.baseUrl, method = opts.method, paths = opts.paths, headers = opts.headers, body = opts.body, query = opts.query, params = opts.params;
-    if (!baseUrl || isEmpty_1(baseUrl)) {
+    if (!baseUrl || isEmpty$7(baseUrl)) {
         throw getError({ message: '[doRequest] Invalid baseUrl to send request!' });
     }
     var url = getRequestUrl({ baseUrl: baseUrl, paths: paths });
     return new Promise(function (resolve, reject) {
         networkService
             .send({ url: url, method: method, params: query, body: body, configs: { headers: headers } })
+            .then(function (rs) {
+            return rs.json();
+        })
             .then(function (response) {
             var normalized = convertResponse({ response: response, type: type, params: params });
             resolve(normalized);
@@ -9497,10 +11225,14 @@ var LbProviderGetter = function (opts) { return ({
     // GET_LIST
     // -------------------------------------------------------------
     getList: function (resource, params) {
-        var pagination = params.pagination, sort = params.sort, where = params.filter, rest = __rest$u(params, ["pagination", "sort", "filter"]);
+        var pagination = params.pagination, sort = params.sort, where = params.filter, rest = __rest$v(params, ["pagination", "sort", "filter"]);
         var filter = {};
+        var include = get$2(where, 'include', null);
+        if (include) {
+            filter['include'] = include;
+        }
         if (where) {
-            filter['where'] = where;
+            filter['where'] = omit$1(where, ['include']);
         }
         if (sort === null || sort === void 0 ? void 0 : sort.field) {
             filter['order'] = "".concat(sort.field, " ").concat(sort.order);
@@ -9522,7 +11254,7 @@ var LbProviderGetter = function (opts) { return ({
         var response = doRequest({
             type: GET_LIST$1,
             baseUrl: opts.baseUrl,
-            method: 'get',
+            method: 'GET',
             query: { filter: filter },
             paths: paths,
             params: params,
@@ -9537,7 +11269,14 @@ var LbProviderGetter = function (opts) { return ({
             filter: (params === null || params === void 0 ? void 0 : params.filter) || {},
         };
         var paths = [resource, params.id];
-        var response = doRequest({ type: GET_ONE$1, baseUrl: opts.baseUrl, method: 'get', query: query, paths: paths, params: params });
+        var response = doRequest({
+            type: GET_ONE$1,
+            baseUrl: opts.baseUrl,
+            method: 'GET',
+            query: query,
+            paths: paths,
+            params: params,
+        });
         return response;
     },
     // -------------------------------------------------------------
@@ -9554,7 +11293,7 @@ var LbProviderGetter = function (opts) { return ({
         var response = doRequest({
             type: GET_MANY$1,
             baseUrl: opts.baseUrl,
-            method: 'get',
+            method: 'GET',
             query: { filter: filter },
             paths: paths,
             params: params,
@@ -9565,7 +11304,7 @@ var LbProviderGetter = function (opts) { return ({
     // GET_MANY_REFERENCE
     // -------------------------------------------------------------
     getManyReference: function (resource, params) {
-        var _a = params.pagination, pagination = _a === void 0 ? {} : _a, _b = params.sort, sort = _b === void 0 ? {} : _b, where = params.filter, target = params.target, id = params.id, rest = __rest$u(params, ["pagination", "sort", "filter", "target", "id"]);
+        var _a = params.pagination, pagination = _a === void 0 ? {} : _a, _b = params.sort, sort = _b === void 0 ? {} : _b, where = params.filter, target = params.target, id = params.id, rest = __rest$v(params, ["pagination", "sort", "filter", "target", "id"]);
         var filter = {};
         if (where) {
             filter['where'] = where;
@@ -9591,7 +11330,7 @@ var LbProviderGetter = function (opts) { return ({
         var response = doRequest({
             type: GET_MANY_REFERENCE$1,
             baseUrl: opts.baseUrl,
-            method: 'get',
+            method: 'GET',
             query: { filter: filter },
             paths: paths,
             params: params,
@@ -9604,7 +11343,7 @@ var LbProviderGetter = function (opts) { return ({
     create: function (resource, params) {
         var request = getRequestProps(params);
         var paths = [resource];
-        var response = doRequest(__assign$C({ type: CREATE$1, baseUrl: opts.baseUrl, method: 'post', paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: CREATE$1, baseUrl: opts.baseUrl, method: 'POST', paths: paths, params: params }, request));
         return response;
     },
     // -------------------------------------------------------------
@@ -9613,7 +11352,7 @@ var LbProviderGetter = function (opts) { return ({
     update: function (resource, params) {
         var request = getRequestProps(params);
         var paths = [resource, (params === null || params === void 0 ? void 0 : params.id) ? params.id.toString() : ''];
-        var response = doRequest(__assign$C({ type: UPDATE$1, baseUrl: opts.baseUrl, method: 'patch', paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: UPDATE$1, baseUrl: opts.baseUrl, method: 'PATCH', paths: paths, params: params }, request));
         return response;
     },
     updateMany: function (resource, params) {
@@ -9631,7 +11370,7 @@ var LbProviderGetter = function (opts) { return ({
                 response = doRequest({
                     type: UPDATE_MANY$1,
                     baseUrl: opts.baseUrl,
-                    method: 'patch',
+                    method: 'PATCH',
                     paths: paths,
                     params: params,
                     query: query,
@@ -9646,7 +11385,13 @@ var LbProviderGetter = function (opts) { return ({
     // -------------------------------------------------------------
     delete: function (resource, params) {
         var paths = [resource, params.id];
-        var response = doRequest({ type: DELETE$1, baseUrl: opts.baseUrl, method: 'delete', paths: paths, params: params });
+        var response = doRequest({
+            type: DELETE$1,
+            baseUrl: opts.baseUrl,
+            method: 'DELETE',
+            paths: paths,
+            params: params,
+        });
         return response;
     },
     // -------------------------------------------------------------
@@ -9655,7 +11400,7 @@ var LbProviderGetter = function (opts) { return ({
     deleteMany: function (resource, params) {
         var request = getRequestProps(params);
         var paths = [resource];
-        var response = doRequest(__assign$C({ type: DELETE_MANY$1, baseUrl: opts.baseUrl, method: 'delete', paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: DELETE_MANY$1, baseUrl: opts.baseUrl, method: 'DELETE', paths: paths, params: params }, request));
         return response;
     },
     // -------------------------------------------------------------
@@ -9665,10 +11410,10 @@ var LbProviderGetter = function (opts) { return ({
         if (!(params === null || params === void 0 ? void 0 : params.method)) {
             throw getError({ message: '[send] Invalid http method to send request!' });
         }
-        var method = params.method, rest = __rest$u(params, ["method"]);
+        var method = params.method, rest = __rest$v(params, ["method"]);
         var request = getRequestProps(rest);
         var paths = [resource];
-        var response = doRequest(__assign$C({ type: SEND, baseUrl: opts.baseUrl, method: method, paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: SEND, baseUrl: opts.baseUrl, method: method, paths: paths, params: params }, request));
         return response;
     },
 }); };
@@ -9681,6 +11426,7 @@ var AuthService = /** @class */ (function () {
             return new Set(roles);
         };
     }
+    // constructor() { }
     AuthService.getInstance = function () {
         if (!this.instance) {
             this.instance = new AuthService();
@@ -9697,7 +11443,7 @@ var AuthService = /** @class */ (function () {
         return JSON.parse(localStorage.getItem(LocalStorageKeys.KEY_AUTH_IDENTITY) || '{}');
     };
     // ------------------------------------------------------------------------------------
-    AuthService.prototype.getToken = function () {
+    AuthService.prototype.getAuthToken = function () {
         var _a;
         try {
             // const user = this.getUser();
@@ -9710,11 +11456,16 @@ var AuthService = /** @class */ (function () {
         }
     };
     // ------------------------------------------------------------------------------------
-    AuthService.prototype.getAuthorizationToken = function () { };
+    AuthService.prototype.saveAuthToken = function (opts) {
+        localStorage.setItem(LocalStorageKeys.KEY_AUTH_TOKEN, JSON.stringify(opts));
+    };
+    // ------------------------------------------------------------------------------------
+    AuthService.prototype.cleanUp = function () {
+        localStorage.removeItem(LocalStorageKeys.KEY_AUTH_TOKEN);
+    };
     return AuthService;
 }());
 
-var DEFAULT_FETCH_METHOD = 'send';
 var authService = AuthService.getInstance();
 var AuthProviderGetter = function (opts) {
     var dataProvider = opts.dataProvider, authPath = opts.authPath;
@@ -9727,8 +11478,22 @@ var AuthProviderGetter = function (opts) {
         // -------------------------------------------------------------
         login: function (params) {
             return new Promise(function (resolve, reject) {
-                dataProvider(DEFAULT_FETCH_METHOD, authPath, { method: 'post', body: params })
+                dataProvider(App.DEFAULT_FETCH_METHOD, authPath, {
+                    method: 'post',
+                    body: {
+                        identifier: {
+                            scheme: 'username',
+                            value: params.username,
+                        },
+                        credential: {
+                            scheme: 'basic',
+                            value: params.password,
+                        },
+                    },
+                })
                     .then(function (rs) {
+                    var token = rs.data.token;
+                    authService.saveAuthToken(token);
                     resolve(rs);
                 })
                     .catch(function (error) {
@@ -9750,18 +11515,31 @@ var AuthProviderGetter = function (opts) {
         // -------------------------------------------------------------
         // CHECK_AUTH
         // -------------------------------------------------------------
-        checkAuth: function () {
-            var token = authService.getToken();
-            if ((token === null || token === void 0 ? void 0 : token.base) || (token === null || token === void 0 ? void 0 : token.jwt)) {
-                return Promise.resolve();
-            }
-            // authService.cleanUpAuth();
-            return Promise.reject({ redirectTo: 'login' });
-        },
+        checkAuth: function () { return __awaiter$6(void 0, void 0, void 0, function () {
+            var token;
+            return __generator$6(this, function (_a) {
+                token = authService.getAuthToken();
+                if (!(token === null || token === void 0 ? void 0 : token.value)) {
+                    return [2 /*return*/, Promise.reject({ redirectTo: 'login' })];
+                }
+                return [2 /*return*/, dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' }).then(function (rs) {
+                        var _a;
+                        if (!((_a = rs === null || rs === void 0 ? void 0 : rs.data) === null || _a === void 0 ? void 0 : _a.userId)) {
+                            return Promise.reject({ redirectTo: 'login' });
+                        }
+                        return Promise.resolve();
+                    })];
+            });
+        }); },
         // -------------------------------------------------------------
         // LOGOUT
         // -------------------------------------------------------------
-        logout: function () { return Promise.resolve(); },
+        logout: function () {
+            return new Promise(function (resolve) {
+                authService.cleanUp();
+                resolve();
+            });
+        },
         // -------------------------------------------------------------
         // GET_IDENTIFIER
         // -------------------------------------------------------------
@@ -10017,7 +11795,7 @@ function hashQueryKey(queryKey) {
 
 function stableValueHash(value) {
   return JSON.stringify(value, function (_, val) {
-    return isPlainObject$4(val) ? Object.keys(val).sort().reduce(function (result, key) {
+    return isPlainObject$3(val) ? Object.keys(val).sort().reduce(function (result, key) {
       result[key] = val[key];
       return result;
     }, {}) : val;
@@ -10064,7 +11842,7 @@ function replaceEqualDeep(a, b) {
 
   var array = Array.isArray(a) && Array.isArray(b);
 
-  if (array || isPlainObject$4(a) && isPlainObject$4(b)) {
+  if (array || isPlainObject$3(a) && isPlainObject$3(b)) {
     var aSize = array ? a.length : Object.keys(a).length;
     var bItems = array ? b : Object.keys(b);
     var bSize = bItems.length;
@@ -10103,7 +11881,7 @@ function shallowEqualObjects(a, b) {
   return true;
 } // Copied from: https://github.com/jonschlinkert/is-plain-object
 
-function isPlainObject$4(o) {
+function isPlainObject$3(o) {
   if (!hasObjectPrototype(o)) {
     return false;
   } // If has modified constructor
@@ -12797,7 +14575,7 @@ function useQuery(arg1, arg2, arg3) {
 }
 
 /**
- * @remix-run/router v1.5.0
+ * @remix-run/router v1.7.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -12810,14 +14588,12 @@ function _extends$2() {
   _extends$2 = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
   return _extends$2.apply(this, arguments);
@@ -12826,12 +14602,10 @@ function _extends$2() {
 ////////////////////////////////////////////////////////////////////////////////
 //#region Types and Constants
 ////////////////////////////////////////////////////////////////////////////////
-
 /**
  * Actions represent the type of change to a location value.
  */
 var Action$1;
-
 (function (Action) {
   /**
    * A POP indicates a change to an arbitrary index in the history stack, such
@@ -12846,13 +14620,11 @@ var Action$1;
    * a link is clicked and a new page loads. When this happens, all subsequent
    * entries in the stack are lost.
    */
-
   Action["Push"] = "PUSH";
   /**
    * A REPLACE indicates the entry at the current index in the history stack
    * being replaced by a new one.
    */
-
   Action["Replace"] = "REPLACE";
 })(Action$1 || (Action$1 = {}));
 function invariant(value, message) {
@@ -12864,21 +14636,20 @@ function warning$4(cond, message) {
   if (!cond) {
     // eslint-disable-next-line no-console
     if (typeof console !== "undefined") console.warn(message);
-
     try {
       // Welcome to debugging history!
       //
       // This error is thrown as a convenience so you can more easily
       // find the source for a warning that appears in the console by
       // enabling "pause on exceptions" in your JavaScript debugger.
-      throw new Error(message); // eslint-disable-next-line no-empty
+      throw new Error(message);
+      // eslint-disable-next-line no-empty
     } catch (e) {}
   }
 }
 /**
  * Creates a string URL path from the given pathname, search, and hash components.
  */
-
 function createPath$1(_ref) {
   let {
     pathname = "/",
@@ -12892,35 +14663,28 @@ function createPath$1(_ref) {
 /**
  * Parses a string URL path into its separate pathname, search, and hash components.
  */
-
 function parsePath$1(path) {
   let parsedPath = {};
-
   if (path) {
     let hashIndex = path.indexOf("#");
-
     if (hashIndex >= 0) {
       parsedPath.hash = path.substr(hashIndex);
       path = path.substr(0, hashIndex);
     }
-
     let searchIndex = path.indexOf("?");
-
     if (searchIndex >= 0) {
       parsedPath.search = path.substr(searchIndex);
       path = path.substr(0, searchIndex);
     }
-
     if (path) {
       parsedPath.pathname = path;
     }
   }
-
   return parsedPath;
 }
+//#endregion
 
 var ResultType;
-
 (function (ResultType) {
   ResultType["data"] = "data";
   ResultType["deferred"] = "deferred";
@@ -12932,25 +14696,21 @@ var ResultType;
  *
  * @see https://reactrouter.com/utils/match-routes
  */
-
 function matchRoutes(routes, locationArg, basename) {
   if (basename === void 0) {
     basename = "/";
   }
-
   let location = typeof locationArg === "string" ? parsePath$1(locationArg) : locationArg;
   let pathname = stripBasename(location.pathname || "/", basename);
-
   if (pathname == null) {
     return null;
   }
-
   let branches = flattenRoutes(routes);
   rankRouteBranches(branches);
   let matches = null;
-
   for (let i = 0; matches == null && i < branches.length; ++i) {
-    matches = matchRouteBranch(branches[i], // Incoming pathnames are generally encoded from either window.location
+    matches = matchRouteBranch(branches[i],
+    // Incoming pathnames are generally encoded from either window.location
     // or from router.navigate, but we want to match against the unencoded
     // paths in the route definitions.  Memory router locations won't be
     // encoded here but there also shouldn't be anything to decode so this
@@ -12958,23 +14718,18 @@ function matchRoutes(routes, locationArg, basename) {
     // history-aware.
     safelyDecodeURI(pathname));
   }
-
   return matches;
 }
-
 function flattenRoutes(routes, branches, parentsMeta, parentPath) {
   if (branches === void 0) {
     branches = [];
   }
-
   if (parentsMeta === void 0) {
     parentsMeta = [];
   }
-
   if (parentPath === void 0) {
     parentPath = "";
   }
-
   let flattenRoute = (route, index, relativePath) => {
     let meta = {
       relativePath: relativePath === undefined ? route.path || "" : relativePath,
@@ -12982,40 +14737,35 @@ function flattenRoutes(routes, branches, parentsMeta, parentPath) {
       childrenIndex: index,
       route
     };
-
     if (meta.relativePath.startsWith("/")) {
       invariant(meta.relativePath.startsWith(parentPath), "Absolute route path \"" + meta.relativePath + "\" nested under path " + ("\"" + parentPath + "\" is not valid. An absolute child route path ") + "must start with the combined path of all its parent routes.");
       meta.relativePath = meta.relativePath.slice(parentPath.length);
     }
-
     let path = joinPaths([parentPath, meta.relativePath]);
-    let routesMeta = parentsMeta.concat(meta); // Add the children before adding this route to the array so we traverse the
+    let routesMeta = parentsMeta.concat(meta);
+    // Add the children before adding this route to the array so we traverse the
     // route tree depth-first and child routes appear before their parents in
     // the "flattened" version.
-
     if (route.children && route.children.length > 0) {
-      invariant( // Our types know better, but runtime JS may not!
+      invariant(
+      // Our types know better, but runtime JS may not!
       // @ts-expect-error
       route.index !== true, "Index routes must not have child routes. Please remove " + ("all child routes from route path \"" + path + "\"."));
       flattenRoutes(route.children, branches, routesMeta, path);
-    } // Routes without a path shouldn't ever match by themselves unless they are
+    }
+    // Routes without a path shouldn't ever match by themselves unless they are
     // index routes, so don't add them to the list of possible branches.
-
-
     if (route.path == null && !route.index) {
       return;
     }
-
     branches.push({
       path,
       score: computeScore(path, route.index),
       routesMeta
     });
   };
-
   routes.forEach((route, index) => {
     var _route$path;
-
     // coarse-grain check for optional params
     if (route.path === "" || !((_route$path = route.path) != null && _route$path.includes("?"))) {
       flattenRoute(route, index);
@@ -13041,82 +14791,70 @@ function flattenRoutes(routes, branches, parentsMeta, parentPath) {
  * - `/one/three/:four/:five`
  * - `/one/:two/three/:four/:five`
  */
-
-
 function explodeOptionalSegments(path) {
   let segments = path.split("/");
   if (segments.length === 0) return [];
-  let [first, ...rest] = segments; // Optional path segments are denoted by a trailing `?`
-
-  let isOptional = first.endsWith("?"); // Compute the corresponding required segment: `foo?` -> `foo`
-
+  let [first, ...rest] = segments;
+  // Optional path segments are denoted by a trailing `?`
+  let isOptional = first.endsWith("?");
+  // Compute the corresponding required segment: `foo?` -> `foo`
   let required = first.replace(/\?$/, "");
-
   if (rest.length === 0) {
     // Intepret empty string as omitting an optional segment
     // `["one", "", "three"]` corresponds to omitting `:two` from `/one/:two?/three` -> `/one/three`
     return isOptional ? [required, ""] : [required];
   }
-
   let restExploded = explodeOptionalSegments(rest.join("/"));
-  let result = []; // All child paths with the prefix.  Do this for all children before the
+  let result = [];
+  // All child paths with the prefix.  Do this for all children before the
   // optional version for all children so we get consistent ordering where the
   // parent optional aspect is preferred as required.  Otherwise, we can get
   // child sections interspersed where deeper optional segments are higher than
   // parent optional segments, where for example, /:two would explodes _earlier_
   // then /:one.  By always including the parent as required _for all children_
   // first, we avoid this issue
-
-  result.push(...restExploded.map(subpath => subpath === "" ? required : [required, subpath].join("/"))); // Then if this is an optional value, add all child versions without
-
+  result.push(...restExploded.map(subpath => subpath === "" ? required : [required, subpath].join("/")));
+  // Then if this is an optional value, add all child versions without
   if (isOptional) {
     result.push(...restExploded);
-  } // for absolute paths, ensure `/` instead of empty segment
-
-
+  }
+  // for absolute paths, ensure `/` instead of empty segment
   return result.map(exploded => path.startsWith("/") && exploded === "" ? "/" : exploded);
 }
-
 function rankRouteBranches(branches) {
   branches.sort((a, b) => a.score !== b.score ? b.score - a.score // Higher score first
   : compareIndexes(a.routesMeta.map(meta => meta.childrenIndex), b.routesMeta.map(meta => meta.childrenIndex)));
 }
-
 const paramRe = /^:\w+$/;
 const dynamicSegmentValue = 3;
 const indexRouteValue = 2;
 const emptySegmentValue = 1;
 const staticSegmentValue = 10;
 const splatPenalty = -2;
-
 const isSplat = s => s === "*";
-
 function computeScore(path, index) {
   let segments = path.split("/");
   let initialScore = segments.length;
-
   if (segments.some(isSplat)) {
     initialScore += splatPenalty;
   }
-
   if (index) {
     initialScore += indexRouteValue;
   }
-
   return segments.filter(s => !isSplat(s)).reduce((score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue), initialScore);
 }
-
 function compareIndexes(a, b) {
   let siblings = a.length === b.length && a.slice(0, -1).every((n, i) => n === b[i]);
-  return siblings ? // If two routes are siblings, we should try to match the earlier sibling
+  return siblings ?
+  // If two routes are siblings, we should try to match the earlier sibling
   // first. This allows people to have fine-grained control over the matching
   // behavior by simply putting routes with identical paths in the order they
   // want them tried.
-  a[a.length - 1] - b[b.length - 1] : // Otherwise, it doesn't really make sense to rank non-siblings by index,
+  a[a.length - 1] - b[b.length - 1] :
+  // Otherwise, it doesn't really make sense to rank non-siblings by index,
   // so they sort equally.
   0;
 }
-
 function matchRouteBranch(branch, pathname) {
   let {
     routesMeta
@@ -13124,7 +14862,6 @@ function matchRouteBranch(branch, pathname) {
   let matchedParams = {};
   let matchedPathname = "/";
   let matches = [];
-
   for (let i = 0; i < routesMeta.length; ++i) {
     let meta = routesMeta[i];
     let end = i === routesMeta.length - 1;
@@ -13144,12 +14881,10 @@ function matchRouteBranch(branch, pathname) {
       pathnameBase: normalizePathname(joinPaths([matchedPathname, match.pathnameBase])),
       route
     });
-
     if (match.pathnameBase !== "/") {
       matchedPathname = joinPaths([matchedPathname, match.pathnameBase]);
     }
   }
-
   return matches;
 }
 /**
@@ -13158,7 +14893,6 @@ function matchRouteBranch(branch, pathname) {
  *
  * @see https://reactrouter.com/utils/match-path
  */
-
 function matchPath(pattern, pathname) {
   if (typeof pattern === "string") {
     pattern = {
@@ -13167,7 +14901,6 @@ function matchPath(pattern, pathname) {
       end: true
     };
   }
-
   let [matcher, paramNames] = compilePath(pattern.path, pattern.caseSensitive, pattern.end);
   let match = pathname.match(matcher);
   if (!match) return null;
@@ -13181,7 +14914,6 @@ function matchPath(pattern, pathname) {
       let splatValue = captureGroups[index] || "";
       pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
     }
-
     memo[paramName] = safelyDecodeURIComponent(captureGroups[index] || "", paramName);
     return memo;
   }, {});
@@ -13192,16 +14924,13 @@ function matchPath(pattern, pathname) {
     pattern
   };
 }
-
 function compilePath(path, caseSensitive, end) {
   if (caseSensitive === void 0) {
     caseSensitive = false;
   }
-
   if (end === void 0) {
     end = true;
   }
-
   warning$4(path === "*" || !path.endsWith("*") || path.endsWith("/*"), "Route path \"" + path + "\" will be treated as if it were " + ("\"" + path.replace(/\*$/, "/*") + "\" because the `*` character must ") + "always follow a `/` in the pattern. To get rid of this warning, " + ("please change the route path to \"" + path.replace(/\*$/, "/*") + "\"."));
   let paramNames = [];
   let regexpSource = "^" + path.replace(/\/*\*?$/, "") // Ignore trailing / and /*, we'll handle it below
@@ -13211,7 +14940,6 @@ function compilePath(path, caseSensitive, end) {
     paramNames.push(paramName);
     return "/([^\\/]+)";
   });
-
   if (path.endsWith("*")) {
     paramNames.push("*");
     regexpSource += path === "*" || path === "/*" ? "(.*)$" // Already matched the initial /, just match the rest
@@ -13229,11 +14957,9 @@ function compilePath(path, caseSensitive, end) {
     // /user-preferences since `-` counts as a word boundary.
     regexpSource += "(?:(?=\\/|$))";
   } else ;
-
   let matcher = new RegExp(regexpSource, caseSensitive ? undefined : "i");
   return [matcher, paramNames];
 }
-
 function safelyDecodeURI(value) {
   try {
     return decodeURI(value);
@@ -13242,7 +14968,6 @@ function safelyDecodeURI(value) {
     return value;
   }
 }
-
 function safelyDecodeURIComponent(value, paramName) {
   try {
     return decodeURIComponent(value);
@@ -13254,25 +14979,19 @@ function safelyDecodeURIComponent(value, paramName) {
 /**
  * @private
  */
-
-
 function stripBasename(pathname, basename) {
   if (basename === "/") return pathname;
-
   if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
     return null;
-  } // We want to leave trailing slash behavior in the user's control, so if they
+  }
+  // We want to leave trailing slash behavior in the user's control, so if they
   // specify a basename with a trailing slash, we should support it
-
-
   let startIndex = basename.endsWith("/") ? basename.length - 1 : basename.length;
   let nextChar = pathname.charAt(startIndex);
-
   if (nextChar && nextChar !== "/") {
     // pathname does not start with basename/
     return null;
   }
-
   return pathname.slice(startIndex) || "/";
 }
 /**
@@ -13280,12 +14999,10 @@ function stripBasename(pathname, basename) {
  *
  * @see https://reactrouter.com/utils/resolve-path
  */
-
 function resolvePath(to, fromPathname) {
   if (fromPathname === void 0) {
     fromPathname = "/";
   }
-
   let {
     pathname: toPathname,
     search = "",
@@ -13298,7 +15015,6 @@ function resolvePath(to, fromPathname) {
     hash: normalizeHash(hash)
   };
 }
-
 function resolvePathname(relativePath, fromPathname) {
   let segments = fromPathname.replace(/\/+$/, "").split("/");
   let relativeSegments = relativePath.split("/");
@@ -13312,7 +15028,6 @@ function resolvePathname(relativePath, fromPathname) {
   });
   return segments.length > 1 ? segments.join("/") : "/";
 }
-
 function getInvalidPathError(char, field, dest, path) {
   return "Cannot include a '" + char + "' character in a manually specified " + ("`to." + field + "` field [" + JSON.stringify(path) + "].  Please separate it out to the ") + ("`to." + dest + "` field. Alternatively you may provide the full path as ") + "a string in <Link to=\"...\"> and the router will parse it for you.";
 }
@@ -13339,22 +15054,17 @@ function getInvalidPathError(char, field, dest, path) {
  *     </Route>
  *   </Route>
  */
-
-
 function getPathContributingMatches(matches) {
   return matches.filter((match, index) => index === 0 || match.route.path && match.route.path.length > 0);
 }
 /**
  * @private
  */
-
 function resolveTo(toArg, routePathnames, locationPathname, isPathRelative) {
   if (isPathRelative === void 0) {
     isPathRelative = false;
   }
-
   let to;
-
   if (typeof toArg === "string") {
     to = parsePath$1(toArg);
   } else {
@@ -13363,10 +15073,10 @@ function resolveTo(toArg, routePathnames, locationPathname, isPathRelative) {
     invariant(!to.pathname || !to.pathname.includes("#"), getInvalidPathError("#", "pathname", "hash", to));
     invariant(!to.search || !to.search.includes("#"), getInvalidPathError("#", "search", "hash", to));
   }
-
   let isEmptyPath = toArg === "" || to.pathname === "";
   let toPathname = isEmptyPath ? "/" : to.pathname;
-  let from; // Routing is relative to the current pathname if explicitly requested.
+  let from;
+  // Routing is relative to the current pathname if explicitly requested.
   //
   // If a pathname is explicitly provided in `to`, it should be relative to the
   // route context. This is explained in `Note on `<Link to>` values` in our
@@ -13375,73 +15085,66 @@ function resolveTo(toArg, routePathnames, locationPathname, isPathRelative) {
   // `to` values that do not provide a pathname. `to` can simply be a search or
   // hash string, in which case we should assume that the navigation is relative
   // to the current location's pathname and *not* the route pathname.
-
   if (isPathRelative || toPathname == null) {
     from = locationPathname;
   } else {
     let routePathnameIndex = routePathnames.length - 1;
-
     if (toPathname.startsWith("..")) {
-      let toSegments = toPathname.split("/"); // Each leading .. segment means "go up one route" instead of "go up one
+      let toSegments = toPathname.split("/");
+      // Each leading .. segment means "go up one route" instead of "go up one
       // URL segment".  This is a key difference from how <a href> works and a
       // major reason we call this a "to" value instead of a "href".
-
       while (toSegments[0] === "..") {
         toSegments.shift();
         routePathnameIndex -= 1;
       }
-
       to.pathname = toSegments.join("/");
-    } // If there are more ".." segments than parent routes, resolve relative to
+    }
+    // If there are more ".." segments than parent routes, resolve relative to
     // the root / URL.
-
-
     from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
   }
-
-  let path = resolvePath(to, from); // Ensure the pathname has a trailing slash if the original "to" had one
-
-  let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/"); // Or if this was a link to the current path which has a trailing slash
-
+  let path = resolvePath(to, from);
+  // Ensure the pathname has a trailing slash if the original "to" had one
+  let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/");
+  // Or if this was a link to the current path which has a trailing slash
   let hasCurrentTrailingSlash = (isEmptyPath || toPathname === ".") && locationPathname.endsWith("/");
-
   if (!path.pathname.endsWith("/") && (hasExplicitTrailingSlash || hasCurrentTrailingSlash)) {
     path.pathname += "/";
   }
-
   return path;
 }
 /**
  * @private
  */
-
 const joinPaths = paths => paths.join("/").replace(/\/\/+/g, "/");
 /**
  * @private
  */
-
 const normalizePathname = pathname => pathname.replace(/\/+$/, "").replace(/^\/*/, "/");
 /**
  * @private
  */
-
 const normalizeSearch = search => !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
 /**
  * @private
  */
-
 const normalizeHash = hash => !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
 /**
  * Check if the given error is an ErrorResponse generated from a 4xx/5xx
  * Response thrown from an action/loader
  */
-
 function isRouteErrorResponse(error) {
   return error != null && typeof error.status === "number" && typeof error.statusText === "string" && typeof error.internal === "boolean" && "data" in error;
 }
 
+const validMutationMethodsArr = ["post", "put", "patch", "delete"];
+new Set(validMutationMethodsArr);
+const validRequestMethodsArr = ["get", ...validMutationMethodsArr];
+new Set(validRequestMethodsArr);
+
 /**
- * React Router v6.10.0
+ * React Router v6.14.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -13451,244 +15154,65 @@ function isRouteErrorResponse(error) {
  * @license MIT
  */
 
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-/**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
- */
-
-function isPolyfill(x, y) {
-  return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
-  ;
-}
-
-const is = typeof Object.is === "function" ? Object.is : isPolyfill; // Intentionally not using named imports because Rollup uses dynamic
-// dispatch for CommonJS interop named imports.
-
-const {
-  useState,
-  useEffect,
-  useLayoutEffect: useLayoutEffect$1,
-  useDebugValue
-} = React;
-let didWarnOld18Alpha = false;
-let didWarnUncachedGetSnapshot = false; // Disclaimer: This shim breaks many of the rules of React, and only works
-// because of a very particular set of implementation details and assumptions
-// -- change any one of them and it will break. The most important assumption
-// is that updates are always synchronous, because concurrent rendering is
-// only available in versions of React that also have a built-in
-// useSyncExternalStore API. And we only use this shim when the built-in API
-// does not exist.
-//
-// Do not assume that the clever hacks used by this hook also work in general.
-// The point of this shim is to replace the need for hacks by other libraries.
-
-function useSyncExternalStore$2(subscribe, getSnapshot, // Note: The shim does not use getServerSnapshot, because pre-18 versions of
-// React do not expose a way to check if we're hydrating. So users of the shim
-// will need to track that themselves and return the correct value
-// from `getSnapshot`.
-getServerSnapshot) {
-  if (process.env.NODE_ENV !== "production") {
-    if (!didWarnOld18Alpha) {
-      if ("startTransition" in React) {
-        didWarnOld18Alpha = true;
-        console.error("You are using an outdated, pre-release alpha of React 18 that " + "does not support useSyncExternalStore. The " + "use-sync-external-store shim will not work correctly. Upgrade " + "to a newer pre-release.");
-      }
-    }
-  } // Read the current snapshot from the store on every render. Again, this
-  // breaks the rules of React, and only works here because of specific
-  // implementation details, most importantly that updates are
-  // always synchronous.
-
-
-  const value = getSnapshot();
-
-  if (process.env.NODE_ENV !== "production") {
-    if (!didWarnUncachedGetSnapshot) {
-      const cachedValue = getSnapshot();
-
-      if (!is(value, cachedValue)) {
-        console.error("The result of getSnapshot should be cached to avoid an infinite loop");
-        didWarnUncachedGetSnapshot = true;
-      }
-    }
-  } // Because updates are synchronous, we don't queue them. Instead we force a
-  // re-render whenever the subscribed state changes by updating an some
-  // arbitrary useState hook. Then, during render, we call getSnapshot to read
-  // the current value.
-  //
-  // Because we don't actually use the state returned by the useState hook, we
-  // can save a bit of memory by storing other stuff in that slot.
-  //
-  // To implement the early bailout, we need to track some things on a mutable
-  // object. Usually, we would put that in a useRef hook, but we can stash it in
-  // our useState hook instead.
-  //
-  // To force a re-render, we call forceUpdate({inst}). That works because the
-  // new object always fails an equality check.
-
-
-  const [{
-    inst
-  }, forceUpdate] = useState({
-    inst: {
-      value,
-      getSnapshot
-    }
-  }); // Track the latest getSnapshot function with a ref. This needs to be updated
-  // in the layout phase so we can access it during the tearing check that
-  // happens on subscribe.
-
-  useLayoutEffect$1(() => {
-    inst.value = value;
-    inst.getSnapshot = getSnapshot; // Whenever getSnapshot or subscribe changes, we need to check in the
-    // commit phase if there was an interleaved mutation. In concurrent mode
-    // this can happen all the time, but even in synchronous mode, an earlier
-    // effect may have mutated the store.
-
-    if (checkIfSnapshotChanged(inst)) {
-      // Force a re-render.
-      forceUpdate({
-        inst
-      });
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  }, [subscribe, value, getSnapshot]);
-  useEffect(() => {
-    // Check for changes right before subscribing. Subsequent changes will be
-    // detected in the subscription handler.
-    if (checkIfSnapshotChanged(inst)) {
-      // Force a re-render.
-      forceUpdate({
-        inst
-      });
-    }
-
-    const handleStoreChange = () => {
-      // TODO: Because there is no cross-renderer API for batching updates, it's
-      // up to the consumer of this library to wrap their subscription event
-      // with unstable_batchedUpdates. Should we try to detect when this isn't
-      // the case and print a warning in development?
-      // The store changed. Check if the snapshot changed since the last time we
-      // read from the store.
-      if (checkIfSnapshotChanged(inst)) {
-        // Force a re-render.
-        forceUpdate({
-          inst
-        });
-      }
-    }; // Subscribe to the store and return a clean-up function.
-
-
-    return subscribe(handleStoreChange); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [subscribe]);
-  useDebugValue(value);
-  return value;
-}
-
-function checkIfSnapshotChanged(inst) {
-  const latestGetSnapshot = inst.getSnapshot;
-  const prevValue = inst.value;
-
-  try {
-    const nextValue = latestGetSnapshot();
-    return !is(prevValue, nextValue);
-  } catch (error) {
-    return true;
-  }
-}
-
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @flow
- */
-function useSyncExternalStore$1(subscribe, getSnapshot, getServerSnapshot) {
-  // Note: The shim does not use getServerSnapshot, because pre-18 versions of
-  // React do not expose a way to check if we're hydrating. So users of the shim
-  // will need to track that themselves and return the correct value
-  // from `getSnapshot`.
-  return getSnapshot();
-}
-
-/**
- * Inlined into the react-router repo since use-sync-external-store does not
- * provide a UMD-compatible package, so we need this to be able to distribute
- * UMD react-router bundles
- */
-const canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
-const isServerEnvironment = !canUseDOM;
-const shim$6 = isServerEnvironment ? useSyncExternalStore$1 : useSyncExternalStore$2;
-"useSyncExternalStore" in React ? (module => module.useSyncExternalStore)(React) : shim$6;
-
-const DataRouterContext = /*#__PURE__*/React.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  DataRouterContext.displayName = "DataRouter";
-}
-
-const DataRouterStateContext = /*#__PURE__*/React.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  DataRouterStateContext.displayName = "DataRouterState";
-}
-
-const AwaitContext = /*#__PURE__*/React.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  AwaitContext.displayName = "Await";
-}
-
-const NavigationContext = /*#__PURE__*/React.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  NavigationContext.displayName = "Navigation";
-}
-
-const LocationContext = /*#__PURE__*/React.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  LocationContext.displayName = "Location";
-}
-
-const RouteContext = /*#__PURE__*/React.createContext({
-  outlet: null,
-  matches: []
-});
-
-if (process.env.NODE_ENV !== "production") {
-  RouteContext.displayName = "Route";
-}
-
-const RouteErrorContext = /*#__PURE__*/React.createContext(null);
-
-if (process.env.NODE_ENV !== "production") {
-  RouteErrorContext.displayName = "RouteError";
-}
-
 function _extends$1() {
   _extends$1 = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
   return _extends$1.apply(this, arguments);
+}
+
+// Create react-specific types from the agnostic types in @remix-run/router to
+// export from react-router
+const DataRouterContext = /*#__PURE__*/React.createContext(null);
+if (process.env.NODE_ENV !== "production") {
+  DataRouterContext.displayName = "DataRouter";
+}
+const DataRouterStateContext = /*#__PURE__*/React.createContext(null);
+if (process.env.NODE_ENV !== "production") {
+  DataRouterStateContext.displayName = "DataRouterState";
+}
+const AwaitContext = /*#__PURE__*/React.createContext(null);
+if (process.env.NODE_ENV !== "production") {
+  AwaitContext.displayName = "Await";
+}
+
+/**
+ * A Navigator is a "location changer"; it's how you get to different locations.
+ *
+ * Every history instance conforms to the Navigator interface, but the
+ * distinction is useful primarily when it comes to the low-level <Router> API
+ * where both the location and a navigator must be provided separately in order
+ * to avoid "tearing" that may occur in a suspense-enabled app if the action
+ * and/or location were to be read directly from the history instance.
+ */
+
+const NavigationContext = /*#__PURE__*/React.createContext(null);
+if (process.env.NODE_ENV !== "production") {
+  NavigationContext.displayName = "Navigation";
+}
+const LocationContext = /*#__PURE__*/React.createContext(null);
+if (process.env.NODE_ENV !== "production") {
+  LocationContext.displayName = "Location";
+}
+const RouteContext = /*#__PURE__*/React.createContext({
+  outlet: null,
+  matches: [],
+  isDataRoute: false
+});
+if (process.env.NODE_ENV !== "production") {
+  RouteContext.displayName = "Route";
+}
+const RouteErrorContext = /*#__PURE__*/React.createContext(null);
+if (process.env.NODE_ENV !== "production") {
+  RouteErrorContext.displayName = "RouteError";
 }
 
 /**
@@ -13697,7 +15221,6 @@ function _extends$1() {
  *
  * @see https://reactrouter.com/hooks/use-href
  */
-
 function useHref(to, _temp) {
   let {
     relative
@@ -13716,30 +15239,31 @@ function useHref(to, _temp) {
   } = useResolvedPath(to, {
     relative
   });
-  let joinedPathname = pathname; // If we're operating within a basename, prepend it to the pathname prior
+  let joinedPathname = pathname;
+
+  // If we're operating within a basename, prepend it to the pathname prior
   // to creating the href.  If this is a root navigation, then just use the raw
   // basename which allows the basename to have full control over the presence
   // of a trailing slash on root links
-
   if (basename !== "/") {
     joinedPathname = pathname === "/" ? basename : joinPaths([basename, pathname]);
   }
-
   return navigator.createHref({
     pathname: joinedPathname,
     search,
     hash
   });
 }
+
 /**
  * Returns true if this component is a descendant of a <Router>.
  *
  * @see https://reactrouter.com/hooks/use-in-router-context
  */
-
 function useInRouterContext() {
   return React.useContext(LocationContext) != null;
 }
+
 /**
  * Returns the current location object, which represents the current URL in web
  * browsers.
@@ -13750,13 +15274,13 @@ function useInRouterContext() {
  *
  * @see https://reactrouter.com/hooks/use-location
  */
-
 function useLocation() {
   !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
   // router loaded. We can help them understand how to avoid that.
   "useLocation() may be used only in the context of a <Router> component.") : invariant(false) : void 0;
   return React.useContext(LocationContext).location;
 }
+
 /**
  * Returns a PathMatch object if the given pattern matches the current URL.
  * This is useful for components that need to know "active" state, e.g.
@@ -13764,7 +15288,6 @@ function useLocation() {
  *
  * @see https://reactrouter.com/hooks/use-match
  */
-
 function useMatch(pattern) {
   !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
   // router loaded. We can help them understand how to avoid that.
@@ -13774,9 +15297,23 @@ function useMatch(pattern) {
   } = useLocation();
   return React.useMemo(() => matchPath(pattern, pathname), [pathname, pattern]);
 }
+
 /**
  * The interface for the navigate() function returned from useNavigate().
  */
+
+const navigateEffectWarning = "You should call navigate() in a React.useEffect(), not when " + "your component is first rendered.";
+
+// Mute warnings for calls to useNavigate in SSR environments
+function useIsomorphicLayoutEffect(cb) {
+  let isStatic = React.useContext(NavigationContext).static;
+  if (!isStatic) {
+    // We should be able to get rid of this once react 18.3 is released
+    // See: https://github.com/facebook/react/pull/26395
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    React.useLayoutEffect(cb);
+  }
+}
 
 /**
  * Returns an imperative method for changing the location. Used by <Link>s, but
@@ -13785,9 +15322,18 @@ function useMatch(pattern) {
  * @see https://reactrouter.com/hooks/use-navigate
  */
 function useNavigate() {
+  let {
+    isDataRoute
+  } = React.useContext(RouteContext);
+  // Conditional usage is OK here because the usage of a data router is static
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  return isDataRoute ? useNavigateStable() : useNavigateUnstable();
+}
+function useNavigateUnstable() {
   !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
   // router loaded. We can help them understand how to avoid that.
   "useNavigate() may be used only in the context of a <Router> component.") : invariant(false) : void 0;
+  let dataRouterContext = React.useContext(DataRouterContext);
   let {
     basename,
     navigator
@@ -13800,41 +15346,43 @@ function useNavigate() {
   } = useLocation();
   let routePathnamesJson = JSON.stringify(getPathContributingMatches(matches).map(match => match.pathnameBase));
   let activeRef = React.useRef(false);
-  React.useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     activeRef.current = true;
   });
   let navigate = React.useCallback(function (to, options) {
     if (options === void 0) {
       options = {};
     }
+    process.env.NODE_ENV !== "production" ? warning$4(activeRef.current, navigateEffectWarning) : void 0;
 
-    process.env.NODE_ENV !== "production" ? warning$4(activeRef.current, "You should call navigate() in a React.useEffect(), not when " + "your component is first rendered.") : void 0;
+    // Short circuit here since if this happens on first render the navigate
+    // is useless because we haven't wired up our history listener yet
     if (!activeRef.current) return;
-
     if (typeof to === "number") {
       navigator.go(to);
       return;
     }
+    let path = resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, options.relative === "path");
 
-    let path = resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, options.relative === "path"); // If we're operating within a basename, prepend it to the pathname prior
-    // to handing off to history.  If this is a root navigation, then we
-    // navigate to the raw basename which allows the basename to have full
-    // control over the presence of a trailing slash on root links
-
-    if (basename !== "/") {
+    // If we're operating within a basename, prepend it to the pathname prior
+    // to handing off to history (but only if we're not in a data router,
+    // otherwise it'll prepend the basename inside of the router).
+    // If this is a root navigation, then we navigate to the raw basename
+    // which allows the basename to have full control over the presence of a
+    // trailing slash on root links
+    if (dataRouterContext == null && basename !== "/") {
       path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
     }
-
     (!!options.replace ? navigator.replace : navigator.push)(path, options.state, options);
-  }, [basename, navigator, routePathnamesJson, locationPathname]);
+  }, [basename, navigator, routePathnamesJson, locationPathname, dataRouterContext]);
   return navigate;
 }
+
 /**
  * Resolves the pathname of the given `to` value against the current location.
  *
  * @see https://reactrouter.com/hooks/use-resolved-path
  */
-
 function useResolvedPath(to, _temp2) {
   let {
     relative
@@ -13848,6 +15396,7 @@ function useResolvedPath(to, _temp2) {
   let routePathnamesJson = JSON.stringify(getPathContributingMatches(matches).map(match => match.pathnameBase));
   return React.useMemo(() => resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
 }
+
 /**
  * Returns the element of the route that matched the current location, prepared
  * with the correct context to render the remainder of the route tree. Route
@@ -13856,15 +15405,18 @@ function useResolvedPath(to, _temp2) {
  *
  * @see https://reactrouter.com/hooks/use-routes
  */
-
 function useRoutes(routes, locationArg) {
+  return useRoutesImpl(routes, locationArg);
+}
+
+// Internal implementation with accept optional param for RouterProvider usage
+function useRoutesImpl(routes, locationArg, dataRouterState) {
   !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
   // router loaded. We can help them understand how to avoid that.
   "useRoutes() may be used only in the context of a <Router> component.") : invariant(false) : void 0;
   let {
     navigator
   } = React.useContext(NavigationContext);
-  let dataRouterStateContext = React.useContext(DataRouterStateContext);
   let {
     matches: parentMatches
   } = React.useContext(RouteContext);
@@ -13873,7 +15425,6 @@ function useRoutes(routes, locationArg) {
   let parentPathname = routeMatch ? routeMatch.pathname : "/";
   let parentPathnameBase = routeMatch ? routeMatch.pathnameBase : "/";
   let parentRoute = routeMatch && routeMatch.route;
-
   if (process.env.NODE_ENV !== "production") {
     // You won't get a warning about 2 different <Routes> under a <Route>
     // without a trailing *, but this is a best-effort warning anyway since we
@@ -13898,42 +15449,38 @@ function useRoutes(routes, locationArg) {
     let parentPath = parentRoute && parentRoute.path || "";
     warningOnce(parentPathname, !parentRoute || parentPath.endsWith("*"), "You rendered descendant <Routes> (or called `useRoutes()`) at " + ("\"" + parentPathname + "\" (under <Route path=\"" + parentPath + "\">) but the ") + "parent route path has no trailing \"*\". This means if you navigate " + "deeper, the parent won't match anymore and therefore the child " + "routes will never render.\n\n" + ("Please change the parent <Route path=\"" + parentPath + "\"> to <Route ") + ("path=\"" + (parentPath === "/" ? "*" : parentPath + "/*") + "\">."));
   }
-
   let locationFromContext = useLocation();
   let location;
-
   if (locationArg) {
     var _parsedLocationArg$pa;
-
     let parsedLocationArg = typeof locationArg === "string" ? parsePath$1(locationArg) : locationArg;
     !(parentPathnameBase === "/" || ((_parsedLocationArg$pa = parsedLocationArg.pathname) == null ? void 0 : _parsedLocationArg$pa.startsWith(parentPathnameBase))) ? process.env.NODE_ENV !== "production" ? invariant(false, "When overriding the location using `<Routes location>` or `useRoutes(routes, location)`, " + "the location pathname must begin with the portion of the URL pathname that was " + ("matched by all parent routes. The current pathname base is \"" + parentPathnameBase + "\" ") + ("but pathname \"" + parsedLocationArg.pathname + "\" was given in the `location` prop.")) : invariant(false) : void 0;
     location = parsedLocationArg;
   } else {
     location = locationFromContext;
   }
-
   let pathname = location.pathname || "/";
   let remainingPathname = parentPathnameBase === "/" ? pathname : pathname.slice(parentPathnameBase.length) || "/";
   let matches = matchRoutes(routes, {
     pathname: remainingPathname
   });
-
   if (process.env.NODE_ENV !== "production") {
     process.env.NODE_ENV !== "production" ? warning$4(parentRoute || matches != null, "No routes matched location \"" + location.pathname + location.search + location.hash + "\" ") : void 0;
     process.env.NODE_ENV !== "production" ? warning$4(matches == null || matches[matches.length - 1].route.element !== undefined || matches[matches.length - 1].route.Component !== undefined, "Matched leaf route at location \"" + location.pathname + location.search + location.hash + "\" " + "does not have an element or Component. This means it will render an <Outlet /> with a " + "null value by default resulting in an \"empty\" page.") : void 0;
   }
-
   let renderedMatches = _renderMatches(matches && matches.map(match => Object.assign({}, match, {
     params: Object.assign({}, parentParams, match.params),
-    pathname: joinPaths([parentPathnameBase, // Re-encode pathnames that were decoded inside matchRoutes
+    pathname: joinPaths([parentPathnameBase,
+    // Re-encode pathnames that were decoded inside matchRoutes
     navigator.encodeLocation ? navigator.encodeLocation(match.pathname).pathname : match.pathname]),
-    pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([parentPathnameBase, // Re-encode pathnames that were decoded inside matchRoutes
+    pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([parentPathnameBase,
+    // Re-encode pathnames that were decoded inside matchRoutes
     navigator.encodeLocation ? navigator.encodeLocation(match.pathnameBase).pathname : match.pathnameBase])
-  })), parentMatches, dataRouterStateContext || undefined); // When a user passes in a `locationArg`, the associated routes need to
+  })), parentMatches, dataRouterState);
+
+  // When a user passes in a `locationArg`, the associated routes need to
   // be wrapped in a new `LocationContext.Provider` in order for `useLocation`
   // to use the scoped location instead of the global location.
-
-
   if (locationArg && renderedMatches) {
     return /*#__PURE__*/React.createElement(LocationContext.Provider, {
       value: {
@@ -13948,10 +15495,8 @@ function useRoutes(routes, locationArg) {
       }
     }, renderedMatches);
   }
-
   return renderedMatches;
 }
-
 function DefaultErrorComponent() {
   let error = useRouteError();
   let message = isRouteErrorResponse(error) ? error.status + " " + error.statusText : error instanceof Error ? error.message : JSON.stringify(error);
@@ -13966,15 +15511,14 @@ function DefaultErrorComponent() {
     backgroundColor: lightgrey
   };
   let devInfo = null;
-
   if (process.env.NODE_ENV !== "production") {
-    devInfo = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "\uD83D\uDCBF Hey developer \uD83D\uDC4B"), /*#__PURE__*/React.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own\xA0", /*#__PURE__*/React.createElement("code", {
+    console.error("Error handled by React Router default ErrorBoundary:", error);
+    devInfo = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "\uD83D\uDCBF Hey developer \uD83D\uDC4B"), /*#__PURE__*/React.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own ", /*#__PURE__*/React.createElement("code", {
       style: codeStyles
-    }, "ErrorBoundary"), " prop on\xA0", /*#__PURE__*/React.createElement("code", {
+    }, "ErrorBoundary"), " or", " ", /*#__PURE__*/React.createElement("code", {
       style: codeStyles
-    }, "<Route>")));
+    }, "errorElement"), " prop on your route."));
   }
-
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "Unexpected Application Error!"), /*#__PURE__*/React.createElement("h3", {
     style: {
       fontStyle: "italic"
@@ -13983,22 +15527,21 @@ function DefaultErrorComponent() {
     style: preStyles
   }, stack) : null, devInfo);
 }
-
+const defaultErrorElement = /*#__PURE__*/React.createElement(DefaultErrorComponent, null);
 class RenderErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       location: props.location,
+      revalidation: props.revalidation,
       error: props.error
     };
   }
-
   static getDerivedStateFromError(error) {
     return {
       error: error
     };
   }
-
   static getDerivedStateFromProps(props, state) {
     // When we get into an error state, the user will likely click "back" to the
     // previous page that didn't have an error. Because this wraps the entire
@@ -14008,27 +15551,27 @@ class RenderErrorBoundary extends React.Component {
     // Whether we're in an error state or not, we update the location in state
     // so that when we are in an error state, it gets reset when a new location
     // comes in and the user recovers from the error.
-    if (state.location !== props.location) {
+    if (state.location !== props.location || state.revalidation !== "idle" && props.revalidation === "idle") {
       return {
         error: props.error,
-        location: props.location
+        location: props.location,
+        revalidation: props.revalidation
       };
-    } // If we're not changing locations, preserve the location but still surface
+    }
+
+    // If we're not changing locations, preserve the location but still surface
     // any new errors that may come through. We retain the existing error, we do
     // this because the error provided from the app state may be cleared without
     // the location changing.
-
-
     return {
       error: props.error || state.error,
-      location: state.location
+      location: state.location,
+      revalidation: props.revalidation || state.revalidation
     };
   }
-
   componentDidCatch(error, errorInfo) {
     console.error("React Router caught the following error during render", error, errorInfo);
   }
-
   render() {
     return this.state.error ? /*#__PURE__*/React.createElement(RouteContext.Provider, {
       value: this.props.routeContext
@@ -14037,34 +15580,35 @@ class RenderErrorBoundary extends React.Component {
       children: this.props.component
     })) : this.props.children;
   }
-
 }
-
 function RenderedRoute(_ref) {
   let {
     routeContext,
     match,
     children
   } = _ref;
-  let dataRouterContext = React.useContext(DataRouterContext); // Track how deep we got in our render pass to emulate SSR componentDidCatch
-  // in a DataStaticRouter
+  let dataRouterContext = React.useContext(DataRouterContext);
 
+  // Track how deep we got in our render pass to emulate SSR componentDidCatch
+  // in a DataStaticRouter
   if (dataRouterContext && dataRouterContext.static && dataRouterContext.staticContext && (match.route.errorElement || match.route.ErrorBoundary)) {
     dataRouterContext.staticContext._deepestRenderedBoundaryId = match.route.id;
   }
-
   return /*#__PURE__*/React.createElement(RouteContext.Provider, {
     value: routeContext
   }, children);
 }
-
 function _renderMatches(matches, parentMatches, dataRouterState) {
+  var _dataRouterState2;
   if (parentMatches === void 0) {
     parentMatches = [];
   }
-
+  if (dataRouterState === void 0) {
+    dataRouterState = null;
+  }
   if (matches == null) {
-    if (dataRouterState != null && dataRouterState.errors) {
+    var _dataRouterState;
+    if ((_dataRouterState = dataRouterState) != null && _dataRouterState.errors) {
       // Don't bail if we have data router errors so we can render them in the
       // boundary.  Use the pre-matched (or shimmed) matches
       matches = dataRouterState.matches;
@@ -14072,79 +15616,74 @@ function _renderMatches(matches, parentMatches, dataRouterState) {
       return null;
     }
   }
+  let renderedMatches = matches;
 
-  let renderedMatches = matches; // If we have data errors, trim matches to the highest error boundary
-
-  let errors = dataRouterState == null ? void 0 : dataRouterState.errors;
-
+  // If we have data errors, trim matches to the highest error boundary
+  let errors = (_dataRouterState2 = dataRouterState) == null ? void 0 : _dataRouterState2.errors;
   if (errors != null) {
     let errorIndex = renderedMatches.findIndex(m => m.route.id && (errors == null ? void 0 : errors[m.route.id]));
-    !(errorIndex >= 0) ? process.env.NODE_ENV !== "production" ? invariant(false, "Could not find a matching route for the current errors: " + errors) : invariant(false) : void 0;
+    !(errorIndex >= 0) ? process.env.NODE_ENV !== "production" ? invariant(false, "Could not find a matching route for errors on route IDs: " + Object.keys(errors).join(",")) : invariant(false) : void 0;
     renderedMatches = renderedMatches.slice(0, Math.min(renderedMatches.length, errorIndex + 1));
   }
-
   return renderedMatches.reduceRight((outlet, match, index) => {
-    let error = match.route.id ? errors == null ? void 0 : errors[match.route.id] : null; // Only data routers handle errors
-
+    let error = match.route.id ? errors == null ? void 0 : errors[match.route.id] : null;
+    // Only data routers handle errors
     let errorElement = null;
-
     if (dataRouterState) {
-      if (match.route.ErrorBoundary) {
-        errorElement = /*#__PURE__*/React.createElement(match.route.ErrorBoundary, null);
-      } else if (match.route.errorElement) {
-        errorElement = match.route.errorElement;
-      } else {
-        errorElement = /*#__PURE__*/React.createElement(DefaultErrorComponent, null);
-      }
+      errorElement = match.route.errorElement || defaultErrorElement;
     }
-
     let matches = parentMatches.concat(renderedMatches.slice(0, index + 1));
-
     let getChildren = () => {
-      let children = outlet;
-
+      let children;
       if (error) {
         children = errorElement;
       } else if (match.route.Component) {
+        // Note: This is a de-optimized path since React won't re-use the
+        // ReactElement since it's identity changes with each new
+        // React.createElement call.  We keep this so folks can use
+        // `<Route Component={...}>` in `<Routes>` but generally `Component`
+        // usage is only advised in `RouterProvider` when we can convert it to
+        // `element` ahead of time.
         children = /*#__PURE__*/React.createElement(match.route.Component, null);
       } else if (match.route.element) {
         children = match.route.element;
+      } else {
+        children = outlet;
       }
-
       return /*#__PURE__*/React.createElement(RenderedRoute, {
         match: match,
         routeContext: {
           outlet,
-          matches
+          matches,
+          isDataRoute: dataRouterState != null
         },
         children: children
       });
-    }; // Only wrap in an error boundary within data router usages when we have an
+    };
+    // Only wrap in an error boundary within data router usages when we have an
     // ErrorBoundary/errorElement on this route.  Otherwise let it bubble up to
     // an ancestor ErrorBoundary/errorElement
-
-
     return dataRouterState && (match.route.ErrorBoundary || match.route.errorElement || index === 0) ? /*#__PURE__*/React.createElement(RenderErrorBoundary, {
       location: dataRouterState.location,
+      revalidation: dataRouterState.revalidation,
       component: errorElement,
       error: error,
       children: getChildren(),
       routeContext: {
         outlet: null,
-        matches
+        matches,
+        isDataRoute: true
       }
     }) : getChildren();
   }, null);
 }
 var DataRouterHook$1;
-
 (function (DataRouterHook) {
   DataRouterHook["UseBlocker"] = "useBlocker";
   DataRouterHook["UseRevalidator"] = "useRevalidator";
+  DataRouterHook["UseNavigateStable"] = "useNavigate";
 })(DataRouterHook$1 || (DataRouterHook$1 = {}));
-
 var DataRouterStateHook$1;
-
 (function (DataRouterStateHook) {
   DataRouterStateHook["UseBlocker"] = "useBlocker";
   DataRouterStateHook["UseLoaderData"] = "useLoaderData";
@@ -14154,60 +15693,103 @@ var DataRouterStateHook$1;
   DataRouterStateHook["UseRouteLoaderData"] = "useRouteLoaderData";
   DataRouterStateHook["UseMatches"] = "useMatches";
   DataRouterStateHook["UseRevalidator"] = "useRevalidator";
+  DataRouterStateHook["UseNavigateStable"] = "useNavigate";
+  DataRouterStateHook["UseRouteId"] = "useRouteId";
 })(DataRouterStateHook$1 || (DataRouterStateHook$1 = {}));
-
 function getDataRouterConsoleError$1(hookName) {
   return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
 }
-
+function useDataRouterContext$1(hookName) {
+  let ctx = React.useContext(DataRouterContext);
+  !ctx ? process.env.NODE_ENV !== "production" ? invariant(false, getDataRouterConsoleError$1(hookName)) : invariant(false) : void 0;
+  return ctx;
+}
 function useDataRouterState(hookName) {
   let state = React.useContext(DataRouterStateContext);
   !state ? process.env.NODE_ENV !== "production" ? invariant(false, getDataRouterConsoleError$1(hookName)) : invariant(false) : void 0;
   return state;
 }
-
 function useRouteContext(hookName) {
   let route = React.useContext(RouteContext);
   !route ? process.env.NODE_ENV !== "production" ? invariant(false, getDataRouterConsoleError$1(hookName)) : invariant(false) : void 0;
   return route;
 }
 
+// Internal version with hookName-aware debugging
 function useCurrentRouteId(hookName) {
   let route = useRouteContext(hookName);
   let thisRoute = route.matches[route.matches.length - 1];
   !thisRoute.route.id ? process.env.NODE_ENV !== "production" ? invariant(false, hookName + " can only be used on routes that contain a unique \"id\"") : invariant(false) : void 0;
   return thisRoute.route.id;
 }
+
+/**
+ * Returns the ID for the nearest contextual route
+ */
+function useRouteId() {
+  return useCurrentRouteId(DataRouterStateHook$1.UseRouteId);
+}
+
 /**
  * Returns the nearest ancestor Route error, which could be a loader/action
  * error or a render error.  This is intended to be called from your
  * ErrorBoundary/errorElement to display a proper error message.
  */
-
 function useRouteError() {
   var _state$errors;
-
   let error = React.useContext(RouteErrorContext);
   let state = useDataRouterState(DataRouterStateHook$1.UseRouteError);
-  let routeId = useCurrentRouteId(DataRouterStateHook$1.UseRouteError); // If this was a render error, we put it in a RouteError context inside
-  // of RenderErrorBoundary
+  let routeId = useCurrentRouteId(DataRouterStateHook$1.UseRouteError);
 
+  // If this was a render error, we put it in a RouteError context inside
+  // of RenderErrorBoundary
   if (error) {
     return error;
-  } // Otherwise look for errors from our data router state
+  }
 
-
+  // Otherwise look for errors from our data router state
   return (_state$errors = state.errors) == null ? void 0 : _state$errors[routeId];
 }
-const alreadyWarned = {};
 
+/**
+ * Stable version of useNavigate that is used when we are in the context of
+ * a RouterProvider.
+ */
+function useNavigateStable() {
+  let {
+    router
+  } = useDataRouterContext$1(DataRouterHook$1.UseNavigateStable);
+  let id = useCurrentRouteId(DataRouterStateHook$1.UseNavigateStable);
+  let activeRef = React.useRef(false);
+  useIsomorphicLayoutEffect(() => {
+    activeRef.current = true;
+  });
+  let navigate = React.useCallback(function (to, options) {
+    if (options === void 0) {
+      options = {};
+    }
+    process.env.NODE_ENV !== "production" ? warning$4(activeRef.current, navigateEffectWarning) : void 0;
+
+    // Short circuit here since if this happens on first render the navigate
+    // is useless because we haven't wired up our router subscriber yet
+    if (!activeRef.current) return;
+    if (typeof to === "number") {
+      router.navigate(to);
+    } else {
+      router.navigate(to, _extends$1({
+        fromRouteId: id
+      }, options));
+    }
+  }, [router, id]);
+  return navigate;
+}
+const alreadyWarned = {};
 function warningOnce(key, cond, message) {
   if (!cond && !alreadyWarned[key]) {
     alreadyWarned[key] = true;
     process.env.NODE_ENV !== "production" ? warning$4(false, message) : void 0;
   }
 }
-
 /**
  * Changes the current location.
  *
@@ -14217,36 +15799,36 @@ function warningOnce(key, cond, message) {
  *
  * @see https://reactrouter.com/components/navigate
  */
-function Navigate(_ref3) {
+function Navigate(_ref4) {
   let {
     to,
     replace,
     state,
     relative
-  } = _ref3;
+  } = _ref4;
   !useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of
   // the router loaded. We can help them understand how to avoid that.
   "<Navigate> may be used only in the context of a <Router> component.") : invariant(false) : void 0;
   process.env.NODE_ENV !== "production" ? warning$4(!React.useContext(NavigationContext).static, "<Navigate> must not be used on the initial render in a <StaticRouter>. " + "This is a no-op, but you should modify your code so the <Navigate> is " + "only ever rendered in response to some user interaction or state change.") : void 0;
-  let dataRouterState = React.useContext(DataRouterStateContext);
+  let {
+    matches
+  } = React.useContext(RouteContext);
+  let {
+    pathname: locationPathname
+  } = useLocation();
   let navigate = useNavigate();
-  React.useEffect(() => {
-    // Avoid kicking off multiple navigations if we're in the middle of a
-    // data-router navigation, since components get re-rendered when we enter
-    // a submitting/loading state
-    if (dataRouterState && dataRouterState.navigation.state !== "idle") {
-      return;
-    }
 
-    navigate(to, {
-      replace,
-      state,
-      relative
-    });
-  });
+  // Resolve the path outside of the effect so that when effects run twice in
+  // StrictMode they navigate to the same place
+  let path = resolveTo(to, getPathContributingMatches(matches).map(match => match.pathnameBase), locationPathname, relative === "path");
+  let jsonPath = JSON.stringify(path);
+  React.useEffect(() => navigate(JSON.parse(jsonPath), {
+    replace,
+    state,
+    relative
+  }), [navigate, jsonPath, relative, replace, state]);
   return null;
 }
-
 /**
  * Declares an element that should be rendered at a certain URL path.
  *
@@ -14255,7 +15837,6 @@ function Navigate(_ref3) {
 function Route(_props) {
   process.env.NODE_ENV !== "production" ? invariant(false, "A <Route> is only ever to be used as the child of <Routes> element, " + "never rendered directly. Please wrap your <Route> in a <Routes>.") : invariant(false) ;
 }
-
 /**
  * Provides location context for the rest of the app.
  *
@@ -14265,7 +15846,7 @@ function Route(_props) {
  *
  * @see https://reactrouter.com/router-components/router
  */
-function Router(_ref4) {
+function Router(_ref5) {
   let {
     basename: basenameProp = "/",
     children = null,
@@ -14273,21 +15854,20 @@ function Router(_ref4) {
     navigationType = Action$1.Pop,
     navigator,
     static: staticProp = false
-  } = _ref4;
-  !!useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, "You cannot render a <Router> inside another <Router>." + " You should never have more than one in your app.") : invariant(false) : void 0; // Preserve trailing slashes on basename, so we can let the user control
-  // the enforcement of trailing slashes throughout the app
+  } = _ref5;
+  !!useInRouterContext() ? process.env.NODE_ENV !== "production" ? invariant(false, "You cannot render a <Router> inside another <Router>." + " You should never have more than one in your app.") : invariant(false) : void 0;
 
+  // Preserve trailing slashes on basename, so we can let the user control
+  // the enforcement of trailing slashes throughout the app
   let basename = basenameProp.replace(/^\/*/, "/");
   let navigationContext = React.useMemo(() => ({
     basename,
     navigator,
     static: staticProp
   }), [basename, navigator, staticProp]);
-
   if (typeof locationProp === "string") {
     locationProp = parsePath$1(locationProp);
   }
-
   let {
     pathname = "/",
     search = "",
@@ -14297,11 +15877,9 @@ function Router(_ref4) {
   } = locationProp;
   let locationContext = React.useMemo(() => {
     let trailingPathname = stripBasename(pathname, basename);
-
     if (trailingPathname == null) {
       return null;
     }
-
     return {
       location: {
         pathname: trailingPathname,
@@ -14314,11 +15892,9 @@ function Router(_ref4) {
     };
   }, [basename, pathname, search, hash, state, key, navigationType]);
   process.env.NODE_ENV !== "production" ? warning$4(locationContext != null, "<Router basename=\"" + basename + "\"> is not able to match the URL " + ("\"" + pathname + search + hash + "\" because it does not start with the ") + "basename, so the <Router> won't render anything.") : void 0;
-
   if (locationContext == null) {
     return null;
   }
-
   return /*#__PURE__*/React.createElement(NavigationContext.Provider, {
     value: navigationContext
   }, /*#__PURE__*/React.createElement(LocationContext.Provider, {
@@ -14326,34 +15902,28 @@ function Router(_ref4) {
     value: locationContext
   }));
 }
-
 /**
  * A container for a nested tree of <Route> elements that renders the branch
  * that best matches the current location.
  *
  * @see https://reactrouter.com/components/routes
  */
-function Routes(_ref5) {
+function Routes(_ref6) {
   let {
     children,
     location
-  } = _ref5;
-  let dataRouterContext = React.useContext(DataRouterContext); // When in a DataRouterContext _without_ children, we use the router routes
-  // directly.  If we have children, then we're in a descendant tree and we
-  // need to use child routes.
-
-  let routes = dataRouterContext && !children ? dataRouterContext.router.routes : createRoutesFromChildren(children);
-  return useRoutes(routes, location);
+  } = _ref6;
+  return useRoutes(createRoutesFromChildren(children), location);
 }
 var AwaitRenderStatus;
-
 (function (AwaitRenderStatus) {
   AwaitRenderStatus[AwaitRenderStatus["pending"] = 0] = "pending";
   AwaitRenderStatus[AwaitRenderStatus["success"] = 1] = "success";
   AwaitRenderStatus[AwaitRenderStatus["error"] = 2] = "error";
 })(AwaitRenderStatus || (AwaitRenderStatus = {}));
-
 new Promise(() => {});
+
+///////////////////////////////////////////////////////////////////////////////
 // UTILS
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -14364,13 +15934,10 @@ new Promise(() => {});
  *
  * @see https://reactrouter.com/utils/create-routes-from-children
  */
-
-
 function createRoutesFromChildren(children, parentPath) {
   if (parentPath === void 0) {
     parentPath = [];
   }
-
   let routes = [];
   React.Children.forEach(children, (element, index) => {
     if (! /*#__PURE__*/React.isValidElement(element)) {
@@ -14378,15 +15945,12 @@ function createRoutesFromChildren(children, parentPath) {
       // conditionals in their route config.
       return;
     }
-
     let treePath = [...parentPath, index];
-
     if (element.type === React.Fragment) {
       // Transparently support React.Fragment and its children.
       routes.push.apply(routes, createRoutesFromChildren(element.props.children, treePath));
       return;
     }
-
     !(element.type === Route) ? process.env.NODE_ENV !== "production" ? invariant(false, "[" + (typeof element.type === "string" ? element.type : element.type.name) + "] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>") : invariant(false) : void 0;
     !(!element.props.index || !element.props.children) ? process.env.NODE_ENV !== "production" ? invariant(false, "An index route cannot have child routes.") : invariant(false) : void 0;
     let route = {
@@ -14405,18 +15969,16 @@ function createRoutesFromChildren(children, parentPath) {
       handle: element.props.handle,
       lazy: element.props.lazy
     };
-
     if (element.props.children) {
       route.children = createRoutesFromChildren(element.props.children, treePath);
     }
-
     routes.push(route);
   });
   return routes;
 }
 
 /**
- * React Router DOM v6.10.0
+ * React Router DOM v6.14.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -14430,31 +15992,26 @@ function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
   return _extends.apply(this, arguments);
 }
-
 function _objectWithoutPropertiesLoose$1(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
-
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
     if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
-
   return target;
 }
 
@@ -14472,137 +16029,159 @@ function isFormElement(object) {
 function isInputElement(object) {
   return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
 }
-
 function isModifiedEvent(event) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
-
 function shouldProcessLinkClick(event, target) {
-  return event.button === 0 && ( // Ignore everything but left clicks
-  !target || target === "_self") && // Let browser handle "target=_blank" etc.
+  return event.button === 0 && (
+  // Ignore everything but left clicks
+  !target || target === "_self") &&
+  // Let browser handle "target=_blank" etc.
   !isModifiedEvent(event) // Ignore clicks with modifier keys
   ;
 }
-function getFormSubmissionInfo(target, defaultAction, options) {
+// One-time check for submitter support
+let _formDataSupportsSubmitter = null;
+function isFormDataSubmitterSupported() {
+  if (_formDataSupportsSubmitter === null) {
+    try {
+      new FormData(document.createElement("form"),
+      // @ts-expect-error if FormData supports the submitter parameter, this will throw
+      0);
+      _formDataSupportsSubmitter = false;
+    } catch (e) {
+      _formDataSupportsSubmitter = true;
+    }
+  }
+  return _formDataSupportsSubmitter;
+}
+const supportedFormEncTypes = new Set(["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]);
+function getFormEncType(encType) {
+  if (encType != null && !supportedFormEncTypes.has(encType)) {
+    process.env.NODE_ENV !== "production" ? warning$4(false, "\"" + encType + "\" is not a valid `encType` for `<Form>`/`<fetcher.Form>` " + ("and will default to \"" + defaultEncType + "\"")) : void 0;
+    return null;
+  }
+  return encType;
+}
+function getFormSubmissionInfo(target, basename) {
   let method;
   let action;
   let encType;
   let formData;
-
+  let body;
   if (isFormElement(target)) {
-    let submissionTrigger = options.submissionTrigger;
-    method = options.method || target.getAttribute("method") || defaultMethod;
-    action = options.action || target.getAttribute("action") || defaultAction;
-    encType = options.encType || target.getAttribute("enctype") || defaultEncType;
+    // When grabbing the action from the element, it will have had the basename
+    // prefixed to ensure non-JS scenarios work, so strip it since we'll
+    // re-prefix in the router
+    let attr = target.getAttribute("action");
+    action = attr ? stripBasename(attr, basename) : null;
+    method = target.getAttribute("method") || defaultMethod;
+    encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType;
     formData = new FormData(target);
-
-    if (submissionTrigger && submissionTrigger.name) {
-      formData.append(submissionTrigger.name, submissionTrigger.value);
-    }
   } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
     let form = target.form;
-
     if (form == null) {
       throw new Error("Cannot submit a <button> or <input type=\"submit\"> without a <form>");
-    } // <button>/<input type="submit"> may override attributes of <form>
-
-
-    method = options.method || target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
-    action = options.action || target.getAttribute("formaction") || form.getAttribute("action") || defaultAction;
-    encType = options.encType || target.getAttribute("formenctype") || form.getAttribute("enctype") || defaultEncType;
-    formData = new FormData(form); // Include name + value from a <button>, appending in case the button name
-    // matches an existing input name
-
-    if (target.name) {
-      formData.append(target.name, target.value);
+    }
+    // <button>/<input type="submit"> may override attributes of <form>
+    // When grabbing the action from the element, it will have had the basename
+    // prefixed to ensure non-JS scenarios work, so strip it since we'll
+    // re-prefix in the router
+    let attr = target.getAttribute("formaction") || form.getAttribute("action");
+    action = attr ? stripBasename(attr, basename) : null;
+    method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
+    encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType;
+    // Build a FormData object populated from a form and submitter
+    formData = new FormData(form, target);
+    // If this browser doesn't support the `FormData(el, submitter)` format,
+    // then tack on the submitter value at the end.  This is a lightweight
+    // solution that is not 100% spec compliant.  For complete support in older
+    // browsers, consider using the `formdata-submitter-polyfill` package
+    if (!isFormDataSubmitterSupported()) {
+      let {
+        name,
+        type,
+        value
+      } = target;
+      if (type === "image") {
+        let prefix = name ? name + "." : "";
+        formData.append(prefix + "x", "0");
+        formData.append(prefix + "y", "0");
+      } else if (name) {
+        formData.append(name, value);
+      }
     }
   } else if (isHtmlElement(target)) {
     throw new Error("Cannot submit element that is not <form>, <button>, or " + "<input type=\"submit|image\">");
   } else {
-    method = options.method || defaultMethod;
-    action = options.action || defaultAction;
-    encType = options.encType || defaultEncType;
-
-    if (target instanceof FormData) {
-      formData = target;
-    } else {
-      formData = new FormData();
-
-      if (target instanceof URLSearchParams) {
-        for (let [name, value] of target) {
-          formData.append(name, value);
-        }
-      } else if (target != null) {
-        for (let name of Object.keys(target)) {
-          formData.append(name, target[name]);
-        }
-      }
-    }
+    method = defaultMethod;
+    action = null;
+    encType = defaultEncType;
+    body = target;
   }
-
-  let {
-    protocol,
-    host
-  } = window.location;
-  let url = new URL(action, protocol + "//" + host);
+  // Send body for <Form encType="text/plain" so we encode it into text
+  if (formData && encType === "text/plain") {
+    body = formData;
+    formData = undefined;
+  }
   return {
-    url,
+    action,
     method: method.toLowerCase(),
     encType,
-    formData
+    formData,
+    body
   };
 }
 
-const _excluded$10 = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset"],
-      _excluded2$6 = ["aria-current", "caseSensitive", "className", "end", "style", "to", "children"],
-      _excluded3$1 = ["reloadDocument", "replace", "method", "action", "onSubmit", "fetcherKey", "routeId", "relative", "preventScrollReset"];
-
+const _excluded$11 = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset"],
+  _excluded2$5 = ["aria-current", "caseSensitive", "className", "end", "style", "to", "children"],
+  _excluded3$1 = ["reloadDocument", "replace", "method", "action", "onSubmit", "submit", "relative", "preventScrollReset"];
 if (process.env.NODE_ENV !== "production") ;
 const isBrowser$6 = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
 const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
 /**
  * The public API for rendering a history-aware <a>.
  */
-
 const Link = /*#__PURE__*/React.forwardRef(function LinkWithRef(_ref4, ref) {
   let {
-    onClick,
-    relative,
-    reloadDocument,
-    replace,
-    state,
-    target,
-    to,
-    preventScrollReset
-  } = _ref4,
-      rest = _objectWithoutPropertiesLoose$1(_ref4, _excluded$10);
-
+      onClick,
+      relative,
+      reloadDocument,
+      replace,
+      state,
+      target,
+      to,
+      preventScrollReset
+    } = _ref4,
+    rest = _objectWithoutPropertiesLoose$1(_ref4, _excluded$11);
   let {
     basename
-  } = React.useContext(NavigationContext); // Rendered into <a href> for absolute URLs
-
+  } = React.useContext(NavigationContext);
+  // Rendered into <a href> for absolute URLs
   let absoluteHref;
   let isExternal = false;
-
   if (typeof to === "string" && ABSOLUTE_URL_REGEX.test(to)) {
     // Render the absolute href server- and client-side
-    absoluteHref = to; // Only check for external origins client-side
-
+    absoluteHref = to;
+    // Only check for external origins client-side
     if (isBrowser$6) {
-      let currentUrl = new URL(window.location.href);
-      let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
-      let path = stripBasename(targetUrl.pathname, basename);
-
-      if (targetUrl.origin === currentUrl.origin && path != null) {
-        // Strip the protocol/origin/basename for same-origin absolute URLs
-        to = path + targetUrl.search + targetUrl.hash;
-      } else {
-        isExternal = true;
+      try {
+        let currentUrl = new URL(window.location.href);
+        let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
+        let path = stripBasename(targetUrl.pathname, basename);
+        if (targetUrl.origin === currentUrl.origin && path != null) {
+          // Strip the protocol/origin/basename for same-origin absolute URLs
+          to = path + targetUrl.search + targetUrl.hash;
+        } else {
+          isExternal = true;
+        }
+      } catch (e) {
+        // We can't do external URL detection without a valid URL
+        process.env.NODE_ENV !== "production" ? warning$4(false, "<Link to=\"" + to + "\"> contains an invalid URL which will probably break " + "when clicked - please update to a valid URL path.") : void 0;
       }
     }
-  } // Rendered into <a href> for relative URLs
-
-
+  }
+  // Rendered into <a href> for relative URLs
   let href = useHref(to, {
     relative
   });
@@ -14613,15 +16192,12 @@ const Link = /*#__PURE__*/React.forwardRef(function LinkWithRef(_ref4, ref) {
     preventScrollReset,
     relative
   });
-
   function handleClick(event) {
     if (onClick) onClick(event);
-
     if (!event.defaultPrevented) {
       internalOnClick(event);
     }
   }
-
   return (
     /*#__PURE__*/
     // eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -14633,27 +16209,23 @@ const Link = /*#__PURE__*/React.forwardRef(function LinkWithRef(_ref4, ref) {
     }))
   );
 });
-
 if (process.env.NODE_ENV !== "production") {
   Link.displayName = "Link";
 }
 /**
  * A <Link> wrapper that knows if it's "active" or not.
  */
-
-
 const NavLink = /*#__PURE__*/React.forwardRef(function NavLinkWithRef(_ref5, ref) {
   let {
-    "aria-current": ariaCurrentProp = "page",
-    caseSensitive = false,
-    className: classNameProp = "",
-    end = false,
-    style: styleProp,
-    to,
-    children
-  } = _ref5,
-      rest = _objectWithoutPropertiesLoose$1(_ref5, _excluded2$6);
-
+      "aria-current": ariaCurrentProp = "page",
+      caseSensitive = false,
+      className: classNameProp = "",
+      end = false,
+      style: styleProp,
+      to,
+      children
+    } = _ref5,
+    rest = _objectWithoutPropertiesLoose$1(_ref5, _excluded2$5);
   let path = useResolvedPath(to, {
     relative: rest.relative
   });
@@ -14665,18 +16237,15 @@ const NavLink = /*#__PURE__*/React.forwardRef(function NavLinkWithRef(_ref5, ref
   let toPathname = navigator.encodeLocation ? navigator.encodeLocation(path).pathname : path.pathname;
   let locationPathname = location.pathname;
   let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
-
   if (!caseSensitive) {
     locationPathname = locationPathname.toLowerCase();
     nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
     toPathname = toPathname.toLowerCase();
   }
-
   let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/";
   let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
   let ariaCurrent = isActive ? ariaCurrentProp : undefined;
   let className;
-
   if (typeof classNameProp === "function") {
     className = classNameProp({
       isActive,
@@ -14690,7 +16259,6 @@ const NavLink = /*#__PURE__*/React.forwardRef(function NavLinkWithRef(_ref5, ref
     // simple styling rules working as they currently do.
     className = [classNameProp, isActive ? "active" : null, isPending ? "pending" : null].filter(Boolean).join(" ");
   }
-
   let style = typeof styleProp === "function" ? styleProp({
     isActive,
     isPending
@@ -14706,7 +16274,6 @@ const NavLink = /*#__PURE__*/React.forwardRef(function NavLinkWithRef(_ref5, ref
     isPending
   }) : children);
 });
-
 if (process.env.NODE_ENV !== "production") {
   NavLink.displayName = "NavLink";
 }
@@ -14716,38 +16283,32 @@ if (process.env.NODE_ENV !== "production") {
  * requests, allowing components to add nicer UX to the page as the form is
  * submitted and returns with data.
  */
-
-
 const Form$1 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  let submit = useSubmit();
   return /*#__PURE__*/React.createElement(FormImpl, _extends({}, props, {
+    submit: submit,
     ref: ref
   }));
 });
-
 if (process.env.NODE_ENV !== "production") {
   Form$1.displayName = "Form";
 }
-
 const FormImpl = /*#__PURE__*/React.forwardRef((_ref6, forwardedRef) => {
   let {
-    reloadDocument,
-    replace,
-    method = defaultMethod,
-    action,
-    onSubmit,
-    fetcherKey,
-    routeId,
-    relative,
-    preventScrollReset
-  } = _ref6,
-      props = _objectWithoutPropertiesLoose$1(_ref6, _excluded3$1);
-
-  let submit = useSubmitImpl(fetcherKey, routeId);
+      reloadDocument,
+      replace,
+      method = defaultMethod,
+      action,
+      onSubmit,
+      submit,
+      relative,
+      preventScrollReset
+    } = _ref6,
+    props = _objectWithoutPropertiesLoose$1(_ref6, _excluded3$1);
   let formMethod = method.toLowerCase() === "get" ? "get" : "post";
   let formAction = useFormAction(action, {
     relative
   });
-
   let submitHandler = event => {
     onSubmit && onSubmit(event);
     if (event.defaultPrevented) return;
@@ -14761,7 +16322,6 @@ const FormImpl = /*#__PURE__*/React.forwardRef((_ref6, forwardedRef) => {
       preventScrollReset
     });
   };
-
   return /*#__PURE__*/React.createElement("form", _extends({
     ref: forwardedRef,
     method: formMethod,
@@ -14769,36 +16329,29 @@ const FormImpl = /*#__PURE__*/React.forwardRef((_ref6, forwardedRef) => {
     onSubmit: reloadDocument ? onSubmit : submitHandler
   }, props));
 });
-
 if (process.env.NODE_ENV !== "production") {
   FormImpl.displayName = "FormImpl";
 }
-
-if (process.env.NODE_ENV !== "production") ; //#endregion
+if (process.env.NODE_ENV !== "production") ;
+//#endregion
 ////////////////////////////////////////////////////////////////////////////////
 //#region Hooks
 ////////////////////////////////////////////////////////////////////////////////
-
-
 var DataRouterHook;
-
 (function (DataRouterHook) {
   DataRouterHook["UseScrollRestoration"] = "useScrollRestoration";
-  DataRouterHook["UseSubmitImpl"] = "useSubmitImpl";
+  DataRouterHook["UseSubmit"] = "useSubmit";
+  DataRouterHook["UseSubmitFetcher"] = "useSubmitFetcher";
   DataRouterHook["UseFetcher"] = "useFetcher";
 })(DataRouterHook || (DataRouterHook = {}));
-
 var DataRouterStateHook;
-
 (function (DataRouterStateHook) {
   DataRouterStateHook["UseFetchers"] = "useFetchers";
   DataRouterStateHook["UseScrollRestoration"] = "useScrollRestoration";
 })(DataRouterStateHook || (DataRouterStateHook = {}));
-
 function getDataRouterConsoleError(hookName) {
   return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
 }
-
 function useDataRouterContext(hookName) {
   let ctx = React.useContext(DataRouterContext);
   !ctx ? process.env.NODE_ENV !== "production" ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
@@ -14809,8 +16362,6 @@ function useDataRouterContext(hookName) {
  * you need to create custom `<Link>` components with the same click behavior we
  * use in our exported `<Link>`.
  */
-
-
 function useLinkClickHandler(to, _temp) {
   let {
     target,
@@ -14826,9 +16377,9 @@ function useLinkClickHandler(to, _temp) {
   });
   return React.useCallback(event => {
     if (shouldProcessLinkClick(event, target)) {
-      event.preventDefault(); // If the URL hasn't changed, a regular <a> will do a replace instead of
+      event.preventDefault();
+      // If the URL hasn't changed, a regular <a> will do a replace instead of
       // a push, so do the same here unless the replace prop is explicitly set
-
       let replace = replaceProp !== undefined ? replaceProp : createPath$1(location) === createPath$1(path);
       navigate(to, {
         replace,
@@ -14839,45 +16390,48 @@ function useLinkClickHandler(to, _temp) {
     }
   }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
 }
-
-function useSubmitImpl(fetcherKey, routeId) {
+function validateClientSideSubmission() {
+  if (typeof document === "undefined") {
+    throw new Error("You are calling submit during the server render. " + "Try calling submit within a `useEffect` or callback instead.");
+  }
+}
+/**
+ * Returns a function that may be used to programmatically submit a form (or
+ * some arbitrary data) to the server.
+ */
+function useSubmit() {
   let {
     router
-  } = useDataRouterContext(DataRouterHook.UseSubmitImpl);
-  let defaultAction = useFormAction();
+  } = useDataRouterContext(DataRouterHook.UseSubmit);
+  let {
+    basename
+  } = React.useContext(NavigationContext);
+  let currentRouteId = useRouteId();
   return React.useCallback(function (target, options) {
     if (options === void 0) {
       options = {};
     }
-
-    if (typeof document === "undefined") {
-      throw new Error("You are calling submit during the server render. " + "Try calling submit within a `useEffect` or callback instead.");
-    }
-
+    validateClientSideSubmission();
     let {
+      action,
       method,
       encType,
       formData,
-      url
-    } = getFormSubmissionInfo(target, defaultAction, options);
-    let href = url.pathname + url.search;
-    let opts = {
-      replace: options.replace,
+      body
+    } = getFormSubmissionInfo(target, basename);
+    router.navigate(options.action || action, {
       preventScrollReset: options.preventScrollReset,
       formData,
-      formMethod: method,
-      formEncType: encType
-    };
-
-    if (fetcherKey) {
-      !(routeId != null) ? process.env.NODE_ENV !== "production" ? invariant(false, "No routeId available for useFetcher()") : invariant(false) : void 0;
-      router.fetch(fetcherKey, routeId, href, opts);
-    } else {
-      router.navigate(href, opts);
-    }
-  }, [defaultAction, router, fetcherKey, routeId]);
+      body,
+      formMethod: options.method || method,
+      formEncType: options.encType || encType,
+      replace: options.replace,
+      fromRouteId: currentRouteId
+    });
+  }, [router, basename, currentRouteId]);
 }
-
+// v7: Eventually we should deprecate this entirely in favor of using the
+// router method directly?
 function useFormAction(action, _temp2) {
   let {
     relative
@@ -14887,48 +16441,43 @@ function useFormAction(action, _temp2) {
   } = React.useContext(NavigationContext);
   let routeContext = React.useContext(RouteContext);
   !routeContext ? process.env.NODE_ENV !== "production" ? invariant(false, "useFormAction must be used inside a RouteContext") : invariant(false) : void 0;
-  let [match] = routeContext.matches.slice(-1); // Shallow clone path so we can modify it below, otherwise we modify the
+  let [match] = routeContext.matches.slice(-1);
+  // Shallow clone path so we can modify it below, otherwise we modify the
   // object referenced by useMemo inside useResolvedPath
-
   let path = _extends({}, useResolvedPath(action ? action : ".", {
     relative
-  })); // Previously we set the default action to ".". The problem with this is that
+  }));
+  // Previously we set the default action to ".". The problem with this is that
   // `useResolvedPath(".")` excludes search params and the hash of the resolved
   // URL. This is the intended behavior of when "." is specifically provided as
   // the form action, but inconsistent w/ browsers when the action is omitted.
   // https://github.com/remix-run/remix/issues/927
-
-
   let location = useLocation();
-
   if (action == null) {
     // Safe to write to these directly here since if action was undefined, we
     // would have called useResolvedPath(".") which will never include a search
     // or hash
     path.search = location.search;
-    path.hash = location.hash; // When grabbing search params from the URL, remove the automatically
+    path.hash = location.hash;
+    // When grabbing search params from the URL, remove the automatically
     // inserted ?index param so we match the useResolvedPath search behavior
     // which would not include ?index
-
     if (match.route.index) {
       let params = new URLSearchParams(path.search);
       params.delete("index");
       path.search = params.toString() ? "?" + params.toString() : "";
     }
   }
-
   if ((!action || action === ".") && match.route.index) {
     path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
-  } // If we're operating within a basename, prepend it to the pathname prior
+  }
+  // If we're operating within a basename, prepend it to the pathname prior
   // to creating the form action.  If this is a root navigation, then just use
   // the raw basename which allows the basename to have full control over the
   // presence of a trailing slash on root actions
-
-
   if (basename !== "/") {
     path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
   }
-
   return createPath$1(path);
 }
 
@@ -15130,105 +16679,11 @@ var getStorage = function () {
     return localStorageAvailable ? window.localStorage : memoryStorage;
 };
 
-var getNative = _getNative;
-
-var defineProperty$3 = (function() {
-  try {
-    var func = getNative(Object, 'defineProperty');
-    func({}, '', {});
-    return func;
-  } catch (e) {}
-}());
-
-var _defineProperty = defineProperty$3;
-
-var defineProperty$2 = _defineProperty;
-
-/**
- * The base implementation of `assignValue` and `assignMergeValue` without
- * value checks.
- *
- * @private
- * @param {Object} object The object to modify.
- * @param {string} key The key of the property to assign.
- * @param {*} value The value to assign.
- */
-function baseAssignValue$3(object, key, value) {
-  if (key == '__proto__' && defineProperty$2) {
-    defineProperty$2(object, key, {
-      'configurable': true,
-      'enumerable': true,
-      'value': value,
-      'writable': true
-    });
-  } else {
-    object[key] = value;
-  }
-}
-
-var _baseAssignValue = baseAssignValue$3;
-
-var baseAssignValue$2 = _baseAssignValue,
-    eq$3 = eq_1;
-
-/** Used for built-in method references. */
-var objectProto$6 = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty$6 = objectProto$6.hasOwnProperty;
-
-/**
- * Assigns `value` to `key` of `object` if the existing value is not equivalent
- * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
- * for equality comparisons.
- *
- * @private
- * @param {Object} object The object to modify.
- * @param {string} key The key of the property to assign.
- * @param {*} value The value to assign.
- */
-function assignValue$2(object, key, value) {
-  var objValue = object[key];
-  if (!(hasOwnProperty$6.call(object, key) && eq$3(objValue, value)) ||
-      (value === undefined && !(key in object))) {
-    baseAssignValue$2(object, key, value);
-  }
-}
-
-var _assignValue = assignValue$2;
-
-/** Used as references for various `Number` constants. */
-
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^(?:0|[1-9]\d*)$/;
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex$3(value, length) {
-  var type = typeof value;
-  length = length == null ? MAX_SAFE_INTEGER : length;
-
-  return !!length &&
-    (type == 'number' ||
-      (type != 'symbol' && reIsUint.test(value))) &&
-        (value > -1 && value % 1 == 0 && value < length);
-}
-
-var _isIndex = isIndex$3;
-
-var assignValue$1 = _assignValue,
-    castPath$1 = _castPath,
-    isIndex$2 = _isIndex,
-    isObject$6 = isObject_1,
-    toKey$1 = _toKey;
+var assignValue = _assignValue,
+    castPath = _castPath,
+    isIndex$1 = _isIndex,
+    isObject$4 = isObject_1,
+    toKey = _toKey;
 
 /**
  * The base implementation of `_.set`.
@@ -15241,10 +16696,10 @@ var assignValue$1 = _assignValue,
  * @returns {Object} Returns `object`.
  */
 function baseSet$1(object, path, value, customizer) {
-  if (!isObject$6(object)) {
+  if (!isObject$4(object)) {
     return object;
   }
-  path = castPath$1(path, object);
+  path = castPath(path, object);
 
   var index = -1,
       length = path.length,
@@ -15252,7 +16707,7 @@ function baseSet$1(object, path, value, customizer) {
       nested = object;
 
   while (nested != null && ++index < length) {
-    var key = toKey$1(path[index]),
+    var key = toKey(path[index]),
         newValue = value;
 
     if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
@@ -15263,12 +16718,12 @@ function baseSet$1(object, path, value, customizer) {
       var objValue = nested[key];
       newValue = customizer ? customizer(objValue, key, nested) : undefined;
       if (newValue === undefined) {
-        newValue = isObject$6(objValue)
+        newValue = isObject$4(objValue)
           ? objValue
-          : (isIndex$2(path[index + 1]) ? [] : {});
+          : (isIndex$1(path[index + 1]) ? [] : {});
       }
     }
-    assignValue$1(nested, key, newValue);
+    assignValue(nested, key, newValue);
     nested = nested[key];
   }
   return object;
@@ -15312,98 +16767,7 @@ function set$1(object, path, value) {
 
 var set_1 = set$1;
 
-/**
- * Gets the last element of `array`.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Array
- * @param {Array} array The array to query.
- * @returns {*} Returns the last element of `array`.
- * @example
- *
- * _.last([1, 2, 3]);
- * // => 3
- */
-
-function last$1(array) {
-  var length = array == null ? 0 : array.length;
-  return length ? array[length - 1] : undefined;
-}
-
-var last_1 = last$1;
-
-/**
- * The base implementation of `_.slice` without an iteratee call guard.
- *
- * @private
- * @param {Array} array The array to slice.
- * @param {number} [start=0] The start position.
- * @param {number} [end=array.length] The end position.
- * @returns {Array} Returns the slice of `array`.
- */
-
-function baseSlice$1(array, start, end) {
-  var index = -1,
-      length = array.length;
-
-  if (start < 0) {
-    start = -start > length ? 0 : (length + start);
-  }
-  end = end > length ? length : end;
-  if (end < 0) {
-    end += length;
-  }
-  length = start > end ? 0 : ((end - start) >>> 0);
-  start >>>= 0;
-
-  var result = Array(length);
-  while (++index < length) {
-    result[index] = array[index + start];
-  }
-  return result;
-}
-
-var _baseSlice = baseSlice$1;
-
-var baseGet$1 = _baseGet,
-    baseSlice = _baseSlice;
-
-/**
- * Gets the parent value at `path` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Array} path The path to get the parent value of.
- * @returns {*} Returns the parent value.
- */
-function parent$1(object, path) {
-  return path.length < 2 ? object : baseGet$1(object, baseSlice(path, 0, -1));
-}
-
-var _parent = parent$1;
-
-var castPath = _castPath,
-    last = last_1,
-    parent = _parent,
-    toKey = _toKey;
-
-/**
- * The base implementation of `_.unset`.
- *
- * @private
- * @param {Object} object The object to modify.
- * @param {Array|string} path The property path to unset.
- * @returns {boolean} Returns `true` if the property is deleted, else `false`.
- */
-function baseUnset$1(object, path) {
-  path = castPath(path, object);
-  object = parent(object, path);
-  return object == null || delete object[toKey(last(path))];
-}
-
-var _baseUnset = baseUnset$1;
+var set$2 = /*@__PURE__*/getDefaultExportFromCjs(set_1);
 
 var baseUnset = _baseUnset;
 
@@ -15440,6 +16804,8 @@ function unset$1(object, path) {
 
 var unset_1 = unset$1;
 
+var unset$2 = /*@__PURE__*/getDefaultExportFromCjs(unset_1);
+
 /**
  * Store using memory
  *
@@ -15471,14 +16837,14 @@ var memoryStore = function (storage) {
             Object.keys(storage).forEach(function (key) { return delete storage[key]; });
         },
         getItem: function (key, defaultValue) {
-            return get_1(storage, key, defaultValue);
+            return get$2(storage, key, defaultValue);
         },
         setItem: function (key, value) {
-            set_1(storage, key, value);
+            set$2(storage, key, value);
             publish(key, value);
         },
         removeItem: function (key) {
-            unset_1(storage, key);
+            unset$2(storage, key);
             publish(key, undefined);
         },
         removeItems: function (keyPrefix) {
@@ -15487,14 +16853,14 @@ var memoryStore = function (storage) {
                 if (!key.startsWith(keyPrefix)) {
                     return;
                 }
-                unset_1(storage, key);
+                unset$2(storage, key);
                 publish(key, undefined);
             });
         },
         reset: function () {
             var flatStorage = flatten(storage);
             Object.keys(flatStorage).forEach(function (key) {
-                unset_1(storage, key);
+                unset$2(storage, key);
                 publish(key, undefined);
             });
         },
@@ -15537,12 +16903,12 @@ var flatten = function (data) {
     return result;
 };
 
-var defaultStore = memoryStore();
-var StoreContext = createContext(defaultStore);
+var defaultStore$2 = memoryStore();
+var StoreContext = createContext(defaultStore$2);
 
 var StoreContextProvider = function (_a) {
     var Store = _a.value, children = _a.children;
-    useEffect$1(function () {
+    useEffect(function () {
         Store.setup();
         return function () {
             Store.teardown();
@@ -15555,137 +16921,6 @@ var StoreContextProvider = function (_a) {
  * Get the Store stored in the StoreContext
  */
 var useStoreContext = function () { return useContext(StoreContext); };
-
-var ListCache$2 = _ListCache;
-
-/**
- * Removes all key-value entries from the stack.
- *
- * @private
- * @name clear
- * @memberOf Stack
- */
-function stackClear$1() {
-  this.__data__ = new ListCache$2;
-  this.size = 0;
-}
-
-var _stackClear = stackClear$1;
-
-/**
- * Removes `key` and its value from the stack.
- *
- * @private
- * @name delete
- * @memberOf Stack
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-
-function stackDelete$1(key) {
-  var data = this.__data__,
-      result = data['delete'](key);
-
-  this.size = data.size;
-  return result;
-}
-
-var _stackDelete = stackDelete$1;
-
-/**
- * Gets the stack value for `key`.
- *
- * @private
- * @name get
- * @memberOf Stack
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-
-function stackGet$1(key) {
-  return this.__data__.get(key);
-}
-
-var _stackGet = stackGet$1;
-
-/**
- * Checks if a stack value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf Stack
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-
-function stackHas$1(key) {
-  return this.__data__.has(key);
-}
-
-var _stackHas = stackHas$1;
-
-var ListCache$1 = _ListCache,
-    Map$1 = _Map,
-    MapCache$1 = _MapCache;
-
-/** Used as the size to enable large array optimizations. */
-var LARGE_ARRAY_SIZE = 200;
-
-/**
- * Sets the stack `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf Stack
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the stack cache instance.
- */
-function stackSet$1(key, value) {
-  var data = this.__data__;
-  if (data instanceof ListCache$1) {
-    var pairs = data.__data__;
-    if (!Map$1 || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
-      pairs.push([key, value]);
-      this.size = ++data.size;
-      return this;
-    }
-    data = this.__data__ = new MapCache$1(pairs);
-  }
-  data.set(key, value);
-  this.size = data.size;
-  return this;
-}
-
-var _stackSet = stackSet$1;
-
-var ListCache = _ListCache,
-    stackClear = _stackClear,
-    stackDelete = _stackDelete,
-    stackGet = _stackGet,
-    stackHas = _stackHas,
-    stackSet = _stackSet;
-
-/**
- * Creates a stack cache object to store key-value pairs.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function Stack$2(entries) {
-  var data = this.__data__ = new ListCache(entries);
-  this.size = data.size;
-}
-
-// Add methods to `Stack`.
-Stack$2.prototype.clear = stackClear;
-Stack$2.prototype['delete'] = stackDelete;
-Stack$2.prototype.get = stackGet;
-Stack$2.prototype.has = stackHas;
-Stack$2.prototype.set = stackSet;
-
-var _Stack = Stack$2;
 
 /** Used to stand-in for `undefined` hash values. */
 
@@ -15877,13 +17112,6 @@ function equalArrays$2(array, other, bitmask, customizer, equalFunc, stack) {
 
 var _equalArrays = equalArrays$2;
 
-var root = _root;
-
-/** Built-in value references. */
-var Uint8Array$3 = root.Uint8Array;
-
-var _Uint8Array = Uint8Array$3;
-
 /**
  * Converts `map` to its key-value pairs.
  *
@@ -15925,7 +17153,7 @@ function setToArray$1(set) {
 var _setToArray = setToArray$1;
 
 var Symbol$1 = _Symbol,
-    Uint8Array$2 = _Uint8Array,
+    Uint8Array$1 = _Uint8Array,
     eq$2 = eq_1,
     equalArrays$1 = _equalArrays,
     mapToArray = _mapToArray,
@@ -15982,7 +17210,7 @@ function equalByTag$1(object, other, tag, bitmask, customizer, equalFunc, stack)
 
     case arrayBufferTag:
       if ((object.byteLength != other.byteLength) ||
-          !equalFunc(new Uint8Array$2(object), new Uint8Array$2(other))) {
+          !equalFunc(new Uint8Array$1(object), new Uint8Array$1(other))) {
         return false;
       }
       return true;
@@ -16037,269 +17265,16 @@ function equalByTag$1(object, other, tag, bitmask, customizer, equalFunc, stack)
 
 var _equalByTag = equalByTag$1;
 
-/**
- * Appends the elements of `values` to `array`.
- *
- * @private
- * @param {Array} array The array to modify.
- * @param {Array} values The values to append.
- * @returns {Array} Returns `array`.
- */
-
-function arrayPush$1(array, values) {
-  var index = -1,
-      length = values.length,
-      offset = array.length;
-
-  while (++index < length) {
-    array[offset + index] = values[index];
-  }
-  return array;
-}
-
-var _arrayPush = arrayPush$1;
-
-var arrayPush = _arrayPush,
-    isArray$3 = isArray_1;
-
-/**
- * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
- * `keysFunc` and `symbolsFunc` to get the enumerable property names and
- * symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Function} keysFunc The function to get the keys of `object`.
- * @param {Function} symbolsFunc The function to get the symbols of `object`.
- * @returns {Array} Returns the array of property names and symbols.
- */
-function baseGetAllKeys$1(object, keysFunc, symbolsFunc) {
-  var result = keysFunc(object);
-  return isArray$3(object) ? result : arrayPush(result, symbolsFunc(object));
-}
-
-var _baseGetAllKeys = baseGetAllKeys$1;
-
-/**
- * A specialized version of `_.filter` for arrays without support for
- * iteratee shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {Array} Returns the new filtered array.
- */
-
-function arrayFilter$1(array, predicate) {
-  var index = -1,
-      length = array == null ? 0 : array.length,
-      resIndex = 0,
-      result = [];
-
-  while (++index < length) {
-    var value = array[index];
-    if (predicate(value, index, array)) {
-      result[resIndex++] = value;
-    }
-  }
-  return result;
-}
-
-var _arrayFilter = arrayFilter$1;
-
-/**
- * This method returns a new empty array.
- *
- * @static
- * @memberOf _
- * @since 4.13.0
- * @category Util
- * @returns {Array} Returns the new empty array.
- * @example
- *
- * var arrays = _.times(2, _.stubArray);
- *
- * console.log(arrays);
- * // => [[], []]
- *
- * console.log(arrays[0] === arrays[1]);
- * // => false
- */
-
-function stubArray$1() {
-  return [];
-}
-
-var stubArray_1 = stubArray$1;
-
-var arrayFilter = _arrayFilter,
-    stubArray = stubArray_1;
-
-/** Used for built-in method references. */
-var objectProto$5 = Object.prototype;
-
-/** Built-in value references. */
-var propertyIsEnumerable = objectProto$5.propertyIsEnumerable;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeGetSymbols = Object.getOwnPropertySymbols;
-
-/**
- * Creates an array of the own enumerable symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of symbols.
- */
-var getSymbols$1 = !nativeGetSymbols ? stubArray : function(object) {
-  if (object == null) {
-    return [];
-  }
-  object = Object(object);
-  return arrayFilter(nativeGetSymbols(object), function(symbol) {
-    return propertyIsEnumerable.call(object, symbol);
-  });
-};
-
-var _getSymbols = getSymbols$1;
-
-/**
- * The base implementation of `_.times` without support for iteratee shorthands
- * or max array length checks.
- *
- * @private
- * @param {number} n The number of times to invoke `iteratee`.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the array of results.
- */
-
-function baseTimes$1(n, iteratee) {
-  var index = -1,
-      result = Array(n);
-
-  while (++index < n) {
-    result[index] = iteratee(index);
-  }
-  return result;
-}
-
-var _baseTimes = baseTimes$1;
-
-var baseTimes = _baseTimes,
-    isArguments$2 = isArguments_1,
-    isArray$2 = isArray_1,
-    isBuffer$2 = isBufferExports,
-    isIndex$1 = _isIndex,
-    isTypedArray$2 = isTypedArray_1;
-
-/** Used for built-in method references. */
-var objectProto$4 = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty$5 = objectProto$4.hasOwnProperty;
-
-/**
- * Creates an array of the enumerable property names of the array-like `value`.
- *
- * @private
- * @param {*} value The value to query.
- * @param {boolean} inherited Specify returning inherited property names.
- * @returns {Array} Returns the array of property names.
- */
-function arrayLikeKeys$2(value, inherited) {
-  var isArr = isArray$2(value),
-      isArg = !isArr && isArguments$2(value),
-      isBuff = !isArr && !isArg && isBuffer$2(value),
-      isType = !isArr && !isArg && !isBuff && isTypedArray$2(value),
-      skipIndexes = isArr || isArg || isBuff || isType,
-      result = skipIndexes ? baseTimes(value.length, String) : [],
-      length = result.length;
-
-  for (var key in value) {
-    if ((inherited || hasOwnProperty$5.call(value, key)) &&
-        !(skipIndexes && (
-           // Safari 9 has enumerable `arguments.length` in strict mode.
-           key == 'length' ||
-           // Node.js 0.10 has enumerable non-index properties on buffers.
-           (isBuff && (key == 'offset' || key == 'parent')) ||
-           // PhantomJS 2 has enumerable non-index properties on typed arrays.
-           (isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset')) ||
-           // Skip index properties.
-           isIndex$1(key, length)
-        ))) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-var _arrayLikeKeys = arrayLikeKeys$2;
-
-var arrayLikeKeys$1 = _arrayLikeKeys,
-    baseKeys = _baseKeys,
-    isArrayLike$3 = isArrayLike_1;
-
-/**
- * Creates an array of the own enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
- * for more details.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keys(new Foo);
- * // => ['a', 'b'] (iteration order is not guaranteed)
- *
- * _.keys('hi');
- * // => ['0', '1']
- */
-function keys$2(object) {
-  return isArrayLike$3(object) ? arrayLikeKeys$1(object) : baseKeys(object);
-}
-
-var keys_1 = keys$2;
-
-var baseGetAllKeys = _baseGetAllKeys,
-    getSymbols = _getSymbols,
-    keys$1 = keys_1;
-
-/**
- * Creates an array of own enumerable property names and symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names and symbols.
- */
-function getAllKeys$1(object) {
-  return baseGetAllKeys(object, keys$1, getSymbols);
-}
-
-var _getAllKeys = getAllKeys$1;
-
 var getAllKeys = _getAllKeys;
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG$1 = 1;
 
 /** Used for built-in method references. */
-var objectProto$3 = Object.prototype;
+var objectProto$1 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$4 = objectProto$3.hasOwnProperty;
+var hasOwnProperty$2 = objectProto$1.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqualDeep` for objects with support for
@@ -16327,7 +17302,7 @@ function equalObjects$1(object, other, bitmask, customizer, equalFunc, stack) {
   var index = objLength;
   while (index--) {
     var key = objProps[index];
-    if (!(isPartial ? key in other : hasOwnProperty$4.call(other, key))) {
+    if (!(isPartial ? key in other : hasOwnProperty$2.call(other, key))) {
       return false;
     }
   }
@@ -16396,13 +17371,13 @@ var COMPARE_PARTIAL_FLAG = 1;
 /** `Object#toString` result references. */
 var argsTag = '[object Arguments]',
     arrayTag = '[object Array]',
-    objectTag$1 = '[object Object]';
+    objectTag = '[object Object]';
 
 /** Used for built-in method references. */
-var objectProto$2 = Object.prototype;
+var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$3 = objectProto$2.hasOwnProperty;
+var hasOwnProperty$1 = objectProto.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqual` for arrays and objects which performs
@@ -16424,11 +17399,11 @@ function baseIsEqualDeep$1(object, other, bitmask, customizer, equalFunc, stack)
       objTag = objIsArr ? arrayTag : getTag(object),
       othTag = othIsArr ? arrayTag : getTag(other);
 
-  objTag = objTag == argsTag ? objectTag$1 : objTag;
-  othTag = othTag == argsTag ? objectTag$1 : othTag;
+  objTag = objTag == argsTag ? objectTag : objTag;
+  othTag = othTag == argsTag ? objectTag : othTag;
 
-  var objIsObj = objTag == objectTag$1,
-      othIsObj = othTag == objectTag$1,
+  var objIsObj = objTag == objectTag,
+      othIsObj = othTag == objectTag,
       isSameTag = objTag == othTag;
 
   if (isSameTag && isBuffer$1(object)) {
@@ -16445,8 +17420,8 @@ function baseIsEqualDeep$1(object, other, bitmask, customizer, equalFunc, stack)
       : equalByTag(object, other, objTag, bitmask, customizer, equalFunc, stack);
   }
   if (!(bitmask & COMPARE_PARTIAL_FLAG)) {
-    var objIsWrapped = objIsObj && hasOwnProperty$3.call(object, '__wrapped__'),
-        othIsWrapped = othIsObj && hasOwnProperty$3.call(other, '__wrapped__');
+    var objIsWrapped = objIsObj && hasOwnProperty$1.call(object, '__wrapped__'),
+        othIsWrapped = othIsObj && hasOwnProperty$1.call(other, '__wrapped__');
 
     if (objIsWrapped || othIsWrapped) {
       var objUnwrapped = objIsWrapped ? object.value() : object,
@@ -16466,7 +17441,7 @@ function baseIsEqualDeep$1(object, other, bitmask, customizer, equalFunc, stack)
 var _baseIsEqualDeep = baseIsEqualDeep$1;
 
 var baseIsEqualDeep = _baseIsEqualDeep,
-    isObjectLike$2 = isObjectLike_1;
+    isObjectLike$1 = isObjectLike_1;
 
 /**
  * The base implementation of `_.isEqual` which supports partial comparisons
@@ -16486,7 +17461,7 @@ function baseIsEqual$1(value, other, bitmask, customizer, stack) {
   if (value === other) {
     return true;
   }
-  if (value == null || other == null || (!isObjectLike$2(value) && !isObjectLike$2(other))) {
+  if (value == null || other == null || (!isObjectLike$1(value) && !isObjectLike$1(other))) {
     return value !== value && other !== other;
   }
   return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual$1, stack);
@@ -16529,6 +17504,8 @@ function isEqual(value, other) {
 }
 
 var isEqual_1 = isEqual;
+
+var isEqual$1 = /*@__PURE__*/getDefaultExportFromCjs(isEqual_1);
 
 /**
  * Replace tokens by their value in the given string
@@ -16596,6 +17573,7 @@ var NotificationContext = createContext({
     addNotification: function () { },
     takeNotification: function () { },
     resetNotifications: function () { },
+    setNotifications: function () { },
 });
 
 var __spreadArray$4 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
@@ -16609,7 +17587,7 @@ var __spreadArray$4 = (undefined && undefined.__spreadArray) || function (to, fr
 };
 var NotificationContextProvider = function (_a) {
     var children = _a.children;
-    var _b = useState$1([]), notifications = _b[0], setNotifications = _b[1];
+    var _b = useState([]), notifications = _b[0], setNotifications = _b[1];
     var addNotification = useCallback(function (notification) {
         setNotifications(function (notifications) { return __spreadArray$4(__spreadArray$4([], notifications, true), [notification], false); });
     }, []);
@@ -16626,6 +17604,7 @@ var NotificationContextProvider = function (_a) {
         addNotification: addNotification,
         takeNotification: takeNotification,
         resetNotifications: resetNotifications,
+        setNotifications: setNotifications,
     }); }, [notifications] // eslint-disable-line react-hooks/exhaustive-deps
     );
     // we separate the addNotification context to avoid rerendering all components
@@ -16640,7 +17619,7 @@ var useAddNotificationContext = function () {
 
 var useNotificationContext = function () { return useContext(NotificationContext); };
 
-var __rest$t = (undefined && undefined.__rest) || function (s, e) {
+var __rest$u = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
@@ -16670,7 +17649,7 @@ var useNotify = function () {
     var addNotification = useAddNotificationContext();
     return useCallback(function (message, options) {
         if (options === void 0) { options = {}; }
-        var _a = options.type, messageType = _a === void 0 ? 'info' : _a, notificationOptions = __rest$t(options, ["type"]);
+        var _a = options.type, messageType = _a === void 0 ? 'info' : _a, notificationOptions = __rest$u(options, ["type"]);
         addNotification({
             message: message,
             type: messageType,
@@ -16686,11 +17665,11 @@ var I18nContextProvider = function (_a) {
     var _b = _a.value, value = _b === void 0 ? defaulti18nContext : _b, children = _a.children;
     var locale = useStore('locale')[0];
     var notify = useNotify();
-    var _c = useState$1(0), key = _c[0], setKey = _c[1];
+    var _c = useState(0), key = _c[0], setKey = _c[1];
     // to avoid blinking effect, delay first render if the user has a non-default locale
-    var _d = useState$1(locale === value.getLocale()), isInitialized = _d[0], setInitialized = _d[1];
+    var _d = useState(locale === value.getLocale()), isInitialized = _d[0], setInitialized = _d[1];
     // watch store for locale changes
-    useEffect$1(function () {
+    useEffect(function () {
         if (locale && value.getLocale() !== locale) {
             new Promise(function (resolve) {
                 // so we systematically return a Promise for the messages
@@ -16723,7 +17702,7 @@ var defaulti18nContext = {
     getLocale: function () { return 'en'; },
 };
 
-var baseAssignValue$1 = _baseAssignValue,
+var baseAssignValue = _baseAssignValue,
     eq$1 = eq_1;
 
 /**
@@ -16738,7 +17717,7 @@ var baseAssignValue$1 = _baseAssignValue,
 function assignMergeValue$2(object, key, value) {
   if ((value !== undefined && !eq$1(object[key], value)) ||
       (value === undefined && !(key in object))) {
-    baseAssignValue$1(object, key, value);
+    baseAssignValue(object, key, value);
   }
 }
 
@@ -16788,165 +17767,8 @@ var baseFor$1 = createBaseFor();
 
 var _baseFor = baseFor$1;
 
-var _cloneBufferExports = {};
-var _cloneBuffer = {
-  get exports(){ return _cloneBufferExports; },
-  set exports(v){ _cloneBufferExports = v; },
-};
-
-(function (module, exports) {
-	var root = _root;
-
-	/** Detect free variable `exports`. */
-	var freeExports = exports && !exports.nodeType && exports;
-
-	/** Detect free variable `module`. */
-	var freeModule = freeExports && 'object' == 'object' && module && !module.nodeType && module;
-
-	/** Detect the popular CommonJS extension `module.exports`. */
-	var moduleExports = freeModule && freeModule.exports === freeExports;
-
-	/** Built-in value references. */
-	var Buffer = moduleExports ? root.Buffer : undefined,
-	    allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
-
-	/**
-	 * Creates a clone of  `buffer`.
-	 *
-	 * @private
-	 * @param {Buffer} buffer The buffer to clone.
-	 * @param {boolean} [isDeep] Specify a deep clone.
-	 * @returns {Buffer} Returns the cloned buffer.
-	 */
-	function cloneBuffer(buffer, isDeep) {
-	  if (isDeep) {
-	    return buffer.slice();
-	  }
-	  var length = buffer.length,
-	      result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
-
-	  buffer.copy(result);
-	  return result;
-	}
-
-	module.exports = cloneBuffer;
-} (_cloneBuffer, _cloneBufferExports));
-
-var Uint8Array$1 = _Uint8Array;
-
-/**
- * Creates a clone of `arrayBuffer`.
- *
- * @private
- * @param {ArrayBuffer} arrayBuffer The array buffer to clone.
- * @returns {ArrayBuffer} Returns the cloned array buffer.
- */
-function cloneArrayBuffer$1(arrayBuffer) {
-  var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
-  new Uint8Array$1(result).set(new Uint8Array$1(arrayBuffer));
-  return result;
-}
-
-var _cloneArrayBuffer = cloneArrayBuffer$1;
-
-var cloneArrayBuffer = _cloneArrayBuffer;
-
-/**
- * Creates a clone of `typedArray`.
- *
- * @private
- * @param {Object} typedArray The typed array to clone.
- * @param {boolean} [isDeep] Specify a deep clone.
- * @returns {Object} Returns the cloned typed array.
- */
-function cloneTypedArray$1(typedArray, isDeep) {
-  var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
-  return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
-}
-
-var _cloneTypedArray = cloneTypedArray$1;
-
-/**
- * Copies the values of `source` to `array`.
- *
- * @private
- * @param {Array} source The array to copy values from.
- * @param {Array} [array=[]] The array to copy values to.
- * @returns {Array} Returns `array`.
- */
-
-function copyArray$1(source, array) {
-  var index = -1,
-      length = source.length;
-
-  array || (array = Array(length));
-  while (++index < length) {
-    array[index] = source[index];
-  }
-  return array;
-}
-
-var _copyArray = copyArray$1;
-
-var isObject$5 = isObject_1;
-
-/** Built-in value references. */
-var objectCreate = Object.create;
-
-/**
- * The base implementation of `_.create` without support for assigning
- * properties to the created object.
- *
- * @private
- * @param {Object} proto The object to inherit from.
- * @returns {Object} Returns the new object.
- */
-var baseCreate$1 = (function() {
-  function object() {}
-  return function(proto) {
-    if (!isObject$5(proto)) {
-      return {};
-    }
-    if (objectCreate) {
-      return objectCreate(proto);
-    }
-    object.prototype = proto;
-    var result = new object;
-    object.prototype = undefined;
-    return result;
-  };
-}());
-
-var _baseCreate = baseCreate$1;
-
-var overArg = _overArg;
-
-/** Built-in value references. */
-var getPrototype$2 = overArg(Object.getPrototypeOf, Object);
-
-var _getPrototype = getPrototype$2;
-
-var baseCreate = _baseCreate,
-    getPrototype$1 = _getPrototype,
-    isPrototype$1 = _isPrototype;
-
-/**
- * Initializes an object clone.
- *
- * @private
- * @param {Object} object The object to clone.
- * @returns {Object} Returns the initialized clone.
- */
-function initCloneObject$1(object) {
-  return (typeof object.constructor == 'function' && !isPrototype$1(object))
-    ? baseCreate(getPrototype$1(object))
-    : {};
-}
-
-var _initCloneObject = initCloneObject$1;
-
-var isArrayLike$2 = isArrayLike_1,
-    isObjectLike$1 = isObjectLike_1;
+var isArrayLike$1 = isArrayLike_1,
+    isObjectLike = isObjectLike_1;
 
 /**
  * This method is like `_.isArrayLike` except that it also checks if `value`
@@ -16974,73 +17796,10 @@ var isArrayLike$2 = isArrayLike_1,
  * // => false
  */
 function isArrayLikeObject$1(value) {
-  return isObjectLike$1(value) && isArrayLike$2(value);
+  return isObjectLike(value) && isArrayLike$1(value);
 }
 
 var isArrayLikeObject_1 = isArrayLikeObject$1;
-
-var baseGetTag = _baseGetTag,
-    getPrototype = _getPrototype,
-    isObjectLike = isObjectLike_1;
-
-/** `Object#toString` result references. */
-var objectTag = '[object Object]';
-
-/** Used for built-in method references. */
-var funcProto = Function.prototype,
-    objectProto$1 = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty$2 = objectProto$1.hasOwnProperty;
-
-/** Used to infer the `Object` constructor. */
-var objectCtorString = funcToString.call(Object);
-
-/**
- * Checks if `value` is a plain object, that is, an object created by the
- * `Object` constructor or one with a `[[Prototype]]` of `null`.
- *
- * @static
- * @memberOf _
- * @since 0.8.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- * }
- *
- * _.isPlainObject(new Foo);
- * // => false
- *
- * _.isPlainObject([1, 2, 3]);
- * // => false
- *
- * _.isPlainObject({ 'x': 0, 'y': 0 });
- * // => true
- *
- * _.isPlainObject(Object.create(null));
- * // => true
- */
-function isPlainObject$3(value) {
-  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
-    return false;
-  }
-  var proto = getPrototype(value);
-  if (proto === null) {
-    return true;
-  }
-  var Ctor = hasOwnProperty$2.call(proto, 'constructor') && proto.constructor;
-  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
-    funcToString.call(Ctor) == objectCtorString;
-}
-
-var isPlainObject_1 = isPlainObject$3;
 
 /**
  * Gets the value at `key`, unless `key` is "__proto__" or "constructor".
@@ -17064,136 +17823,6 @@ function safeGet$2(object, key) {
 }
 
 var _safeGet = safeGet$2;
-
-var assignValue = _assignValue,
-    baseAssignValue = _baseAssignValue;
-
-/**
- * Copies properties of `source` to `object`.
- *
- * @private
- * @param {Object} source The object to copy properties from.
- * @param {Array} props The property identifiers to copy.
- * @param {Object} [object={}] The object to copy properties to.
- * @param {Function} [customizer] The function to customize copied values.
- * @returns {Object} Returns `object`.
- */
-function copyObject$1(source, props, object, customizer) {
-  var isNew = !object;
-  object || (object = {});
-
-  var index = -1,
-      length = props.length;
-
-  while (++index < length) {
-    var key = props[index];
-
-    var newValue = customizer
-      ? customizer(object[key], source[key], key, object, source)
-      : undefined;
-
-    if (newValue === undefined) {
-      newValue = source[key];
-    }
-    if (isNew) {
-      baseAssignValue(object, key, newValue);
-    } else {
-      assignValue(object, key, newValue);
-    }
-  }
-  return object;
-}
-
-var _copyObject = copyObject$1;
-
-/**
- * This function is like
- * [`Object.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
- * except that it includes inherited enumerable properties.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-
-function nativeKeysIn$1(object) {
-  var result = [];
-  if (object != null) {
-    for (var key in Object(object)) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-var _nativeKeysIn = nativeKeysIn$1;
-
-var isObject$4 = isObject_1,
-    isPrototype = _isPrototype,
-    nativeKeysIn = _nativeKeysIn;
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty$1 = objectProto.hasOwnProperty;
-
-/**
- * The base implementation of `_.keysIn` which doesn't treat sparse arrays as dense.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function baseKeysIn$1(object) {
-  if (!isObject$4(object)) {
-    return nativeKeysIn(object);
-  }
-  var isProto = isPrototype(object),
-      result = [];
-
-  for (var key in object) {
-    if (!(key == 'constructor' && (isProto || !hasOwnProperty$1.call(object, key)))) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-var _baseKeysIn = baseKeysIn$1;
-
-var arrayLikeKeys = _arrayLikeKeys,
-    baseKeysIn = _baseKeysIn,
-    isArrayLike$1 = isArrayLike_1;
-
-/**
- * Creates an array of the own and inherited enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects.
- *
- * @static
- * @memberOf _
- * @since 3.0.0
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keysIn(new Foo);
- * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
- */
-function keysIn$2(object) {
-  return isArrayLike$1(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
-}
-
-var keysIn_1 = keysIn$2;
 
 var copyObject = _copyObject,
     keysIn$1 = keysIn_1;
@@ -17366,194 +17995,6 @@ function baseMerge$1(object, source, srcIndex, customizer, stack) {
 
 var _baseMerge = baseMerge$1;
 
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-
-function identity$3(value) {
-  return value;
-}
-
-var identity_1 = identity$3;
-
-/**
- * A faster alternative to `Function#apply`, this function invokes `func`
- * with the `this` binding of `thisArg` and the arguments of `args`.
- *
- * @private
- * @param {Function} func The function to invoke.
- * @param {*} thisArg The `this` binding of `func`.
- * @param {Array} args The arguments to invoke `func` with.
- * @returns {*} Returns the result of `func`.
- */
-
-function apply$1(func, thisArg, args) {
-  switch (args.length) {
-    case 0: return func.call(thisArg);
-    case 1: return func.call(thisArg, args[0]);
-    case 2: return func.call(thisArg, args[0], args[1]);
-    case 3: return func.call(thisArg, args[0], args[1], args[2]);
-  }
-  return func.apply(thisArg, args);
-}
-
-var _apply = apply$1;
-
-var apply = _apply;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeMax = Math.max;
-
-/**
- * A specialized version of `baseRest` which transforms the rest array.
- *
- * @private
- * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
- * @param {Function} transform The rest array transform.
- * @returns {Function} Returns the new function.
- */
-function overRest$1(func, start, transform) {
-  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
-  return function() {
-    var args = arguments,
-        index = -1,
-        length = nativeMax(args.length - start, 0),
-        array = Array(length);
-
-    while (++index < length) {
-      array[index] = args[start + index];
-    }
-    index = -1;
-    var otherArgs = Array(start + 1);
-    while (++index < start) {
-      otherArgs[index] = args[index];
-    }
-    otherArgs[start] = transform(array);
-    return apply(func, this, otherArgs);
-  };
-}
-
-var _overRest = overRest$1;
-
-/**
- * Creates a function that returns `value`.
- *
- * @static
- * @memberOf _
- * @since 2.4.0
- * @category Util
- * @param {*} value The value to return from the new function.
- * @returns {Function} Returns the new constant function.
- * @example
- *
- * var objects = _.times(2, _.constant({ 'a': 1 }));
- *
- * console.log(objects);
- * // => [{ 'a': 1 }, { 'a': 1 }]
- *
- * console.log(objects[0] === objects[1]);
- * // => true
- */
-
-function constant$1(value) {
-  return function() {
-    return value;
-  };
-}
-
-var constant_1 = constant$1;
-
-var constant = constant_1,
-    defineProperty$1 = _defineProperty,
-    identity$2 = identity_1;
-
-/**
- * The base implementation of `setToString` without support for hot loop shorting.
- *
- * @private
- * @param {Function} func The function to modify.
- * @param {Function} string The `toString` result.
- * @returns {Function} Returns `func`.
- */
-var baseSetToString$1 = !defineProperty$1 ? identity$2 : function(func, string) {
-  return defineProperty$1(func, 'toString', {
-    'configurable': true,
-    'enumerable': false,
-    'value': constant(string),
-    'writable': true
-  });
-};
-
-var _baseSetToString = baseSetToString$1;
-
-/** Used to detect hot functions by number of calls within a span of milliseconds. */
-
-var HOT_COUNT = 800,
-    HOT_SPAN = 16;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeNow = Date.now;
-
-/**
- * Creates a function that'll short out and invoke `identity` instead
- * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
- * milliseconds.
- *
- * @private
- * @param {Function} func The function to restrict.
- * @returns {Function} Returns the new shortable function.
- */
-function shortOut$1(func) {
-  var count = 0,
-      lastCalled = 0;
-
-  return function() {
-    var stamp = nativeNow(),
-        remaining = HOT_SPAN - (stamp - lastCalled);
-
-    lastCalled = stamp;
-    if (remaining > 0) {
-      if (++count >= HOT_COUNT) {
-        return arguments[0];
-      }
-    } else {
-      count = 0;
-    }
-    return func.apply(undefined, arguments);
-  };
-}
-
-var _shortOut = shortOut$1;
-
-var baseSetToString = _baseSetToString,
-    shortOut = _shortOut;
-
-/**
- * Sets the `toString` method of `func` to return `string`.
- *
- * @private
- * @param {Function} func The function to modify.
- * @param {Function} string The `toString` result.
- * @returns {Function} Returns `func`.
- */
-var setToString$1 = shortOut(baseSetToString);
-
-var _setToString = setToString$1;
-
 var identity$1 = identity_1,
     overRest = _overRest,
     setToString = _setToString;
@@ -17681,7 +18122,7 @@ var merge$2 = createAssigner(function(object, source, srcIndex) {
 
 var merge_1 = merge$2;
 
-var merge$3 = merge_1;
+var merge$3 = /*@__PURE__*/getDefaultExportFromCjs(merge_1);
 
 /**
  * Get the i18nProvider instance declared in the <Admin> component
@@ -18192,11 +18633,11 @@ function parsePath(path) {
  */
 function HistoryRouter(_a) {
     var basename = _a.basename, children = _a.children, history = _a.history;
-    var _b = useState$1({
+    var _b = useState({
         action: history.action,
         location: history.location,
     }), state = _b[0], setState = _b[1];
-    useLayoutEffect$2(function () { return history.listen(setState); }, [history]);
+    useLayoutEffect$1(function () { return history.listen(setState); }, [history]);
     return (React.createElement(Router, { basename: basename, children: children, location: state.location, navigationType: state.action, navigator: history }));
 }
 
@@ -18326,8 +18767,8 @@ var useCreatePath = function () {
 };
 var removeDoubleSlashes = function (path) { return path.replace('//', '/'); };
 
-var __assign$B = (undefined && undefined.__assign) || function () {
-    __assign$B = Object.assign || function(t) {
+var __assign$D = (undefined && undefined.__assign) || function () {
+    __assign$D = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -18335,7 +18776,7 @@ var __assign$B = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$B.apply(this, arguments);
+    return __assign$D.apply(this, arguments);
 };
 /**
  * Hook for Redirection Side Effect
@@ -18368,11 +18809,11 @@ var useRedirect = function () {
             var target = redirectTo(resource, id, data);
             var absoluteTarget = typeof target === 'string'
                 ? "".concat(basename, "/").concat(target)
-                : __assign$B({ pathname: "".concat(basename, "/").concat(target.pathname) }, target);
+                : __assign$D({ pathname: "".concat(basename, "/").concat(target.pathname) }, target);
             navigate(typeof absoluteTarget === 'string'
                 ? parsePath(absoluteTarget)
                 : absoluteTarget, {
-                state: __assign$B({ _scrollToTop: true }, state),
+                state: __assign$D({ _scrollToTop: true }, state),
             });
             return;
         }
@@ -18387,7 +18828,7 @@ var useRedirect = function () {
         else {
             // redirection to an internal link
             navigate(createPath({ resource: resource, id: id, type: redirectTo }), {
-                state: __assign$B({ _scrollToTop: true }, state),
+                state: __assign$D({ _scrollToTop: true }, state),
             });
             return;
         }
@@ -18417,7 +18858,7 @@ var useRedirect = function () {
  */
 var useScrollToTop = function () {
     var location = useLocation();
-    useEffect$1(function () {
+    useEffect(function () {
         var _a;
         if (((_a = location.state) === null || _a === void 0 ? void 0 : _a._scrollToTop) &&
             typeof window != 'undefined') {
@@ -18533,11 +18974,7 @@ var DataProviderContext = createContext(null);
 DataProviderContext.displayName = 'DataProviderContext';
 var DataProviderContext$1 = DataProviderContext;
 
-var eventemitter3Exports = {};
-var eventemitter3 = {
-  get exports(){ return eventemitter3Exports; },
-  set exports(v){ eventemitter3Exports = v; },
-};
+var eventemitter3 = {exports: {}};
 
 (function (module) {
 
@@ -18874,10 +19311,11 @@ var eventemitter3 = {
 	//
 	{
 	  module.exports = EventEmitter;
-	}
+	} 
 } (eventemitter3));
 
-var EventEmitter = eventemitter3Exports;
+var eventemitter3Exports = eventemitter3.exports;
+var EventEmitter = /*@__PURE__*/getDefaultExportFromCjs(eventemitter3Exports);
 
 var undoableEventEmitter = new EventEmitter();
 
@@ -18967,7 +19405,7 @@ var SaveContext = createContext(undefined);
  *     saving
  * } = useSaveContext();
  */
-var useSaveContext = function (props) {
+var useSaveContext = function (_props) {
     return useContext(SaveContext);
 };
 
@@ -19063,9 +19501,9 @@ var OptionalRecordContextProvider = function (_a) {
 
 // thanks Kent C Dodds for the following helpers
 function useSafeSetState(initialState) {
-    var _a = useState$1(initialState), state = _a[0], setState = _a[1];
+    var _a = useState(initialState), state = _a[0], setState = _a[1];
     var mountedRef = useRef(false);
-    useEffect$1(function () {
+    useEffect(function () {
         mountedRef.current = true;
         return function () {
             mountedRef.current = false;
@@ -19088,7 +19526,7 @@ function useTimeout(ms, key) {
     if (ms === void 0) { ms = 0; }
     if (key === void 0) { key = ''; }
     var _a = useSafeSetState(false), ready = _a[0], setReady = _a[1];
-    useEffect$1(function () {
+    useEffect(function () {
         setReady(false);
         var timer = setTimeout(function () {
             setReady(true);
@@ -19143,12 +19581,14 @@ function cloneObject(data) {
     else if (!(isWeb && (data instanceof Blob || data instanceof FileList)) &&
         (isArray || isObject(data))) {
         copy = isArray ? [] : {};
-        if (!Array.isArray(data) && !isPlainObject$1(data)) {
+        if (!isArray && !isPlainObject$1(data)) {
             copy = data;
         }
         else {
             for (const key in data) {
-                copy[key] = cloneObject(data[key]);
+                if (data.hasOwnProperty(key)) {
+                    copy[key] = cloneObject(data[key]);
+                }
             }
         }
     }
@@ -19201,7 +19641,7 @@ const HookFormContext = React__default.createContext(null);
  * This custom hook allows you to access the form context. useFormContext is intended to be used in deeply nested structures, where it would become inconvenient to pass the context as a prop. To be used with {@link FormProvider}.
  *
  * @remarks
- * [API](https://react-hook-form.com/api/useformcontext) • [Demo](https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi)
+ * [API](https://react-hook-form.com/docs/useformcontext) • [Demo](https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi)
  *
  * @returns return all useForm methods
  *
@@ -19232,7 +19672,7 @@ const useFormContext = () => React__default.useContext(HookFormContext);
  * A provider component that propagates the `useForm` methods to all children components via [React Context](https://reactjs.org/docs/context.html) API. To be used with {@link useFormContext}.
  *
  * @remarks
- * [API](https://react-hook-form.com/api/useformcontext) • [Demo](https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi)
+ * [API](https://react-hook-form.com/docs/useformcontext) • [Demo](https://codesandbox.io/s/react-hook-form-v7-form-context-ytudi)
  *
  * @param props - all useFrom methods
  *
@@ -19323,7 +19763,7 @@ function useSubscribe(props) {
  * This custom hook allows you to subscribe to each form state, and isolate the re-render at the custom hook level. It has its scope in terms of form state subscription, so it would not affect other useFormState and useForm. Using this hook can reduce the re-render impact on large and complex form application.
  *
  * @remarks
- * [API](https://react-hook-form.com/api/useformstate) • [Demo](https://codesandbox.io/s/useformstate-75xly)
+ * [API](https://react-hook-form.com/docs/useformstate) • [Demo](https://codesandbox.io/s/useformstate-75xly)
  *
  * @param props - include options on specify fields to subscribe. {@link UseFormStateReturn}
  *
@@ -19405,7 +19845,7 @@ var generateWatchOutput = (names, _names, formValues, isGlobal, defaultValue) =>
  *
  * @remarks
  *
- * [API](https://react-hook-form.com/api/usewatch) • [Demo](https://codesandbox.io/s/react-hook-form-v7-ts-usewatch-h9i5e)
+ * [API](https://react-hook-form.com/docs/usewatch) • [Demo](https://codesandbox.io/s/react-hook-form-v7-ts-usewatch-h9i5e)
  *
  * @example
  * ```tsx
@@ -19466,7 +19906,7 @@ function set(object, path, value) {
  * Custom hook to work with controlled component, this function provide you with both form and field level state. Re-render is isolated at the hook level.
  *
  * @remarks
- * [API](https://react-hook-form.com/api/usecontroller) • [Demo](https://codesandbox.io/s/usecontroller-0o8px)
+ * [API](https://react-hook-form.com/docs/usecontroller) • [Demo](https://codesandbox.io/s/usecontroller-0o8px)
  *
  * @param props - the path name to the form field value, and validation rules.
  *
@@ -19504,6 +19944,7 @@ function useController(props) {
         ...props.rules,
         value,
     }));
+    _registerProps.current = control.register(name, props.rules);
     React__default.useEffect(() => {
         const _shouldUnregisterField = control._options.shouldUnregister || shouldUnregister;
         const updateMounted = (name, value) => {
@@ -19900,7 +20341,7 @@ function baseGet(object, updatePath) {
 }
 function isEmptyArray(obj) {
     for (const key in obj) {
-        if (!isUndefined(obj[key])) {
+        if (obj.hasOwnProperty(key) && !isUndefined(obj[key])) {
             return false;
         }
     }
@@ -20710,7 +21151,7 @@ function createFormControl(props = {}, flushRootRender) {
             : updateValidAndValue(name, true, options.value);
         return {
             ...(disabledIsDefined ? { disabled: options.disabled } : {}),
-            ...(_options.shouldUseNativeValidation
+            ...(_options.progressive
                 ? {
                     required: !!options.required,
                     min: getRuleValue(options.min),
@@ -20875,7 +21316,7 @@ function createFormControl(props = {}, flushRootRender) {
                 ? keepStateOptions.keepDefaultValues
                     ? cloneObject(_defaultValues)
                     : {}
-                : cloneUpdatedValues;
+                : cloneObject(values);
             _subjects.array.next({
                 values: { ...values },
             });
@@ -20952,6 +21393,8 @@ function createFormControl(props = {}, flushRootRender) {
             register,
             unregister,
             getFieldState,
+            handleSubmit,
+            setError,
             _executeSchema,
             _getWatch,
             _getDirty,
@@ -21021,7 +21464,7 @@ function createFormControl(props = {}, flushRootRender) {
  * Custom hook to manage the entire form.
  *
  * @remarks
- * [API](https://react-hook-form.com/api/useform) • [Demo](https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm) • [Video](https://www.youtube.com/watch?v=RkXv4AXXC_4)
+ * [API](https://react-hook-form.com/docs/useform) • [Demo](https://codesandbox.io/s/react-hook-form-get-started-ts-5ksmm) • [Video](https://www.youtube.com/watch?v=RkXv4AXXC_4)
  *
  * @param props - form configuration and validation parameters.
  *
@@ -21040,7 +21483,7 @@ function createFormControl(props = {}, flushRootRender) {
  *       <input defaultValue="test" {...register("example")} />
  *       <input {...register("exampleRequired", { required: true })} />
  *       {errors.exampleRequired && <span>This field is required</span>}
- *       <input type="submit" />
+ *       <button>Submit</button>
  *     </form>
  *   );
  * }
@@ -21081,7 +21524,9 @@ function useForm(props = {}) {
         },
     });
     React__default.useEffect(() => {
-        if (props.values && !deepEqual(props.values, control._defaultValues)) {
+        if (props.values &&
+            (!deepEqual(props.values, control._defaultValues) ||
+                !deepEqual(props.values, control._formValues))) {
             control._reset(props.values, control._options.resetOptions);
         }
         else {
@@ -21107,12 +21552,12 @@ var PreferencesEditorContext = createContext(undefined);
 
 var PreferencesEditorContextProvider = function (_a) {
     var children = _a.children;
-    var _b = useState$1(false), isEnabled = _b[0], setIsEnabled = _b[1];
-    var _c = useState$1(null), editor = _c[0], setEditor = _c[1];
-    var _d = useState$1(), preferenceKey = _d[0], setPreferenceKey = _d[1];
-    var _e = useState$1(null), path = _e[0], setPath = _e[1];
-    var _f = useState$1(null), title = _f[0], setTitleString = _f[1];
-    var _g = useState$1(), titleOptions = _g[0], setTitleOptions = _g[1];
+    var _b = useState(false), isEnabled = _b[0], setIsEnabled = _b[1];
+    var _c = useState(null), editor = _c[0], setEditor = _c[1];
+    var _d = useState(), preferenceKey = _d[0], setPreferenceKey = _d[1];
+    var _e = useState(null), path = _e[0], setPath = _e[1];
+    var _f = useState(null), title = _f[0], setTitleString = _f[1];
+    var _g = useState(), titleOptions = _g[0], setTitleOptions = _g[1];
     var enable = useCallback(function () { return setIsEnabled(true); }, []);
     var disable = useCallback(function () {
         setIsEnabled(false);
@@ -21152,8 +21597,8 @@ var PreferencesEditorContextProvider = function (_a) {
     return (React.createElement(PreferencesEditorContext.Provider, { value: context }, children));
 };
 
-var __assign$A = (undefined && undefined.__assign) || function () {
-    __assign$A = Object.assign || function(t) {
+var __assign$C = (undefined && undefined.__assign) || function () {
+    __assign$C = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -21161,9 +21606,9 @@ var __assign$A = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$A.apply(this, arguments);
+    return __assign$C.apply(this, arguments);
 };
-var __rest$s = (undefined && undefined.__rest) || function (s, e) {
+var __rest$t = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
@@ -21201,18 +21646,18 @@ var ResourceDefinitionContext = createContext({
  */
 var ResourceDefinitionContextProvider = function (_a) {
     var _b = _a.definitions, defaultDefinitions = _b === void 0 ? {} : _b, children = _a.children;
-    var _c = useState$1(defaultDefinitions), definitions = _c[0], setState = _c[1];
+    var _c = useState(defaultDefinitions), definitions = _c[0], setState = _c[1];
     var register = useCallback(function (config) {
         setState(function (prev) {
             var _a;
-            return isEqual_1(prev[config.name], config)
+            return isEqual$1(prev[config.name], config)
                 ? prev
-                : __assign$A(__assign$A({}, prev), (_a = {}, _a[config.name] = config, _a));
+                : __assign$C(__assign$C({}, prev), (_a = {}, _a[config.name] = config, _a));
         });
     }, []);
     var unregister = useCallback(function (config) {
         setState(function (prev) {
-            var _a = prev, _b = config.name; _a[_b]; var rest = __rest$s(_a, [typeof _b === "symbol" ? _b : _b + ""]);
+            var _a = prev, _b = config.name; _a[_b]; var rest = __rest$t(_a, [typeof _b === "symbol" ? _b : _b + ""]);
             return rest;
         });
     }, []);
@@ -21221,8 +21666,9 @@ var ResourceDefinitionContextProvider = function (_a) {
     return (React.createElement(ResourceDefinitionContext.Provider, { value: contextValue }, children));
 };
 
+var defaultStore$1 = memoryStore();
 var CoreAdminContext = function (props) {
-    var authProvider = props.authProvider, basename = props.basename, dataProvider = props.dataProvider, i18nProvider = props.i18nProvider, store = props.store, children = props.children, history = props.history, queryClient = props.queryClient;
+    var authProvider = props.authProvider, basename = props.basename, _a = props.dataProvider, dataProvider = _a === void 0 ? defaultDataProvider : _a, i18nProvider = props.i18nProvider, _b = props.store, store = _b === void 0 ? defaultStore$1 : _b, children = props.children, history = props.history, queryClient = props.queryClient;
     if (!dataProvider) {
         throw new Error("Missing dataProvider prop.\nReact-admin requires a valid dataProvider function to work.");
     }
@@ -21249,17 +21695,13 @@ var CoreAdminContext = function (props) {
                                 React.createElement(NotificationContextProvider, null,
                                     React.createElement(ResourceDefinitionContextProvider, null, children))))))))));
 };
-CoreAdminContext.defaultProps = {
-    dataProvider: defaultDataProvider,
-    store: memoryStore(),
-};
 
 var useResourceDefinitionContext = function () {
     return useContext(ResourceDefinitionContext);
 };
 
-var __assign$z = (undefined && undefined.__assign) || function () {
-    __assign$z = Object.assign || function(t) {
+var __assign$B = (undefined && undefined.__assign) || function () {
+    __assign$B = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -21267,7 +21709,7 @@ var __assign$z = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$z.apply(this, arguments);
+    return __assign$B.apply(this, arguments);
 };
 var __awaiter$5 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -21351,9 +21793,9 @@ var useRoutesAndResourcesFromChildren = function (children, permissions, isLoadi
     var doLogout = useLogout$1();
     var _a = useRoutesAndResourcesState(getRoutesAndResourceFromNodes(children)), routesAndResources = _a[0], setRoutesAndResources = _a[1], mergeRoutesAndResources = _a[2];
     var _b = useSafeSetState(function () {
-        return getStatus(__assign$z({ children: children }, routesAndResources));
+        return getStatus(__assign$B({ children: children }, routesAndResources));
     }), status = _b[0], setStatus = _b[1];
-    useEffect$1(function () {
+    useEffect(function () {
         var resolveChildFunction = function (childFunc) { return __awaiter$5(void 0, void 0, void 0, function () {
             var childrenFuncResult;
             return __generator$5(this, function (_a) {
@@ -21415,7 +21857,7 @@ var useRoutesAndResourcesFromChildren = function (children, permissions, isLoadi
  * to merge new routes and resources with the existing ones.
  */
 var useRoutesAndResourcesState = function (initialState) {
-    var _a = useState$1(initialState), routesAndResources = _a[0], setRoutesAndResources = _a[1];
+    var _a = useState(initialState), routesAndResources = _a[0], setRoutesAndResources = _a[1];
     var mergeRoutesAndResources = useCallback(function (newRoutesAndResources) {
         setRoutesAndResources(function (previous) { return ({
             customRoutesWithLayout: previous.customRoutesWithLayout.concat(newRoutesAndResources.customRoutesWithLayout),
@@ -21432,7 +21874,7 @@ var useRoutesAndResourcesState = function (initialState) {
  */
 var useRegisterResources = function (resources, permissions) {
     var _a = useResourceDefinitionContext(), register = _a.register, unregister = _a.unregister;
-    useEffect$1(function () {
+    useEffect(function () {
         resources.forEach(function (resource) {
             if (typeof resource.type
                 .registerResource === 'function') {
@@ -21531,9 +21973,9 @@ var CoreAdminRoutes = function (props) {
     var createPath = useCreatePath();
     var _a = useConfigureAdminRouterFromChildren(props.children), customRoutesWithLayout = _a.customRoutesWithLayout, customRoutesWithoutLayout = _a.customRoutesWithoutLayout, status = _a.status, resources = _a.resources;
     var Layout = props.layout, CatchAll = props.catchAll, dashboard = props.dashboard, LoadingPage = props.loading, menu = props.menu, requireAuth = props.requireAuth, Ready = props.ready, title = props.title;
-    var _b = useState$1(!requireAuth), canRender = _b[0], setCanRender = _b[1];
+    var _b = useState(!requireAuth), canRender = _b[0], setCanRender = _b[1];
     var checkAuth = useCheckAuth();
-    useEffect$1(function () {
+    useEffect(function () {
         if (requireAuth) {
             checkAuth()
                 .then(function () {
@@ -21563,9 +22005,6 @@ var CoreAdminRoutes = function (props) {
                                 }) })) : null }),
                         React.createElement(Route, { path: "*", element: React.createElement(CatchAll, { title: title }) })))) })));
 };
-CoreAdminRoutes.defaultProps = {
-    customRoutes: [],
-};
 var defaultAuthParams = { params: { route: 'dashboard' } };
 
 var DefaultLayout = function (_a) {
@@ -21576,7 +22015,7 @@ var CoreAdminUI = function (props) {
     var _a = props.catchAll, catchAll = _a === void 0 ? Noop : _a, children = props.children, dashboard = props.dashboard, _b = props.disableTelemetry, disableTelemetry = _b === void 0 ? false : _b, _c = props.layout, layout = _c === void 0 ? DefaultLayout : _c, _d = props.loading, loading = _d === void 0 ? Noop : _d, _e = props.loginPage, LoginPage = _e === void 0 ? false : _e, _f = props.authCallbackPage, LoginCallbackPage = _f === void 0 ? false : _f, menu = props.menu, // deprecated, use a custom layout instead
     _g = props.ready, // deprecated, use a custom layout instead
     ready = _g === void 0 ? Ready : _g, _h = props.title, title = _h === void 0 ? 'React Admin' : _h, _j = props.requireAuth, requireAuth = _j === void 0 ? false : _j;
-    useEffect$1(function () {
+    useEffect(function () {
         if (disableTelemetry ||
             process.env.NODE_ENV !== 'production' ||
             typeof window === 'undefined' ||
@@ -21663,11 +22102,7 @@ Resource.registerResource = function (_a) {
     });
 };
 
-var inflectionExports = {};
-var inflection$1 = {
-  get exports(){ return inflectionExports; },
-  set exports(v){ inflectionExports = v; },
-};
+var inflection$1 = {exports: {}};
 
 /*!
  * inflection
@@ -22751,10 +23186,11 @@ var inflection$1 = {
 	  inflector.version = '1.12.0';
 
 	  return inflector;
-	}));
+	})); 
 } (inflection$1));
 
-var inflection = inflectionExports;
+var inflectionExports = inflection$1.exports;
+var inflection = /*@__PURE__*/getDefaultExportFromCjs(inflectionExports);
 
 /**
  * Get the definition of the all resources
@@ -23006,11 +23442,7 @@ var onlyDigits = function (s) {
     return true;
 };
 
-var reactIsExports$3 = {};
-var reactIs$4 = {
-  get exports(){ return reactIsExports$3; },
-  set exports(v){ reactIsExports$3 = v; },
-};
+var reactIs$4 = {exports: {}};
 
 var reactIs_production_min$3 = {};
 
@@ -23268,23 +23700,22 @@ function requireReactIs_development$3 () {
 	return reactIs_development$3;
 }
 
-(function (module) {
+if (process.env.NODE_ENV === 'production') {
+  reactIs$4.exports = requireReactIs_production_min$3();
+} else {
+  reactIs$4.exports = requireReactIs_development$3();
+}
 
-	if (process.env.NODE_ENV === 'production') {
-	  module.exports = requireReactIs_production_min$3();
-	} else {
-	  module.exports = requireReactIs_development$3();
-	}
-} (reactIs$4));
+var reactIsExports$2 = reactIs$4.exports;
 
 var ComponentPropType = (function (props, propName, componentName) {
-    if (props[propName] && !reactIsExports$3.isValidElementType(props[propName])) {
+    if (props[propName] && !reactIsExports$2.isValidElementType(props[propName])) {
         return new Error("Invalid prop '".concat(propName, "' supplied to '").concat(componentName, "': the prop is not a valid React component"));
     }
 });
 
-var __assign$y = (undefined && undefined.__assign) || function () {
-    __assign$y = Object.assign || function(t) {
+var __assign$A = (undefined && undefined.__assign) || function () {
+    __assign$A = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -23292,7 +23723,7 @@ var __assign$y = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$y.apply(this, arguments);
+    return __assign$A.apply(this, arguments);
 };
 var styles$3 = {
     root: {
@@ -23342,10 +23773,10 @@ var styles$3 = {
 };
 var Button$3 = function (_a) {
     var img = _a.img, label = _a.label, href = _a.href;
-    var _b = useState$1(false), hovered = _b[0], setHovered = _b[1];
+    var _b = useState(false), hovered = _b[0], setHovered = _b[1];
     return (React.createElement("div", null,
         React.createElement("a", { href: href, style: hovered
-                ? __assign$y(__assign$y({}, styles$3.link), styles$3.linkHovered) : styles$3.link, onMouseEnter: function () { return setHovered(true); }, onMouseLeave: function () { return setHovered(false); } },
+                ? __assign$A(__assign$A({}, styles$3.link), styles$3.linkHovered) : styles$3.link, onMouseEnter: function () { return setHovered(true); }, onMouseLeave: function () { return setHovered(false); } },
             React.createElement("img", { src: img, alt: label, style: styles$3.image }),
             React.createElement("br", null),
             label)));
@@ -23449,11 +23880,11 @@ var LabelPrefixContextProvider = function (_a) {
  */
 var useStore = function (key, defaultValue) {
     var _a = useStoreContext(), getItem = _a.getItem, setItem = _a.setItem, subscribe = _a.subscribe;
-    var _b = useState$1(function () { return getItem(key, defaultValue); }), value = _b[0], setValue = _b[1];
+    var _b = useState(function () { return getItem(key, defaultValue); }), value = _b[0], setValue = _b[1];
     // subscribe to changes on this key, and change the state when they happen
-    useEffect$1(function () {
+    useEffect(function () {
         var storedValue = getItem(key, defaultValue);
-        if (!isEqual_1(value, storedValue)) {
+        if (!isEqual$1(value, storedValue)) {
             setValue(storedValue);
         }
         var unsubscribe = subscribe(key, function (newValue) {
@@ -23566,7 +23997,7 @@ var useLogout = function () {
      *
      * To avoid that, we store the location in a ref.
      */
-    useEffect$1(function () {
+    useEffect(function () {
         locationRef.current = location;
         navigateRef.current = navigate;
     }, [location, navigate]);
@@ -23631,8 +24062,8 @@ var useLogout = function () {
 };
 var useLogout$1 = useLogout;
 
-var __assign$x = (undefined && undefined.__assign) || function () {
-    __assign$x = Object.assign || function(t) {
+var __assign$z = (undefined && undefined.__assign) || function () {
+    __assign$z = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -23640,7 +24071,7 @@ var __assign$x = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$x.apply(this, arguments);
+    return __assign$z.apply(this, arguments);
 };
 var emptyParams$2 = {};
 /**
@@ -23690,7 +24121,7 @@ var useAuthState = function (params, logoutOnFailure, queryOptions) {
     var result = useQuery(['auth', 'checkAuth', params], function () {
         // The authProvider is optional in react-admin
         return authProvider === null || authProvider === void 0 ? void 0 : authProvider.checkAuth(params).then(function () { return true; });
-    }, __assign$x({ onError: function (error) {
+    }, __assign$z({ onError: function (error) {
             var loginUrl = removeDoubleSlashes("".concat(basename, "/").concat(defaultAuthParams$1.loginUrl));
             if (logoutOnFailure) {
                 logout({}, error && error.redirectTo != null
@@ -23807,7 +24238,7 @@ var usePermissions = function (params, queryParams) {
 };
 var usePermissions$1 = usePermissions;
 
-var __rest$r = (undefined && undefined.__rest) || function (s, e) {
+var __rest$s = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
@@ -23845,13 +24276,13 @@ var __rest$r = (undefined && undefined.__rest) || function (s, e) {
  */
 var useAuthenticated = function (_a) {
     if (_a === void 0) { _a = {}; }
-    var params = _a.params, options = __rest$r(_a, ["params"]);
+    var params = _a.params, options = __rest$s(_a, ["params"]);
     useAuthState$1(params !== null && params !== void 0 ? params : emptyParams, true, options);
 };
 var emptyParams = {};
 
-var __assign$w = (undefined && undefined.__assign) || function () {
-    __assign$w = Object.assign || function(t) {
+var __assign$y = (undefined && undefined.__assign) || function () {
+    __assign$y = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -23859,9 +24290,9 @@ var __assign$w = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$w.apply(this, arguments);
+    return __assign$y.apply(this, arguments);
 };
-var __rest$q = (undefined && undefined.__rest) || function (s, e) {
+var __rest$r = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
@@ -23908,7 +24339,7 @@ var isEmptyChildren = function (children) { return Children.count(children) === 
  *     );
  */
 var WithPermissions = function (props) {
-    var authParams = props.authParams, children = props.children, render = props.render, component = props.component; props.staticContext; var rest = __rest$q(props, ["authParams", "children", "render", "component", "staticContext"]);
+    var authParams = props.authParams, children = props.children, render = props.render, component = props.component; props.staticContext; var rest = __rest$r(props, ["authParams", "children", "render", "component", "staticContext"]);
     warning$2((render && children && !isEmptyChildren(children)) ||
         (render && component) ||
         (component && children && !isEmptyChildren(children)), 'You should only use one of the `component`, `render` and `children` props in <WithPermissions>');
@@ -23916,15 +24347,15 @@ var WithPermissions = function (props) {
     var permissions = usePermissions$1(authParams).permissions;
     // render even though the usePermissions() call isn't finished (optimistic rendering)
     if (component) {
-        return createElement(component, __assign$w({ permissions: permissions }, rest));
+        return createElement(component, __assign$y({ permissions: permissions }, rest));
     }
     // @deprecated
     if (render) {
-        return render(__assign$w({ permissions: permissions }, rest));
+        return render(__assign$y({ permissions: permissions }, rest));
     }
     // @deprecated
     if (children) {
-        return children(__assign$w({ permissions: permissions }, rest));
+        return children(__assign$y({ permissions: permissions }, rest));
     }
 };
 var WithPermissions$1 = WithPermissions;
@@ -24100,8 +24531,8 @@ var getErrorMessage = function (error, defaultMessage) {
             : error.message;
 };
 
-var __assign$v = (undefined && undefined.__assign) || function () {
-    __assign$v = Object.assign || function(t) {
+var __assign$x = (undefined && undefined.__assign) || function () {
+    __assign$x = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -24109,7 +24540,7 @@ var __assign$v = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$v.apply(this, arguments);
+    return __assign$x.apply(this, arguments);
 };
 var __awaiter$3 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -24190,7 +24621,7 @@ var useGetIdentity = function (queryParams) {
         ? function () { return authProvider.getIdentity(); }
         : function () { return __awaiter$3(void 0, void 0, void 0, function () { return __generator$3(this, function (_a) {
             return [2 /*return*/, defaultIdentity];
-        }); }); }, __assign$v({ enabled: typeof (authProvider === null || authProvider === void 0 ? void 0 : authProvider.getIdentity) === 'function' }, queryParams));
+        }); }); }, __assign$x({ enabled: typeof (authProvider === null || authProvider === void 0 ? void 0 : authProvider.getIdentity) === 'function' }, queryParams));
     // @FIXME: return useQuery's result directly by removing identity prop (BC break - to be done in v5)
     return useMemo(function () {
         return result.isLoading
@@ -24206,8 +24637,8 @@ var useGetIdentity = function (queryParams) {
     }, [result]);
 };
 
-var __assign$u = (undefined && undefined.__assign) || function () {
-    __assign$u = Object.assign || function(t) {
+var __assign$w = (undefined && undefined.__assign) || function () {
+    __assign$w = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -24215,7 +24646,7 @@ var __assign$u = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$u.apply(this, arguments);
+    return __assign$w.apply(this, arguments);
 };
 /**
  * This hook calls the `authProvider.handleCallback()` method on mount. This is meant to be used in a route called
@@ -24227,13 +24658,12 @@ var __assign$u = (undefined && undefined.__assign) || function () {
 var useHandleAuthCallback = function (options) {
     var authProvider = useAuthProvider$1();
     var redirect = useRedirect();
-    var logout = useLogout$1();
     var location = useLocation();
     var locationState = location.state;
     var nextPathName = locationState && locationState.nextPathname;
     var nextSearch = locationState && locationState.nextSearch;
     var defaultRedirectUrl = nextPathName ? nextPathName + nextSearch : '/';
-    return useQuery(['auth', 'handleCallback'], function () { return authProvider.handleCallback(); }, __assign$u({ retry: false, onSuccess: function (data) {
+    return useQuery(['auth', 'handleCallback'], function () { return authProvider.handleCallback(); }, __assign$w({ retry: false, onSuccess: function (data) {
             var _a;
             // AuthProviders relying on a third party services redirect back to the app can't
             // use the location state to store the path on which the user was before the login.
@@ -24244,15 +24674,6 @@ var useHandleAuthCallback = function (options) {
                 return;
             }
             redirect(redirectTo !== null && redirectTo !== void 0 ? redirectTo : defaultRedirectUrl);
-        }, onError: function (err) {
-            var _a = (err !== null && err !== void 0 ? err : {}), _b = _a.redirectTo, redirectTo = _b === void 0 ? false : _b, _c = _a.logoutOnFailure, logoutOnFailure = _c === void 0 ? true : _c;
-            if (logoutOnFailure) {
-                logout({}, redirectTo);
-            }
-            if (redirectTo === false) {
-                return;
-            }
-            redirect(redirectTo);
         } }, options));
 };
 /**
@@ -24317,8 +24738,8 @@ var __spreadArray$2 = (undefined && undefined.__spreadArray) || function (to, fr
  */
 var usePreferenceInput = function (key, defaultValue) {
     var _a = usePreference(key, defaultValue), valueFromStore = _a[0], setValueFromStore = _a[1];
-    var _b = useState$1(valueFromStore), value = _b[0], setValue = _b[1];
-    useEffect$1(function () {
+    var _b = useState(valueFromStore), value = _b[0], setValue = _b[1];
+    useEffect(function () {
         setValue(valueFromStore || defaultValue);
     }, [valueFromStore, defaultValue]);
     var onChange = function (event) {
@@ -24350,7 +24771,7 @@ var usePreferenceInput = function (key, defaultValue) {
  */
 var useSetInspectorTitle = function (title, options) {
     var setTitle = usePreferencesEditor().setTitle;
-    useEffect$1(function () {
+    useEffect(function () {
         setTitle(title, options);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [title, JSON.stringify(options), setTitle]);
@@ -24358,8 +24779,8 @@ var useSetInspectorTitle = function (title, options) {
 
 var FormGroupsContext = createContext(undefined);
 
-var __assign$t = (undefined && undefined.__assign) || function () {
-    __assign$t = Object.assign || function(t) {
+var __assign$v = (undefined && undefined.__assign) || function () {
+    __assign$v = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -24367,21 +24788,21 @@ var __assign$t = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$t.apply(this, arguments);
+    return __assign$v.apply(this, arguments);
 };
 var ValidationError = function (props) {
     var error = props.error;
     var translate = useTranslate();
     if (error.message) {
         var _a = error, message = _a.message, args = _a.args;
-        return React.createElement(React.Fragment, null, translate(message, __assign$t({ _: message }, args)));
+        return React.createElement(React.Fragment, null, translate(message, __assign$v({ _: message }, args)));
     }
     return React.createElement(React.Fragment, null, translate(error, { _: error }));
 };
 var ValidationError$1 = ValidationError;
 
-var __assign$s = (undefined && undefined.__assign) || function () {
-    __assign$s = Object.assign || function(t) {
+var __assign$u = (undefined && undefined.__assign) || function () {
+    __assign$u = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -24389,7 +24810,7 @@ var __assign$s = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$s.apply(this, arguments);
+    return __assign$u.apply(this, arguments);
 };
 var __awaiter$2 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -24491,7 +24912,7 @@ var transformErrorFields = function (error) {
             if (!arrayHasErrors_1) {
                 return acc;
             }
-            return __assign$s(__assign$s({}, acc), (_a = {}, _a[field] = transformedArrayErrors, _a));
+            return __assign$u(__assign$u({}, acc), (_a = {}, _a[field] = transformedArrayErrors, _a));
         }
         // Handle objects
         if (isEmptyObject(error[field])) {
@@ -24499,10 +24920,10 @@ var transformErrorFields = function (error) {
         }
         if (typeof error[field] === 'object' &&
             !isRaTranslationObj(error[field])) {
-            return __assign$s(__assign$s({}, acc), (_b = {}, _b[field] = transformErrorFields(error[field]), _b));
+            return __assign$u(__assign$u({}, acc), (_b = {}, _b[field] = transformErrorFields(error[field]), _b));
         }
         // Handle leaf (either primary type or RaTranslationObj)
-        return __assign$s(__assign$s({}, acc), (_c = {}, _c[field] = addTypeAndMessage(error[field]), _c));
+        return __assign$u(__assign$u({}, acc), (_c = {}, _c[field] = addTypeAndMessage(error[field]), _c));
     }, {});
 };
 var addTypeAndMessage = function (error) { return ({
@@ -24655,7 +25076,7 @@ var useNotifyIsFormInvalid = function (control) {
     var _a = useFormState(control ? { control: control } : undefined), submitCount = _a.submitCount, errors = _a.errors;
     var submitCountRef = useRef(submitCount);
     var notify = useNotify();
-    useEffect$1(function () {
+    useEffect(function () {
         // Checking the submit count allows us to only display the notification after users
         // tried to submit
         if (submitCount > submitCountRef.current) {
@@ -24682,7 +25103,7 @@ var useWarnWhenUnsavedChanges = function (enable, formRootPathname, control) {
     var _a = useFormState(control ? { control: control } : undefined), isSubmitSuccessful = _a.isSubmitSuccessful, isSubmitting = _a.isSubmitting, dirtyFields = _a.dirtyFields;
     var isDirty = Object.keys(dirtyFields).length > 0;
     var initialLocation = useRef(formRootPathname || location.pathname);
-    useEffect$1(function () {
+    useEffect(function () {
         if (!enable || !isDirty)
             return;
         if (!navigator.block) {
@@ -24701,6 +25122,15 @@ var useWarnWhenUnsavedChanges = function (enable, formRootPathname, control) {
                     window.confirm(translate('ra.message.unsaved_changes')))) {
                 unblock();
                 tx.retry();
+            }
+            else {
+                if (isSubmitting) {
+                    // Retry the transition (possibly several times) until the form is no longer submitting.
+                    // The value of 100ms is arbitrary, it allows to give some time between retries.
+                    setTimeout(function () {
+                        tx.retry();
+                    }, 100);
+                }
             }
         });
         return unblock;
@@ -24739,6 +25169,17 @@ var sanitizeEmptyValues = function (values, record) {
     return sanitizedValues;
 };
 
+var __assign$t = (undefined && undefined.__assign) || function () {
+    __assign$t = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign$t.apply(this, arguments);
+};
 var __awaiter$1 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -24775,6 +25216,17 @@ var __generator$1 = (undefined && undefined.__generator) || function (thisArg, b
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __rest$q = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 /**
  * Wrapper around react-hook-form's useForm
  *
@@ -24787,7 +25239,7 @@ var __generator$1 = (undefined && undefined.__generator) || function (thisArg, b
  * - stop form submission event propagation
  */
 var useAugmentedForm = function (props) {
-    var context = props.context, _a = props.criteriaMode, criteriaMode = _a === void 0 ? 'firstError' : _a, defaultValues = props.defaultValues, delayError = props.delayError, formRootPathname = props.formRootPathname, mode = props.mode, resolver = props.resolver, _b = props.reValidateMode, reValidateMode = _b === void 0 ? 'onChange' : _b, onSubmit = props.onSubmit, sanitizeEmptyValues$1 = props.sanitizeEmptyValues, shouldFocusError = props.shouldFocusError, shouldUnregister = props.shouldUnregister, shouldUseNativeValidation = props.shouldUseNativeValidation, warnWhenUnsavedChanges = props.warnWhenUnsavedChanges, validate = props.validate;
+    var _a = props.criteriaMode, criteriaMode = _a === void 0 ? 'firstError' : _a, defaultValues = props.defaultValues, formRootPathname = props.formRootPathname, resolver = props.resolver, _b = props.reValidateMode, reValidateMode = _b === void 0 ? 'onChange' : _b, onSubmit = props.onSubmit, sanitizeEmptyValues$1 = props.sanitizeEmptyValues, warnWhenUnsavedChanges = props.warnWhenUnsavedChanges, validate = props.validate, rest = __rest$q(props, ["criteriaMode", "defaultValues", "formRootPathname", "resolver", "reValidateMode", "onSubmit", "sanitizeEmptyValues", "warnWhenUnsavedChanges", "validate"]);
     var record = useRecordContext(props);
     var saveContext = useSaveContext();
     var defaultValuesIncludingRecord = useMemo(function () { return getFormInitialValues(defaultValues, record); }, 
@@ -24806,59 +25258,8 @@ var useAugmentedForm = function (props) {
         : validate
             ? getSimpleValidationResolver(validate)
             : undefined;
-    var form = useForm({
-        context: context,
-        criteriaMode: criteriaMode,
-        defaultValues: defaultValuesIncludingRecord,
-        delayError: delayError,
-        mode: mode,
-        reValidateMode: reValidateMode,
-        resolver: finalResolver,
-        shouldFocusError: shouldFocusError,
-        shouldUnregister: shouldUnregister,
-        shouldUseNativeValidation: shouldUseNativeValidation,
-    });
+    var form = useForm(__assign$t({ criteriaMode: criteriaMode, values: defaultValuesIncludingRecord, reValidateMode: reValidateMode, resolver: finalResolver }, rest));
     var formRef = useRef(form);
-    // According to react-hook-form docs: https://react-hook-form.com/api/useform/formstate
-    // `formState` must be read before a render in order to enable the state update.
-    var _c = form.formState; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.isSubmitting; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.isDirty; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.isValid; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.isValidating; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.dirtyFields; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.errors; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.submitCount; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.touchedFields; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.isSubmitted; 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _c.isSubmitSuccessful;
-    // initialize form with record
-    /* eslint-disable react-hooks/exhaustive-deps */
-    useEffect$1(function () {
-        if (!record) {
-            return;
-        }
-        var initialValues = getFormInitialValues(defaultValues, record);
-        form.reset(initialValues);
-    }, [
-        JSON.stringify({
-            defaultValues: typeof defaultValues === 'function'
-                ? 'function'
-                : defaultValues,
-            record: record,
-        }),
-    ]);
-    /* eslint-enable react-hooks/exhaustive-deps */
     // notify on invalid form
     useNotifyIsFormInvalid(form.control);
     // warn when unsaved change
@@ -24906,8 +25307,8 @@ var useAugmentedForm = function (props) {
     };
 };
 
-var __assign$r = (undefined && undefined.__assign) || function () {
-    __assign$r = Object.assign || function(t) {
+var __assign$s = (undefined && undefined.__assign) || function () {
+    __assign$s = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -24915,7 +25316,7 @@ var __assign$r = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$r.apply(this, arguments);
+    return __assign$s.apply(this, arguments);
 };
 /**
  * Creates a form element, initialized with the current record, calling the saveContext on submit
@@ -24942,7 +25343,7 @@ var __assign$r = (undefined && undefined.__assign) || function () {
  * @see useForm
  * @see FormGroupContext
  *
- * @link https://react-hook-form.com/api/useformcontext
+ * @link https://react-hook-form.com/docs/useformcontext
  */
 var Form = function (props) {
     var children = props.children, id = props.id, className = props.className, _a = props.noValidate, noValidate = _a === void 0 ? false : _a;
@@ -24951,7 +25352,7 @@ var Form = function (props) {
     var _b = useAugmentedForm(props), form = _b.form, formHandleSubmit = _b.formHandleSubmit;
     return (React.createElement(OptionalRecordContextProvider, { value: record },
         React.createElement(LabelPrefixContextProvider, { prefix: "resources.".concat(resource, ".fields") },
-            React.createElement(FormProvider, __assign$r({}, form),
+            React.createElement(FormProvider, __assign$s({}, form),
                 React.createElement(FormGroupsProvider, null,
                     React.createElement("form", { onSubmit: formHandleSubmit, noValidate: noValidate, id: id, className: className }, children))))));
 };
@@ -24987,7 +25388,7 @@ var getMessage = function (message, messageArgs, value, values) {
 // result in a new function at every render, and then trigger infinite re-render.
 // Hence, we memoize every built-in validator to prevent a "Maximum call stack" error.
 var memoize$2 = function (fn) {
-    return memoize_1(fn, function () {
+    return lodashMemoize(fn, function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
@@ -25162,7 +25563,7 @@ memoize$2(function (message) {
  * const zipValidators = [regex(/^\d{5}(?:[-\s]\d{4})?$/, 'Must be a zip code')];
  * <TextInput name="zip" validate={zipValidators} />
  */
-var regex = memoize_1(function (pattern, message) {
+var regex = lodashMemoize(function (pattern, message) {
     if (message === void 0) { message = 'ra.validation.regex'; }
     return function (value, values) {
         return !isEmpty$5(value) && typeof value === 'string' && !pattern.test(value)
@@ -25235,37 +25636,53 @@ var useFormGroups = function () {
 };
 
 /*
- * This hook updates the input default value whenever the record changes
- * It applies either the record value if it has one or the defaultValue if it was specified
+ * This hook updates the input with the default value if default value is present
+ * and field input is not already populated or dirty
  */
-var useApplyInputDefaultValues = function (props) {
-    var defaultValue = props.defaultValue, source = props.source;
-    var record = useRecordContext(props);
-    var _a = useFormContext(), getValues = _a.getValues, resetField = _a.resetField, getFieldState = _a.getFieldState, formState = _a.formState;
-    var recordValue = get_1(record, source);
-    var formValue = get_1(getValues(), source);
+var useApplyInputDefaultValues = function (_a) {
+    var inputProps = _a.inputProps, isArrayInput = _a.isArrayInput, fieldArrayInputControl = _a.fieldArrayInputControl;
+    var defaultValue = inputProps.defaultValue, source = inputProps.source;
+    var record = useRecordContext(inputProps);
+    var _b = useFormContext(), getValues = _b.getValues, resetField = _b.resetField, getFieldState = _b.getFieldState, formState = _b.formState, reset = _b.reset;
+    var recordValue = get$2(record, source);
+    var formValue = get$2(getValues(), source);
     var isDirty = getFieldState(source, formState).isDirty;
-    useEffect$1(function () {
-        if (defaultValue == null)
+    useEffect(function () {
+        if (defaultValue == null ||
+            formValue != null ||
+            recordValue != null ||
+            isDirty) {
             return;
-        if (formValue == null && recordValue == null && !isDirty) {
-            // special case for ArrayInput: since we use get(record, source),
-            // if source is like foo.23.bar, this effect will run.
-            // but we only want to set the default value for the subfield bar
-            // if the record actually has a value for foo.23
-            var pathContainsIndex = source
-                .split('.')
-                .some(function (pathPart) { return numericRegex.test(pathPart); });
-            if (pathContainsIndex) {
-                var parentPath = source.split('.').slice(0, -1).join('.');
-                var parentValue = get_1(getValues(), parentPath);
-                if (parentValue == null) {
-                    // the parent is undefined, so we don't want to set the default value
-                    return;
-                }
-            }
-            resetField(source, { defaultValue: defaultValue });
         }
+        // Side note: For Array Input but checked for all to avoid possible regression
+        // Since we use get(record, source), if source is like foo.23.bar,
+        // this effect will run. However we only want to set the default value
+        // for the subfield bar if the record actually has a value for foo.23
+        var pathContainsIndex = source
+            .split('.')
+            .some(function (pathPart) { return numericRegex.test(pathPart); });
+        if (pathContainsIndex) {
+            var parentPath = source.split('.').slice(0, -1).join('.');
+            var parentValue = get$2(getValues(), parentPath);
+            if (parentValue == null) {
+                // the parent is undefined, so we don't want to set the default value
+                return;
+            }
+        }
+        if (isArrayInput) {
+            if (!fieldArrayInputControl) {
+                throw new Error('useApplyInputDefaultValues: No fieldArrayInputControl passed in props for array input usage');
+            }
+            // We need to update inputs nested in array using react hook forms
+            // own array controller rather then the generic reset to prevent control losing
+            // context of the nested inputs
+            fieldArrayInputControl.replace(defaultValue);
+            // resets the form so that control no longer sees the form as dirty after
+            // defaults applied
+            reset({}, { keepValues: true });
+            return;
+        }
+        resetField(source, { defaultValue: defaultValue });
     });
 };
 var numericRegex = /^\d+$/;
@@ -25278,8 +25695,8 @@ var useFormGroupContext = function () {
     return context;
 };
 
-var __assign$q = (undefined && undefined.__assign) || function () {
-    __assign$q = Object.assign || function(t) {
+var __assign$r = (undefined && undefined.__assign) || function () {
+    __assign$r = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -25287,7 +25704,7 @@ var __assign$q = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$q.apply(this, arguments);
+    return __assign$r.apply(this, arguments);
 };
 /**
  * This internal hook returns a function that can translate an error message.
@@ -25317,7 +25734,7 @@ var useGetValidationErrorMessage = function () {
     return function (error) {
         if (error.message != null) {
             var _a = error, message = _a.message, args = _a.args;
-            return translate(message, __assign$q({ _: message }, args));
+            return translate(message, __assign$r({ _: message }, args));
         }
         return translate(error, { _: error });
     };
@@ -25334,8 +25751,8 @@ var isRequired = function (validate) {
 };
 var isRequired$1 = isRequired;
 
-var __assign$p = (undefined && undefined.__assign) || function () {
-    __assign$p = Object.assign || function(t) {
+var __assign$q = (undefined && undefined.__assign) || function () {
+    __assign$q = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -25343,7 +25760,7 @@ var __assign$p = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$p.apply(this, arguments);
+    return __assign$q.apply(this, arguments);
 };
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -25397,14 +25814,13 @@ var defaultFormat = function (value) { return (value == null ? '' : value); };
 // parse empty string into null as it's more suitable for a majority of backends
 var defaultParse = function (value) { return (value === '' ? null : value); };
 var useInput = function (props) {
-    var defaultValue = props.defaultValue, _a = props.format, format = _a === void 0 ? defaultFormat : _a, id = props.id, isRequiredOption = props.isRequired, name = props.name, onBlur = props.onBlur, onChange = props.onChange, _b = props.parse, parse = _b === void 0 ? defaultParse : _b, source = props.source, validate = props.validate, options = __rest$p(props, ["defaultValue", "format", "id", "isRequired", "name", "onBlur", "onChange", "parse", "source", "validate"]);
+    var defaultValue = props.defaultValue, _a = props.format, format = _a === void 0 ? defaultFormat : _a, id = props.id, isRequiredOption = props.isRequired, name = props.name, initialOnBlur = props.onBlur, initialOnChange = props.onChange, _b = props.parse, parse = _b === void 0 ? defaultParse : _b, source = props.source, validate = props.validate, options = __rest$p(props, ["defaultValue", "format", "id", "isRequired", "name", "onBlur", "onChange", "parse", "source", "validate"]);
     var finalName = name || source;
     var formGroupName = useFormGroupContext();
     var formGroups = useFormGroups();
     var record = useRecordContext();
     var getValidationErrorMessage = useGetValidationErrorMessage();
-    var formContext = useFormContext();
-    useEffect$1(function () {
+    useEffect(function () {
         if (!formGroups || formGroupName == null) {
             return;
         }
@@ -25420,15 +25836,15 @@ var useInput = function (props) {
     // This ensures dynamically added inputs have their value set correctly (ArrayInput for example).
     // We don't do this for the form level defaultValues so that it works as it should in react-hook-form
     // (i.e. field level defaultValue override form level defaultValues for this field).
-    var _c = useController(__assign$p({ name: finalName, defaultValue: get_1(record, source, defaultValue), rules: {
-            validate: function (value) { return __awaiter(void 0, void 0, void 0, function () {
+    var _c = useController(__assign$q({ name: finalName, defaultValue: get$2(record, source, defaultValue), rules: {
+            validate: function (value, values) { return __awaiter(void 0, void 0, void 0, function () {
                 var error;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
                             if (!sanitizedValidate)
                                 return [2 /*return*/, true];
-                            return [4 /*yield*/, sanitizedValidate(value, formContext.getValues(), props)];
+                            return [4 /*yield*/, sanitizedValidate(value, values, props)];
                         case 1:
                             error = _a.sent();
                             if (!error)
@@ -25442,31 +25858,33 @@ var useInput = function (props) {
     // they may reset their default values which would override the input default value.
     // This hook ensures that the input default value is applied when a new record is loaded but has
     // no value for the input.
-    useApplyInputDefaultValues(props);
-    var field = __assign$p(__assign$p({}, controllerField), { value: format ? format(controllerField.value) : controllerField.value, onBlur: function () {
-            var event = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                event[_i] = arguments[_i];
-            }
-            if (onBlur) {
-                onBlur.apply(void 0, event);
-            }
-            controllerField.onBlur();
-        }, onChange: function () {
-            var _a, _b, _c, _d, _e;
-            var event = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                event[_i] = arguments[_i];
-            }
-            if (onChange) {
-                onChange.apply(void 0, event);
-            }
-            var eventOrValue = (props.type === 'checkbox' &&
-                ((_b = (_a = event[0]) === null || _a === void 0 ? void 0 : _a.target) === null || _b === void 0 ? void 0 : _b.value) === 'on'
-                ? event[0].target.checked
-                : (_e = (_d = (_c = event[0]) === null || _c === void 0 ? void 0 : _c.target) === null || _d === void 0 ? void 0 : _d.value) !== null && _e !== void 0 ? _e : event[0]);
-            controllerField.onChange(parse ? parse(eventOrValue) : eventOrValue);
-        } });
+    useApplyInputDefaultValues({ inputProps: props });
+    var onBlur = useEvent(function () {
+        var event = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            event[_i] = arguments[_i];
+        }
+        if (initialOnBlur) {
+            initialOnBlur.apply(void 0, event);
+        }
+        controllerField.onBlur();
+    });
+    var onChange = useEvent(function () {
+        var _a, _b, _c, _d, _e;
+        var event = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            event[_i] = arguments[_i];
+        }
+        if (initialOnChange) {
+            initialOnChange.apply(void 0, event);
+        }
+        var eventOrValue = (props.type === 'checkbox' &&
+            ((_b = (_a = event[0]) === null || _a === void 0 ? void 0 : _a.target) === null || _b === void 0 ? void 0 : _b.value) === 'on'
+            ? event[0].target.checked
+            : (_e = (_d = (_c = event[0]) === null || _c === void 0 ? void 0 : _c.target) === null || _d === void 0 ? void 0 : _d.value) !== null && _e !== void 0 ? _e : event[0]);
+        controllerField.onChange(parse ? parse(eventOrValue) : eventOrValue);
+    });
+    var field = __assign$q(__assign$q({}, controllerField), { value: format ? format(controllerField.value) : controllerField.value, onBlur: onBlur, onChange: onChange });
     return {
         id: id || source,
         field: field,
@@ -25475,6 +25893,13 @@ var useInput = function (props) {
         isRequired: isRequiredOption || isRequired$1(validate),
     };
 };
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return self;
+}
 
 const common = {
   black: '#000',
@@ -25653,17 +26078,9 @@ function deepmerge(target, source, options = {
   return output;
 }
 
-var propTypesExports = {};
-var propTypes = {
-  get exports(){ return propTypesExports; },
-  set exports(v){ propTypesExports = v; },
-};
+var propTypes = {exports: {}};
 
-var reactIsExports$2 = {};
-var reactIs$3 = {
-  get exports(){ return reactIsExports$2; },
-  set exports(v){ reactIsExports$2 = v; },
-};
+var reactIs$3 = {exports: {}};
 
 var reactIs_production_min$2 = {};
 
@@ -25882,17 +26299,15 @@ function requireReactIs_development$2 () {
 var hasRequiredReactIs;
 
 function requireReactIs () {
-	if (hasRequiredReactIs) return reactIsExports$2;
+	if (hasRequiredReactIs) return reactIs$3.exports;
 	hasRequiredReactIs = 1;
-	(function (module) {
 
-		if (process.env.NODE_ENV === 'production') {
-		  module.exports = requireReactIs_production_min$2();
-		} else {
-		  module.exports = requireReactIs_development$2();
-		}
-} (reactIs$3));
-	return reactIsExports$2;
+	if (process.env.NODE_ENV === 'production') {
+	  reactIs$3.exports = requireReactIs_production_min$2();
+	} else {
+	  reactIs$3.exports = requireReactIs_development$2();
+	}
+	return reactIs$3.exports;
 }
 
 /*
@@ -26843,6 +27258,9 @@ if (process.env.NODE_ENV !== 'production') {
   propTypes.exports = requireFactoryWithThrowingShims()();
 }
 
+var propTypesExports = propTypes.exports;
+var PropTypes = /*@__PURE__*/getDefaultExportFromCjs(propTypesExports);
+
 function isClassComponent$1(elementType) {
   // elementType.prototype?.isReactComponent
   const {
@@ -26880,8 +27298,8 @@ function acceptingRef(props, propName, componentName, location, propFullName) {
   }
   return null;
 }
-const elementAcceptingRef = chainPropTypes(propTypesExports.element, acceptingRef);
-elementAcceptingRef.isRequired = chainPropTypes(propTypesExports.element.isRequired, acceptingRef);
+const elementAcceptingRef = chainPropTypes(PropTypes.element, acceptingRef);
+elementAcceptingRef.isRequired = chainPropTypes(PropTypes.element.isRequired, acceptingRef);
 var elementAcceptingRef$1 = elementAcceptingRef;
 
 function isClassComponent(elementType) {
@@ -26921,12 +27339,11 @@ function elementTypeAcceptingRef(props, propName, componentName, location, propF
   }
   return null;
 }
-var elementTypeAcceptingRef$1 = chainPropTypes(propTypesExports.elementType, elementTypeAcceptingRef);
+var elementTypeAcceptingRef$1 = chainPropTypes(PropTypes.elementType, elementTypeAcceptingRef);
 
 // This module is based on https://github.com/airbnb/prop-types-exact repository.
 // However, in order to reduce the number of dependencies and to remove some extra safe checks
 // the module was forked.
-
 const specialProperty = 'exact-prop: \u200b';
 function exactProp(propTypes) {
   if (process.env.NODE_ENV === 'production') {
@@ -26963,11 +27380,7 @@ function formatMuiErrorMessage(code) {
   /* eslint-enable prefer-template */
 }
 
-var reactIsExports$1 = {};
-var reactIs$2 = {
-  get exports(){ return reactIsExports$1; },
-  set exports(v){ reactIsExports$1 = v; },
-};
+var reactIs$2 = {exports: {}};
 
 var reactIs_production_min$1 = {};
 
@@ -27223,14 +27636,13 @@ function requireReactIs_development$1 () {
 	return reactIs_development$1;
 }
 
-(function (module) {
+if (process.env.NODE_ENV === 'production') {
+  reactIs$2.exports = requireReactIs_production_min$1();
+} else {
+  reactIs$2.exports = requireReactIs_development$1();
+}
 
-	if (process.env.NODE_ENV === 'production') {
-	  module.exports = requireReactIs_production_min$1();
-	} else {
-	  module.exports = requireReactIs_development$1();
-	}
-} (reactIs$2));
+var reactIsExports$1 = reactIs$2.exports;
 
 // Simplified polyfill for IE11 support
 // https://github.com/JamesMGreene/Function.name/blob/58b314d4a983110c3682f1228f845d39ccca1817/Function.name.js#L3
@@ -27293,7 +27705,7 @@ function HTMLElementType(props, propName, componentName, location, propFullName)
   return null;
 }
 
-const refType = propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object]);
+const refType = PropTypes.oneOfType([PropTypes.func, PropTypes.object]);
 var refType$1 = refType;
 
 // It should to be noted that this function isn't equivalent to `text-transform: capitalize`.
@@ -27331,6 +27743,7 @@ function debounce$1(func, wait = 166) {
   let timeout;
   function debounced(...args) {
     const later = () => {
+      // @ts-ignore
       func.apply(this, args);
     };
     clearTimeout(timeout);
@@ -27434,8 +27847,8 @@ function useGlobalId(idOverride) {
   return id;
 }
 
-// eslint-disable-next-line no-useless-concat -- Workaround for https://github.com/webpack/webpack/issues/14814
-const maybeReactUseId = React['useId' + ''];
+// downstream bundlers may remove unnecessary concatenation, but won't remove toString call -- Workaround for https://github.com/webpack/webpack/issues/14814
+const maybeReactUseId = React['useId'.toString()];
 /**
  *
  * @example <div id={useId()} />
@@ -27845,6 +28258,8 @@ function generateUtilityClasses(componentName, slots, globalStatePrefix = 'Mui')
   return result;
 }
 
+var THEME_ID = '$$material';
+
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -28040,6 +28455,7 @@ var RULESET = 'rule';
 var DECLARATION = 'decl';
 var IMPORT = '@import';
 var KEYFRAMES = '@keyframes';
+var LAYER = '@layer';
 
 /**
  * @param {number}
@@ -28454,7 +28870,7 @@ function parse (value, root, parent, rule, rules, rulesets, pseudo, points, decl
 					// \0 }
 					case 0: case 125: scanning = 0;
 					// ;
-					case 59 + offset:
+					case 59 + offset: if (ampersand == -1) characters = replace(characters, /\f/g, '');
 						if (property > 0 && (strlen(characters) - length))
 							append(property > 32 ? declaration(characters + ';', rule, parent, length - 1) : declaration(replace(characters, ' ', '') + ';', rule, parent, length - 2), declarations);
 						break
@@ -28469,8 +28885,8 @@ function parse (value, root, parent, rule, rules, rulesets, pseudo, points, decl
 								parse(characters, root, reference, reference, props, rulesets, length, points, children);
 							else
 								switch (atrule === 99 && charat(characters, 3) === 110 ? 100 : atrule) {
-									// d m s
-									case 100: case 109: case 115:
+									// d l m s
+									case 100: case 108: case 109: case 115:
 										parse(value, reference, reference, rule && append(ruleset(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length), children), rules, children, length, points, rule ? props : children);
 										break
 									default:
@@ -28589,6 +29005,7 @@ function serialize (children, callback) {
  */
 function stringify (element, index, children, callback) {
 	switch (element.type) {
+		case LAYER: if (element.children.length) break
 		case IMPORT: case DECLARATION: return element.return = element.return || element.value
 		case COMMENT: return ''
 		case KEYFRAMES: return element.return = element.value + '{' + serialize(element.children, callback) + '}'
@@ -29284,11 +29701,7 @@ var createCache = function createCache(options) {
   return cache;
 };
 
-var reactIsExports = {};
-var reactIs$1 = {
-  get exports(){ return reactIsExports; },
-  set exports(v){ reactIsExports = v; },
-};
+var reactIs$1 = {exports: {}};
 
 var reactIs_production_min = {};
 
@@ -29504,14 +29917,13 @@ function requireReactIs_development () {
 	return reactIs_development;
 }
 
-(function (module) {
+if (process.env.NODE_ENV === 'production') {
+  reactIs$1.exports = requireReactIs_production_min();
+} else {
+  reactIs$1.exports = requireReactIs_development();
+}
 
-	if (process.env.NODE_ENV === 'production') {
-	  module.exports = requireReactIs_production_min();
-	} else {
-	  module.exports = requireReactIs_development();
-	}
-} (reactIs$1));
+var reactIsExports = reactIs$1.exports;
 
 var reactIs = reactIsExports;
 var FORWARD_REF_STATICS = {
@@ -29641,6 +30053,7 @@ function murmur2(str) {
 
 var unitlessKeys = {
   animationIterationCount: 1,
+  aspectRatio: 1,
   borderImageOutset: 1,
   borderImageSlice: 1,
   borderImageWidth: 1,
@@ -30007,12 +30420,12 @@ var syncFallback = function syncFallback(create) {
 
 var useInsertionEffect = React['useInsertion' + 'Effect'] ? React['useInsertion' + 'Effect'] : false;
 var useInsertionEffectAlwaysWithSyncFallback = !isBrowser$3 ? syncFallback : useInsertionEffect || syncFallback;
-var useInsertionEffectWithLayoutFallback = useInsertionEffect || useLayoutEffect$2;
+var useInsertionEffectWithLayoutFallback = useInsertionEffect || React.useLayoutEffect;
 
 var isBrowser$2 = typeof document !== 'undefined';
 var hasOwnProperty = {}.hasOwnProperty;
 
-var EmotionCacheContext = /* #__PURE__ */createContext( // we're doing this to avoid preconstruct's dead code elimination in this one case
+var EmotionCacheContext = /* #__PURE__ */React.createContext( // we're doing this to avoid preconstruct's dead code elimination in this one case
 // because this module is primarily intended for the browser and node
 // but it's also required in react native and similar environments sometimes
 // and we could have a special build just for that
@@ -30051,7 +30464,7 @@ if (!isBrowser$2) {
         cache = createCache({
           key: 'css'
         });
-        return /*#__PURE__*/createElement(EmotionCacheContext.Provider, {
+        return /*#__PURE__*/React.createElement(EmotionCacheContext.Provider, {
           value: cache
         }, func(props, cache));
       } else {
@@ -30061,7 +30474,7 @@ if (!isBrowser$2) {
   };
 }
 
-var ThemeContext$2 = /* #__PURE__ */createContext({});
+var ThemeContext$2 = /* #__PURE__ */React.createContext({});
 
 if (process.env.NODE_ENV !== 'production') {
   ThemeContext$2.displayName = 'EmotionThemeContext';
@@ -30090,7 +30503,7 @@ var Insertion$2 = function Insertion(_ref) {
       next = next.next;
     }
 
-    return /*#__PURE__*/createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+    return /*#__PURE__*/React.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
       __html: rules
     }, _ref2.nonce = cache.sheet.nonce, _ref2));
   }
@@ -30117,7 +30530,7 @@ var Emotion = /* #__PURE__ */withEmotionCache(function (props, cache, ref) {
     className = props.className + " ";
   }
 
-  var serialized = serializeStyles(registeredStyles, undefined, useContext(ThemeContext$2));
+  var serialized = serializeStyles(registeredStyles, undefined, React.useContext(ThemeContext$2));
 
   if (process.env.NODE_ENV !== 'production' && serialized.name.indexOf('-') === -1) {
     var labelFromStack = props[labelPropName];
@@ -30138,11 +30551,11 @@ var Emotion = /* #__PURE__ */withEmotionCache(function (props, cache, ref) {
 
   newProps.ref = ref;
   newProps.className = className;
-  return /*#__PURE__*/createElement(Fragment, null, /*#__PURE__*/createElement(Insertion$2, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Insertion$2, {
     cache: cache,
     serialized: serialized,
     isStringTag: typeof WrappedComponent === 'string'
-  }), /*#__PURE__*/createElement(WrappedComponent, newProps));
+  }), /*#__PURE__*/React.createElement(WrappedComponent, newProps));
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -30151,7 +30564,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 var pkg = {
 	name: "@emotion/react",
-	version: "11.10.6",
+	version: "11.11.1",
 	main: "dist/emotion-react.cjs.js",
 	module: "dist/emotion-react.esm.js",
 	browser: {
@@ -30164,6 +30577,7 @@ var pkg = {
 				browser: "./dist/emotion-react.browser.esm.js",
 				"default": "./dist/emotion-react.esm.js"
 			},
+			"import": "./dist/emotion-react.cjs.mjs",
 			"default": "./dist/emotion-react.cjs.js"
 		},
 		"./jsx-runtime": {
@@ -30172,6 +30586,7 @@ var pkg = {
 				browser: "./jsx-runtime/dist/emotion-react-jsx-runtime.browser.esm.js",
 				"default": "./jsx-runtime/dist/emotion-react-jsx-runtime.esm.js"
 			},
+			"import": "./jsx-runtime/dist/emotion-react-jsx-runtime.cjs.mjs",
 			"default": "./jsx-runtime/dist/emotion-react-jsx-runtime.cjs.js"
 		},
 		"./_isolated-hnrs": {
@@ -30180,6 +30595,7 @@ var pkg = {
 				browser: "./_isolated-hnrs/dist/emotion-react-_isolated-hnrs.browser.esm.js",
 				"default": "./_isolated-hnrs/dist/emotion-react-_isolated-hnrs.esm.js"
 			},
+			"import": "./_isolated-hnrs/dist/emotion-react-_isolated-hnrs.cjs.mjs",
 			"default": "./_isolated-hnrs/dist/emotion-react-_isolated-hnrs.cjs.js"
 		},
 		"./jsx-dev-runtime": {
@@ -30188,11 +30604,18 @@ var pkg = {
 				browser: "./jsx-dev-runtime/dist/emotion-react-jsx-dev-runtime.browser.esm.js",
 				"default": "./jsx-dev-runtime/dist/emotion-react-jsx-dev-runtime.esm.js"
 			},
+			"import": "./jsx-dev-runtime/dist/emotion-react-jsx-dev-runtime.cjs.mjs",
 			"default": "./jsx-dev-runtime/dist/emotion-react-jsx-dev-runtime.cjs.js"
 		},
 		"./package.json": "./package.json",
 		"./types/css-prop": "./types/css-prop.d.ts",
-		"./macro": "./macro.js"
+		"./macro": {
+			types: {
+				"import": "./macro.d.mts",
+				"default": "./macro.d.ts"
+			},
+			"default": "./macro.js"
+		}
 	},
 	types: "types/index.d.ts",
 	files: [
@@ -30202,9 +30625,7 @@ var pkg = {
 		"jsx-dev-runtime",
 		"_isolated-hnrs",
 		"types/*.d.ts",
-		"macro.js",
-		"macro.d.ts",
-		"macro.js.flow"
+		"macro.*"
 	],
 	sideEffects: false,
 	author: "Emotion Contributors",
@@ -30214,12 +30635,12 @@ var pkg = {
 	},
 	dependencies: {
 		"@babel/runtime": "^7.18.3",
-		"@emotion/babel-plugin": "^11.10.6",
-		"@emotion/cache": "^11.10.5",
-		"@emotion/serialize": "^1.1.1",
-		"@emotion/use-insertion-effect-with-fallbacks": "^1.0.0",
-		"@emotion/utils": "^1.2.0",
-		"@emotion/weak-memoize": "^0.3.0",
+		"@emotion/babel-plugin": "^11.11.0",
+		"@emotion/cache": "^11.11.0",
+		"@emotion/serialize": "^1.1.2",
+		"@emotion/use-insertion-effect-with-fallbacks": "^1.0.1",
+		"@emotion/utils": "^1.2.1",
+		"@emotion/weak-memoize": "^0.3.1",
 		"hoist-non-react-statics": "^3.3.1"
 	},
 	peerDependencies: {
@@ -30232,10 +30653,10 @@ var pkg = {
 	},
 	devDependencies: {
 		"@definitelytyped/dtslint": "0.0.112",
-		"@emotion/css": "11.10.6",
-		"@emotion/css-prettifier": "1.1.1",
-		"@emotion/server": "11.10.0",
-		"@emotion/styled": "11.10.6",
+		"@emotion/css": "11.11.0",
+		"@emotion/css-prettifier": "1.1.3",
+		"@emotion/server": "11.11.0",
+		"@emotion/styled": "11.11.0",
 		"html-tag-names": "^1.1.2",
 		react: "16.14.0",
 		"svg-tag-names": "^1.1.1",
@@ -30261,7 +30682,13 @@ var pkg = {
 			],
 			extra: {
 				"./types/css-prop": "./types/css-prop.d.ts",
-				"./macro": "./macro.js"
+				"./macro": {
+					types: {
+						"import": "./macro.d.mts",
+						"default": "./macro.d.ts"
+					},
+					"default": "./macro.js"
+				}
 			}
 		}
 	}
@@ -30282,7 +30709,7 @@ var Global = /* #__PURE__ */withEmotionCache(function (props, cache) {
   }
 
   var styles = props.styles;
-  var serialized = serializeStyles([styles], undefined, useContext(ThemeContext$2));
+  var serialized = serializeStyles([styles], undefined, React.useContext(ThemeContext$2));
 
   if (!isBrowser$2) {
     var _ref;
@@ -30307,7 +30734,7 @@ var Global = /* #__PURE__ */withEmotionCache(function (props, cache) {
       return null;
     }
 
-    return /*#__PURE__*/createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+    return /*#__PURE__*/React.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
       __html: rules
     }, _ref.nonce = cache.sheet.nonce, _ref));
   } // yes, i know these hooks are used conditionally
@@ -30316,7 +30743,7 @@ var Global = /* #__PURE__ */withEmotionCache(function (props, cache) {
   // so it's not actually breaking anything
 
 
-  var sheetRef = useRef();
+  var sheetRef = React.useRef();
   useInsertionEffectWithLayoutFallback(function () {
     var key = cache.key + "-global"; // use case of https://github.com/emotion-js/emotion/issues/2675
 
@@ -30483,7 +30910,7 @@ var Insertion$1 = function Insertion(_ref) {
   if (!isBrowser$2 && rules.length !== 0) {
     var _ref2;
 
-    return /*#__PURE__*/createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function (serialized) {
+    return /*#__PURE__*/React.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function (serialized) {
       return serialized.name;
     }).join(' '), _ref2.dangerouslySetInnerHTML = {
       __html: rules
@@ -30528,11 +30955,11 @@ var ClassNames = /* #__PURE__ */withEmotionCache(function (props, cache) {
   var content = {
     css: css,
     cx: cx,
-    theme: useContext(ThemeContext$2)
+    theme: React.useContext(ThemeContext$2)
   };
   var ele = props.children(content);
   hasRendered = true;
-  return /*#__PURE__*/createElement(Fragment, null, /*#__PURE__*/createElement(Insertion$1, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Insertion$1, {
     cache: cache,
     serializedArr: serializedArr
   }), ele);
@@ -30614,7 +31041,7 @@ var Insertion = function Insertion(_ref) {
       next = next.next;
     }
 
-    return /*#__PURE__*/createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+    return /*#__PURE__*/React.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
       __html: rules
     }, _ref2.nonce = cache.sheet.nonce, _ref2));
   }
@@ -30684,7 +31111,7 @@ var createStyled$1 = function createStyled(tag, options) {
           mergedProps[key] = props[key];
         }
 
-        mergedProps.theme = useContext(ThemeContext$2);
+        mergedProps.theme = React.useContext(ThemeContext$2);
       }
 
       if (typeof props.className === 'string') {
@@ -30714,11 +31141,11 @@ var createStyled$1 = function createStyled(tag, options) {
 
       newProps.className = className;
       newProps.ref = ref;
-      return /*#__PURE__*/createElement(Fragment, null, /*#__PURE__*/createElement(Insertion, {
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Insertion, {
         cache: cache,
         serialized: serialized,
         isStringTag: typeof FinalTag === 'string'
-      }), /*#__PURE__*/createElement(FinalTag, newProps));
+      }), /*#__PURE__*/React.createElement(FinalTag, newProps));
     });
     Styled.displayName = identifierName !== undefined ? identifierName : "Styled(" + (typeof baseTag === 'string' ? baseTag : baseTag.displayName || baseTag.name || 'Component') + ")";
     Styled.defaultProps = tag.defaultProps;
@@ -30747,23 +31174,19 @@ var createStyled$1 = function createStyled(tag, options) {
   };
 };
 
-var createStyled$2 = createStyled$1;
-
 var tags = ['a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'big', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'marquee', 'menu', 'menuitem', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr', // SVG
 'circle', 'clipPath', 'defs', 'ellipse', 'foreignObject', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'svg', 'text', 'tspan'];
 
-var newStyled = createStyled$2.bind();
+var newStyled = createStyled$1.bind();
 tags.forEach(function (tagName) {
   // $FlowFixMe: we can ignore this because its exposed type is defined by the CreateStyled type
   newStyled[tagName] = newStyled(tagName);
 });
 
-var emStyled = newStyled;
-
 function isEmpty$4(obj) {
   return obj === undefined || obj === null || Object.keys(obj).length === 0;
 }
-function GlobalStyles$1(props) {
+function GlobalStyles$2(props) {
   const {
     styles,
     defaultTheme = {}
@@ -30773,20 +31196,21 @@ function GlobalStyles$1(props) {
     styles: globalStyles
   });
 }
-process.env.NODE_ENV !== "production" ? GlobalStyles$1.propTypes = {
-  defaultTheme: propTypesExports.object,
-  styles: propTypesExports.oneOfType([propTypesExports.string, propTypesExports.object, propTypesExports.func])
+process.env.NODE_ENV !== "production" ? GlobalStyles$2.propTypes = {
+  defaultTheme: PropTypes.object,
+  styles: PropTypes.oneOfType([PropTypes.array, PropTypes.string, PropTypes.object, PropTypes.func])
 } : void 0;
 
 /**
- * @mui/styled-engine v5.11.16
+ * @mui/styled-engine v5.13.2
  *
  * @license MIT
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+/* eslint-disable no-underscore-dangle */
 function styled$2(tag, options) {
-  const stylesFactory = emStyled(tag, options);
+  const stylesFactory = newStyled(tag, options);
   if (process.env.NODE_ENV !== 'production') {
     return (...styles) => {
       const component = typeof tag === 'string' ? `"${tag}"` : 'component';
@@ -30810,7 +31234,91 @@ const internal_processStyles = (tag, processor) => {
   }
 };
 
-const responsivePropType = process.env.NODE_ENV !== 'production' ? propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string, propTypesExports.object, propTypesExports.array]) : {};
+const _excluded$10 = ["values", "unit", "step"];
+const sortBreakpointsValues = values => {
+  const breakpointsAsArray = Object.keys(values).map(key => ({
+    key,
+    val: values[key]
+  })) || [];
+  // Sort in ascending order
+  breakpointsAsArray.sort((breakpoint1, breakpoint2) => breakpoint1.val - breakpoint2.val);
+  return breakpointsAsArray.reduce((acc, obj) => {
+    return _extends$3({}, acc, {
+      [obj.key]: obj.val
+    });
+  }, {});
+};
+
+// Keep in mind that @media is inclusive by the CSS specification.
+function createBreakpoints(breakpoints) {
+  const {
+      // The breakpoint **start** at this value.
+      // For instance with the first breakpoint xs: [xs, sm).
+      values = {
+        xs: 0,
+        // phone
+        sm: 600,
+        // tablet
+        md: 900,
+        // small laptop
+        lg: 1200,
+        // desktop
+        xl: 1536 // large screen
+      },
+
+      unit = 'px',
+      step = 5
+    } = breakpoints,
+    other = _objectWithoutPropertiesLoose(breakpoints, _excluded$10);
+  const sortedValues = sortBreakpointsValues(values);
+  const keys = Object.keys(sortedValues);
+  function up(key) {
+    const value = typeof values[key] === 'number' ? values[key] : key;
+    return `@media (min-width:${value}${unit})`;
+  }
+  function down(key) {
+    const value = typeof values[key] === 'number' ? values[key] : key;
+    return `@media (max-width:${value - step / 100}${unit})`;
+  }
+  function between(start, end) {
+    const endIndex = keys.indexOf(end);
+    return `@media (min-width:${typeof values[start] === 'number' ? values[start] : start}${unit}) and ` + `(max-width:${(endIndex !== -1 && typeof values[keys[endIndex]] === 'number' ? values[keys[endIndex]] : end) - step / 100}${unit})`;
+  }
+  function only(key) {
+    if (keys.indexOf(key) + 1 < keys.length) {
+      return between(key, keys[keys.indexOf(key) + 1]);
+    }
+    return up(key);
+  }
+  function not(key) {
+    // handle first and last key separately, for better readability
+    const keyIndex = keys.indexOf(key);
+    if (keyIndex === 0) {
+      return up(keys[1]);
+    }
+    if (keyIndex === keys.length - 1) {
+      return down(keys[keyIndex]);
+    }
+    return between(key, keys[keys.indexOf(key) + 1]).replace('@media', '@media not all and');
+  }
+  return _extends$3({
+    keys,
+    values: sortedValues,
+    up,
+    down,
+    between,
+    only,
+    not,
+    unit
+  }, other);
+}
+
+const shape = {
+  borderRadius: 4
+};
+var shape$1 = shape;
+
+const responsivePropType = process.env.NODE_ENV !== 'production' ? PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object, PropTypes.array]) : {};
 var responsivePropType$1 = responsivePropType;
 
 function merge(acc, item) {
@@ -30960,29 +31468,6 @@ function style$1(options) {
   return fn;
 }
 
-function compose(...styles) {
-  const handlers = styles.reduce((acc, style) => {
-    style.filterProps.forEach(prop => {
-      acc[prop] = style;
-    });
-    return acc;
-  }, {});
-
-  // false positive
-  // eslint-disable-next-line react/function-component-definition
-  const fn = props => {
-    return Object.keys(props).reduce((acc, prop) => {
-      if (handlers[prop]) {
-        return merge(acc, handlers[prop](props));
-      }
-      return acc;
-    }, {});
-  };
-  fn.propTypes = process.env.NODE_ENV !== 'production' ? styles.reduce((acc, style) => Object.assign(acc, style.propTypes), {}) : {};
-  fn.filterProps = styles.reduce((acc, style) => acc.concat(style.filterProps), []);
-  return fn;
-}
-
 function memoize(fn) {
   const cache = {};
   return arg => {
@@ -31129,6 +31614,62 @@ process.env.NODE_ENV !== 'production' ? spacingKeys.reduce((obj, key) => {
   obj[key] = responsivePropType$1;
   return obj;
 }, {}) : {};
+
+// The different signatures imply different meaning for their arguments that can't be expressed structurally.
+// We express the difference with variable names.
+/* tslint:disable:unified-signatures */
+/* tslint:enable:unified-signatures */
+
+function createSpacing(spacingInput = 8) {
+  // Already transformed.
+  if (spacingInput.mui) {
+    return spacingInput;
+  }
+
+  // Material Design layouts are visually balanced. Most measurements align to an 8dp grid, which aligns both spacing and the overall layout.
+  // Smaller components, such as icons, can align to a 4dp grid.
+  // https://m2.material.io/design/layout/understanding-layout.html
+  const transform = createUnarySpacing({
+    spacing: spacingInput
+  });
+  const spacing = (...argsInput) => {
+    if (process.env.NODE_ENV !== 'production') {
+      if (!(argsInput.length <= 4)) {
+        console.error(`MUI: Too many arguments provided, expected between 0 and 4, got ${argsInput.length}`);
+      }
+    }
+    const args = argsInput.length === 0 ? [1] : argsInput;
+    return args.map(argument => {
+      const output = transform(argument);
+      return typeof output === 'number' ? `${output}px` : output;
+    }).join(' ');
+  };
+  spacing.mui = true;
+  return spacing;
+}
+
+function compose(...styles) {
+  const handlers = styles.reduce((acc, style) => {
+    style.filterProps.forEach(prop => {
+      acc[prop] = style;
+    });
+    return acc;
+  }, {});
+
+  // false positive
+  // eslint-disable-next-line react/function-component-definition
+  const fn = props => {
+    return Object.keys(props).reduce((acc, prop) => {
+      if (handlers[prop]) {
+        return merge(acc, handlers[prop](props));
+      }
+      return acc;
+    }, {});
+  };
+  fn.propTypes = process.env.NODE_ENV !== 'production' ? styles.reduce((acc, style) => Object.assign(acc, style.propTypes), {}) : {};
+  fn.filterProps = styles.reduce((acc, style) => acc.concat(style.filterProps), []);
+  return fn;
+}
 
 function borderTransform(value) {
   if (typeof value !== 'number') {
@@ -31757,7 +32298,83 @@ const styleFunctionSx = unstable_createStyleFunctionSx();
 styleFunctionSx.filterProps = ['sx'];
 var styleFunctionSx$1 = styleFunctionSx;
 
-const _excluded$$ = ["sx"];
+const _excluded$$ = ["breakpoints", "palette", "spacing", "shape"];
+function createTheme$1(options = {}, ...args) {
+  const {
+      breakpoints: breakpointsInput = {},
+      palette: paletteInput = {},
+      spacing: spacingInput,
+      shape: shapeInput = {}
+    } = options,
+    other = _objectWithoutPropertiesLoose(options, _excluded$$);
+  const breakpoints = createBreakpoints(breakpointsInput);
+  const spacing = createSpacing(spacingInput);
+  let muiTheme = deepmerge({
+    breakpoints,
+    direction: 'ltr',
+    components: {},
+    // Inject component definitions.
+    palette: _extends$3({
+      mode: 'light'
+    }, paletteInput),
+    spacing,
+    shape: _extends$3({}, shape$1, shapeInput)
+  }, other);
+  muiTheme = args.reduce((acc, argument) => deepmerge(acc, argument), muiTheme);
+  muiTheme.unstable_sxConfig = _extends$3({}, defaultSxConfig$1, other == null ? void 0 : other.unstable_sxConfig);
+  muiTheme.unstable_sx = function sx(props) {
+    return styleFunctionSx$1({
+      sx: props,
+      theme: this
+    });
+  };
+  return muiTheme;
+}
+
+function isObjectEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+function useTheme$4(defaultTheme = null) {
+  const contextTheme = React.useContext(ThemeContext$2);
+  return !contextTheme || isObjectEmpty(contextTheme) ? defaultTheme : contextTheme;
+}
+
+const systemDefaultTheme$1 = createTheme$1();
+function useTheme$3(defaultTheme = systemDefaultTheme$1) {
+  return useTheme$4(defaultTheme);
+}
+
+function GlobalStyles$1({
+  styles,
+  themeId,
+  defaultTheme = {}
+}) {
+  const upperTheme = useTheme$3(defaultTheme);
+  const globalStyles = typeof styles === 'function' ? styles(themeId ? upperTheme[themeId] || upperTheme : upperTheme) : styles;
+  return /*#__PURE__*/jsx(GlobalStyles$2, {
+    styles: globalStyles
+  });
+}
+process.env.NODE_ENV !== "production" ? GlobalStyles$1.propTypes /* remove-proptypes */ = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit TypeScript types and run "yarn proptypes"  |
+  // ----------------------------------------------------------------------
+  /**
+   * @ignore
+   */
+  defaultTheme: PropTypes.object,
+  /**
+   * @ignore
+   */
+  styles: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.array, PropTypes.func, PropTypes.number, PropTypes.object, PropTypes.string, PropTypes.bool]),
+  /**
+   * @ignore
+   */
+  themeId: PropTypes.string
+} : void 0;
+
+const _excluded$_ = ["sx"];
 const splitProps = props => {
   var _props$theme$unstable, _props$theme;
   const result = {
@@ -31778,7 +32395,7 @@ function extendSxProp(props) {
   const {
       sx: inSx
     } = props,
-    other = _objectWithoutPropertiesLoose(props, _excluded$$);
+    other = _objectWithoutPropertiesLoose(props, _excluded$_);
   const {
     systemProps,
     otherProps
@@ -31804,242 +32421,10 @@ function extendSxProp(props) {
 
 function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e))for(t=0;t<e.length;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);else for(t in e)e[t]&&(n&&(n+=" "),n+=t);return n}function clsx(){for(var e,t,f=0,n="";f<arguments.length;)(e=arguments[f++])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
 
-const _excluded$_ = ["values", "unit", "step"];
-const sortBreakpointsValues = values => {
-  const breakpointsAsArray = Object.keys(values).map(key => ({
-    key,
-    val: values[key]
-  })) || [];
-  // Sort in ascending order
-  breakpointsAsArray.sort((breakpoint1, breakpoint2) => breakpoint1.val - breakpoint2.val);
-  return breakpointsAsArray.reduce((acc, obj) => {
-    return _extends$3({}, acc, {
-      [obj.key]: obj.val
-    });
-  }, {});
-};
-
-// Keep in mind that @media is inclusive by the CSS specification.
-function createBreakpoints(breakpoints) {
-  const {
-      // The breakpoint **start** at this value.
-      // For instance with the first breakpoint xs: [xs, sm).
-      values = {
-        xs: 0,
-        // phone
-        sm: 600,
-        // tablet
-        md: 900,
-        // small laptop
-        lg: 1200,
-        // desktop
-        xl: 1536 // large screen
-      },
-
-      unit = 'px',
-      step = 5
-    } = breakpoints,
-    other = _objectWithoutPropertiesLoose(breakpoints, _excluded$_);
-  const sortedValues = sortBreakpointsValues(values);
-  const keys = Object.keys(sortedValues);
-  function up(key) {
-    const value = typeof values[key] === 'number' ? values[key] : key;
-    return `@media (min-width:${value}${unit})`;
-  }
-  function down(key) {
-    const value = typeof values[key] === 'number' ? values[key] : key;
-    return `@media (max-width:${value - step / 100}${unit})`;
-  }
-  function between(start, end) {
-    const endIndex = keys.indexOf(end);
-    return `@media (min-width:${typeof values[start] === 'number' ? values[start] : start}${unit}) and ` + `(max-width:${(endIndex !== -1 && typeof values[keys[endIndex]] === 'number' ? values[keys[endIndex]] : end) - step / 100}${unit})`;
-  }
-  function only(key) {
-    if (keys.indexOf(key) + 1 < keys.length) {
-      return between(key, keys[keys.indexOf(key) + 1]);
-    }
-    return up(key);
-  }
-  function not(key) {
-    // handle first and last key separately, for better readability
-    const keyIndex = keys.indexOf(key);
-    if (keyIndex === 0) {
-      return up(keys[1]);
-    }
-    if (keyIndex === keys.length - 1) {
-      return down(keys[keyIndex]);
-    }
-    return between(key, keys[keys.indexOf(key) + 1]).replace('@media', '@media not all and');
-  }
-  return _extends$3({
-    keys,
-    values: sortedValues,
-    up,
-    down,
-    between,
-    only,
-    not,
-    unit
-  }, other);
-}
-
-const shape = {
-  borderRadius: 4
-};
-var shape$1 = shape;
-
-/* tslint:enable:unified-signatures */
-
-function createSpacing(spacingInput = 8) {
-  // Already transformed.
-  if (spacingInput.mui) {
-    return spacingInput;
-  }
-
-  // Material Design layouts are visually balanced. Most measurements align to an 8dp grid, which aligns both spacing and the overall layout.
-  // Smaller components, such as icons, can align to a 4dp grid.
-  // https://m2.material.io/design/layout/understanding-layout.html
-  const transform = createUnarySpacing({
-    spacing: spacingInput
-  });
-  const spacing = (...argsInput) => {
-    if (process.env.NODE_ENV !== 'production') {
-      if (!(argsInput.length <= 4)) {
-        console.error(`MUI: Too many arguments provided, expected between 0 and 4, got ${argsInput.length}`);
-      }
-    }
-    const args = argsInput.length === 0 ? [1] : argsInput;
-    return args.map(argument => {
-      const output = transform(argument);
-      return typeof output === 'number' ? `${output}px` : output;
-    }).join(' ');
-  };
-  spacing.mui = true;
-  return spacing;
-}
-
-const _excluded$Z = ["breakpoints", "palette", "spacing", "shape"];
-function createTheme$1(options = {}, ...args) {
-  const {
-      breakpoints: breakpointsInput = {},
-      palette: paletteInput = {},
-      spacing: spacingInput,
-      shape: shapeInput = {}
-    } = options,
-    other = _objectWithoutPropertiesLoose(options, _excluded$Z);
-  const breakpoints = createBreakpoints(breakpointsInput);
-  const spacing = createSpacing(spacingInput);
-  let muiTheme = deepmerge({
-    breakpoints,
-    direction: 'ltr',
-    components: {},
-    // Inject component definitions.
-    palette: _extends$3({
-      mode: 'light'
-    }, paletteInput),
-    spacing,
-    shape: _extends$3({}, shape$1, shapeInput)
-  }, other);
-  muiTheme = args.reduce((acc, argument) => deepmerge(acc, argument), muiTheme);
-  muiTheme.unstable_sxConfig = _extends$3({}, defaultSxConfig$1, other == null ? void 0 : other.unstable_sxConfig);
-  muiTheme.unstable_sx = function sx(props) {
-    return styleFunctionSx$1({
-      sx: props,
-      theme: this
-    });
-  };
-  return muiTheme;
-}
-
-const ThemeContext = /*#__PURE__*/React.createContext(null);
-if (process.env.NODE_ENV !== 'production') {
-  ThemeContext.displayName = 'ThemeContext';
-}
-var ThemeContext$1 = ThemeContext;
-
-function useTheme$4() {
-  const theme = React.useContext(ThemeContext$1);
-  if (process.env.NODE_ENV !== 'production') {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    React.useDebugValue(theme);
-  }
-  return theme;
-}
-
-const hasSymbol = typeof Symbol === 'function' && Symbol.for;
-var nested = hasSymbol ? Symbol.for('mui.nested') : '__THEME_NESTED__';
-
-function mergeOuterLocalTheme(outerTheme, localTheme) {
-  if (typeof localTheme === 'function') {
-    const mergedTheme = localTheme(outerTheme);
-    if (process.env.NODE_ENV !== 'production') {
-      if (!mergedTheme) {
-        console.error(['MUI: You should return an object from your theme function, i.e.', '<ThemeProvider theme={() => ({})} />'].join('\n'));
-      }
-    }
-    return mergedTheme;
-  }
-  return _extends$3({}, outerTheme, localTheme);
-}
-
-/**
- * This component takes a `theme` prop.
- * It makes the `theme` available down the React tree thanks to React context.
- * This component should preferably be used at **the root of your component tree**.
- */
-function ThemeProvider$2(props) {
-  const {
-    children,
-    theme: localTheme
-  } = props;
-  const outerTheme = useTheme$4();
-  if (process.env.NODE_ENV !== 'production') {
-    if (outerTheme === null && typeof localTheme === 'function') {
-      console.error(['MUI: You are providing a theme function prop to the ThemeProvider component:', '<ThemeProvider theme={outerTheme => outerTheme} />', '', 'However, no outer theme is present.', 'Make sure a theme is already injected higher in the React tree ' + 'or provide a theme object.'].join('\n'));
-    }
-  }
-  const theme = React.useMemo(() => {
-    const output = outerTheme === null ? localTheme : mergeOuterLocalTheme(outerTheme, localTheme);
-    if (output != null) {
-      output[nested] = outerTheme !== null;
-    }
-    return output;
-  }, [localTheme, outerTheme]);
-  return /*#__PURE__*/jsx(ThemeContext$1.Provider, {
-    value: theme,
-    children: children
-  });
-}
-process.env.NODE_ENV !== "production" ? ThemeProvider$2.propTypes = {
-  /**
-   * Your component tree.
-   */
-  children: propTypesExports.node,
-  /**
-   * A theme object. You can provide a function to extend the outer theme.
-   */
-  theme: propTypesExports.oneOfType([propTypesExports.object, propTypesExports.func]).isRequired
-} : void 0;
-if (process.env.NODE_ENV !== 'production') {
-  process.env.NODE_ENV !== "production" ? ThemeProvider$2.propTypes = exactProp(ThemeProvider$2.propTypes) : void 0;
-}
-
-function isObjectEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
-function useTheme$3(defaultTheme = null) {
-  const contextTheme = useTheme$4();
-  return !contextTheme || isObjectEmpty(contextTheme) ? defaultTheme : contextTheme;
-}
-
-const systemDefaultTheme$1 = createTheme$1();
-function useTheme$2(defaultTheme = systemDefaultTheme$1) {
-  return useTheme$3(defaultTheme);
-}
-
-const _excluded$Y = ["className", "component"];
+const _excluded$Z = ["className", "component"];
 function createBox(options = {}) {
   const {
+    themeId,
     defaultTheme,
     defaultClassName = 'MuiBox-root',
     generateClassName
@@ -32048,24 +32433,24 @@ function createBox(options = {}) {
     shouldForwardProp: prop => prop !== 'theme' && prop !== 'sx' && prop !== 'as'
   })(styleFunctionSx$1);
   const Box = /*#__PURE__*/React.forwardRef(function Box(inProps, ref) {
-    const theme = useTheme$2(defaultTheme);
+    const theme = useTheme$3(defaultTheme);
     const _extendSxProp = extendSxProp(inProps),
       {
         className,
         component = 'div'
       } = _extendSxProp,
-      other = _objectWithoutPropertiesLoose(_extendSxProp, _excluded$Y);
+      other = _objectWithoutPropertiesLoose(_extendSxProp, _excluded$Z);
     return /*#__PURE__*/jsx(BoxRoot, _extends$3({
       as: component,
       ref: ref,
       className: clsx(className, generateClassName ? generateClassName(defaultClassName) : defaultClassName),
-      theme: theme
+      theme: themeId ? theme[themeId] || theme : theme
     }, other));
   });
   return Box;
 }
 
-const _excluded$X = ["variant"];
+const _excluded$Y = ["variant"];
 function isEmpty$3(string) {
   return string.length === 0;
 }
@@ -32079,7 +32464,7 @@ function propsToClassKey(props) {
   const {
       variant
     } = props,
-    other = _objectWithoutPropertiesLoose(props, _excluded$X);
+    other = _objectWithoutPropertiesLoose(props, _excluded$Y);
   let classKey = variant || '';
   Object.keys(other).sort().forEach(key => {
     if (key === 'color') {
@@ -32091,9 +32476,7 @@ function propsToClassKey(props) {
   return classKey;
 }
 
-const _excluded$W = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"],
-  _excluded2$5 = ["theme"],
-  _excluded3 = ["theme"];
+const _excluded$X = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"];
 function isEmpty$2(obj) {
   return Object.keys(obj).length === 0;
 }
@@ -32155,16 +32538,26 @@ const systemDefaultTheme = createTheme$1();
 const lowercaseFirstLetter = string => {
   return string.charAt(0).toLowerCase() + string.slice(1);
 };
+function resolveTheme({
+  defaultTheme,
+  theme,
+  themeId
+}) {
+  return isEmpty$2(theme) ? defaultTheme : theme[themeId] || theme;
+}
 function createStyled(input = {}) {
   const {
+    themeId,
     defaultTheme = systemDefaultTheme,
     rootShouldForwardProp = shouldForwardProp,
     slotShouldForwardProp = shouldForwardProp
   } = input;
   const systemSx = props => {
-    const theme = isEmpty$2(props.theme) ? defaultTheme : props.theme;
     return styleFunctionSx$1(_extends$3({}, props, {
-      theme
+      theme: resolveTheme(_extends$3({}, props, {
+        defaultTheme,
+        themeId
+      }))
     }));
   };
   systemSx.__mui_systemSx = true;
@@ -32178,7 +32571,7 @@ function createStyled(input = {}) {
         skipSx: inputSkipSx,
         overridesResolver
       } = inputOptions,
-      options = _objectWithoutPropertiesLoose(inputOptions, _excluded$W);
+      options = _objectWithoutPropertiesLoose(inputOptions, _excluded$X);
 
     // if skipVariantsResolver option is defined, take the value, otherwise, true for root and false for other slots.
     const skipVariantsResolver = inputSkipVariantsResolver !== undefined ? inputSkipVariantsResolver : componentSlot && componentSlot !== 'Root' || false;
@@ -32208,20 +32601,22 @@ function createStyled(input = {}) {
         // On the server Emotion doesn't use React.forwardRef for creating components, so the created
         // component stays as a function. This condition makes sure that we do not interpolate functions
         // which are basically components used as a selectors.
-        return typeof stylesArg === 'function' && stylesArg.__emotion_real !== stylesArg ? _ref => {
-          let {
-              theme: themeInput
-            } = _ref,
-            other = _objectWithoutPropertiesLoose(_ref, _excluded2$5);
-          return stylesArg(_extends$3({
-            theme: isEmpty$2(themeInput) ? defaultTheme : themeInput
-          }, other));
+        return typeof stylesArg === 'function' && stylesArg.__emotion_real !== stylesArg ? props => {
+          return stylesArg(_extends$3({}, props, {
+            theme: resolveTheme(_extends$3({}, props, {
+              defaultTheme,
+              themeId
+            }))
+          }));
         } : stylesArg;
       }) : [];
       let transformedStyleArg = styleArg;
       if (componentName && overridesResolver) {
         expressionsWithDefaultTheme.push(props => {
-          const theme = isEmpty$2(props.theme) ? defaultTheme : props.theme;
+          const theme = resolveTheme(_extends$3({}, props, {
+            defaultTheme,
+            themeId
+          }));
           const styleOverrides = getStyleOverrides(componentName, theme);
           if (styleOverrides) {
             const resolvedStyleOverrides = {};
@@ -32237,7 +32632,10 @@ function createStyled(input = {}) {
       }
       if (componentName && !skipVariantsResolver) {
         expressionsWithDefaultTheme.push(props => {
-          const theme = isEmpty$2(props.theme) ? defaultTheme : props.theme;
+          const theme = resolveTheme(_extends$3({}, props, {
+            defaultTheme,
+            themeId
+          }));
           return variantsResolver(props, getVariantStyles(componentName, theme), theme, componentName);
         });
       }
@@ -32256,15 +32654,12 @@ function createStyled(input = {}) {
       // which are basically components used as a selectors.
       styleArg.__emotion_real !== styleArg) {
         // If the type is function, we need to define the default theme.
-        transformedStyleArg = _ref2 => {
-          let {
-              theme: themeInput
-            } = _ref2,
-            other = _objectWithoutPropertiesLoose(_ref2, _excluded3);
-          return styleArg(_extends$3({
-            theme: isEmpty$2(themeInput) ? defaultTheme : themeInput
-          }, other));
-        };
+        transformedStyleArg = props => styleArg(_extends$3({}, props, {
+          theme: resolveTheme(_extends$3({}, props, {
+            defaultTheme,
+            themeId
+          }))
+        }));
       }
       const Component = defaultStyledResolver(transformedStyleArg, ...expressionsWithDefaultTheme);
       if (process.env.NODE_ENV !== 'production') {
@@ -32276,6 +32671,9 @@ function createStyled(input = {}) {
           displayName = `Styled(${getDisplayName(tag)})`;
         }
         Component.displayName = displayName;
+      }
+      if (tag.muiName) {
+        Component.muiName = tag.muiName;
       }
       return Component;
     };
@@ -32301,9 +32699,13 @@ function getThemeProps(params) {
 function useThemeProps$1({
   props,
   name,
-  defaultTheme
+  defaultTheme,
+  themeId
 }) {
-  const theme = useTheme$2(defaultTheme);
+  let theme = useTheme$3(defaultTheme);
+  if (themeId) {
+    theme = theme[themeId] || theme;
+  }
   const mergedProps = getThemeProps({
     theme,
     name,
@@ -32312,6 +32714,7 @@ function useThemeProps$1({
   return mergedProps;
 }
 
+/* eslint-disable @typescript-eslint/naming-convention */
 /**
  * Returns a number whose value is limited to the given range.
  * @param {number} value The value to be clamped
@@ -32556,38 +32959,135 @@ function emphasize(color, coefficient = 0.15) {
   return getLuminance(color) > 0.5 ? darken(color, coefficient) : lighten(color, coefficient);
 }
 
-const EMPTY_THEME = {};
-function InnerThemeProvider(props) {
-  const theme = useTheme$2();
-  return /*#__PURE__*/jsx(ThemeContext$2.Provider, {
-    value: typeof theme === 'object' ? theme : EMPTY_THEME,
-    children: props.children
-  });
+const ThemeContext = /*#__PURE__*/React.createContext(null);
+if (process.env.NODE_ENV !== 'production') {
+  ThemeContext.displayName = 'ThemeContext';
 }
-process.env.NODE_ENV !== "production" ? InnerThemeProvider.propTypes = {
-  /**
-   * Your component tree.
-   */
-  children: propTypesExports.node
-} : void 0;
+var ThemeContext$1 = ThemeContext;
+
+function useTheme$2() {
+  const theme = React.useContext(ThemeContext$1);
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    React.useDebugValue(theme);
+  }
+  return theme;
+}
+
+const hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var nested = hasSymbol ? Symbol.for('mui.nested') : '__THEME_NESTED__';
+
+function mergeOuterLocalTheme(outerTheme, localTheme) {
+  if (typeof localTheme === 'function') {
+    const mergedTheme = localTheme(outerTheme);
+    if (process.env.NODE_ENV !== 'production') {
+      if (!mergedTheme) {
+        console.error(['MUI: You should return an object from your theme function, i.e.', '<ThemeProvider theme={() => ({})} />'].join('\n'));
+      }
+    }
+    return mergedTheme;
+  }
+  return {
+    ...outerTheme,
+    ...localTheme
+  };
+}
 
 /**
- * This component makes the `theme` available down the React tree.
- * It should preferably be used at **the root of your component tree**.
+ * This component takes a `theme` prop.
+ * It makes the `theme` available down the React tree thanks to React context.
+ * This component should preferably be used at **the root of your component tree**.
  */
-function ThemeProvider$1(props) {
+function ThemeProvider$3(props) {
   const {
     children,
     theme: localTheme
   } = props;
-  return /*#__PURE__*/jsx(ThemeProvider$2, {
+  const outerTheme = useTheme$2();
+  if (process.env.NODE_ENV !== 'production') {
+    if (outerTheme === null && typeof localTheme === 'function') {
+      console.error(['MUI: You are providing a theme function prop to the ThemeProvider component:', '<ThemeProvider theme={outerTheme => outerTheme} />', '', 'However, no outer theme is present.', 'Make sure a theme is already injected higher in the React tree ' + 'or provide a theme object.'].join('\n'));
+    }
+  }
+  const theme = React.useMemo(() => {
+    const output = outerTheme === null ? localTheme : mergeOuterLocalTheme(outerTheme, localTheme);
+    if (output != null) {
+      output[nested] = outerTheme !== null;
+    }
+    return output;
+  }, [localTheme, outerTheme]);
+  return /*#__PURE__*/jsx(ThemeContext$1.Provider, {
+    value: theme,
+    children: children
+  });
+}
+process.env.NODE_ENV !== "production" ? ThemeProvider$3.propTypes = {
+  /**
+   * Your component tree.
+   */
+  children: PropTypes.node,
+  /**
+   * A theme object. You can provide a function to extend the outer theme.
+   */
+  theme: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired
+} : void 0;
+if (process.env.NODE_ENV !== 'production') {
+  process.env.NODE_ENV !== "production" ? ThemeProvider$3.propTypes = exactProp(ThemeProvider$3.propTypes) : void 0;
+}
+
+const EMPTY_THEME = {};
+function useThemeScoping(themeId, upperTheme, localTheme, isPrivate = false) {
+  return React.useMemo(() => {
+    const resolvedTheme = themeId ? upperTheme[themeId] || upperTheme : upperTheme;
+    if (typeof localTheme === 'function') {
+      const mergedTheme = localTheme(resolvedTheme);
+      const result = themeId ? _extends$3({}, upperTheme, {
+        [themeId]: mergedTheme
+      }) : mergedTheme;
+      // must return a function for the private theme to NOT merge with the upper theme.
+      // see the test case "use provided theme from a callback" in ThemeProvider.test.js
+      if (isPrivate) {
+        return () => result;
+      }
+      return result;
+    }
+    return themeId ? _extends$3({}, upperTheme, {
+      [themeId]: localTheme
+    }) : _extends$3({}, upperTheme, localTheme);
+  }, [themeId, upperTheme, localTheme, isPrivate]);
+}
+
+/**
+ * This component makes the `theme` available down the React tree.
+ * It should preferably be used at **the root of your component tree**.
+ *
+ * <ThemeProvider theme={theme}> // existing use case
+ * <ThemeProvider theme={{ id: theme }}> // theme scoping
+ */
+function ThemeProvider$2(props) {
+  const {
+    children,
     theme: localTheme,
-    children: /*#__PURE__*/jsx(InnerThemeProvider, {
+    themeId
+  } = props;
+  const upperTheme = useTheme$4(EMPTY_THEME);
+  const upperPrivateTheme = useTheme$2() || EMPTY_THEME;
+  if (process.env.NODE_ENV !== 'production') {
+    if (upperTheme === null && typeof localTheme === 'function' || themeId && upperTheme && !upperTheme[themeId] && typeof localTheme === 'function') {
+      console.error(['MUI: You are providing a theme function prop to the ThemeProvider component:', '<ThemeProvider theme={outerTheme => outerTheme} />', '', 'However, no outer theme is present.', 'Make sure a theme is already injected higher in the React tree ' + 'or provide a theme object.'].join('\n'));
+    }
+  }
+  const engineTheme = useThemeScoping(themeId, upperTheme, localTheme);
+  const privateTheme = useThemeScoping(themeId, upperPrivateTheme, localTheme, true);
+  return /*#__PURE__*/jsx(ThemeProvider$3, {
+    theme: privateTheme,
+    children: /*#__PURE__*/jsx(ThemeContext$2.Provider, {
+      value: engineTheme,
       children: children
     })
   });
 }
-process.env.NODE_ENV !== "production" ? ThemeProvider$1.propTypes /* remove-proptypes */ = {
+process.env.NODE_ENV !== "production" ? ThemeProvider$2.propTypes /* remove-proptypes */ = {
   // ----------------------------- Warning --------------------------------
   // | These PropTypes are generated from the TypeScript type definitions |
   // |     To update them edit the d.ts file and run "yarn proptypes"     |
@@ -32595,14 +33095,18 @@ process.env.NODE_ENV !== "production" ? ThemeProvider$1.propTypes /* remove-prop
   /**
    * Your component tree.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * A theme object. You can provide a function to extend the outer theme.
    */
-  theme: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object]).isRequired
+  theme: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
+  /**
+   * The design system's unique id for getting the corresponded theme when there are multiple design systems.
+   */
+  themeId: PropTypes.string
 } : void 0;
 if (process.env.NODE_ENV !== 'production') {
-  process.env.NODE_ENV !== "production" ? ThemeProvider$1.propTypes = exactProp(ThemeProvider$1.propTypes) : void 0;
+  process.env.NODE_ENV !== "production" ? ThemeProvider$2.propTypes = exactProp(ThemeProvider$2.propTypes) : void 0;
 }
 
 function createMixins(breakpoints, mixins) {
@@ -32621,7 +33125,7 @@ function createMixins(breakpoints, mixins) {
   }, mixins);
 }
 
-const _excluded$V = ["mode", "contrastThreshold", "tonalOffset"];
+const _excluded$W = ["mode", "contrastThreshold", "tonalOffset"];
 const light = {
   // The colors used to style the text.
   text: {
@@ -32790,7 +33294,7 @@ function createPalette(palette) {
       contrastThreshold = 3,
       tonalOffset = 0.2
     } = palette,
-    other = _objectWithoutPropertiesLoose(palette, _excluded$V);
+    other = _objectWithoutPropertiesLoose(palette, _excluded$W);
   const primary = palette.primary || getDefaultPrimary(mode);
   const secondary = palette.secondary || getDefaultSecondary(mode);
   const error = palette.error || getDefaultError(mode);
@@ -32914,7 +33418,7 @@ const theme2 = createTheme({ palette: {
   return paletteOutput;
 }
 
-const _excluded$U = ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"];
+const _excluded$V = ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"];
 function round$2(value) {
   return Math.round(value * 1e5) / 1e5;
 }
@@ -32945,7 +33449,7 @@ function createTypography(palette, typography) {
       allVariants,
       pxToRem: pxToRem2
     } = _ref,
-    other = _objectWithoutPropertiesLoose(_ref, _excluded$U);
+    other = _objectWithoutPropertiesLoose(_ref, _excluded$V);
   if (process.env.NODE_ENV !== 'production') {
     if (typeof fontSize !== 'number') {
       console.error('MUI: `fontSize` is required to be a number.');
@@ -33012,7 +33516,7 @@ function createShadow(...px) {
 const shadows = ['none', createShadow(0, 2, 1, -1, 0, 1, 1, 0, 0, 1, 3, 0), createShadow(0, 3, 1, -2, 0, 2, 2, 0, 0, 1, 5, 0), createShadow(0, 3, 3, -2, 0, 3, 4, 0, 0, 1, 8, 0), createShadow(0, 2, 4, -1, 0, 4, 5, 0, 0, 1, 10, 0), createShadow(0, 3, 5, -1, 0, 5, 8, 0, 0, 1, 14, 0), createShadow(0, 3, 5, -1, 0, 6, 10, 0, 0, 1, 18, 0), createShadow(0, 4, 5, -2, 0, 7, 10, 1, 0, 2, 16, 1), createShadow(0, 5, 5, -3, 0, 8, 10, 1, 0, 3, 14, 2), createShadow(0, 5, 6, -3, 0, 9, 12, 1, 0, 3, 16, 2), createShadow(0, 6, 6, -3, 0, 10, 14, 1, 0, 4, 18, 3), createShadow(0, 6, 7, -4, 0, 11, 15, 1, 0, 4, 20, 3), createShadow(0, 7, 8, -4, 0, 12, 17, 2, 0, 5, 22, 4), createShadow(0, 7, 8, -4, 0, 13, 19, 2, 0, 5, 24, 4), createShadow(0, 7, 9, -4, 0, 14, 21, 2, 0, 5, 26, 4), createShadow(0, 8, 9, -5, 0, 15, 22, 2, 0, 6, 28, 5), createShadow(0, 8, 10, -5, 0, 16, 24, 2, 0, 6, 30, 5), createShadow(0, 8, 11, -5, 0, 17, 26, 2, 0, 6, 32, 5), createShadow(0, 9, 11, -5, 0, 18, 28, 2, 0, 7, 34, 6), createShadow(0, 9, 12, -6, 0, 19, 29, 2, 0, 7, 36, 6), createShadow(0, 10, 13, -6, 0, 20, 31, 3, 0, 8, 38, 7), createShadow(0, 10, 13, -6, 0, 21, 33, 3, 0, 8, 40, 7), createShadow(0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7), createShadow(0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8), createShadow(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8)];
 var shadows$1 = shadows;
 
-const _excluded$T = ["duration", "easing", "delay"];
+const _excluded$U = ["duration", "easing", "delay"];
 // Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
 // to learn the context in which each easing should be used.
 const easing = {
@@ -33063,7 +33567,7 @@ function createTransitions(inputTransitions) {
         easing: easingOption = mergedEasing.easeInOut,
         delay = 0
       } = options,
-      other = _objectWithoutPropertiesLoose(options, _excluded$T);
+      other = _objectWithoutPropertiesLoose(options, _excluded$U);
     if (process.env.NODE_ENV !== 'production') {
       const isString = value => typeof value === 'string';
       // IE11 support, replace with Number.isNaN
@@ -33110,7 +33614,7 @@ const zIndex = {
 };
 var zIndex$1 = zIndex;
 
-const _excluded$S = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
+const _excluded$T = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
 function createTheme(options = {}, ...args) {
   const {
       mixins: mixinsInput = {},
@@ -33118,7 +33622,7 @@ function createTheme(options = {}, ...args) {
       transitions: transitionsInput = {},
       typography: typographyInput = {}
     } = options,
-    other = _objectWithoutPropertiesLoose(options, _excluded$S);
+    other = _objectWithoutPropertiesLoose(options, _excluded$T);
   if (options.vars) {
     throw new Error(process.env.NODE_ENV !== "production" ? `MUI: \`vars\` is a private field used for CSS variables support.
 Please use another name.` : formatMuiErrorMessage(18));
@@ -33176,16 +33680,16 @@ Please use another name.` : formatMuiErrorMessage(18));
   return muiTheme;
 }
 
-const defaultTheme$2 = createTheme();
-var defaultTheme$3 = defaultTheme$2;
+const defaultTheme$1 = createTheme();
+var defaultTheme$2 = defaultTheme$1;
 
 function useTheme$1() {
-  const theme = useTheme$2(defaultTheme$3);
+  const theme = useTheme$3(defaultTheme$2);
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     React.useDebugValue(theme);
   }
-  return theme;
+  return theme[THEME_ID] || theme;
 }
 
 function useThemeProps({
@@ -33195,17 +33699,42 @@ function useThemeProps({
   return useThemeProps$1({
     props,
     name,
-    defaultTheme: defaultTheme$3
+    defaultTheme: defaultTheme$2,
+    themeId: THEME_ID
   });
 }
 
 const rootShouldForwardProp = prop => shouldForwardProp(prop) && prop !== 'classes';
 const slotShouldForwardProp = shouldForwardProp;
 const styled = createStyled({
-  defaultTheme: defaultTheme$3,
+  themeId: THEME_ID,
+  defaultTheme: defaultTheme$2,
   rootShouldForwardProp
 });
 var styled$1 = styled;
+
+const _excluded$S = ["theme"];
+function ThemeProvider$1(_ref) {
+  let {
+      theme: themeInput
+    } = _ref,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded$S);
+  const scopedTheme = themeInput[THEME_ID];
+  return /*#__PURE__*/jsx(ThemeProvider$2, _extends$3({}, props, {
+    themeId: scopedTheme ? THEME_ID : undefined,
+    theme: scopedTheme || themeInput
+  }));
+}
+process.env.NODE_ENV !== "production" ? ThemeProvider$1.propTypes = {
+  /**
+   * Your component tree.
+   */
+  children: PropTypes.node,
+  /**
+   * A theme object. You can provide a function to extend the outer theme.
+   */
+  theme: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired
+} : void 0;
 
 // Inspired by https://github.com/material-components/material-components-ios/blob/bca36107405594d5b7b16265a5b0ed698f85a5ee/components/Elevation/src/UIColor%2BMaterialElevation.m#L61
 const getOverlayAlpha = elevation => {
@@ -33325,7 +33854,7 @@ function omitEventHandlers(object) {
  *
  * The merge order is (the latter overrides the former):
  * 1. The internal props (specified as a getter function to work with get*Props hook result)
- * 2. Additional props (specified internally on an unstyled component)
+ * 2. Additional props (specified internally on a Base UI component)
  * 3. External props specified on the owner component. These should only be used on a root slot.
  * 4. External props specified in the `slotProps.*` prop.
  * 5. The `className` prop - combined from all the above.
@@ -33367,7 +33896,7 @@ function mergeSlotProps(parameters) {
   const internalSlotProps = getSlotProps(eventHandlers);
 
   // The order of classes is important here.
-  // Emotion (that we use in libraries consuming MUI Base) depends on this order
+  // Emotion (that we use in libraries consuming Base UI) depends on this order
   // to properly override style. It requires the most important classes to be last
   // (see https://github.com/mui/material-ui/pull/33205) for the related discussion.
   const joinedClasses = clsx(internalSlotProps == null ? void 0 : internalSlotProps.className, additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
@@ -33428,11 +33957,11 @@ function clickedRootScrollbar(event, doc) {
  *
  * Demos:
  *
- * - [Click-Away Listener](https://mui.com/base/react-click-away-listener/)
+ * - [Click-Away Listener](https://mui.com/base-ui/react-click-away-listener/)
  *
  * API:
  *
- * - [ClickAwayListener API](https://mui.com/base/react-click-away-listener/components-api/#click-away-listener)
+ * - [ClickAwayListener API](https://mui.com/base-ui/react-click-away-listener/components-api/#click-away-listener)
  */
 function ClickAwayListener(props) {
   const {
@@ -33564,21 +34093,21 @@ process.env.NODE_ENV !== "production" ? ClickAwayListener.propTypes /* remove-pr
    * This prop changes how portaled elements are handled.
    * @default false
    */
-  disableReactTree: propTypesExports.bool,
+  disableReactTree: PropTypes.bool,
   /**
    * The mouse event to listen to. You can disable the listener by providing `false`.
    * @default 'onClick'
    */
-  mouseEvent: propTypesExports.oneOf(['onClick', 'onMouseDown', 'onMouseUp', 'onPointerDown', 'onPointerUp', false]),
+  mouseEvent: PropTypes.oneOf(['onClick', 'onMouseDown', 'onMouseUp', 'onPointerDown', 'onPointerUp', false]),
   /**
    * Callback fired when a "click away" event is detected.
    */
-  onClickAway: propTypesExports.func.isRequired,
+  onClickAway: PropTypes.func.isRequired,
   /**
    * The touch event to listen to. You can disable the listener by providing `false`.
    * @default 'onTouchEnd'
    */
-  touchEvent: propTypesExports.oneOf(['onTouchEnd', 'onTouchStart', false])
+  touchEvent: PropTypes.oneOf(['onTouchEnd', 'onTouchStart', false])
 } : void 0;
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line
@@ -33656,11 +34185,11 @@ function defaultIsEnabled() {
  *
  * Demos:
  *
- * - [Focus Trap](https://mui.com/base/react-focus-trap/)
+ * - [Focus Trap](https://mui.com/base-ui/react-focus-trap/)
  *
  * API:
  *
- * - [FocusTrap API](https://mui.com/base/react-focus-trap/components-api/#focus-trap)
+ * - [FocusTrap API](https://mui.com/base-ui/react-focus-trap/components-api/#focus-trap)
  */
 function FocusTrap(props) {
   const {
@@ -33866,7 +34395,7 @@ process.env.NODE_ENV !== "production" ? FocusTrap.propTypes /* remove-proptypes 
    * accessible to assistive technologies, like screen readers.
    * @default false
    */
-  disableAutoFocus: propTypesExports.bool,
+  disableAutoFocus: PropTypes.bool,
   /**
    * If `true`, the focus trap will not prevent focus from leaving the focus trap while open.
    *
@@ -33874,19 +34403,19 @@ process.env.NODE_ENV !== "production" ? FocusTrap.propTypes /* remove-proptypes 
    * accessible to assistive technologies, like screen readers.
    * @default false
    */
-  disableEnforceFocus: propTypesExports.bool,
+  disableEnforceFocus: PropTypes.bool,
   /**
    * If `true`, the focus trap will not restore focus to previously focused element once
    * focus trap is hidden or unmounted.
    * @default false
    */
-  disableRestoreFocus: propTypesExports.bool,
+  disableRestoreFocus: PropTypes.bool,
   /**
    * Returns an array of ordered tabbable nodes (i.e. in tab order) within the root.
    * For instance, you can provide the "tabbable" npm dependency.
    * @param {HTMLElement} root
    */
-  getTabbable: propTypesExports.func,
+  getTabbable: PropTypes.func,
   /**
    * This prop extends the `open` prop.
    * It allows to toggle the open state without having to wait for a rerender when changing the `open` prop.
@@ -33896,11 +34425,11 @@ process.env.NODE_ENV !== "production" ? FocusTrap.propTypes /* remove-proptypes 
    *   return true;
    * }
    */
-  isEnabled: propTypesExports.func,
+  isEnabled: PropTypes.func,
   /**
    * If `true`, focus is locked.
    */
-  open: propTypesExports.bool.isRequired
+  open: PropTypes.bool.isRequired
 } : void 0;
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line
@@ -34357,17 +34886,7 @@ function effect$1(_ref2) {
     }
   }
 
-  if (process.env.NODE_ENV !== "production") {
-    if (!isHTMLElement$1(arrowElement)) {
-      console.error(['Popper: "arrow" element must be an HTMLElement (not an SVGElement).', 'To use an SVG arrow, wrap it in an HTMLElement that will be used as', 'the arrow.'].join(' '));
-    }
-  }
-
   if (!contains(state.elements.popper, arrowElement)) {
-    if (process.env.NODE_ENV !== "production") {
-      console.error(['Popper: "arrow" modifier\'s `element` must be a child of the popper', 'element.'].join(' '));
-    }
-
     return;
   }
 
@@ -34509,17 +35028,6 @@ function computeStyles(_ref5) {
       adaptive = _options$adaptive === void 0 ? true : _options$adaptive,
       _options$roundOffsets = options.roundOffsets,
       roundOffsets = _options$roundOffsets === void 0 ? true : _options$roundOffsets;
-
-  if (process.env.NODE_ENV !== "production") {
-    var transitionProperty = getComputedStyle(state.elements.popper).transitionProperty || '';
-
-    if (adaptive && ['transform', 'top', 'right', 'bottom', 'left'].some(function (property) {
-      return transitionProperty.indexOf(property) >= 0;
-    })) {
-      console.warn(['Popper: Detected CSS transitions on at least one of the following', 'CSS properties: "transform", "top", "right", "bottom", "left".', '\n\n', 'Disable the "computeStyles" modifier\'s `adaptive` option to allow', 'for smooth transitions, or remove these properties from the CSS', 'transition declaration on the popper element if only transitioning', 'opacity or background-color for example.', '\n\n', 'We recommend using the popper element as a wrapper around an inner', 'element that can have any CSS property transitioned for animations.'].join(' '));
-    }
-  }
-
   var commonStyles = {
     placement: getBasePlacement(state.placement),
     variation: getVariation(state.placement),
@@ -34960,10 +35468,6 @@ function computeAutoPlacement(state, options) {
 
   if (allowedPlacements.length === 0) {
     allowedPlacements = placements$1;
-
-    if (process.env.NODE_ENV !== "production") {
-      console.error(['Popper: The `allowedAutoPlacements` option did not allow any', 'placements. Ensure the `placement` option matches the variation', 'of the allowed placements.', 'For example, "auto" cannot be used to allow "bottom-start".', 'Use "auto-start" instead.'].join(' '));
-    }
   } // $FlowFixMe[incompatible-type]: Flow seems to have problems with two array unions...
 
 
@@ -35515,108 +36019,6 @@ function debounce(fn) {
   };
 }
 
-function format(str) {
-  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    args[_key - 1] = arguments[_key];
-  }
-
-  return [].concat(args).reduce(function (p, c) {
-    return p.replace(/%s/, c);
-  }, str);
-}
-
-var INVALID_MODIFIER_ERROR = 'Popper: modifier "%s" provided an invalid %s property, expected %s but got %s';
-var MISSING_DEPENDENCY_ERROR = 'Popper: modifier "%s" requires "%s", but "%s" modifier is not available';
-var VALID_PROPERTIES = ['name', 'enabled', 'phase', 'fn', 'effect', 'requires', 'options'];
-function validateModifiers(modifiers) {
-  modifiers.forEach(function (modifier) {
-    [].concat(Object.keys(modifier), VALID_PROPERTIES) // IE11-compatible replacement for `new Set(iterable)`
-    .filter(function (value, index, self) {
-      return self.indexOf(value) === index;
-    }).forEach(function (key) {
-      switch (key) {
-        case 'name':
-          if (typeof modifier.name !== 'string') {
-            console.error(format(INVALID_MODIFIER_ERROR, String(modifier.name), '"name"', '"string"', "\"" + String(modifier.name) + "\""));
-          }
-
-          break;
-
-        case 'enabled':
-          if (typeof modifier.enabled !== 'boolean') {
-            console.error(format(INVALID_MODIFIER_ERROR, modifier.name, '"enabled"', '"boolean"', "\"" + String(modifier.enabled) + "\""));
-          }
-
-          break;
-
-        case 'phase':
-          if (modifierPhases.indexOf(modifier.phase) < 0) {
-            console.error(format(INVALID_MODIFIER_ERROR, modifier.name, '"phase"', "either " + modifierPhases.join(', '), "\"" + String(modifier.phase) + "\""));
-          }
-
-          break;
-
-        case 'fn':
-          if (typeof modifier.fn !== 'function') {
-            console.error(format(INVALID_MODIFIER_ERROR, modifier.name, '"fn"', '"function"', "\"" + String(modifier.fn) + "\""));
-          }
-
-          break;
-
-        case 'effect':
-          if (modifier.effect != null && typeof modifier.effect !== 'function') {
-            console.error(format(INVALID_MODIFIER_ERROR, modifier.name, '"effect"', '"function"', "\"" + String(modifier.fn) + "\""));
-          }
-
-          break;
-
-        case 'requires':
-          if (modifier.requires != null && !Array.isArray(modifier.requires)) {
-            console.error(format(INVALID_MODIFIER_ERROR, modifier.name, '"requires"', '"array"', "\"" + String(modifier.requires) + "\""));
-          }
-
-          break;
-
-        case 'requiresIfExists':
-          if (!Array.isArray(modifier.requiresIfExists)) {
-            console.error(format(INVALID_MODIFIER_ERROR, modifier.name, '"requiresIfExists"', '"array"', "\"" + String(modifier.requiresIfExists) + "\""));
-          }
-
-          break;
-
-        case 'options':
-        case 'data':
-          break;
-
-        default:
-          console.error("PopperJS: an invalid property has been provided to the \"" + modifier.name + "\" modifier, valid properties are " + VALID_PROPERTIES.map(function (s) {
-            return "\"" + s + "\"";
-          }).join(', ') + "; but \"" + key + "\" was provided.");
-      }
-
-      modifier.requires && modifier.requires.forEach(function (requirement) {
-        if (modifiers.find(function (mod) {
-          return mod.name === requirement;
-        }) == null) {
-          console.error(format(MISSING_DEPENDENCY_ERROR, String(modifier.name), requirement, requirement));
-        }
-      });
-    });
-  });
-}
-
-function uniqueBy(arr, fn) {
-  var identifiers = new Set();
-  return arr.filter(function (item) {
-    var identifier = fn(item);
-
-    if (!identifiers.has(identifier)) {
-      identifiers.add(identifier);
-      return true;
-    }
-  });
-}
-
 function mergeByName(modifiers) {
   var merged = modifiers.reduce(function (merged, current) {
     var existing = merged[current.name];
@@ -35632,8 +36034,6 @@ function mergeByName(modifiers) {
   });
 }
 
-var INVALID_ELEMENT_ERROR = 'Popper: Invalid reference or popper argument provided. They must be either a DOM element or virtual element.';
-var INFINITE_LOOP_ERROR = 'Popper: An infinite loop in the modifiers cycle has been detected! The cycle has been interrupted to prevent a browser crash.';
 var DEFAULT_OPTIONS = {
   placement: 'bottom',
   modifiers: [],
@@ -35695,42 +36095,7 @@ function popperGenerator(generatorOptions) {
 
         state.orderedModifiers = orderedModifiers.filter(function (m) {
           return m.enabled;
-        }); // Validate the provided modifiers so that the consumer will get warned
-        // if one of the modifiers is invalid for any reason
-
-        if (process.env.NODE_ENV !== "production") {
-          var modifiers = uniqueBy([].concat(orderedModifiers, state.options.modifiers), function (_ref) {
-            var name = _ref.name;
-            return name;
-          });
-          validateModifiers(modifiers);
-
-          if (getBasePlacement(state.options.placement) === auto) {
-            var flipModifier = state.orderedModifiers.find(function (_ref2) {
-              var name = _ref2.name;
-              return name === 'flip';
-            });
-
-            if (!flipModifier) {
-              console.error(['Popper: "auto" placements require the "flip" modifier be', 'present and enabled to work.'].join(' '));
-            }
-          }
-
-          var _getComputedStyle = getComputedStyle(popper),
-              marginTop = _getComputedStyle.marginTop,
-              marginRight = _getComputedStyle.marginRight,
-              marginBottom = _getComputedStyle.marginBottom,
-              marginLeft = _getComputedStyle.marginLeft; // We no longer take into account `margins` on the popper, and it can
-          // cause bugs with positioning, so we'll warn the consumer
-
-
-          if ([marginTop, marginRight, marginBottom, marginLeft].some(function (margin) {
-            return parseFloat(margin);
-          })) {
-            console.warn(['Popper: CSS "margin" styles cannot be used to apply padding', 'between the popper and its reference element or boundary.', 'To replicate margin, use the `offset` modifier, as well as', 'the `padding` option in the `preventOverflow` and `flip`', 'modifiers.'].join(' '));
-          }
-        }
-
+        });
         runModifierEffects();
         return instance.update();
       },
@@ -35750,10 +36115,6 @@ function popperGenerator(generatorOptions) {
         // anymore
 
         if (!areValidElements(reference, popper)) {
-          if (process.env.NODE_ENV !== "production") {
-            console.error(INVALID_ELEMENT_ERROR);
-          }
-
           return;
         } // Store the reference and popper rects to be read by modifiers
 
@@ -35776,18 +36137,8 @@ function popperGenerator(generatorOptions) {
         state.orderedModifiers.forEach(function (modifier) {
           return state.modifiersData[modifier.name] = Object.assign({}, modifier.data);
         });
-        var __debug_loops__ = 0;
 
         for (var index = 0; index < state.orderedModifiers.length; index++) {
-          if (process.env.NODE_ENV !== "production") {
-            __debug_loops__ += 1;
-
-            if (__debug_loops__ > 100) {
-              console.error(INFINITE_LOOP_ERROR);
-              break;
-            }
-          }
-
           if (state.reset === true) {
             state.reset = false;
             index = -1;
@@ -35825,10 +36176,6 @@ function popperGenerator(generatorOptions) {
     };
 
     if (!areValidElements(reference, popper)) {
-      if (process.env.NODE_ENV !== "production") {
-        console.error(INVALID_ELEMENT_ERROR);
-      }
-
       return instance;
     }
 
@@ -35843,11 +36190,11 @@ function popperGenerator(generatorOptions) {
     // one.
 
     function runModifierEffects() {
-      state.orderedModifiers.forEach(function (_ref3) {
-        var name = _ref3.name,
-            _ref3$options = _ref3.options,
-            options = _ref3$options === void 0 ? {} : _ref3$options,
-            effect = _ref3.effect;
+      state.orderedModifiers.forEach(function (_ref) {
+        var name = _ref.name,
+            _ref$options = _ref.options,
+            options = _ref$options === void 0 ? {} : _ref$options,
+            effect = _ref.effect;
 
         if (typeof effect === 'function') {
           var cleanupFn = effect({
@@ -35890,13 +36237,13 @@ function getContainer$1(container) {
  *
  * Demos:
  *
- * - [Portal](https://mui.com/base/react-portal/)
+ * - [Portal](https://mui.com/base-ui/react-portal/)
  *
  * API:
  *
- * - [Portal API](https://mui.com/base/react-portal/components-api/#portal)
+ * - [Portal API](https://mui.com/base-ui/react-portal/components-api/#portal)
  */
-const Portal = /*#__PURE__*/React.forwardRef(function Portal(props, ref) {
+const Portal = /*#__PURE__*/React.forwardRef(function Portal(props, forwardedRef) {
   const {
     children,
     container,
@@ -35904,7 +36251,7 @@ const Portal = /*#__PURE__*/React.forwardRef(function Portal(props, ref) {
   } = props;
   const [mountNode, setMountNode] = React.useState(null);
   // @ts-expect-error TODO upstream fix
-  const handleRef = useForkRef( /*#__PURE__*/React.isValidElement(children) ? children.ref : null, ref);
+  const handleRef = useForkRef( /*#__PURE__*/React.isValidElement(children) ? children.ref : null, forwardedRef);
   useEnhancedEffect$1(() => {
     if (!disablePortal) {
       setMountNode(getContainer$1(container) || document.body);
@@ -35912,13 +36259,13 @@ const Portal = /*#__PURE__*/React.forwardRef(function Portal(props, ref) {
   }, [container, disablePortal]);
   useEnhancedEffect$1(() => {
     if (mountNode && !disablePortal) {
-      setRef(ref, mountNode);
+      setRef(forwardedRef, mountNode);
       return () => {
-        setRef(ref, null);
+        setRef(forwardedRef, null);
       };
     }
     return undefined;
-  }, [ref, mountNode, disablePortal]);
+  }, [forwardedRef, mountNode, disablePortal]);
   if (disablePortal) {
     if ( /*#__PURE__*/React.isValidElement(children)) {
       const newProps = {
@@ -35942,7 +36289,7 @@ process.env.NODE_ENV !== "production" ? Portal.propTypes /* remove-proptypes */ 
   /**
    * The children to render into the `container`.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * An HTML element or function that returns one.
    * The `container` will have the portal children appended to it.
@@ -35950,12 +36297,12 @@ process.env.NODE_ENV !== "production" ? Portal.propTypes /* remove-proptypes */ 
    * By default, it uses the body of the top-level document object,
    * so it's simply `document.body` most of the time.
    */
-  container: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.func]),
+  container: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.func]),
   /**
    * The `children` will be under the DOM hierarchy of the parent component.
    * @default false
    */
-  disablePortal: propTypesExports.bool
+  disablePortal: PropTypes.bool
 } : void 0;
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line
@@ -35963,12 +36310,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 var Portal$1 = Portal;
 
-function getPopperUnstyledUtilityClass(slot) {
+function getPopperUtilityClass(slot) {
   return generateUtilityClass('MuiPopper', slot);
 }
 generateUtilityClasses('MuiPopper', ['root']);
 
-const _excluded$Q = ["anchorEl", "children", "component", "direction", "disablePortal", "modifiers", "open", "ownerState", "placement", "popperOptions", "popperRef", "slotProps", "slots", "TransitionProps"],
+const _excluded$Q = ["anchorEl", "children", "direction", "disablePortal", "modifiers", "open", "placement", "popperOptions", "popperRef", "slotProps", "slots", "TransitionProps", "ownerState"],
   _excluded2$4 = ["anchorEl", "children", "container", "direction", "disablePortal", "keepMounted", "modifiers", "open", "placement", "popperOptions", "popperRef", "style", "transition", "slotProps", "slots"];
 function flipPlacement(placement, direction) {
   if (direction === 'ltr') {
@@ -36000,30 +36347,30 @@ const useUtilityClasses$G = () => {
   const slots = {
     root: ['root']
   };
-  return composeClasses(slots, useClassNamesOverride(getPopperUnstyledUtilityClass));
+  return composeClasses(slots, useClassNamesOverride(getPopperUtilityClass));
 };
 const defaultPopperOptions = {};
-const PopperTooltip = /*#__PURE__*/React.forwardRef(function PopperTooltip(props, ref) {
-  var _ref;
+const PopperTooltip = /*#__PURE__*/React.forwardRef(function PopperTooltip(props, forwardedRef) {
+  var _slots$root;
   const {
       anchorEl,
       children,
-      component,
       direction,
       disablePortal,
       modifiers,
       open,
-      ownerState,
       placement: initialPlacement,
       popperOptions,
       popperRef: popperRefProp,
       slotProps = {},
       slots = {},
       TransitionProps
+      // @ts-ignore internal logic
+      // prevent from spreading to DOM, it can come from the parent component e.g. Select.
     } = props,
     other = _objectWithoutPropertiesLoose(props, _excluded$Q);
   const tooltipRef = React.useRef(null);
-  const ownRef = useForkRef(tooltipRef, ref);
+  const ownRef = useForkRef(tooltipRef, forwardedRef);
   const popperRef = React.useRef(null);
   const handlePopperRef = useForkRef(popperRef, popperRefProp);
   const handlePopperRefRef = React.useRef(handlePopperRef);
@@ -36107,7 +36454,7 @@ const PopperTooltip = /*#__PURE__*/React.forwardRef(function PopperTooltip(props
     childProps.TransitionProps = TransitionProps;
   }
   const classes = useUtilityClasses$G();
-  const Root = (_ref = component != null ? component : slots.root) != null ? _ref : 'div';
+  const Root = (_slots$root = slots.root) != null ? _slots$root : 'div';
   const rootProps = useSlotProps({
     elementType: Root,
     externalSlotProps: slotProps.root,
@@ -36116,7 +36463,7 @@ const PopperTooltip = /*#__PURE__*/React.forwardRef(function PopperTooltip(props
       role: 'tooltip',
       ref: ownRef
     },
-    ownerState: _extends$3({}, props, ownerState),
+    ownerState: props,
     className: classes.root
   });
   return /*#__PURE__*/jsx(Root, _extends$3({}, rootProps, {
@@ -36129,13 +36476,13 @@ const PopperTooltip = /*#__PURE__*/React.forwardRef(function PopperTooltip(props
  *
  * Demos:
  *
- * - [Unstyled Popper](https://mui.com/base/react-popper/)
+ * - [Popper](https://mui.com/base-ui/react-popper/)
  *
  * API:
  *
- * - [PopperUnstyled API](https://mui.com/base/react-popper/components-api/#popper-unstyled)
+ * - [Popper API](https://mui.com/base-ui/react-popper/components-api/#popper)
  */
-const PopperUnstyled = /*#__PURE__*/React.forwardRef(function PopperUnstyled(props, ref) {
+const Popper$2 = /*#__PURE__*/React.forwardRef(function Popper(props, forwardedRef) {
   const {
       anchorEl,
       children,
@@ -36189,7 +36536,7 @@ const PopperUnstyled = /*#__PURE__*/React.forwardRef(function PopperUnstyled(pro
       direction: direction,
       disablePortal: disablePortal,
       modifiers: modifiers,
-      ref: ref,
+      ref: forwardedRef,
       open: transition ? !exited : open,
       placement: placement,
       popperOptions: popperOptions,
@@ -36210,7 +36557,7 @@ const PopperUnstyled = /*#__PURE__*/React.forwardRef(function PopperUnstyled(pro
     }))
   });
 });
-process.env.NODE_ENV !== "production" ? PopperUnstyled.propTypes /* remove-proptypes */ = {
+process.env.NODE_ENV !== "production" ? Popper$2.propTypes /* remove-proptypes */ = {
   // ----------------------------- Warning --------------------------------
   // | These PropTypes are generated from the TypeScript type definitions |
   // |     To update them edit TypeScript types and run "yarn proptypes"  |
@@ -36221,7 +36568,7 @@ process.env.NODE_ENV !== "production" ? PopperUnstyled.propTypes /* remove-propt
    * It's used to set the position of the popper.
    * The return value will passed as the reference object of the Popper instance.
    */
-  anchorEl: chainPropTypes(propTypesExports.oneOfType([HTMLElementType, propTypesExports.object, propTypesExports.func]), props => {
+  anchorEl: chainPropTypes(PropTypes.oneOfType([HTMLElementType, PropTypes.object, PropTypes.func]), props => {
     if (props.open) {
       const resolvedAnchorEl = resolveAnchorEl$1(props.anchorEl);
       if (resolvedAnchorEl && isHTMLElement(resolvedAnchorEl) && resolvedAnchorEl.nodeType === 1) {
@@ -36238,7 +36585,7 @@ process.env.NODE_ENV !== "production" ? PopperUnstyled.propTypes /* remove-propt
   /**
    * Popper render function or node.
    */
-  children: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.node, propTypesExports.func]),
+  children: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.node, PropTypes.func]),
   /**
    * An HTML element or function that returns one.
    * The `container` will have the portal children appended to it.
@@ -36246,24 +36593,24 @@ process.env.NODE_ENV !== "production" ? PopperUnstyled.propTypes /* remove-propt
    * By default, it uses the body of the top-level document object,
    * so it's simply `document.body` most of the time.
    */
-  container: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.func]),
+  container: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.func]),
   /**
    * Direction of the text.
    * @default 'ltr'
    */
-  direction: propTypesExports.oneOf(['ltr', 'rtl']),
+  direction: PropTypes.oneOf(['ltr', 'rtl']),
   /**
    * The `children` will be under the DOM hierarchy of the parent component.
    * @default false
    */
-  disablePortal: propTypesExports.bool,
+  disablePortal: PropTypes.bool,
   /**
    * Always keep the children in the DOM.
    * This prop can be useful in SEO situation or
    * when you want to maximize the responsiveness of the Popper.
    * @default false
    */
-  keepMounted: propTypesExports.bool,
+  keepMounted: PropTypes.bool,
   /**
    * Popper.js is based on a "plugin-like" architecture,
    * most of its features are fully encapsulated "modifiers".
@@ -36273,35 +36620,35 @@ process.env.NODE_ENV !== "production" ? PopperUnstyled.propTypes /* remove-propt
    * For this reason, modifiers should be very performant to avoid bottlenecks.
    * To learn how to create a modifier, [read the modifiers documentation](https://popper.js.org/docs/v2/modifiers/).
    */
-  modifiers: propTypesExports.arrayOf(propTypesExports.shape({
-    data: propTypesExports.object,
-    effect: propTypesExports.func,
-    enabled: propTypesExports.bool,
-    fn: propTypesExports.func,
-    name: propTypesExports.any,
-    options: propTypesExports.object,
-    phase: propTypesExports.oneOf(['afterMain', 'afterRead', 'afterWrite', 'beforeMain', 'beforeRead', 'beforeWrite', 'main', 'read', 'write']),
-    requires: propTypesExports.arrayOf(propTypesExports.string),
-    requiresIfExists: propTypesExports.arrayOf(propTypesExports.string)
+  modifiers: PropTypes.arrayOf(PropTypes.shape({
+    data: PropTypes.object,
+    effect: PropTypes.func,
+    enabled: PropTypes.bool,
+    fn: PropTypes.func,
+    name: PropTypes.any,
+    options: PropTypes.object,
+    phase: PropTypes.oneOf(['afterMain', 'afterRead', 'afterWrite', 'beforeMain', 'beforeRead', 'beforeWrite', 'main', 'read', 'write']),
+    requires: PropTypes.arrayOf(PropTypes.string),
+    requiresIfExists: PropTypes.arrayOf(PropTypes.string)
   })),
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool.isRequired,
+  open: PropTypes.bool.isRequired,
   /**
    * Popper placement.
    * @default 'bottom'
    */
-  placement: propTypesExports.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
+  placement: PropTypes.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
   /**
    * Options provided to the [`Popper.js`](https://popper.js.org/docs/v2/constructors/#options) instance.
    * @default {}
    */
-  popperOptions: propTypesExports.shape({
-    modifiers: propTypesExports.array,
-    onFirstUpdate: propTypesExports.func,
-    placement: propTypesExports.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
-    strategy: propTypesExports.oneOf(['absolute', 'fixed'])
+  popperOptions: PropTypes.shape({
+    modifiers: PropTypes.array,
+    onFirstUpdate: PropTypes.func,
+    placement: PropTypes.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
+    strategy: PropTypes.oneOf(['absolute', 'fixed'])
   }),
   /**
    * A ref that points to the used popper instance.
@@ -36311,28 +36658,24 @@ process.env.NODE_ENV !== "production" ? PopperUnstyled.propTypes /* remove-propt
    * The props used for each slot inside the Popper.
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    root: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object])
+  slotProps: PropTypes.shape({
+    root: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
   }),
   /**
    * The components used for each slot inside the Popper.
    * Either a string to use a HTML element or a component.
    * @default {}
    */
-  slots: propTypesExports.shape({
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    root: PropTypes.elementType
   }),
-  /**
-   * @ignore
-   */
-  style: propTypesExports.object,
   /**
    * Help supporting a react-transition-group/Transition component.
    * @default false
    */
-  transition: propTypesExports.bool
+  transition: PropTypes.bool
 } : void 0;
-var PopperUnstyled$1 = PopperUnstyled;
+var BasePopper = Popper$2;
 
 // Is a vertical scrollbar displayed?
 function isOverflowing(container) {
@@ -36552,7 +36895,7 @@ function getModalUtilityClass(slot) {
 }
 generateUtilityClasses('MuiModal', ['root', 'hidden', 'backdrop']);
 
-const _excluded$P = ["children", "closeAfterTransition", "component", "container", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "manager", "onBackdropClick", "onClose", "onKeyDown", "open", "onTransitionEnter", "onTransitionExited", "slotProps", "slots"];
+const _excluded$P = ["children", "closeAfterTransition", "container", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "manager", "onBackdropClick", "onClose", "onKeyDown", "open", "onTransitionEnter", "onTransitionExited", "slotProps", "slots"];
 const useUtilityClasses$F = ownerState => {
   const {
     open,
@@ -36590,18 +36933,17 @@ const defaultManager = new ModalManager();
  *
  * Demos:
  *
- * - [Unstyled Modal](https://mui.com/base/react-modal/)
+ * - [Modal](https://mui.com/base-ui/react-modal/)
  *
  * API:
  *
- * - [ModalUnstyled API](https://mui.com/base/react-modal/components-api/#modal-unstyled)
+ * - [Modal API](https://mui.com/base-ui/react-modal/components-api/#modal)
  */
-const ModalUnstyled = /*#__PURE__*/React.forwardRef(function ModalUnstyled(props, forwardedRef) {
-  var _props$ariaHidden, _ref;
+const Modal$2 = /*#__PURE__*/React.forwardRef(function Modal(props, forwardedRef) {
+  var _props$ariaHidden, _slots$root;
   const {
       children,
       closeAfterTransition = false,
-      component,
       container,
       disableAutoFocus = false,
       disableEnforceFocus = false,
@@ -36612,7 +36954,7 @@ const ModalUnstyled = /*#__PURE__*/React.forwardRef(function ModalUnstyled(props
       hideBackdrop = false,
       keepMounted = false,
       // private
-      manager = defaultManager,
+      manager: managerProp = defaultManager,
       onBackdropClick,
       onClose,
       onKeyDown,
@@ -36623,6 +36965,9 @@ const ModalUnstyled = /*#__PURE__*/React.forwardRef(function ModalUnstyled(props
       slots = {}
     } = props,
     other = _objectWithoutPropertiesLoose(props, _excluded$P);
+  // TODO: `modal`` must change its type in this file to match the type of methods
+  // provided by `ModalManager`
+  const manager = managerProp;
   const [exited, setExited] = React.useState(!open);
   const modal = React.useRef({});
   const mountNodeRef = React.useRef(null);
@@ -36753,7 +37098,7 @@ const ModalUnstyled = /*#__PURE__*/React.forwardRef(function ModalUnstyled(props
     childProps.onEnter = createChainedFunction(handleEnter, children.props.onEnter);
     childProps.onExited = createChainedFunction(handleExited, children.props.onExited);
   }
-  const Root = (_ref = component != null ? component : slots.root) != null ? _ref : 'div';
+  const Root = (_slots$root = slots.root) != null ? _slots$root : 'div';
   const rootProps = useSlotProps({
     elementType: Root,
     externalSlotProps: slotProps.root,
@@ -36782,7 +37127,7 @@ const ModalUnstyled = /*#__PURE__*/React.forwardRef(function ModalUnstyled(props
     return null;
   }
   return /*#__PURE__*/jsx(Portal$1
-  // @ts-expect-error TODO: include ref to MUI Base Portal props
+  // @ts-expect-error TODO: include ref to Base UI Portal props
   , {
     ref: handlePortalRef,
     container: container,
@@ -36799,7 +37144,7 @@ const ModalUnstyled = /*#__PURE__*/React.forwardRef(function ModalUnstyled(props
     }))
   });
 });
-process.env.NODE_ENV !== "production" ? ModalUnstyled.propTypes /* remove-proptypes */ = {
+process.env.NODE_ENV !== "production" ? Modal$2.propTypes /* remove-proptypes */ = {
   // ----------------------------- Warning --------------------------------
   // | These PropTypes are generated from the TypeScript type definitions |
   // |     To update them edit TypeScript types and run "yarn proptypes"  |
@@ -36812,12 +37157,7 @@ process.env.NODE_ENV !== "production" ? ModalUnstyled.propTypes /* remove-propty
    * When set to true the Modal waits until a nested Transition is completed before closing.
    * @default false
    */
-  closeAfterTransition: propTypesExports.bool,
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: propTypesExports.elementType,
+  closeAfterTransition: PropTypes.bool,
   /**
    * An HTML element or function that returns one.
    * The `container` will have the portal children appended to it.
@@ -36825,7 +37165,7 @@ process.env.NODE_ENV !== "production" ? ModalUnstyled.propTypes /* remove-propty
    * By default, it uses the body of the top-level document object,
    * so it's simply `document.body` most of the time.
    */
-  container: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.func]),
+  container: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.func]),
   /**
    * If `true`, the modal will not automatically shift focus to itself when it opens, and
    * replace it to the last focused element when it closes.
@@ -36835,7 +37175,7 @@ process.env.NODE_ENV !== "production" ? ModalUnstyled.propTypes /* remove-propty
    * accessible to assistive technologies, like screen readers.
    * @default false
    */
-  disableAutoFocus: propTypesExports.bool,
+  disableAutoFocus: PropTypes.bool,
   /**
    * If `true`, the modal will not prevent focus from leaving the modal while open.
    *
@@ -36843,45 +37183,45 @@ process.env.NODE_ENV !== "production" ? ModalUnstyled.propTypes /* remove-propty
    * accessible to assistive technologies, like screen readers.
    * @default false
    */
-  disableEnforceFocus: propTypesExports.bool,
+  disableEnforceFocus: PropTypes.bool,
   /**
    * If `true`, hitting escape will not fire the `onClose` callback.
    * @default false
    */
-  disableEscapeKeyDown: propTypesExports.bool,
+  disableEscapeKeyDown: PropTypes.bool,
   /**
    * The `children` will be under the DOM hierarchy of the parent component.
    * @default false
    */
-  disablePortal: propTypesExports.bool,
+  disablePortal: PropTypes.bool,
   /**
    * If `true`, the modal will not restore focus to previously focused element once
    * modal is hidden or unmounted.
    * @default false
    */
-  disableRestoreFocus: propTypesExports.bool,
+  disableRestoreFocus: PropTypes.bool,
   /**
    * Disable the scroll lock behavior.
    * @default false
    */
-  disableScrollLock: propTypesExports.bool,
+  disableScrollLock: PropTypes.bool,
   /**
    * If `true`, the backdrop is not rendered.
    * @default false
    */
-  hideBackdrop: propTypesExports.bool,
+  hideBackdrop: PropTypes.bool,
   /**
    * Always keep the children in the DOM.
    * This prop can be useful in SEO situation or
    * when you want to maximize the responsiveness of the Modal.
    * @default false
    */
-  keepMounted: propTypesExports.bool,
+  keepMounted: PropTypes.bool,
   /**
    * Callback fired when the backdrop is clicked.
    * @deprecated Use the `onClose` prop with the `reason` argument to handle the `backdropClick` events.
    */
-  onBackdropClick: propTypesExports.func,
+  onBackdropClick: PropTypes.func,
   /**
    * Callback fired when the component requests to be closed.
    * The `reason` parameter can optionally be used to control the response to `onClose`.
@@ -36889,45 +37229,49 @@ process.env.NODE_ENV !== "production" ? ModalUnstyled.propTypes /* remove-propty
    * @param {object} event The event source of the callback.
    * @param {string} reason Can be: `"escapeKeyDown"`, `"backdropClick"`.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
-   * @ignore
+   * A function called when a transition enters.
    */
-  onKeyDown: propTypesExports.func,
+  onTransitionEnter: PropTypes.func,
+  /**
+   * A function called when a transition has exited.
+   */
+  onTransitionExited: PropTypes.func,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool.isRequired,
+  open: PropTypes.bool.isRequired,
   /**
    * The props used for each slot inside the Modal.
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    backdrop: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object]),
-    root: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object])
+  slotProps: PropTypes.shape({
+    backdrop: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    root: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
   }),
   /**
    * The components used for each slot inside the Modal.
    * Either a string to use a HTML element or a component.
    * @default {}
    */
-  slots: propTypesExports.shape({
-    backdrop: propTypesExports.elementType,
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    backdrop: PropTypes.elementType,
+    root: PropTypes.elementType
   })
 } : void 0;
-var ModalUnstyled$1 = ModalUnstyled;
+var ModalUnstyled = Modal$2;
 
 /**
  * The basic building block for creating custom snackbar.
  *
  * Demos:
  *
- * - [Unstyled Snackbar](https://mui.com/base/react-snackbar/#hook)
+ * - [Snackbar](https://mui.com/base-ui/react-snackbar/#hook)
  *
  * API:
  *
- * - [useSnackbar API](https://mui.com/base/react-snackbar/hooks-api/#use-snackbar)
+ * - [useSnackbar API](https://mui.com/base-ui/react-snackbar/hooks-api/#use-snackbar)
  */
 function useSnackbar(parameters) {
   const {
@@ -36935,7 +37279,6 @@ function useSnackbar(parameters) {
     disableWindowBlurListener = false,
     onClose,
     open,
-    ref,
     resumeHideDuration
   } = parameters;
   const timerAutoHide = React.useRef();
@@ -37034,7 +37377,6 @@ function useSnackbar(parameters) {
     const propsEventHandlers = extractEventHandlers(parameters);
     const externalEventHandlers = _extends$3({}, propsEventHandlers, otherHandlers);
     return _extends$3({
-      ref,
       // ClickAwayListener adds an `onClick` prop which results in the alert not being announced.
       // See https://github.com/mui/material-ui/issues/29080
       role: 'presentation'
@@ -37078,14 +37420,14 @@ function isEmpty$1(obj) {
  *
  * Demos:
  *
- * - [Textarea Autosize](https://mui.com/base/react-textarea-autosize/)
+ * - [Textarea Autosize](https://mui.com/base-ui/react-textarea-autosize/)
  * - [Textarea Autosize](https://mui.com/material-ui/react-textarea-autosize/)
  *
  * API:
  *
- * - [TextareaAutosize API](https://mui.com/base/react-textarea-autosize/components-api/#textarea-autosize)
+ * - [TextareaAutosize API](https://mui.com/base-ui/react-textarea-autosize/components-api/#textarea-autosize)
  */
-const TextareaAutosize = /*#__PURE__*/React.forwardRef(function TextareaAutosize(props, ref) {
+const TextareaAutosize = /*#__PURE__*/React.forwardRef(function TextareaAutosize(props, forwardedRef) {
   const {
       onChange,
       maxRows,
@@ -37098,7 +37440,7 @@ const TextareaAutosize = /*#__PURE__*/React.forwardRef(function TextareaAutosize
     current: isControlled
   } = React.useRef(value != null);
   const inputRef = React.useRef(null);
-  const handleRef = useForkRef(ref, inputRef);
+  const handleRef = useForkRef(forwardedRef, inputRef);
   const shadowRef = React.useRef(null);
   const renders = React.useRef(0);
   const [state, setState] = React.useState({
@@ -37183,7 +37525,7 @@ const TextareaAutosize = /*#__PURE__*/React.forwardRef(function TextareaAutosize
       return updateState(prevState, newState);
     });
   }, [getUpdatedState]);
-  const syncHeightWithFlushSycn = () => {
+  const syncHeightWithFlushSync = () => {
     const newState = getUpdatedState();
     if (isEmpty$1(newState)) {
       return;
@@ -37207,7 +37549,7 @@ const TextareaAutosize = /*#__PURE__*/React.forwardRef(function TextareaAutosize
       // access a dom node that is no longer there (as the fallback component is being shown instead).
       // See https://github.com/mui/material-ui/issues/32640
       if (inputRef.current) {
-        syncHeightWithFlushSycn();
+        syncHeightWithFlushSync();
       }
     });
     let resizeObserver;
@@ -37275,32 +37617,32 @@ process.env.NODE_ENV !== "production" ? TextareaAutosize.propTypes /* remove-pro
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * Maximum number of rows to display.
    */
-  maxRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Minimum number of rows to display.
    * @default 1
    */
-  minRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * @ignore
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * @ignore
    */
-  placeholder: propTypesExports.string,
+  placeholder: PropTypes.string,
   /**
    * @ignore
    */
-  style: propTypesExports.object,
+  style: PropTypes.object,
   /**
    * @ignore
    */
-  value: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.string), propTypesExports.number, propTypesExports.string])
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.number, PropTypes.string])
 } : void 0;
 var TextareaAutosize$1 = TextareaAutosize;
 
@@ -37340,7 +37682,9 @@ const SvgIconRoot = styled$1('svg', {
     width: '1em',
     height: '1em',
     display: 'inline-block',
-    fill: 'currentColor',
+    // the <svg> will define the property that has `currentColor`
+    // e.g. heroicons uses fill="none" and stroke="currentColor"
+    fill: ownerState.hasSvgAsChild ? undefined : 'currentColor',
     flexShrink: 0,
     transition: (_theme$transitions = theme.transitions) == null ? void 0 : (_theme$transitions$cr = _theme$transitions.create) == null ? void 0 : _theme$transitions$cr.call(_theme$transitions, 'fill', {
       duration: (_theme$transitions2 = theme.transitions) == null ? void 0 : (_theme$transitions2$d = _theme$transitions2.duration) == null ? void 0 : _theme$transitions2$d.shorter
@@ -37376,13 +37720,15 @@ const SvgIcon = /*#__PURE__*/React.forwardRef(function SvgIcon(inProps, ref) {
       viewBox = '0 0 24 24'
     } = props,
     other = _objectWithoutPropertiesLoose(props, _excluded$N);
+  const hasSvgAsChild = /*#__PURE__*/React.isValidElement(children) && children.type === 'svg';
   const ownerState = _extends$3({}, props, {
     color,
     component,
     fontSize,
     instanceFontSize: inProps.fontSize,
     inheritViewBox,
-    viewBox
+    viewBox,
+    hasSvgAsChild
   });
   const more = {};
   if (!inheritViewBox) {
@@ -37397,9 +37743,9 @@ const SvgIcon = /*#__PURE__*/React.forwardRef(function SvgIcon(inProps, ref) {
     "aria-hidden": titleAccess ? undefined : true,
     role: titleAccess ? 'img' : undefined,
     ref: ref
-  }, more, other, {
+  }, more, other, hasSvgAsChild && children.props, {
     ownerState: ownerState,
-    children: [children, titleAccess ? /*#__PURE__*/jsx("title", {
+    children: [hasSvgAsChild ? children.props.children : children, titleAccess ? /*#__PURE__*/jsx("title", {
       children: titleAccess
     }) : null]
   }));
@@ -37412,15 +37758,15 @@ process.env.NODE_ENV !== "production" ? SvgIcon.propTypes /* remove-proptypes */
   /**
    * Node passed into the SVG element.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
@@ -37428,21 +37774,21 @@ process.env.NODE_ENV !== "production" ? SvgIcon.propTypes /* remove-proptypes */
    * You can use the `htmlColor` prop to apply a color attribute to the SVG element.
    * @default 'inherit'
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['inherit', 'action', 'disabled', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'action', 'disabled', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
    * @default 'medium'
    */
-  fontSize: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['inherit', 'large', 'medium', 'small']), propTypesExports.string]),
+  fontSize: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'large', 'medium', 'small']), PropTypes.string]),
   /**
    * Applies a color attribute to the SVG element.
    */
-  htmlColor: propTypesExports.string,
+  htmlColor: PropTypes.string,
   /**
    * If `true`, the root node will inherit the custom `component`'s viewBox and the `viewBox`
    * prop will be ignored.
@@ -37450,22 +37796,22 @@ process.env.NODE_ENV !== "production" ? SvgIcon.propTypes /* remove-proptypes */
    * `component`'s viewBox to the root node.
    * @default false
    */
-  inheritViewBox: propTypesExports.bool,
+  inheritViewBox: PropTypes.bool,
   /**
    * The shape-rendering attribute. The behavior of the different options is described on the
    * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/shape-rendering).
    * If you are having issues with blurry icons you should investigate this prop.
    */
-  shapeRendering: propTypesExports.string,
+  shapeRendering: PropTypes.string,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Provides a human-readable title for the element that contains it.
    * https://www.w3.org/TR/SVG-access/#Equivalent
    */
-  titleAccess: propTypesExports.string,
+  titleAccess: PropTypes.string,
   /**
    * Allows you to redefine what the coordinates without units mean inside an SVG element.
    * For example, if the SVG element is 500 (width) by 200 (height),
@@ -37474,7 +37820,7 @@ process.env.NODE_ENV !== "production" ? SvgIcon.propTypes /* remove-proptypes */
    * to bottom right (50,20) and each unit will be worth 10px.
    * @default '0 0 24 24'
    */
-  viewBox: propTypesExports.string
+  viewBox: PropTypes.string
 } : void 0;
 SvgIcon.muiName = 'SvgIcon';
 var SvgIcon$1 = SvgIcon;
@@ -37534,22 +37880,22 @@ var config = {
   disabled: false
 };
 
-var timeoutsShape = process.env.NODE_ENV !== 'production' ? propTypesExports.oneOfType([propTypesExports.number, propTypesExports.shape({
-  enter: propTypesExports.number,
-  exit: propTypesExports.number,
-  appear: propTypesExports.number
+var timeoutsShape = process.env.NODE_ENV !== 'production' ? PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+  enter: PropTypes.number,
+  exit: PropTypes.number,
+  appear: PropTypes.number
 }).isRequired]) : null;
-process.env.NODE_ENV !== 'production' ? propTypesExports.oneOfType([propTypesExports.string, propTypesExports.shape({
-  enter: propTypesExports.string,
-  exit: propTypesExports.string,
-  active: propTypesExports.string
-}), propTypesExports.shape({
-  enter: propTypesExports.string,
-  enterDone: propTypesExports.string,
-  enterActive: propTypesExports.string,
-  exit: propTypesExports.string,
-  exitDone: propTypesExports.string,
-  exitActive: propTypesExports.string
+process.env.NODE_ENV !== 'production' ? PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
+  enter: PropTypes.string,
+  exit: PropTypes.string,
+  active: PropTypes.string
+}), PropTypes.shape({
+  enter: PropTypes.string,
+  enterDone: PropTypes.string,
+  enterActive: PropTypes.string,
+  exit: PropTypes.string,
+  exitDone: PropTypes.string,
+  exitActive: PropTypes.string
 })]) : null;
 
 var TransitionGroupContext = React__default.createContext(null);
@@ -37976,10 +38322,10 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *     (see
    *     [test/CSSTransition-test.js](https://github.com/reactjs/react-transition-group/blob/13435f897b3ab71f6e19d724f145596f5910581c/test/CSSTransition-test.js#L362-L437)).
    */
-  nodeRef: propTypesExports.shape({
-    current: typeof Element === 'undefined' ? propTypesExports.any : function (propValue, key, componentName, location, propFullName, secret) {
+  nodeRef: PropTypes.shape({
+    current: typeof Element === 'undefined' ? PropTypes.any : function (propValue, key, componentName, location, propFullName, secret) {
       var value = propValue[key];
-      return propTypesExports.instanceOf(value && 'ownerDocument' in value ? value.ownerDocument.defaultView.Element : Element)(propValue, key, componentName, location, propFullName, secret);
+      return PropTypes.instanceOf(value && 'ownerDocument' in value ? value.ownerDocument.defaultView.Element : Element)(propValue, key, componentName, location, propFullName, secret);
     }
   }),
 
@@ -37997,12 +38343,12 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * </Transition>
    * ```
    */
-  children: propTypesExports.oneOfType([propTypesExports.func.isRequired, propTypesExports.element.isRequired]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.func.isRequired, PropTypes.element.isRequired]).isRequired,
 
   /**
    * Show the component; triggers the enter or exit states
    */
-  in: propTypesExports.bool,
+  in: PropTypes.bool,
 
   /**
    * By default the child component is mounted immediately along with
@@ -38010,13 +38356,13 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * first `in={true}` you can set `mountOnEnter`. After the first enter transition the component will stay
    * mounted, even on "exited", unless you also specify `unmountOnExit`.
    */
-  mountOnEnter: propTypesExports.bool,
+  mountOnEnter: PropTypes.bool,
 
   /**
    * By default the child component stays mounted after it reaches the `'exited'` state.
    * Set `unmountOnExit` if you'd prefer to unmount the component after it finishes exiting.
    */
-  unmountOnExit: propTypesExports.bool,
+  unmountOnExit: PropTypes.bool,
 
   /**
    * By default the child component does not perform the enter transition when
@@ -38029,17 +38375,17 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * > additional `.appear-*` classes, that way you can choose to style it
    * > differently.
    */
-  appear: propTypesExports.bool,
+  appear: PropTypes.bool,
 
   /**
    * Enable or disable enter transitions.
    */
-  enter: propTypesExports.bool,
+  enter: PropTypes.bool,
 
   /**
    * Enable or disable exit transitions.
    */
-  exit: propTypesExports.bool,
+  exit: PropTypes.bool,
 
   /**
    * The duration of the transition, in milliseconds.
@@ -38092,7 +38438,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * }}
    * ```
    */
-  addEndListener: propTypesExports.func,
+  addEndListener: PropTypes.func,
 
   /**
    * Callback fired before the "entering" status is applied. An extra parameter
@@ -38102,7 +38448,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement, isAppearing: bool) -> void
    */
-  onEnter: propTypesExports.func,
+  onEnter: PropTypes.func,
 
   /**
    * Callback fired after the "entering" status is applied. An extra parameter
@@ -38112,7 +38458,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement, isAppearing: bool)
    */
-  onEntering: propTypesExports.func,
+  onEntering: PropTypes.func,
 
   /**
    * Callback fired after the "entered" status is applied. An extra parameter
@@ -38122,7 +38468,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement, isAppearing: bool) -> void
    */
-  onEntered: propTypesExports.func,
+  onEntered: PropTypes.func,
 
   /**
    * Callback fired before the "exiting" status is applied.
@@ -38131,7 +38477,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement) -> void
    */
-  onExit: propTypesExports.func,
+  onExit: PropTypes.func,
 
   /**
    * Callback fired after the "exiting" status is applied.
@@ -38140,7 +38486,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement) -> void
    */
-  onExiting: propTypesExports.func,
+  onExiting: PropTypes.func,
 
   /**
    * Callback fired after the "exited" status is applied.
@@ -38149,7 +38495,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement) -> void
    */
-  onExited: propTypesExports.func
+  onExited: PropTypes.func
 } : {}; // Name the function so it is clearer in the documentation
 
 function noop() {}
@@ -38174,13 +38520,6 @@ Transition.ENTERING = ENTERING;
 Transition.ENTERED = ENTERED;
 Transition.EXITING = EXITING;
 var Transition$1 = Transition;
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-  return self;
-}
 
 /**
  * Given `this.props.children`, return an object mapping key to child.
@@ -38450,7 +38789,7 @@ TransitionGroup.propTypes = process.env.NODE_ENV !== "production" ? {
    * you can pass in `component={null}`. This is useful if the wrapping div
    * borks your css styles.
    */
-  component: propTypesExports.any,
+  component: PropTypes.any,
 
   /**
    * A set of `<Transition>` components, that are toggled `in` and out as they
@@ -38465,28 +38804,28 @@ TransitionGroup.propTypes = process.env.NODE_ENV !== "production" ? {
    * the transition child as you change its content, this will cause
    * `TransitionGroup` to transition the child out and back in.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
 
   /**
    * A convenience prop that enables or disables appear animations
    * for all children. Note that specifying this will override any defaults set
    * on individual children Transitions.
    */
-  appear: propTypesExports.bool,
+  appear: PropTypes.bool,
 
   /**
    * A convenience prop that enables or disables enter animations
    * for all children. Note that specifying this will override any defaults set
    * on individual children Transitions.
    */
-  enter: propTypesExports.bool,
+  enter: PropTypes.bool,
 
   /**
    * A convenience prop that enables or disables exit animations
    * for all children. Note that specifying this will override any defaults set
    * on individual children Transitions.
    */
-  exit: propTypesExports.bool,
+  exit: PropTypes.bool,
 
   /**
    * You may need to apply reactive updates to a child as it is exiting.
@@ -38498,7 +38837,7 @@ TransitionGroup.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(child: ReactElement) -> ReactElement
    */
-  childFactory: propTypesExports.func
+  childFactory: PropTypes.func
 } : {};
 TransitionGroup.defaultProps = defaultProps;
 var TransitionGroup$1 = TransitionGroup;
@@ -38797,24 +39136,24 @@ process.env.NODE_ENV !== "production" ? Collapse.propTypes /* remove-proptypes *
    * node and a done callback. Allows for more fine grained transition end
    * logic. Note: Timeouts are still used as a fallback if provided.
    */
-  addEndListener: propTypesExports.func,
+  addEndListener: PropTypes.func,
   /**
    * The content node to be collapsed.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The width (horizontal) or height (vertical) of the container when collapsed.
    * @default '0px'
    */
-  collapsedSize: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  collapsedSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
@@ -38824,51 +39163,51 @@ process.env.NODE_ENV !== "production" ? Collapse.propTypes /* remove-proptypes *
    * The transition timing function.
    * You may specify a single easing or a object containing enter and exit values.
    */
-  easing: propTypesExports.oneOfType([propTypesExports.shape({
-    enter: propTypesExports.string,
-    exit: propTypesExports.string
-  }), propTypesExports.string]),
+  easing: PropTypes.oneOfType([PropTypes.shape({
+    enter: PropTypes.string,
+    exit: PropTypes.string
+  }), PropTypes.string]),
   /**
    * If `true`, the component will transition in.
    */
-  in: propTypesExports.bool,
+  in: PropTypes.bool,
   /**
    * @ignore
    */
-  onEnter: propTypesExports.func,
+  onEnter: PropTypes.func,
   /**
    * @ignore
    */
-  onEntered: propTypesExports.func,
+  onEntered: PropTypes.func,
   /**
    * @ignore
    */
-  onEntering: propTypesExports.func,
+  onEntering: PropTypes.func,
   /**
    * @ignore
    */
-  onExit: propTypesExports.func,
+  onExit: PropTypes.func,
   /**
    * @ignore
    */
-  onExited: propTypesExports.func,
+  onExited: PropTypes.func,
   /**
    * @ignore
    */
-  onExiting: propTypesExports.func,
+  onExiting: PropTypes.func,
   /**
    * The transition orientation.
    * @default 'vertical'
    */
-  orientation: propTypesExports.oneOf(['horizontal', 'vertical']),
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
   /**
    * @ignore
    */
-  style: propTypesExports.object,
+  style: PropTypes.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
@@ -38876,10 +39215,10 @@ process.env.NODE_ENV !== "production" ? Collapse.propTypes /* remove-proptypes *
    * Set to 'auto' to automatically calculate transition time based on height.
    * @default duration.standard
    */
-  timeout: propTypesExports.oneOfType([propTypesExports.oneOf(['auto']), propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  timeout: PropTypes.oneOfType([PropTypes.oneOf(['auto']), PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })])
 } : void 0;
 Collapse.muiSupportAuto = true;
@@ -38975,20 +39314,20 @@ process.env.NODE_ENV !== "production" ? Paper.propTypes /* remove-proptypes */ =
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * Shadow depth, corresponds to `dp` in the spec.
    * It accepts values between 0 and 24 inclusive.
@@ -39008,16 +39347,16 @@ process.env.NODE_ENV !== "production" ? Paper.propTypes /* remove-proptypes */ =
    * If `true`, rounded corners are disabled.
    * @default false
    */
-  square: propTypesExports.bool,
+  square: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The variant to use.
    * @default 'elevation'
    */
-  variant: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['elevation', 'outlined']), propTypesExports.string])
+  variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['elevation', 'outlined']), PropTypes.string])
 } : void 0;
 var Paper$1 = Paper;
 
@@ -39208,7 +39547,7 @@ process.env.NODE_ENV !== "production" ? Accordion.propTypes /* remove-proptypes 
   /**
    * The content of the component.
    */
-  children: chainPropTypes(propTypesExports.node.isRequired, props => {
+  children: chainPropTypes(PropTypes.node.isRequired, props => {
     const summary = React.Children.toArray(props.children)[0];
     if (reactIsExports$1.isFragment(summary)) {
       return new Error("MUI: The Accordion doesn't accept a Fragment as a child. " + 'Consider providing an array instead.');
@@ -39221,58 +39560,58 @@ process.env.NODE_ENV !== "production" ? Accordion.propTypes /* remove-proptypes 
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * If `true`, expands the accordion by default.
    * @default false
    */
-  defaultExpanded: propTypesExports.bool,
+  defaultExpanded: PropTypes.bool,
   /**
    * If `true`, the component is disabled.
    * @default false
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, it removes the margin between two expanded accordion items and the increase of height.
    * @default false
    */
-  disableGutters: propTypesExports.bool,
+  disableGutters: PropTypes.bool,
   /**
    * If `true`, expands the accordion, otherwise collapse it.
    * Setting this prop enables control over the accordion.
    */
-  expanded: propTypesExports.bool,
+  expanded: PropTypes.bool,
   /**
    * Callback fired when the expand/collapse state is changed.
    *
    * @param {React.SyntheticEvent} event The event source of the callback. **Warning**: This is a generic event not a change event.
    * @param {boolean} expanded The `expanded` state of the accordion.
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * If `true`, rounded corners are disabled.
    * @default false
    */
-  square: propTypesExports.bool,
+  square: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The component used for the transition.
    * [Follow this guide](/material-ui/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
    * @default Collapse
    */
-  TransitionComponent: propTypesExports.elementType,
+  TransitionComponent: PropTypes.elementType,
   /**
    * Props applied to the transition element.
    * By default, the element is based on this [`Transition`](http://reactcommunity.org/react-transition-group/transition/) component.
    */
-  TransitionProps: propTypesExports.object
+  TransitionProps: PropTypes.object
 } : void 0;
 var Accordion$1 = Accordion;
 
@@ -39325,19 +39664,19 @@ process.env.NODE_ENV !== "production" ? AccordionDetails.propTypes /* remove-pro
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var AccordionDetails$1 = AccordionDetails;
 
@@ -39388,36 +39727,36 @@ process.env.NODE_ENV !== "production" ? Ripple.propTypes = {
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: propTypesExports.object.isRequired,
-  className: propTypesExports.string,
+  classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
   /**
    * @ignore - injected from TransitionGroup
    */
-  in: propTypesExports.bool,
+  in: PropTypes.bool,
   /**
    * @ignore - injected from TransitionGroup
    */
-  onExited: propTypesExports.func,
+  onExited: PropTypes.func,
   /**
    * If `true`, the ripple pulsates, typically indicating the keyboard focus state of an element.
    */
-  pulsate: propTypesExports.bool,
+  pulsate: PropTypes.bool,
   /**
    * Diameter of the ripple.
    */
-  rippleSize: propTypesExports.number,
+  rippleSize: PropTypes.number,
   /**
    * Horizontal position of the ripple center.
    */
-  rippleX: propTypesExports.number,
+  rippleX: PropTypes.number,
   /**
    * Vertical position of the ripple center.
    */
-  rippleY: propTypesExports.number,
+  rippleY: PropTypes.number,
   /**
    * exit delay
    */
-  timeout: propTypesExports.number.isRequired
+  timeout: PropTypes.number.isRequired
 } : void 0;
 
 const touchRippleClasses = generateUtilityClasses('MuiTouchRipple', ['root', 'ripple', 'rippleVisible', 'ripplePulsate', 'child', 'childLeaving', 'childPulsate']);
@@ -39567,14 +39906,16 @@ const TouchRipple = /*#__PURE__*/React.forwardRef(function TouchRipple(inProps, 
   const ignoringMouseDown = React.useRef(false);
   // We use a timer in order to only show the ripples for touch "click" like events.
   // We don't want to display the ripple for touch scroll events.
-  const startTimer = React.useRef(null);
+  const startTimer = React.useRef(0);
 
   // This is the hook called once the previous timeout is ready.
   const startTimerCommit = React.useRef(null);
   const container = React.useRef(null);
   React.useEffect(() => {
     return () => {
-      clearTimeout(startTimer.current);
+      if (startTimer.current) {
+        clearTimeout(startTimer.current);
+      }
     };
   }, []);
   const startCommit = React.useCallback(params => {
@@ -39734,16 +40075,16 @@ process.env.NODE_ENV !== "production" ? TouchRipple.propTypes = {
    * If `true`, the ripple starts at the center of the component
    * rather than at the point of interaction.
    */
-  center: propTypesExports.bool,
+  center: PropTypes.bool,
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string
+  className: PropTypes.string
 } : void 0;
 var TouchRipple$1 = TouchRipple;
 
@@ -40068,19 +40409,19 @@ process.env.NODE_ENV !== "production" ? ButtonBase.propTypes /* remove-proptypes
    * They won't start at the cursor interaction position.
    * @default false
    */
-  centerRipple: propTypesExports.bool,
+  centerRipple: PropTypes.bool,
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
@@ -40090,7 +40431,7 @@ process.env.NODE_ENV !== "production" ? ButtonBase.propTypes /* remove-proptypes
    * If `true`, the component is disabled.
    * @default false
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the ripple effect is disabled.
    *
@@ -40098,17 +40439,17 @@ process.env.NODE_ENV !== "production" ? ButtonBase.propTypes /* remove-proptypes
    * to highlight the element by applying separate styles with the `.Mui-focusVisible` class.
    * @default false
    */
-  disableRipple: propTypesExports.bool,
+  disableRipple: PropTypes.bool,
   /**
    * If `true`, the touch ripple effect is disabled.
    * @default false
    */
-  disableTouchRipple: propTypesExports.bool,
+  disableTouchRipple: PropTypes.bool,
   /**
    * If `true`, the base button will have a keyboard focus ripple.
    * @default false
    */
-  focusRipple: propTypesExports.bool,
+  focusRipple: PropTypes.bool,
   /**
    * This prop can help identify which element has keyboard focus.
    * The class name will be applied when the element gains the focus through keyboard interaction.
@@ -40117,99 +40458,99 @@ process.env.NODE_ENV !== "production" ? ButtonBase.propTypes /* remove-proptypes
    * A [polyfill can be used](https://github.com/WICG/focus-visible) to apply a `focus-visible` class to other components
    * if needed.
    */
-  focusVisibleClassName: propTypesExports.string,
+  focusVisibleClassName: PropTypes.string,
   /**
    * @ignore
    */
-  href: propTypesExports /* @typescript-to-proptypes-ignore */.any,
+  href: PropTypes /* @typescript-to-proptypes-ignore */.any,
   /**
    * The component used to render a link when the `href` prop is provided.
    * @default 'a'
    */
-  LinkComponent: propTypesExports.elementType,
+  LinkComponent: PropTypes.elementType,
   /**
    * @ignore
    */
-  onBlur: propTypesExports.func,
+  onBlur: PropTypes.func,
   /**
    * @ignore
    */
-  onClick: propTypesExports.func,
+  onClick: PropTypes.func,
   /**
    * @ignore
    */
-  onContextMenu: propTypesExports.func,
+  onContextMenu: PropTypes.func,
   /**
    * @ignore
    */
-  onDragLeave: propTypesExports.func,
+  onDragLeave: PropTypes.func,
   /**
    * @ignore
    */
-  onFocus: propTypesExports.func,
+  onFocus: PropTypes.func,
   /**
    * Callback fired when the component is focused with a keyboard.
    * We trigger a `onFocus` callback too.
    */
-  onFocusVisible: propTypesExports.func,
+  onFocusVisible: PropTypes.func,
   /**
    * @ignore
    */
-  onKeyDown: propTypesExports.func,
+  onKeyDown: PropTypes.func,
   /**
    * @ignore
    */
-  onKeyUp: propTypesExports.func,
+  onKeyUp: PropTypes.func,
   /**
    * @ignore
    */
-  onMouseDown: propTypesExports.func,
+  onMouseDown: PropTypes.func,
   /**
    * @ignore
    */
-  onMouseLeave: propTypesExports.func,
+  onMouseLeave: PropTypes.func,
   /**
    * @ignore
    */
-  onMouseUp: propTypesExports.func,
+  onMouseUp: PropTypes.func,
   /**
    * @ignore
    */
-  onTouchEnd: propTypesExports.func,
+  onTouchEnd: PropTypes.func,
   /**
    * @ignore
    */
-  onTouchMove: propTypesExports.func,
+  onTouchMove: PropTypes.func,
   /**
    * @ignore
    */
-  onTouchStart: propTypesExports.func,
+  onTouchStart: PropTypes.func,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * @default 0
    */
-  tabIndex: propTypesExports.number,
+  tabIndex: PropTypes.number,
   /**
    * Props applied to the `TouchRipple` element.
    */
-  TouchRippleProps: propTypesExports.object,
+  TouchRippleProps: PropTypes.object,
   /**
    * A ref that points to the `TouchRipple` element.
    */
-  touchRippleRef: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.shape({
-    current: propTypesExports.shape({
-      pulsate: propTypesExports.func.isRequired,
-      start: propTypesExports.func.isRequired,
-      stop: propTypesExports.func.isRequired
+  touchRippleRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
+    current: PropTypes.shape({
+      pulsate: PropTypes.func.isRequired,
+      start: PropTypes.func.isRequired,
+      stop: PropTypes.func.isRequired
     })
   })]),
   /**
    * @ignore
    */
-  type: propTypesExports.oneOfType([propTypesExports.oneOf(['button', 'reset', 'submit']), propTypesExports.string])
+  type: PropTypes.oneOfType([PropTypes.oneOf(['button', 'reset', 'submit']), PropTypes.string])
 } : void 0;
 var ButtonBase$1 = ButtonBase;
 
@@ -40366,19 +40707,19 @@ process.env.NODE_ENV !== "production" ? AccordionSummary.propTypes /* remove-pro
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The icon to display as the expand indicator.
    */
-  expandIcon: propTypesExports.node,
+  expandIcon: PropTypes.node,
   /**
    * This prop can help identify which element has keyboard focus.
    * The class name will be applied when the element gains the focus through keyboard interaction.
@@ -40387,15 +40728,15 @@ process.env.NODE_ENV !== "production" ? AccordionSummary.propTypes /* remove-pro
    * A [polyfill can be used](https://github.com/WICG/focus-visible) to apply a `focus-visible` class to other components
    * if needed.
    */
-  focusVisibleClassName: propTypesExports.string,
+  focusVisibleClassName: PropTypes.string,
   /**
    * @ignore
    */
-  onClick: propTypesExports.func,
+  onClick: PropTypes.func,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var AccordionSummary$1 = AccordionSummary;
 
@@ -40534,7 +40875,7 @@ process.env.NODE_ENV !== "production" ? IconButton.propTypes /* remove-proptypes
   /**
    * The icon to display.
    */
-  children: chainPropTypes(propTypesExports.node, props => {
+  children: chainPropTypes(PropTypes.node, props => {
     const found = React.Children.toArray(props.children).some(child => /*#__PURE__*/React.isValidElement(child) && child.props.onClick);
     if (found) {
       return new Error(['MUI: You are providing an onClick event listener to a child of a button element.', 'Prefer applying it to the IconButton directly.', 'This guarantees that the whole <button> will be responsive to click events.'].join('\n'));
@@ -40544,28 +40885,28 @@ process.env.NODE_ENV !== "production" ? IconButton.propTypes /* remove-proptypes
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'default'
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['inherit', 'default', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'default', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
   /**
    * If `true`, the component is disabled.
    * @default false
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the  keyboard focus ripple is disabled.
    * @default false
    */
-  disableFocusRipple: propTypesExports.bool,
+  disableFocusRipple: PropTypes.bool,
   /**
    * If `true`, the ripple effect is disabled.
    *
@@ -40573,7 +40914,7 @@ process.env.NODE_ENV !== "production" ? IconButton.propTypes /* remove-proptypes
    * to highlight the element by applying separate styles with the `.Mui-focusVisible` class.
    * @default false
    */
-  disableRipple: propTypesExports.bool,
+  disableRipple: PropTypes.bool,
   /**
    * If given, uses a negative margin to counteract the padding on one
    * side (this is often helpful for aligning the left or right
@@ -40581,17 +40922,17 @@ process.env.NODE_ENV !== "production" ? IconButton.propTypes /* remove-proptypes
    * size and shape).
    * @default false
    */
-  edge: propTypesExports.oneOf(['end', 'start', false]),
+  edge: PropTypes.oneOf(['end', 'start', false]),
   /**
    * The size of the component.
    * `small` is equivalent to the dense button styling.
    * @default 'medium'
    */
-  size: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['small', 'medium', 'large']), propTypesExports.string]),
+  size: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['small', 'medium', 'large']), PropTypes.string]),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var IconButton$1 = IconButton;
 
@@ -40714,29 +41055,29 @@ process.env.NODE_ENV !== "production" ? Typography.propTypes /* remove-proptypes
    * Set the text-align on the component.
    * @default 'inherit'
    */
-  align: propTypesExports.oneOf(['center', 'inherit', 'justify', 'left', 'right']),
+  align: PropTypes.oneOf(['center', 'inherit', 'justify', 'left', 'right']),
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, the text will have a bottom margin.
    * @default false
    */
-  gutterBottom: propTypesExports.bool,
+  gutterBottom: PropTypes.bool,
   /**
    * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.
    *
@@ -40744,21 +41085,21 @@ process.env.NODE_ENV !== "production" ? Typography.propTypes /* remove-proptypes
    * (the element needs to have a width in order to overflow).
    * @default false
    */
-  noWrap: propTypesExports.bool,
+  noWrap: PropTypes.bool,
   /**
    * If `true`, the element will be a paragraph element.
    * @default false
    */
-  paragraph: propTypesExports.bool,
+  paragraph: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Applies the theme typography styles.
    * @default 'body1'
    */
-  variant: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['body1', 'body2', 'button', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'inherit', 'overline', 'subtitle1', 'subtitle2']), propTypesExports.string]),
+  variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['body1', 'body2', 'button', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'inherit', 'overline', 'subtitle1', 'subtitle2']), PropTypes.string]),
   /**
    * The component maps the variant prop to a range of different HTML element types.
    * For instance, subtitle1 to `<h6>`.
@@ -40778,7 +41119,7 @@ process.env.NODE_ENV !== "production" ? Typography.propTypes /* remove-proptypes
    *   inherit: 'p',
    * }
    */
-  variantMapping: propTypesExports /* @typescript-to-proptypes-ignore */.object
+  variantMapping: PropTypes /* @typescript-to-proptypes-ignore */.object
 } : void 0;
 var Typography$1 = Typography;
 
@@ -40917,43 +41258,43 @@ process.env.NODE_ENV !== "production" ? AppBar$1.propTypes /* remove-proptypes *
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'primary'
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['default', 'inherit', 'primary', 'secondary', 'transparent']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['default', 'inherit', 'primary', 'secondary', 'transparent']), PropTypes.string]),
   /**
    * If true, the `color` prop is applied in dark mode.
    * @default false
    */
-  enableColorOnDark: propTypesExports.bool,
+  enableColorOnDark: PropTypes.bool,
   /**
    * The positioning type. The behavior of the different options is described
    * [in the MDN web docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning).
    * Note: `sticky` is not universally supported and will fall back to `static` when unavailable.
    * @default 'fixed'
    */
-  position: propTypesExports.oneOf(['absolute', 'fixed', 'relative', 'static', 'sticky']),
+  position: PropTypes.oneOf(['absolute', 'fixed', 'relative', 'static', 'sticky']),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var AppBar$2 = AppBar$1;
 
-const _excluded$C = ["components", "componentsProps", "slots", "slotProps"];
-const PopperRoot = styled$1(PopperUnstyled$1, {
+const _excluded$C = ["anchorEl", "component", "components", "componentsProps", "container", "disablePortal", "keepMounted", "modifiers", "open", "placement", "popperOptions", "popperRef", "transition", "slots", "slotProps"];
+const PopperRoot = styled$1(BasePopper, {
   name: 'MuiPopper',
   slot: 'Root',
   overridesResolver: (props, styles) => styles.root
@@ -40973,26 +41314,50 @@ const PopperRoot = styled$1(PopperUnstyled$1, {
  */
 const Popper = /*#__PURE__*/React.forwardRef(function Popper(inProps, ref) {
   var _slots$root;
-  const theme = useTheme$3();
+  const theme = useTheme$4();
   const props = useThemeProps({
     props: inProps,
     name: 'MuiPopper'
   });
   const {
+      anchorEl,
+      component,
       components,
       componentsProps,
+      container,
+      disablePortal,
+      keepMounted,
+      modifiers,
+      open,
+      placement,
+      popperOptions,
+      popperRef,
+      transition,
       slots,
       slotProps
     } = props,
     other = _objectWithoutPropertiesLoose(props, _excluded$C);
   const RootComponent = (_slots$root = slots == null ? void 0 : slots.root) != null ? _slots$root : components == null ? void 0 : components.Root;
+  const otherProps = _extends$3({
+    anchorEl,
+    container,
+    disablePortal,
+    keepMounted,
+    modifiers,
+    open,
+    placement,
+    popperOptions,
+    popperRef,
+    transition
+  }, other);
   return /*#__PURE__*/jsx(PopperRoot, _extends$3({
+    as: component,
     direction: theme == null ? void 0 : theme.direction,
     slots: {
       root: RootComponent
     },
     slotProps: slotProps != null ? slotProps : componentsProps
-  }, other, {
+  }, otherProps, {
     ref: ref
   }));
 });
@@ -41007,29 +41372,30 @@ process.env.NODE_ENV !== "production" ? Popper.propTypes /* remove-proptypes */ 
    * It's used to set the position of the popper.
    * The return value will passed as the reference object of the Popper instance.
    */
-  anchorEl: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.object, propTypesExports.func]),
+  anchorEl: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.object, PropTypes.func]),
   /**
    * Popper render function or node.
    */
-  children: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.node, propTypesExports.func]),
+  children: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.node, PropTypes.func]),
   /**
-   * @ignore
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports /* @typescript-to-proptypes-ignore */.elementType,
+  component: PropTypes.elementType,
   /**
    * The components used for each slot inside the Popper.
    * Either a string to use a HTML element or a component.
    * @default {}
    */
-  components: propTypesExports.shape({
-    Root: propTypesExports.elementType
+  components: PropTypes.shape({
+    Root: PropTypes.elementType
   }),
   /**
    * The props used for each slot inside the Popper.
    * @default {}
    */
-  componentsProps: propTypesExports.shape({
-    root: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object])
+  componentsProps: PropTypes.shape({
+    root: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
   }),
   /**
    * An HTML element or function that returns one.
@@ -41038,19 +41404,19 @@ process.env.NODE_ENV !== "production" ? Popper.propTypes /* remove-proptypes */ 
    * By default, it uses the body of the top-level document object,
    * so it's simply `document.body` most of the time.
    */
-  container: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.func]),
+  container: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.func]),
   /**
    * The `children` will be under the DOM hierarchy of the parent component.
    * @default false
    */
-  disablePortal: propTypesExports.bool,
+  disablePortal: PropTypes.bool,
   /**
    * Always keep the children in the DOM.
    * This prop can be useful in SEO situation or
    * when you want to maximize the responsiveness of the Popper.
    * @default false
    */
-  keepMounted: propTypesExports.bool,
+  keepMounted: PropTypes.bool,
   /**
    * Popper.js is based on a "plugin-like" architecture,
    * most of its features are fully encapsulated "modifiers".
@@ -41060,39 +41426,35 @@ process.env.NODE_ENV !== "production" ? Popper.propTypes /* remove-proptypes */ 
    * For this reason, modifiers should be very performant to avoid bottlenecks.
    * To learn how to create a modifier, [read the modifiers documentation](https://popper.js.org/docs/v2/modifiers/).
    */
-  modifiers: propTypesExports.arrayOf(propTypesExports.shape({
-    data: propTypesExports.object,
-    effect: propTypesExports.func,
-    enabled: propTypesExports.bool,
-    fn: propTypesExports.func,
-    name: propTypesExports.any,
-    options: propTypesExports.object,
-    phase: propTypesExports.oneOf(['afterMain', 'afterRead', 'afterWrite', 'beforeMain', 'beforeRead', 'beforeWrite', 'main', 'read', 'write']),
-    requires: propTypesExports.arrayOf(propTypesExports.string),
-    requiresIfExists: propTypesExports.arrayOf(propTypesExports.string)
+  modifiers: PropTypes.arrayOf(PropTypes.shape({
+    data: PropTypes.object,
+    effect: PropTypes.func,
+    enabled: PropTypes.bool,
+    fn: PropTypes.func,
+    name: PropTypes.any,
+    options: PropTypes.object,
+    phase: PropTypes.oneOf(['afterMain', 'afterRead', 'afterWrite', 'beforeMain', 'beforeRead', 'beforeWrite', 'main', 'read', 'write']),
+    requires: PropTypes.arrayOf(PropTypes.string),
+    requiresIfExists: PropTypes.arrayOf(PropTypes.string)
   })),
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool.isRequired,
-  /**
-   * @ignore
-   */
-  ownerState: propTypesExports.any,
+  open: PropTypes.bool.isRequired,
   /**
    * Popper placement.
    * @default 'bottom'
    */
-  placement: propTypesExports.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
+  placement: PropTypes.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
   /**
    * Options provided to the [`Popper.js`](https://popper.js.org/docs/v2/constructors/#options) instance.
    * @default {}
    */
-  popperOptions: propTypesExports.shape({
-    modifiers: propTypesExports.array,
-    onFirstUpdate: propTypesExports.func,
-    placement: propTypesExports.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
-    strategy: propTypesExports.oneOf(['absolute', 'fixed'])
+  popperOptions: PropTypes.shape({
+    modifiers: PropTypes.array,
+    onFirstUpdate: PropTypes.func,
+    placement: PropTypes.oneOf(['auto-end', 'auto-start', 'auto', 'bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
+    strategy: PropTypes.oneOf(['absolute', 'fixed'])
   }),
   /**
    * A ref that points to the used popper instance.
@@ -41102,26 +41464,26 @@ process.env.NODE_ENV !== "production" ? Popper.propTypes /* remove-proptypes */ 
    * The props used for each slot inside the Popper.
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    root: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object])
+  slotProps: PropTypes.shape({
+    root: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
   }),
   /**
    * The components used for each slot inside the Popper.
    * Either a string to use a HTML element or a component.
    * @default {}
    */
-  slots: propTypesExports.shape({
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    root: PropTypes.elementType
   }),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Help supporting a react-transition-group/Transition component.
    * @default false
    */
-  transition: propTypesExports.bool
+  transition: PropTypes.bool
 } : void 0;
 var Popper$1 = Popper;
 
@@ -41156,7 +41518,8 @@ function useFormControl() {
 
 function GlobalStyles(props) {
   return /*#__PURE__*/jsx(GlobalStyles$1, _extends$3({}, props, {
-    defaultTheme: defaultTheme$3
+    defaultTheme: defaultTheme$2,
+    themeId: THEME_ID
   }));
 }
 process.env.NODE_ENV !== "production" ? GlobalStyles.propTypes /* remove-proptypes */ = {
@@ -41167,9 +41530,7 @@ process.env.NODE_ENV !== "production" ? GlobalStyles.propTypes /* remove-proptyp
   /**
    * The styles you want to apply globally.
    */
-  styles: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.number, propTypesExports.object, propTypesExports.shape({
-    __emotion_styles: propTypesExports.any.isRequired
-  }), propTypesExports.string, propTypesExports.bool])
+  styles: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.array, PropTypes.func, PropTypes.number, PropTypes.object, PropTypes.string, PropTypes.bool])
 } : void 0;
 
 // Supports determination of isControlled().
@@ -41562,7 +41923,7 @@ const InputBase = /*#__PURE__*/React.forwardRef(function InputBase(inProps, ref)
     if (inputRef.current && event.currentTarget === event.target) {
       inputRef.current.focus();
     }
-    if (onClick) {
+    if (onClick && !fcs.disabled) {
       onClick(event);
     }
   };
@@ -41672,32 +42033,32 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
   /**
    * @ignore
    */
-  'aria-describedby': propTypesExports.string,
+  'aria-describedby': PropTypes.string,
   /**
    * This prop helps users to fill forms faster, especially on mobile devices.
    * The name can be confusing, as it's more like an autofill.
    * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
    */
-  autoComplete: propTypesExports.string,
+  autoComplete: PropTypes.string,
   /**
    * If `true`, the `input` element is focused during the first mount.
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
   /**
    * The components used for each slot inside.
    *
@@ -41706,9 +42067,9 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
    *
    * @default {}
    */
-  components: propTypesExports.shape({
-    Input: propTypesExports.elementType,
-    Root: propTypesExports.elementType
+  components: PropTypes.shape({
+    Input: PropTypes.elementType,
+    Root: PropTypes.elementType
   }),
   /**
    * The extra props for the slot components.
@@ -41719,43 +42080,43 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
    *
    * @default {}
    */
-  componentsProps: propTypesExports.shape({
-    input: propTypesExports.object,
-    root: propTypesExports.object
+  componentsProps: PropTypes.shape({
+    input: PropTypes.object,
+    root: PropTypes.object
   }),
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: propTypesExports.any,
+  defaultValue: PropTypes.any,
   /**
    * If `true`, the component is disabled.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, GlobalStyles for the auto-fill keyframes will not be injected/removed on mount/unmount. Make sure to inject them at the top of your application.
    * This option is intended to help with boosting the initial rendering performance if you are loading a big amount of Input components at once.
    * @default false
    */
-  disableInjectingGlobalStyles: propTypesExports.bool,
+  disableInjectingGlobalStyles: PropTypes.bool,
   /**
    * End `InputAdornment` for this component.
    */
-  endAdornment: propTypesExports.node,
+  endAdornment: PropTypes.node,
   /**
    * If `true`, the `input` will indicate an error.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the `input` will take up the full width of its container.
    * @default false
    */
-  fullWidth: propTypesExports.bool,
+  fullWidth: PropTypes.bool,
   /**
    * The id of the `input` element.
    */
-  id: propTypesExports.string,
+  id: PropTypes.string,
   /**
    * The component used for the `input` element.
    * Either a string to use a HTML element or a component.
@@ -41766,7 +42127,7 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    * @default {}
    */
-  inputProps: propTypesExports.object,
+  inputProps: PropTypes.object,
   /**
    * Pass a ref to the `input` element.
    */
@@ -41776,83 +42137,83 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
    * FormControl.
    * The prop defaults to the value (`'none'`) inherited from the parent FormControl component.
    */
-  margin: propTypesExports.oneOf(['dense', 'none']),
+  margin: PropTypes.oneOf(['dense', 'none']),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
-  maxRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
-  minRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * If `true`, a [TextareaAutosize](/material-ui/react-textarea-autosize/) element is rendered.
    * @default false
    */
-  multiline: propTypesExports.bool,
+  multiline: PropTypes.bool,
   /**
    * Name attribute of the `input` element.
    */
-  name: propTypesExports.string,
+  name: PropTypes.string,
   /**
    * Callback fired when the `input` is blurred.
    *
    * Notice that the first argument (event) might be undefined.
    */
-  onBlur: propTypesExports.func,
+  onBlur: PropTypes.func,
   /**
    * Callback fired when the value is changed.
    *
    * @param {React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * @ignore
    */
-  onClick: propTypesExports.func,
+  onClick: PropTypes.func,
   /**
    * @ignore
    */
-  onFocus: propTypesExports.func,
+  onFocus: PropTypes.func,
   /**
    * Callback fired when the `input` doesn't satisfy its constraints.
    */
-  onInvalid: propTypesExports.func,
+  onInvalid: PropTypes.func,
   /**
    * @ignore
    */
-  onKeyDown: propTypesExports.func,
+  onKeyDown: PropTypes.func,
   /**
    * @ignore
    */
-  onKeyUp: propTypesExports.func,
+  onKeyUp: PropTypes.func,
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
-  placeholder: propTypesExports.string,
+  placeholder: PropTypes.string,
   /**
    * It prevents the user from changing the value of the field
    * (not from interacting with the field).
    */
-  readOnly: propTypesExports.bool,
+  readOnly: PropTypes.bool,
   /**
    * @ignore
    */
-  renderSuffix: propTypesExports.func,
+  renderSuffix: PropTypes.func,
   /**
    * If `true`, the `input` element is required.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
-  rows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  rows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * The size of the component.
    */
-  size: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['medium', 'small']), propTypesExports.string]),
+  size: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['medium', 'small']), PropTypes.string]),
   /**
    * The extra props for the slot components.
    * You can override the existing props or add new ones.
@@ -41861,9 +42222,9 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
    *
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    input: propTypesExports.object,
-    root: propTypesExports.object
+  slotProps: PropTypes.shape({
+    input: PropTypes.object,
+    root: PropTypes.object
   }),
   /**
    * The components used for each slot inside.
@@ -41872,27 +42233,27 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
    *
    * @default {}
    */
-  slots: propTypesExports.shape({
-    input: propTypesExports.elementType,
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    input: PropTypes.elementType,
+    root: PropTypes.elementType
   }),
   /**
    * Start `InputAdornment` for this component.
    */
-  startAdornment: propTypesExports.node,
+  startAdornment: PropTypes.node,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    * @default 'text'
    */
-  type: propTypesExports.string,
+  type: PropTypes.string,
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value: propTypesExports.any
+  value: PropTypes.any
 } : void 0;
 var InputBase$1 = InputBase;
 
@@ -42108,52 +42469,52 @@ process.env.NODE_ENV !== "production" ? Avatar.propTypes /* remove-proptypes */ 
    * Used in combination with `src` or `srcSet` to
    * provide an alt attribute for the rendered `img` element.
    */
-  alt: propTypesExports.string,
+  alt: PropTypes.string,
   /**
    * Used to render icon or text elements inside the Avatar if `src` is not set.
    * This can be an element, or just a string.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes) applied to the `img` element if the component is used to display an image.
    * It can be used to listen for the loading error event.
    */
-  imgProps: propTypesExports.object,
+  imgProps: PropTypes.object,
   /**
    * The `sizes` attribute for the `img` element.
    */
-  sizes: propTypesExports.string,
+  sizes: PropTypes.string,
   /**
    * The `src` attribute for the `img` element.
    */
-  src: propTypesExports.string,
+  src: PropTypes.string,
   /**
    * The `srcSet` attribute for the `img` element.
    * Use this attribute for responsive image display.
    */
-  srcSet: propTypesExports.string,
+  srcSet: PropTypes.string,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The shape of the avatar.
    * @default 'circular'
    */
-  variant: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['circular', 'rounded', 'square']), propTypesExports.string])
+  variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['circular', 'rounded', 'square']), PropTypes.string])
 } : void 0;
 var Avatar$1 = Avatar;
 
@@ -42283,13 +42644,13 @@ process.env.NODE_ENV !== "production" ? Fade.propTypes /* remove-proptypes */ = 
    * node and a done callback. Allows for more fine grained transition end
    * logic. Note: Timeouts are still used as a fallback if provided.
    */
-  addEndListener: propTypesExports.func,
+  addEndListener: PropTypes.func,
   /**
    * Perform the enter transition when it first mounts if `in` is also `true`.
    * Set this to `false` to disable this behavior.
    * @default true
    */
-  appear: propTypesExports.bool,
+  appear: PropTypes.bool,
   /**
    * A single child content element.
    */
@@ -42298,42 +42659,42 @@ process.env.NODE_ENV !== "production" ? Fade.propTypes /* remove-proptypes */ = 
    * The transition timing function.
    * You may specify a single easing or a object containing enter and exit values.
    */
-  easing: propTypesExports.oneOfType([propTypesExports.shape({
-    enter: propTypesExports.string,
-    exit: propTypesExports.string
-  }), propTypesExports.string]),
+  easing: PropTypes.oneOfType([PropTypes.shape({
+    enter: PropTypes.string,
+    exit: PropTypes.string
+  }), PropTypes.string]),
   /**
    * If `true`, the component will transition in.
    */
-  in: propTypesExports.bool,
+  in: PropTypes.bool,
   /**
    * @ignore
    */
-  onEnter: propTypesExports.func,
+  onEnter: PropTypes.func,
   /**
    * @ignore
    */
-  onEntered: propTypesExports.func,
+  onEntered: PropTypes.func,
   /**
    * @ignore
    */
-  onEntering: propTypesExports.func,
+  onEntering: PropTypes.func,
   /**
    * @ignore
    */
-  onExit: propTypesExports.func,
+  onExit: PropTypes.func,
   /**
    * @ignore
    */
-  onExited: propTypesExports.func,
+  onExited: PropTypes.func,
   /**
    * @ignore
    */
-  onExiting: propTypesExports.func,
+  onExiting: PropTypes.func,
   /**
    * @ignore
    */
-  style: propTypesExports.object,
+  style: PropTypes.object,
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
@@ -42342,10 +42703,10 @@ process.env.NODE_ENV !== "production" ? Fade.propTypes /* remove-proptypes */ = 
    *   exit: theme.transitions.duration.leavingScreen,
    * }
    */
-  timeout: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  timeout: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })])
 } : void 0;
 var Fade$1 = Fade;
@@ -42441,20 +42802,20 @@ process.env.NODE_ENV !== "production" ? Backdrop.propTypes /* remove-proptypes *
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * The components used for each slot inside.
    *
@@ -42463,8 +42824,8 @@ process.env.NODE_ENV !== "production" ? Backdrop.propTypes /* remove-proptypes *
    *
    * @default {}
    */
-  components: propTypesExports.shape({
-    Root: propTypesExports.elementType
+  components: PropTypes.shape({
+    Root: PropTypes.elementType
   }),
   /**
    * The extra props for the slot components.
@@ -42475,19 +42836,19 @@ process.env.NODE_ENV !== "production" ? Backdrop.propTypes /* remove-proptypes *
    *
    * @default {}
    */
-  componentsProps: propTypesExports.shape({
-    root: propTypesExports.object
+  componentsProps: PropTypes.shape({
+    root: PropTypes.object
   }),
   /**
    * If `true`, the backdrop is invisible.
    * It can be used when rendering a popover or a custom select component.
    * @default false
    */
-  invisible: propTypesExports.bool,
+  invisible: PropTypes.bool,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool.isRequired,
+  open: PropTypes.bool.isRequired,
   /**
    * The extra props for the slot components.
    * You can override the existing props or add new ones.
@@ -42496,8 +42857,8 @@ process.env.NODE_ENV !== "production" ? Backdrop.propTypes /* remove-proptypes *
    *
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    root: propTypesExports.object
+  slotProps: PropTypes.shape({
+    root: PropTypes.object
   }),
   /**
    * The components used for each slot inside.
@@ -42506,34 +42867,35 @@ process.env.NODE_ENV !== "production" ? Backdrop.propTypes /* remove-proptypes *
    *
    * @default {}
    */
-  slots: propTypesExports.shape({
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    root: PropTypes.elementType
   }),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The component used for the transition.
    * [Follow this guide](/material-ui/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
    * @default Fade
    */
-  TransitionComponent: propTypesExports.elementType,
+  TransitionComponent: PropTypes.elementType,
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
    */
-  transitionDuration: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  transitionDuration: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })])
 } : void 0;
 var Backdrop$1 = Backdrop;
 
-const defaultTheme$1 = createTheme();
+const defaultTheme = createTheme();
 const Box = createBox({
-  defaultTheme: defaultTheme$1,
+  themeId: THEME_ID,
+  defaultTheme,
   defaultClassName: 'MuiBox-root',
   generateClassName: ClassNameGenerator$1.generate
 });
@@ -42545,16 +42907,16 @@ process.env.NODE_ENV !== "production" ? Box.propTypes /* remove-proptypes */ = {
   /**
    * @ignore
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var Box$1 = Box;
 
@@ -42620,6 +42982,8 @@ const ButtonRoot = styled$1(ButtonBase$1, {
   ownerState
 }) => {
   var _theme$palette$getCon, _theme$palette;
+  const inheritContainedBackgroundColor = theme.palette.mode === 'light' ? theme.palette.grey[300] : theme.palette.grey[800];
+  const inheritContainedHoverBackgroundColor = theme.palette.mode === 'light' ? theme.palette.grey.A100 : theme.palette.grey[700];
   return _extends$3({}, theme.typography.button, {
     minWidth: 64,
     padding: '6px 16px',
@@ -42648,7 +43012,7 @@ const ButtonRoot = styled$1(ButtonBase$1, {
         backgroundColor: 'transparent'
       }
     }, ownerState.variant === 'contained' && {
-      backgroundColor: (theme.vars || theme).palette.grey.A100,
+      backgroundColor: theme.vars ? theme.vars.palette.Button.inheritContainedHoverBg : inheritContainedHoverBackgroundColor,
       boxShadow: (theme.vars || theme).shadows[4],
       // Reset on touch devices, it doesn't add specificity
       '@media (hover: none)': {
@@ -42691,7 +43055,7 @@ const ButtonRoot = styled$1(ButtonBase$1, {
     color: theme.vars ?
     // this is safe because grey does not change between default light/dark mode
     theme.vars.palette.text.primary : (_theme$palette$getCon = (_theme$palette = theme.palette).getContrastText) == null ? void 0 : _theme$palette$getCon.call(_theme$palette, theme.palette.grey[300]),
-    backgroundColor: (theme.vars || theme).palette.grey[300],
+    backgroundColor: theme.vars ? theme.vars.palette.Button.inheritContainedBg : inheritContainedBackgroundColor,
     boxShadow: (theme.vars || theme).shadows[2]
   }, ownerState.variant === 'contained' && ownerState.color !== 'inherit' && {
     color: (theme.vars || theme).palette[ownerState.color].contrastText,
@@ -42842,42 +43206,42 @@ process.env.NODE_ENV !== "production" ? Button$1.propTypes /* remove-proptypes *
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'primary'
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['inherit', 'primary', 'secondary', 'success', 'error', 'info', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'primary', 'secondary', 'success', 'error', 'info', 'warning']), PropTypes.string]),
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, the component is disabled.
    * @default false
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, no elevation is used.
    * @default false
    */
-  disableElevation: propTypesExports.bool,
+  disableElevation: PropTypes.bool,
   /**
    * If `true`, the  keyboard focus ripple is disabled.
    * @default false
    */
-  disableFocusRipple: propTypesExports.bool,
+  disableFocusRipple: PropTypes.bool,
   /**
    * If `true`, the ripple effect is disabled.
    *
@@ -42885,48 +43249,48 @@ process.env.NODE_ENV !== "production" ? Button$1.propTypes /* remove-proptypes *
    * to highlight the element by applying separate styles with the `.Mui-focusVisible` class.
    * @default false
    */
-  disableRipple: propTypesExports.bool,
+  disableRipple: PropTypes.bool,
   /**
    * Element placed after the children.
    */
-  endIcon: propTypesExports.node,
+  endIcon: PropTypes.node,
   /**
    * @ignore
    */
-  focusVisibleClassName: propTypesExports.string,
+  focusVisibleClassName: PropTypes.string,
   /**
    * If `true`, the button will take up the full width of its container.
    * @default false
    */
-  fullWidth: propTypesExports.bool,
+  fullWidth: PropTypes.bool,
   /**
    * The URL to link to when the button is clicked.
    * If defined, an `a` element will be used as the root node.
    */
-  href: propTypesExports.string,
+  href: PropTypes.string,
   /**
    * The size of the component.
    * `small` is equivalent to the dense button styling.
    * @default 'medium'
    */
-  size: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['small', 'medium', 'large']), propTypesExports.string]),
+  size: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['small', 'medium', 'large']), PropTypes.string]),
   /**
    * Element placed before the children.
    */
-  startIcon: propTypesExports.node,
+  startIcon: PropTypes.node,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * @ignore
    */
-  type: propTypesExports.oneOfType([propTypesExports.oneOf(['button', 'reset', 'submit']), propTypesExports.string]),
+  type: PropTypes.oneOfType([PropTypes.oneOf(['button', 'reset', 'submit']), PropTypes.string]),
   /**
    * The variant to use.
    * @default 'text'
    */
-  variant: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['contained', 'outlined', 'text']), propTypesExports.string])
+  variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['contained', 'outlined', 'text']), PropTypes.string])
 } : void 0;
 var Button$2 = Button$1;
 
@@ -42983,20 +43347,20 @@ process.env.NODE_ENV !== "production" ? Card.propTypes /* remove-proptypes */ = 
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * If `true`, the card will use raised styling.
    * @default false
    */
-  raised: chainPropTypes(propTypesExports.bool, props => {
+  raised: chainPropTypes(PropTypes.bool, props => {
     if (props.raised && props.variant === 'outlined') {
       return new Error('MUI: Combining `raised={true}` with `variant="outlined"` has no effect.');
     }
@@ -43005,7 +43369,7 @@ process.env.NODE_ENV !== "production" ? Card.propTypes /* remove-proptypes */ = 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var Card$1 = Card;
 
@@ -43065,24 +43429,24 @@ process.env.NODE_ENV !== "production" ? CardContent.propTypes /* remove-proptype
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var CardContent$1 = CardContent;
 
@@ -43271,24 +43635,24 @@ process.env.NODE_ENV !== "production" ? CircularProgress.propTypes /* remove-pro
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'primary'
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['inherit', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
   /**
    * If `true`, the shrink animation is disabled.
    * This only works if variant is `indeterminate`.
    * @default false
    */
-  disableShrink: chainPropTypes(propTypesExports.bool, props => {
+  disableShrink: chainPropTypes(PropTypes.bool, props => {
     if (props.disableShrink && props.variant && props.variant !== 'indeterminate') {
       return new Error('MUI: You have provided the `disableShrink` prop ' + 'with a variant other than `indeterminate`. This will have no effect.');
     }
@@ -43300,32 +43664,32 @@ process.env.NODE_ENV !== "production" ? CircularProgress.propTypes /* remove-pro
    * If using a string, you need to provide the CSS unit, e.g '3rem'.
    * @default 40
    */
-  size: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * @ignore
    */
-  style: propTypesExports.object,
+  style: PropTypes.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The thickness of the circle.
    * @default 3.6
    */
-  thickness: propTypesExports.number,
+  thickness: PropTypes.number,
   /**
    * The value of the progress indicator for the determinate variant.
    * Value between 0 and 100.
    * @default 0
    */
-  value: propTypesExports.number,
+  value: PropTypes.number,
   /**
    * The variant to use.
    * Use indeterminate when there is no progress value.
    * @default 'indeterminate'
    */
-  variant: propTypesExports.oneOf(['determinate', 'indeterminate'])
+  variant: PropTypes.oneOf(['determinate', 'indeterminate'])
 } : void 0;
 var CircularProgress$1 = CircularProgress;
 
@@ -43359,17 +43723,17 @@ process.env.NODE_ENV !== "production" ? {
   /**
    * You can wrap a node.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Enable `color-scheme` CSS property to use `theme.palette.mode`.
    * For more details, check out https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
    * For browser support, check out https://caniuse.com/?search=color-scheme
    * @default false
    */
-  enableColorScheme: propTypesExports.bool
+  enableColorScheme: PropTypes.bool
 } : void 0;
 
-const _excluded$t = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "slotProps", "slots", "theme"];
+const _excluded$t = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "container", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "onBackdropClick", "onClose", "open", "slotProps", "slots", "theme"];
 const ModalRoot = styled$1('div', {
   name: 'MuiModal',
   slot: 'Root',
@@ -43428,6 +43792,7 @@ const Modal = /*#__PURE__*/React.forwardRef(function Modal(inProps, ref) {
       className,
       closeAfterTransition = false,
       children,
+      container,
       component,
       components = {},
       componentsProps = {},
@@ -43439,6 +43804,9 @@ const Modal = /*#__PURE__*/React.forwardRef(function Modal(inProps, ref) {
       disableScrollLock = false,
       hideBackdrop = false,
       keepMounted = false,
+      onBackdropClick,
+      onClose,
+      open,
       slotProps,
       slots,
       // eslint-disable-next-line react/prop-types
@@ -43447,6 +43815,7 @@ const Modal = /*#__PURE__*/React.forwardRef(function Modal(inProps, ref) {
     other = _objectWithoutPropertiesLoose(props, _excluded$t);
   const [exited, setExited] = React.useState(true);
   const commonProps = {
+    container,
     closeAfterTransition,
     disableAutoFocus,
     disableEnforceFocus,
@@ -43455,7 +43824,10 @@ const Modal = /*#__PURE__*/React.forwardRef(function Modal(inProps, ref) {
     disableRestoreFocus,
     disableScrollLock,
     hideBackdrop,
-    keepMounted
+    keepMounted,
+    onBackdropClick,
+    onClose,
+    open
   };
   const ownerState = _extends$3({}, props, commonProps, {
     exited
@@ -43464,7 +43836,7 @@ const Modal = /*#__PURE__*/React.forwardRef(function Modal(inProps, ref) {
   const BackdropSlot = (_ref2 = (_slots$backdrop = slots == null ? void 0 : slots.backdrop) != null ? _slots$backdrop : components.Backdrop) != null ? _ref2 : BackdropComponent;
   const rootSlotProps = (_slotProps$root = slotProps == null ? void 0 : slotProps.root) != null ? _slotProps$root : componentsProps.root;
   const backdropSlotProps = (_slotProps$backdrop = slotProps == null ? void 0 : slotProps.backdrop) != null ? _slotProps$backdrop : componentsProps.backdrop;
-  return /*#__PURE__*/jsx(ModalUnstyled$1, _extends$3({
+  return /*#__PURE__*/jsx(ModalUnstyled, _extends$3({
     slots: {
       root: RootSlot,
       backdrop: BackdropSlot
@@ -43477,7 +43849,7 @@ const Modal = /*#__PURE__*/React.forwardRef(function Modal(inProps, ref) {
         className: clsx(className, rootSlotProps == null ? void 0 : rootSlotProps.className, classes == null ? void 0 : classes.root, !ownerState.open && ownerState.exited && (classes == null ? void 0 : classes.hidden))
       }),
       backdrop: () => _extends$3({}, BackdropProps, resolveComponentProps(backdropSlotProps, ownerState), {
-        className: clsx(backdropSlotProps == null ? void 0 : backdropSlotProps.className, classes == null ? void 0 : classes.backdrop)
+        className: clsx(backdropSlotProps == null ? void 0 : backdropSlotProps.className, BackdropProps == null ? void 0 : BackdropProps.className, classes == null ? void 0 : classes.backdrop)
       })
     },
     onTransitionEnter: () => setExited(false),
@@ -43506,12 +43878,12 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
    *   zIndex: -1,
    * })
    */
-  BackdropComponent: propTypesExports.elementType,
+  BackdropComponent: PropTypes.elementType,
   /**
    * Props applied to the [`Backdrop`](/material-ui/api/backdrop/) element.
    * @deprecated Use `slotProps.backdrop` instead.
    */
-  BackdropProps: propTypesExports.object,
+  BackdropProps: PropTypes.object,
   /**
    * A single child content element.
    */
@@ -43519,21 +43891,21 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * When set to true the Modal waits until a nested Transition is completed before closing.
    * @default false
    */
-  closeAfterTransition: propTypesExports.bool,
+  closeAfterTransition: PropTypes.bool,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * The components used for each slot inside.
    *
@@ -43542,9 +43914,9 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
    *
    * @default {}
    */
-  components: propTypesExports.shape({
-    Backdrop: propTypesExports.elementType,
-    Root: propTypesExports.elementType
+  components: PropTypes.shape({
+    Backdrop: PropTypes.elementType,
+    Root: PropTypes.elementType
   }),
   /**
    * The extra props for the slot components.
@@ -43555,9 +43927,9 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
    *
    * @default {}
    */
-  componentsProps: propTypesExports.shape({
-    backdrop: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object]),
-    root: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object])
+  componentsProps: PropTypes.shape({
+    backdrop: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    root: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
   }),
   /**
    * An HTML element or function that returns one.
@@ -43566,7 +43938,7 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
    * By default, it uses the body of the top-level document object,
    * so it's simply `document.body` most of the time.
    */
-  container: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.func]),
+  container: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.func]),
   /**
    * If `true`, the modal will not automatically shift focus to itself when it opens, and
    * replace it to the last focused element when it closes.
@@ -43576,7 +43948,7 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
    * accessible to assistive technologies, like screen readers.
    * @default false
    */
-  disableAutoFocus: propTypesExports.bool,
+  disableAutoFocus: PropTypes.bool,
   /**
    * If `true`, the modal will not prevent focus from leaving the modal while open.
    *
@@ -43584,45 +43956,45 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
    * accessible to assistive technologies, like screen readers.
    * @default false
    */
-  disableEnforceFocus: propTypesExports.bool,
+  disableEnforceFocus: PropTypes.bool,
   /**
    * If `true`, hitting escape will not fire the `onClose` callback.
    * @default false
    */
-  disableEscapeKeyDown: propTypesExports.bool,
+  disableEscapeKeyDown: PropTypes.bool,
   /**
    * The `children` will be under the DOM hierarchy of the parent component.
    * @default false
    */
-  disablePortal: propTypesExports.bool,
+  disablePortal: PropTypes.bool,
   /**
    * If `true`, the modal will not restore focus to previously focused element once
    * modal is hidden or unmounted.
    * @default false
    */
-  disableRestoreFocus: propTypesExports.bool,
+  disableRestoreFocus: PropTypes.bool,
   /**
    * Disable the scroll lock behavior.
    * @default false
    */
-  disableScrollLock: propTypesExports.bool,
+  disableScrollLock: PropTypes.bool,
   /**
    * If `true`, the backdrop is not rendered.
    * @default false
    */
-  hideBackdrop: propTypesExports.bool,
+  hideBackdrop: PropTypes.bool,
   /**
    * Always keep the children in the DOM.
    * This prop can be useful in SEO situation or
    * when you want to maximize the responsiveness of the Modal.
    * @default false
    */
-  keepMounted: propTypesExports.bool,
+  keepMounted: PropTypes.bool,
   /**
    * Callback fired when the backdrop is clicked.
    * @deprecated Use the `onClose` prop with the `reason` argument to handle the `backdropClick` events.
    */
-  onBackdropClick: propTypesExports.func,
+  onBackdropClick: PropTypes.func,
   /**
    * Callback fired when the component requests to be closed.
    * The `reason` parameter can optionally be used to control the response to `onClose`.
@@ -43630,32 +44002,40 @@ process.env.NODE_ENV !== "production" ? Modal.propTypes /* remove-proptypes */ =
    * @param {object} event The event source of the callback.
    * @param {string} reason Can be: `"escapeKeyDown"`, `"backdropClick"`.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
+  /**
+   * A function called when a transition enters.
+   */
+  onTransitionEnter: PropTypes.func,
+  /**
+   * A function called when a transition has exited.
+   */
+  onTransitionExited: PropTypes.func,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool.isRequired,
+  open: PropTypes.bool.isRequired,
   /**
    * The props used for each slot inside the Modal.
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    backdrop: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object]),
-    root: propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object])
+  slotProps: PropTypes.shape({
+    backdrop: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    root: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
   }),
   /**
    * The components used for each slot inside the Modal.
    * Either a string to use a HTML element or a component.
    * @default {}
    */
-  slots: propTypesExports.shape({
-    backdrop: propTypesExports.elementType,
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    backdrop: PropTypes.elementType,
+    root: PropTypes.elementType
   }),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var Modal$1 = Modal;
 
@@ -43880,13 +44260,13 @@ process.env.NODE_ENV !== "production" ? Slide.propTypes /* remove-proptypes */ =
    * node and a done callback. Allows for more fine grained transition end
    * logic. Note: Timeouts are still used as a fallback if provided.
    */
-  addEndListener: propTypesExports.func,
+  addEndListener: PropTypes.func,
   /**
    * Perform the enter transition when it first mounts if `in` is also `true`.
    * Set this to `false` to disable this behavior.
    * @default true
    */
-  appear: propTypesExports.bool,
+  appear: PropTypes.bool,
   /**
    * A single child content element.
    */
@@ -43895,7 +44275,7 @@ process.env.NODE_ENV !== "production" ? Slide.propTypes /* remove-proptypes */ =
    * An HTML element, or a function that returns one.
    * It's used to set the container the Slide is transitioning from.
    */
-  container: chainPropTypes(propTypesExports.oneOfType([HTMLElementType, propTypesExports.func]), props => {
+  container: chainPropTypes(PropTypes.oneOfType([HTMLElementType, PropTypes.func]), props => {
     if (props.open) {
       const resolvedContainer = resolveContainer(props.container);
       if (resolvedContainer && resolvedContainer.nodeType === 1) {
@@ -43913,7 +44293,7 @@ process.env.NODE_ENV !== "production" ? Slide.propTypes /* remove-proptypes */ =
    * Direction the child node will enter from.
    * @default 'down'
    */
-  direction: propTypesExports.oneOf(['down', 'left', 'right', 'up']),
+  direction: PropTypes.oneOf(['down', 'left', 'right', 'up']),
   /**
    * The transition timing function.
    * You may specify a single easing or a object containing enter and exit values.
@@ -43922,42 +44302,42 @@ process.env.NODE_ENV !== "production" ? Slide.propTypes /* remove-proptypes */ =
    *   exit: theme.transitions.easing.sharp,
    * }
    */
-  easing: propTypesExports.oneOfType([propTypesExports.shape({
-    enter: propTypesExports.string,
-    exit: propTypesExports.string
-  }), propTypesExports.string]),
+  easing: PropTypes.oneOfType([PropTypes.shape({
+    enter: PropTypes.string,
+    exit: PropTypes.string
+  }), PropTypes.string]),
   /**
    * If `true`, the component will transition in.
    */
-  in: propTypesExports.bool,
+  in: PropTypes.bool,
   /**
    * @ignore
    */
-  onEnter: propTypesExports.func,
+  onEnter: PropTypes.func,
   /**
    * @ignore
    */
-  onEntered: propTypesExports.func,
+  onEntered: PropTypes.func,
   /**
    * @ignore
    */
-  onEntering: propTypesExports.func,
+  onEntering: PropTypes.func,
   /**
    * @ignore
    */
-  onExit: propTypesExports.func,
+  onExit: PropTypes.func,
   /**
    * @ignore
    */
-  onExited: propTypesExports.func,
+  onExited: PropTypes.func,
   /**
    * @ignore
    */
-  onExiting: propTypesExports.func,
+  onExiting: PropTypes.func,
   /**
    * @ignore
    */
-  style: propTypesExports.object,
+  style: PropTypes.object,
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
@@ -43966,10 +44346,10 @@ process.env.NODE_ENV !== "production" ? Slide.propTypes /* remove-proptypes */ =
    *   exit: theme.transitions.duration.leavingScreen,
    * }
    */
-  timeout: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  timeout: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })])
 } : void 0;
 var Slide$1 = Slide;
@@ -44197,23 +44577,23 @@ process.env.NODE_ENV !== "production" ? Drawer.propTypes /* remove-proptypes */ 
    * Side from which the drawer will appear.
    * @default 'left'
    */
-  anchor: propTypesExports.oneOf(['bottom', 'left', 'right', 'top']),
+  anchor: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
   /**
    * @ignore
    */
-  BackdropProps: propTypesExports.object,
+  BackdropProps: PropTypes.object,
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The elevation of the drawer.
    * @default 16
@@ -44223,36 +44603,36 @@ process.env.NODE_ENV !== "production" ? Drawer.propTypes /* remove-proptypes */ 
    * If `true`, the backdrop is not rendered.
    * @default false
    */
-  hideBackdrop: propTypesExports.bool,
+  hideBackdrop: PropTypes.bool,
   /**
    * Props applied to the [`Modal`](/material-ui/api/modal/) element.
    * @default {}
    */
-  ModalProps: propTypesExports.object,
+  ModalProps: PropTypes.object,
   /**
    * Callback fired when the component requests to be closed.
    *
    * @param {object} event The event source of the callback.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
    * If `true`, the component is shown.
    * @default false
    */
-  open: propTypesExports.bool,
+  open: PropTypes.bool,
   /**
    * Props applied to the [`Paper`](/material-ui/api/paper/) element.
    * @default {}
    */
-  PaperProps: propTypesExports.object,
+  PaperProps: PropTypes.object,
   /**
    * Props applied to the [`Slide`](/material-ui/api/slide/) element.
    */
-  SlideProps: propTypesExports.object,
+  SlideProps: PropTypes.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
@@ -44261,16 +44641,16 @@ process.env.NODE_ENV !== "production" ? Drawer.propTypes /* remove-proptypes */ 
    *   exit: theme.transitions.duration.leavingScreen,
    * }
    */
-  transitionDuration: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  transitionDuration: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })]),
   /**
    * The variant to use.
    * @default 'temporary'
    */
-  variant: propTypesExports.oneOf(['permanent', 'persistent', 'temporary'])
+  variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary'])
 } : void 0;
 var Drawer$1 = Drawer;
 
@@ -44502,22 +44882,22 @@ process.env.NODE_ENV !== "production" ? FilledInput.propTypes /* remove-proptype
    * The name can be confusing, as it's more like an autofill.
    * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
    */
-  autoComplete: propTypesExports.string,
+  autoComplete: PropTypes.string,
   /**
    * If `true`, the `input` element is focused during the first mount.
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['primary', 'secondary']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary']), PropTypes.string]),
   /**
    * The components used for each slot inside.
    *
@@ -44526,9 +44906,9 @@ process.env.NODE_ENV !== "production" ? FilledInput.propTypes /* remove-proptype
    *
    * @default {}
    */
-  components: propTypesExports.shape({
-    Input: propTypesExports.elementType,
-    Root: propTypesExports.elementType
+  components: PropTypes.shape({
+    Input: PropTypes.elementType,
+    Root: PropTypes.elementType
   }),
   /**
    * The extra props for the slot components.
@@ -44539,59 +44919,59 @@ process.env.NODE_ENV !== "production" ? FilledInput.propTypes /* remove-proptype
    *
    * @default {}
    */
-  componentsProps: propTypesExports.shape({
-    input: propTypesExports.object,
-    root: propTypesExports.object
+  componentsProps: PropTypes.shape({
+    input: PropTypes.object,
+    root: PropTypes.object
   }),
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: propTypesExports.any,
+  defaultValue: PropTypes.any,
   /**
    * If `true`, the component is disabled.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the input will not have an underline.
    */
-  disableUnderline: propTypesExports.bool,
+  disableUnderline: PropTypes.bool,
   /**
    * End `InputAdornment` for this component.
    */
-  endAdornment: propTypesExports.node,
+  endAdornment: PropTypes.node,
   /**
    * If `true`, the `input` will indicate an error.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the `input` will take up the full width of its container.
    * @default false
    */
-  fullWidth: propTypesExports.bool,
+  fullWidth: PropTypes.bool,
   /**
    * If `true`, the label is hidden.
    * This is used to increase density for a `FilledInput`.
    * Be sure to add `aria-label` to the `input` element.
    * @default false
    */
-  hiddenLabel: propTypesExports.bool,
+  hiddenLabel: PropTypes.bool,
   /**
    * The id of the `input` element.
    */
-  id: propTypesExports.string,
+  id: PropTypes.string,
   /**
    * The component used for the `input` element.
    * Either a string to use a HTML element or a component.
    * @default 'input'
    */
-  inputComponent: propTypesExports.elementType,
+  inputComponent: PropTypes.elementType,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    * @default {}
    */
-  inputProps: propTypesExports.object,
+  inputProps: PropTypes.object,
   /**
    * Pass a ref to the `input` element.
    */
@@ -44601,49 +44981,49 @@ process.env.NODE_ENV !== "production" ? FilledInput.propTypes /* remove-proptype
    * FormControl.
    * The prop defaults to the value (`'none'`) inherited from the parent FormControl component.
    */
-  margin: propTypesExports.oneOf(['dense', 'none']),
+  margin: PropTypes.oneOf(['dense', 'none']),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
-  maxRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
-  minRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * If `true`, a [TextareaAutosize](/material-ui/react-textarea-autosize/) element is rendered.
    * @default false
    */
-  multiline: propTypesExports.bool,
+  multiline: PropTypes.bool,
   /**
    * Name attribute of the `input` element.
    */
-  name: propTypesExports.string,
+  name: PropTypes.string,
   /**
    * Callback fired when the value is changed.
    *
    * @param {React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
-  placeholder: propTypesExports.string,
+  placeholder: PropTypes.string,
   /**
    * It prevents the user from changing the value of the field
    * (not from interacting with the field).
    */
-  readOnly: propTypesExports.bool,
+  readOnly: PropTypes.bool,
   /**
    * If `true`, the `input` element is required.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
-  rows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  rows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * The extra props for the slot components.
    * You can override the existing props or add new ones.
@@ -44652,9 +45032,9 @@ process.env.NODE_ENV !== "production" ? FilledInput.propTypes /* remove-proptype
    *
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    input: propTypesExports.object,
-    root: propTypesExports.object
+  slotProps: PropTypes.shape({
+    input: PropTypes.object,
+    root: PropTypes.object
   }),
   /**
    * The components used for each slot inside.
@@ -44663,27 +45043,27 @@ process.env.NODE_ENV !== "production" ? FilledInput.propTypes /* remove-proptype
    *
    * @default {}
    */
-  slots: propTypesExports.shape({
-    input: propTypesExports.elementType,
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    input: PropTypes.elementType,
+    root: PropTypes.elementType
   }),
   /**
    * Start `InputAdornment` for this component.
    */
-  startAdornment: propTypesExports.node,
+  startAdornment: PropTypes.node,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    * @default 'text'
    */
-  type: propTypesExports.string,
+  type: PropTypes.string,
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value: propTypesExports.any
+  value: PropTypes.any
 } : void 0;
 FilledInput.muiName = 'Input';
 var FilledInput$1 = FilledInput;
@@ -44819,7 +45199,7 @@ const FormControl = /*#__PURE__*/React.forwardRef(function FormControl(inProps, 
         if (!isMuiElement(child, ['Input', 'Select'])) {
           return;
         }
-        if (isFilled(child.props, true)) {
+        if (isFilled(child.props, true) || isFilled(child.props.inputProps, true)) {
           initialFilled = true;
         }
       });
@@ -44894,77 +45274,77 @@ process.env.NODE_ENV !== "production" ? FormControl.propTypes /* remove-proptype
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'primary'
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, the label, input and helper text should be displayed in a disabled state.
    * @default false
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the label is displayed in an error state.
    * @default false
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the component is displayed in focused state.
    */
-  focused: propTypesExports.bool,
+  focused: PropTypes.bool,
   /**
    * If `true`, the component will take up the full width of its container.
    * @default false
    */
-  fullWidth: propTypesExports.bool,
+  fullWidth: PropTypes.bool,
   /**
    * If `true`, the label is hidden.
    * This is used to increase density for a `FilledInput`.
    * Be sure to add `aria-label` to the `input` element.
    * @default false
    */
-  hiddenLabel: propTypesExports.bool,
+  hiddenLabel: PropTypes.bool,
   /**
    * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
    * @default 'none'
    */
-  margin: propTypesExports.oneOf(['dense', 'none', 'normal']),
+  margin: PropTypes.oneOf(['dense', 'none', 'normal']),
   /**
    * If `true`, the label will indicate that the `input` is required.
    * @default false
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * The size of the component.
    * @default 'medium'
    */
-  size: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['medium', 'small']), propTypesExports.string]),
+  size: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['medium', 'small']), PropTypes.string]),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The variant to use.
    * @default 'outlined'
    */
-  variant: propTypesExports.oneOf(['filled', 'outlined', 'standard'])
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard'])
 } : void 0;
 var FormControl$1 = FormControl;
 
@@ -45076,53 +45456,53 @@ process.env.NODE_ENV !== "production" ? FormHelperText.propTypes /* remove-propt
    *
    * If `' '` is provided, the component reserves one line height for displaying a future message.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, the helper text should be displayed in a disabled state.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, helper text should be displayed in an error state.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the helper text should use filled classes key.
    */
-  filled: propTypesExports.bool,
+  filled: PropTypes.bool,
   /**
    * If `true`, the helper text should use focused classes key.
    */
-  focused: propTypesExports.bool,
+  focused: PropTypes.bool,
   /**
    * If `dense`, will adjust vertical spacing. This is normally obtained via context from
    * FormControl.
    */
-  margin: propTypesExports.oneOf(['dense']),
+  margin: PropTypes.oneOf(['dense']),
   /**
    * If `true`, the helper text should use required classes key.
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The variant to use.
    */
-  variant: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['filled', 'outlined', 'standard']), propTypesExports.string])
+  variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['filled', 'outlined', 'standard']), PropTypes.string])
 } : void 0;
 var FormHelperText$1 = FormHelperText;
 
@@ -45236,50 +45616,50 @@ process.env.NODE_ENV !== "production" ? FormLabel.propTypes /* remove-proptypes 
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['error', 'info', 'primary', 'secondary', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['error', 'info', 'primary', 'secondary', 'success', 'warning']), PropTypes.string]),
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, the label should be displayed in a disabled state.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the label is displayed in an error state.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the label should use filled classes key.
    */
-  filled: propTypesExports.bool,
+  filled: PropTypes.bool,
   /**
    * If `true`, the input of this label is focused (used by `FormGroup` components).
    */
-  focused: propTypesExports.bool,
+  focused: PropTypes.bool,
   /**
    * If `true`, the label will indicate that the `input` is required.
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var FormLabel$1 = FormLabel;
 
@@ -45464,13 +45844,13 @@ process.env.NODE_ENV !== "production" ? Grow.propTypes /* remove-proptypes */ = 
    * node and a done callback. Allows for more fine grained transition end
    * logic. Note: Timeouts are still used as a fallback if provided.
    */
-  addEndListener: propTypesExports.func,
+  addEndListener: PropTypes.func,
   /**
    * Perform the enter transition when it first mounts if `in` is also `true`.
    * Set this to `false` to disable this behavior.
    * @default true
    */
-  appear: propTypesExports.bool,
+  appear: PropTypes.bool,
   /**
    * A single child content element.
    */
@@ -45479,42 +45859,42 @@ process.env.NODE_ENV !== "production" ? Grow.propTypes /* remove-proptypes */ = 
    * The transition timing function.
    * You may specify a single easing or a object containing enter and exit values.
    */
-  easing: propTypesExports.oneOfType([propTypesExports.shape({
-    enter: propTypesExports.string,
-    exit: propTypesExports.string
-  }), propTypesExports.string]),
+  easing: PropTypes.oneOfType([PropTypes.shape({
+    enter: PropTypes.string,
+    exit: PropTypes.string
+  }), PropTypes.string]),
   /**
    * If `true`, the component will transition in.
    */
-  in: propTypesExports.bool,
+  in: PropTypes.bool,
   /**
    * @ignore
    */
-  onEnter: propTypesExports.func,
+  onEnter: PropTypes.func,
   /**
    * @ignore
    */
-  onEntered: propTypesExports.func,
+  onEntered: PropTypes.func,
   /**
    * @ignore
    */
-  onEntering: propTypesExports.func,
+  onEntering: PropTypes.func,
   /**
    * @ignore
    */
-  onExit: propTypesExports.func,
+  onExit: PropTypes.func,
   /**
    * @ignore
    */
-  onExited: propTypesExports.func,
+  onExited: PropTypes.func,
   /**
    * @ignore
    */
-  onExiting: propTypesExports.func,
+  onExiting: PropTypes.func,
   /**
    * @ignore
    */
-  style: propTypesExports.object,
+  style: PropTypes.object,
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
@@ -45522,10 +45902,10 @@ process.env.NODE_ENV !== "production" ? Grow.propTypes /* remove-proptypes */ = 
    * Set to 'auto' to automatically calculate transition time based on height.
    * @default 'auto'
    */
-  timeout: propTypesExports.oneOfType([propTypesExports.oneOf(['auto']), propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  timeout: PropTypes.oneOfType([PropTypes.oneOf(['auto']), PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })])
 } : void 0;
 Grow.muiSupportAuto = true;
@@ -45533,6 +45913,14 @@ var Grow$1 = Grow;
 
 /**
  * @deprecated Not used internally. Use `MediaQueryListEvent` from lib.dom.d.ts instead.
+ */
+
+/**
+ * @deprecated Not used internally. Use `MediaQueryList` from lib.dom.d.ts instead.
+ */
+
+/**
+ * @deprecated Not used internally. Use `(event: MediaQueryListEvent) => void` instead.
  */
 
 function useMediaQueryOld(query, defaultMatches, matchMedia, ssrMatchMedia, noSsr) {
@@ -45606,7 +45994,7 @@ function useMediaQueryNew(query, defaultMatches, matchMedia, ssrMatchMedia, noSs
   return match;
 }
 function useMediaQuery(queryInput, options = {}) {
-  const theme = useTheme$3();
+  const theme = useTheme$4();
   // Wait for jsdom to support the match media feature.
   // All the browsers MUI support have this built-in.
   // This defensive check is here for simplicity.
@@ -45794,22 +46182,22 @@ process.env.NODE_ENV !== "production" ? Input.propTypes /* remove-proptypes */ =
    * The name can be confusing, as it's more like an autofill.
    * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
    */
-  autoComplete: propTypesExports.string,
+  autoComplete: PropTypes.string,
   /**
    * If `true`, the `input` element is focused during the first mount.
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['primary', 'secondary']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary']), PropTypes.string]),
   /**
    * The components used for each slot inside.
    *
@@ -45818,9 +46206,9 @@ process.env.NODE_ENV !== "production" ? Input.propTypes /* remove-proptypes */ =
    *
    * @default {}
    */
-  components: propTypesExports.shape({
-    Input: propTypesExports.elementType,
-    Root: propTypesExports.elementType
+  components: PropTypes.shape({
+    Input: PropTypes.elementType,
+    Root: PropTypes.elementType
   }),
   /**
    * The extra props for the slot components.
@@ -45831,52 +46219,52 @@ process.env.NODE_ENV !== "production" ? Input.propTypes /* remove-proptypes */ =
    *
    * @default {}
    */
-  componentsProps: propTypesExports.shape({
-    input: propTypesExports.object,
-    root: propTypesExports.object
+  componentsProps: PropTypes.shape({
+    input: PropTypes.object,
+    root: PropTypes.object
   }),
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: propTypesExports.any,
+  defaultValue: PropTypes.any,
   /**
    * If `true`, the component is disabled.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the `input` will not have an underline.
    */
-  disableUnderline: propTypesExports.bool,
+  disableUnderline: PropTypes.bool,
   /**
    * End `InputAdornment` for this component.
    */
-  endAdornment: propTypesExports.node,
+  endAdornment: PropTypes.node,
   /**
    * If `true`, the `input` will indicate an error.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the `input` will take up the full width of its container.
    * @default false
    */
-  fullWidth: propTypesExports.bool,
+  fullWidth: PropTypes.bool,
   /**
    * The id of the `input` element.
    */
-  id: propTypesExports.string,
+  id: PropTypes.string,
   /**
    * The component used for the `input` element.
    * Either a string to use a HTML element or a component.
    * @default 'input'
    */
-  inputComponent: propTypesExports.elementType,
+  inputComponent: PropTypes.elementType,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    * @default {}
    */
-  inputProps: propTypesExports.object,
+  inputProps: PropTypes.object,
   /**
    * Pass a ref to the `input` element.
    */
@@ -45886,49 +46274,49 @@ process.env.NODE_ENV !== "production" ? Input.propTypes /* remove-proptypes */ =
    * FormControl.
    * The prop defaults to the value (`'none'`) inherited from the parent FormControl component.
    */
-  margin: propTypesExports.oneOf(['dense', 'none']),
+  margin: PropTypes.oneOf(['dense', 'none']),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
-  maxRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
-  minRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * If `true`, a [TextareaAutosize](/material-ui/react-textarea-autosize/) element is rendered.
    * @default false
    */
-  multiline: propTypesExports.bool,
+  multiline: PropTypes.bool,
   /**
    * Name attribute of the `input` element.
    */
-  name: propTypesExports.string,
+  name: PropTypes.string,
   /**
    * Callback fired when the value is changed.
    *
    * @param {React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
-  placeholder: propTypesExports.string,
+  placeholder: PropTypes.string,
   /**
    * It prevents the user from changing the value of the field
    * (not from interacting with the field).
    */
-  readOnly: propTypesExports.bool,
+  readOnly: PropTypes.bool,
   /**
    * If `true`, the `input` element is required.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
-  rows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  rows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * The extra props for the slot components.
    * You can override the existing props or add new ones.
@@ -45937,9 +46325,9 @@ process.env.NODE_ENV !== "production" ? Input.propTypes /* remove-proptypes */ =
    *
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    input: propTypesExports.object,
-    root: propTypesExports.object
+  slotProps: PropTypes.shape({
+    input: PropTypes.object,
+    root: PropTypes.object
   }),
   /**
    * The components used for each slot inside.
@@ -45948,27 +46336,27 @@ process.env.NODE_ENV !== "production" ? Input.propTypes /* remove-proptypes */ =
    *
    * @default {}
    */
-  slots: propTypesExports.shape({
-    input: propTypesExports.elementType,
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    input: PropTypes.elementType,
+    root: PropTypes.elementType
   }),
   /**
    * Start `InputAdornment` for this component.
    */
-  startAdornment: propTypesExports.node,
+  startAdornment: PropTypes.node,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    * @default 'text'
    */
-  type: propTypesExports.string,
+  type: PropTypes.string,
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value: propTypesExports.any
+  value: PropTypes.any
 } : void 0;
 Input.muiName = 'Input';
 var Input$1 = Input;
@@ -46094,45 +46482,45 @@ process.env.NODE_ENV !== "production" ? InputAdornment.propTypes /* remove-propt
   /**
    * The content of the component, normally an `IconButton` or string.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * Disable pointer events on the root.
    * This allows for the content of the adornment to focus the `input` on click.
    * @default false
    */
-  disablePointerEvents: propTypesExports.bool,
+  disablePointerEvents: PropTypes.bool,
   /**
    * If children is a string then disable wrapping in a Typography component.
    * @default false
    */
-  disableTypography: propTypesExports.bool,
+  disableTypography: PropTypes.bool,
   /**
    * The position this adornment should appear relative to the `Input`.
    */
-  position: propTypesExports.oneOf(['end', 'start']).isRequired,
+  position: PropTypes.oneOf(['end', 'start']).isRequired,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The variant to use.
    * Note: If you are using the `TextField` component or the `FormControl` component
    * you do not have to set this manually.
    */
-  variant: propTypesExports.oneOf(['filled', 'outlined', 'standard'])
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard'])
 } : void 0;
 var InputAdornment$1 = InputAdornment;
 
@@ -46280,64 +46668,64 @@ process.env.NODE_ENV !== "production" ? InputLabel.propTypes /* remove-proptypes
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['error', 'info', 'primary', 'secondary', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['error', 'info', 'primary', 'secondary', 'success', 'warning']), PropTypes.string]),
   /**
    * If `true`, the transition animation is disabled.
    * @default false
    */
-  disableAnimation: propTypesExports.bool,
+  disableAnimation: PropTypes.bool,
   /**
    * If `true`, the component is disabled.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the label is displayed in an error state.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the `input` of this label is focused.
    */
-  focused: propTypesExports.bool,
+  focused: PropTypes.bool,
   /**
    * If `dense`, will adjust vertical spacing. This is normally obtained via context from
    * FormControl.
    */
-  margin: propTypesExports.oneOf(['dense']),
+  margin: PropTypes.oneOf(['dense']),
   /**
    * if `true`, the label will indicate that the `input` is required.
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * If `true`, the label is shrunk.
    */
-  shrink: propTypesExports.bool,
+  shrink: PropTypes.bool,
   /**
    * The size of the component.
    * @default 'normal'
    */
-  size: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['normal', 'small']), propTypesExports.string]),
+  size: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['normal', 'small']), PropTypes.string]),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The variant to use.
    */
-  variant: propTypesExports.oneOf(['filled', 'outlined', 'standard'])
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard'])
 } : void 0;
 var InputLabel$1 = InputLabel;
 
@@ -46433,40 +46821,40 @@ process.env.NODE_ENV !== "production" ? List.propTypes /* remove-proptypes */ = 
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, compact vertical padding designed for keyboard and mouse input is used for
    * the list and list items.
    * The prop is available to descendant components as the `dense` context.
    * @default false
    */
-  dense: propTypesExports.bool,
+  dense: PropTypes.bool,
   /**
    * If `true`, vertical padding is removed from the list.
    * @default false
    */
-  disablePadding: propTypesExports.bool,
+  disablePadding: PropTypes.bool,
   /**
    * The content of the subheader, normally `ListSubheader`.
    */
-  subheader: propTypesExports.node,
+  subheader: PropTypes.node,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var List$1 = List;
 
@@ -46540,19 +46928,19 @@ process.env.NODE_ENV !== "production" ? ListItemIcon.propTypes /* remove-proptyp
    * The content of the component, normally `Icon`, `SvgIcon`,
    * or a `@mui/icons-material` SVG icon element.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var ListItemIcon$1 = ListItemIcon;
 
@@ -46669,15 +47057,15 @@ process.env.NODE_ENV !== "production" ? ListItemText.propTypes /* remove-proptyp
   /**
    * Alias for the `primary` prop.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * If `true`, the children won't be wrapped by a Typography component.
    * This can be useful to render an alternative Typography variant by wrapping
@@ -46685,35 +47073,35 @@ process.env.NODE_ENV !== "production" ? ListItemText.propTypes /* remove-proptyp
    * with the Typography component.
    * @default false
    */
-  disableTypography: propTypesExports.bool,
+  disableTypography: PropTypes.bool,
   /**
    * If `true`, the children are indented.
    * This should be used if there is no left avatar or left icon.
    * @default false
    */
-  inset: propTypesExports.bool,
+  inset: PropTypes.bool,
   /**
    * The main content element.
    */
-  primary: propTypesExports.node,
+  primary: PropTypes.node,
   /**
    * These props will be forwarded to the primary typography component
    * (as long as disableTypography is not `true`).
    */
-  primaryTypographyProps: propTypesExports.object,
+  primaryTypographyProps: PropTypes.object,
   /**
    * The secondary content element.
    */
-  secondary: propTypesExports.node,
+  secondary: PropTypes.node,
   /**
    * These props will be forwarded to the secondary typography component
    * (as long as disableTypography is not `true`).
    */
-  secondaryTypographyProps: propTypesExports.object,
+  secondaryTypographyProps: PropTypes.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var ListItemText$1 = ListItemText;
 
@@ -46888,6 +47276,13 @@ const MenuList = /*#__PURE__*/React.forwardRef(function MenuList(props, ref) {
   // item and use the first valid item as a fallback
   React.Children.forEach(children, (child, index) => {
     if (! /*#__PURE__*/React.isValidElement(child)) {
+      if (activeItemIndex === index) {
+        activeItemIndex += 1;
+        if (activeItemIndex >= children.length) {
+          // there are no focusable items within the list.
+          activeItemIndex = -1;
+        }
+      }
       return;
     }
     if (process.env.NODE_ENV !== 'production') {
@@ -46942,41 +47337,41 @@ process.env.NODE_ENV !== "production" ? MenuList.propTypes /* remove-proptypes *
    * If `true`, will focus the `[role="menu"]` container and move into tab order.
    * @default false
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * If `true`, will focus the first menuitem if `variant="menu"` or selected item
    * if `variant="selectedMenu"`.
    * @default false
    */
-  autoFocusItem: propTypesExports.bool,
+  autoFocusItem: PropTypes.bool,
   /**
    * MenuList contents, normally `MenuItem`s.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * If `true`, will allow focus on disabled items.
    * @default false
    */
-  disabledItemsFocusable: propTypesExports.bool,
+  disabledItemsFocusable: PropTypes.bool,
   /**
    * If `true`, the menu items will not wrap focus.
    * @default false
    */
-  disableListWrap: propTypesExports.bool,
+  disableListWrap: PropTypes.bool,
   /**
    * @ignore
    */
-  onKeyDown: propTypesExports.func,
+  onKeyDown: PropTypes.func,
   /**
    * The variant to use. Use `menu` to prevent selected items from impacting the initial focus
    * and the vertical alignment relative to the anchor element.
    * @default 'selectedMenu'
    */
-  variant: propTypesExports.oneOf(['menu', 'selectedMenu'])
+  variant: PropTypes.oneOf(['menu', 'selectedMenu'])
 } : void 0;
 var MenuList$1 = MenuList;
 
@@ -46986,7 +47381,8 @@ function getPopoverUtilityClass(slot) {
 generateUtilityClasses('MuiPopover', ['root', 'paper']);
 
 const _excluded$e = ["onEntering"],
-  _excluded2$2 = ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "className", "container", "elevation", "marginThreshold", "open", "PaperProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps"];
+  _excluded2$2 = ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "className", "container", "elevation", "marginThreshold", "open", "PaperProps", "slots", "slotProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps"],
+  _excluded3 = ["slotProps"];
 function getOffsetTop(rect, vertical) {
   let offset = 0;
   if (typeof vertical === 'number') {
@@ -47048,6 +47444,7 @@ const PopoverPaper = styled$1(Paper$1, {
   outline: 0
 });
 const Popover = /*#__PURE__*/React.forwardRef(function Popover(inProps, ref) {
+  var _slotProps$paper, _slots$root, _slots$paper;
   const props = useThemeProps({
     props: inProps,
     name: 'MuiPopover'
@@ -47067,7 +47464,9 @@ const Popover = /*#__PURE__*/React.forwardRef(function Popover(inProps, ref) {
       elevation = 8,
       marginThreshold = 16,
       open,
-      PaperProps = {},
+      PaperProps: PaperPropsProp = {},
+      slots,
+      slotProps,
       transformOrigin = {
         vertical: 'top',
         horizontal: 'left'
@@ -47080,14 +47479,15 @@ const Popover = /*#__PURE__*/React.forwardRef(function Popover(inProps, ref) {
     } = props,
     TransitionProps = _objectWithoutPropertiesLoose(props.TransitionProps, _excluded$e),
     other = _objectWithoutPropertiesLoose(props, _excluded2$2);
+  const externalPaperSlotProps = (_slotProps$paper = slotProps == null ? void 0 : slotProps.paper) != null ? _slotProps$paper : PaperPropsProp;
   const paperRef = React.useRef();
-  const handlePaperRef = useForkRef(paperRef, PaperProps.ref);
+  const handlePaperRef = useForkRef(paperRef, externalPaperSlotProps.ref);
   const ownerState = _extends$3({}, props, {
     anchorOrigin,
     anchorReference,
     elevation,
     marginThreshold,
-    PaperProps,
+    externalPaperSlotProps,
     transformOrigin,
     TransitionComponent,
     transitionDuration: transitionDurationProp,
@@ -47252,16 +47652,46 @@ const Popover = /*#__PURE__*/React.forwardRef(function Popover(inProps, ref) {
   // If the anchorEl prop is provided, use its parent body element as the container
   // If neither are provided let the Modal take care of choosing the container
   const container = containerProp || (anchorEl ? ownerDocument(resolveAnchorEl(anchorEl)).body : undefined);
-  return /*#__PURE__*/jsx(PopoverRoot, _extends$3({
-    BackdropProps: {
-      invisible: true
+  const RootSlot = (_slots$root = slots == null ? void 0 : slots.root) != null ? _slots$root : PopoverRoot;
+  const PaperSlot = (_slots$paper = slots == null ? void 0 : slots.paper) != null ? _slots$paper : PopoverPaper;
+  const paperProps = useSlotProps({
+    elementType: PaperSlot,
+    externalSlotProps: _extends$3({}, externalPaperSlotProps, {
+      style: isPositioned ? externalPaperSlotProps.style : _extends$3({}, externalPaperSlotProps.style, {
+        opacity: 0
+      })
+    }),
+    additionalProps: {
+      elevation,
+      ref: handlePaperRef
     },
-    className: clsx(classes.root, className),
-    container: container,
-    open: open,
-    ref: ref,
-    ownerState: ownerState
-  }, other, {
+    ownerState,
+    className: clsx(classes.paper, externalPaperSlotProps == null ? void 0 : externalPaperSlotProps.className)
+  });
+  const _useSlotProps = useSlotProps({
+      elementType: RootSlot,
+      externalSlotProps: (slotProps == null ? void 0 : slotProps.root) || {},
+      externalForwardedProps: other,
+      additionalProps: {
+        ref,
+        slotProps: {
+          backdrop: {
+            invisible: true
+          }
+        },
+        container,
+        open
+      },
+      ownerState,
+      className: clsx(classes.root, className)
+    }),
+    {
+      slotProps: rootSlotPropsProp
+    } = _useSlotProps,
+    rootProps = _objectWithoutPropertiesLoose(_useSlotProps, _excluded3);
+  return /*#__PURE__*/jsx(RootSlot, _extends$3({}, rootProps, !isHostComponent(RootSlot) && {
+    slotProps: rootSlotPropsProp
+  }, {
     children: /*#__PURE__*/jsx(TransitionComponent, _extends$3({
       appear: true,
       in: open,
@@ -47269,17 +47699,7 @@ const Popover = /*#__PURE__*/React.forwardRef(function Popover(inProps, ref) {
       onExited: handleExited,
       timeout: transitionDuration
     }, TransitionProps, {
-      children: /*#__PURE__*/jsx(PopoverPaper, _extends$3({
-        elevation: elevation
-      }, PaperProps, {
-        ref: handlePaperRef,
-        className: clsx(classes.paper, PaperProps.className)
-      }, isPositioned ? undefined : {
-        style: _extends$3({}, PaperProps.style, {
-          opacity: 0
-        })
-      }, {
-        ownerState: ownerState,
+      children: /*#__PURE__*/jsx(PaperSlot, _extends$3({}, paperProps, {
         children: children
       }))
     }))
@@ -47296,10 +47716,11 @@ process.env.NODE_ENV !== "production" ? Popover.propTypes /* remove-proptypes */
    */
   action: refType$1,
   /**
-   * An HTML element, or a function that returns one.
+   * An HTML element, [PopoverVirtualElement](/material-ui/react-popover/#virtual-element),
+   * or a function that returns either.
    * It's used to set the position of the popover.
    */
-  anchorEl: chainPropTypes(propTypesExports.oneOfType([HTMLElementType, propTypesExports.func]), props => {
+  anchorEl: chainPropTypes(PropTypes.oneOfType([HTMLElementType, PropTypes.func]), props => {
     if (props.open && (!props.anchorReference || props.anchorReference === 'anchorEl')) {
       const resolvedAnchorEl = resolveAnchorEl(props.anchorEl);
       if (resolvedAnchorEl && resolvedAnchorEl.nodeType === 1) {
@@ -47308,7 +47729,7 @@ process.env.NODE_ENV !== "production" ? Popover.propTypes /* remove-proptypes */
           return new Error(['MUI: The `anchorEl` prop provided to the component is invalid.', 'The anchor element should be part of the document layout.', "Make sure the element is present in the document or that it's not display none."].join('\n'));
         }
       } else {
-        return new Error(['MUI: The `anchorEl` prop provided to the component is invalid.', `It should be an Element instance but it's \`${resolvedAnchorEl}\` instead.`].join('\n'));
+        return new Error(['MUI: The `anchorEl` prop provided to the component is invalid.', `It should be an Element or PopoverVirtualElement instance but it's \`${resolvedAnchorEl}\` instead.`].join('\n'));
       }
     }
     return null;
@@ -47326,36 +47747,36 @@ process.env.NODE_ENV !== "production" ? Popover.propTypes /* remove-proptypes */
    *   horizontal: 'left',
    * }
    */
-  anchorOrigin: propTypesExports.shape({
-    horizontal: propTypesExports.oneOfType([propTypesExports.oneOf(['center', 'left', 'right']), propTypesExports.number]).isRequired,
-    vertical: propTypesExports.oneOfType([propTypesExports.oneOf(['bottom', 'center', 'top']), propTypesExports.number]).isRequired
+  anchorOrigin: PropTypes.shape({
+    horizontal: PropTypes.oneOfType([PropTypes.oneOf(['center', 'left', 'right']), PropTypes.number]).isRequired,
+    vertical: PropTypes.oneOfType([PropTypes.oneOf(['bottom', 'center', 'top']), PropTypes.number]).isRequired
   }),
   /**
    * This is the position that may be used to set the position of the popover.
    * The coordinates are relative to the application's client area.
    */
-  anchorPosition: propTypesExports.shape({
-    left: propTypesExports.number.isRequired,
-    top: propTypesExports.number.isRequired
+  anchorPosition: PropTypes.shape({
+    left: PropTypes.number.isRequired,
+    top: PropTypes.number.isRequired
   }),
   /**
    * This determines which anchor prop to refer to when setting
    * the position of the popover.
    * @default 'anchorEl'
    */
-  anchorReference: propTypesExports.oneOf(['anchorEl', 'anchorPosition', 'none']),
+  anchorReference: PropTypes.oneOf(['anchorEl', 'anchorPosition', 'none']),
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * An HTML element, component instance, or function that returns either.
    * The `container` will passed to the Modal component.
@@ -47363,7 +47784,7 @@ process.env.NODE_ENV !== "production" ? Popover.propTypes /* remove-proptypes */
    * By default, it uses the body of the anchorEl's top-level document object,
    * so it's simply `document.body` most of the time.
    */
-  container: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.func]),
+  container: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.func]),
   /**
    * The elevation of the popover.
    * @default 8
@@ -47373,27 +47794,50 @@ process.env.NODE_ENV !== "production" ? Popover.propTypes /* remove-proptypes */
    * Specifies how close to the edge of the window the popover can appear.
    * @default 16
    */
-  marginThreshold: propTypesExports.number,
+  marginThreshold: PropTypes.number,
   /**
    * Callback fired when the component requests to be closed.
    * The `reason` parameter can optionally be used to control the response to `onClose`.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool.isRequired,
+  open: PropTypes.bool.isRequired,
   /**
    * Props applied to the [`Paper`](/material-ui/api/paper/) element.
+   *
+   * This prop is an alias for `slotProps.paper` and will be overriden by it if both are used.
+   * @deprecated Use `slotProps.paper` instead.
+   *
    * @default {}
    */
-  PaperProps: propTypesExports /* @typescript-to-proptypes-ignore */.shape({
+  PaperProps: PropTypes /* @typescript-to-proptypes-ignore */.shape({
     component: elementTypeAcceptingRef$1
+  }),
+  /**
+   * The extra props for the slot components.
+   * You can override the existing props or add new ones.
+   *
+   * @default {}
+   */
+  slotProps: PropTypes.shape({
+    paper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    root: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+  }),
+  /**
+   * The components used for each slot inside.
+   *
+   * @default {}
+   */
+  slots: PropTypes.shape({
+    paper: PropTypes.elementType,
+    root: PropTypes.elementType
   }),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * This is the point on the popover which
    * will attach to the anchor's origin.
@@ -47406,31 +47850,31 @@ process.env.NODE_ENV !== "production" ? Popover.propTypes /* remove-proptypes */
    *   horizontal: 'left',
    * }
    */
-  transformOrigin: propTypesExports.shape({
-    horizontal: propTypesExports.oneOfType([propTypesExports.oneOf(['center', 'left', 'right']), propTypesExports.number]).isRequired,
-    vertical: propTypesExports.oneOfType([propTypesExports.oneOf(['bottom', 'center', 'top']), propTypesExports.number]).isRequired
+  transformOrigin: PropTypes.shape({
+    horizontal: PropTypes.oneOfType([PropTypes.oneOf(['center', 'left', 'right']), PropTypes.number]).isRequired,
+    vertical: PropTypes.oneOfType([PropTypes.oneOf(['bottom', 'center', 'top']), PropTypes.number]).isRequired
   }),
   /**
    * The component used for the transition.
    * [Follow this guide](/material-ui/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
    * @default Grow
    */
-  TransitionComponent: propTypesExports.elementType,
+  TransitionComponent: PropTypes.elementType,
   /**
    * Set to 'auto' to automatically calculate transition time based on height.
    * @default 'auto'
    */
-  transitionDuration: propTypesExports.oneOfType([propTypesExports.oneOf(['auto']), propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  transitionDuration: PropTypes.oneOfType([PropTypes.oneOf(['auto']), PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })]),
   /**
    * Props applied to the transition element.
    * By default, the element is based on this [`Transition`](http://reactcommunity.org/react-transition-group/transition/) component.
    * @default {}
    */
-  TransitionProps: propTypesExports.object
+  TransitionProps: PropTypes.object
 } : void 0;
 var Popover$1 = Popover;
 
@@ -47466,13 +47910,13 @@ const MenuRoot = styled$1(Popover$1, {
   slot: 'Root',
   overridesResolver: (props, styles) => styles.root
 })({});
-const MenuPaper = styled$1(Paper$1, {
+const MenuPaper = styled$1(PopoverPaper, {
   name: 'MuiMenu',
   slot: 'Paper',
   overridesResolver: (props, styles) => styles.paper
 })({
   // specZ: The maximum height of a simple menu should be one or more rows less than the view
-  // height. This ensures a tapable area outside of the simple menu with which to dismiss
+  // height. This ensures a tappable area outside of the simple menu with which to dismiss
   // the menu.
   maxHeight: 'calc(100% - 96px)',
   // Add iOS momentum scrolling for iOS < 13.0
@@ -47573,13 +48017,16 @@ const Menu$2 = /*#__PURE__*/React.forwardRef(function Menu(inProps, ref) {
       horizontal: isRtl ? 'right' : 'left'
     },
     transformOrigin: isRtl ? RTL_ORIGIN : LTR_ORIGIN,
-    PaperProps: _extends$3({
-      as: MenuPaper
-    }, PaperProps, {
-      classes: _extends$3({}, PaperProps.classes, {
-        root: classes.paper
+    slots: {
+      paper: MenuPaper
+    },
+    slotProps: {
+      paper: _extends$3({}, PaperProps, {
+        classes: _extends$3({}, PaperProps.classes, {
+          root: classes.paper
+        })
       })
-    }),
+    },
     className: classes.root,
     open: open,
     ref: ref,
@@ -47611,7 +48058,7 @@ process.env.NODE_ENV !== "production" ? Menu$2.propTypes /* remove-proptypes */ 
    * An HTML element, or a function that returns one.
    * It's used to set the position of the menu.
    */
-  anchorEl: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, propTypesExports.func]),
+  anchorEl: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([HTMLElementType, PropTypes.func]),
   /**
    * If `true` (Default) will focus the `[role="menu"]` if no focusable child is found. Disabled
    * children are not focusable. If you set this prop to `false` focus will be placed
@@ -47619,15 +48066,15 @@ process.env.NODE_ENV !== "production" ? Menu$2.propTypes /* remove-proptypes */ 
    * and should only be considered if you manage focus otherwise.
    * @default true
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * Menu contents, normally `MenuItem`s.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * When opening the menu will not focus the active item but the `[role="menu"]`
    * unless `autoFocus` is also set to `false`. Not using the default means not
@@ -47635,55 +48082,55 @@ process.env.NODE_ENV !== "production" ? Menu$2.propTypes /* remove-proptypes */ 
    * accessibility implications.
    * @default false
    */
-  disableAutoFocusItem: propTypesExports.bool,
+  disableAutoFocusItem: PropTypes.bool,
   /**
    * Props applied to the [`MenuList`](/material-ui/api/menu-list/) element.
    * @default {}
    */
-  MenuListProps: propTypesExports.object,
+  MenuListProps: PropTypes.object,
   /**
    * Callback fired when the component requests to be closed.
    *
    * @param {object} event The event source of the callback.
    * @param {string} reason Can be: `"escapeKeyDown"`, `"backdropClick"`, `"tabKeyDown"`.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool.isRequired,
+  open: PropTypes.bool.isRequired,
   /**
    * @ignore
    */
-  PaperProps: propTypesExports.object,
+  PaperProps: PropTypes.object,
   /**
    * `classes` prop applied to the [`Popover`](/material-ui/api/popover/) element.
    */
-  PopoverClasses: propTypesExports.object,
+  PopoverClasses: PropTypes.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The length of the transition in `ms`, or 'auto'
    * @default 'auto'
    */
-  transitionDuration: propTypesExports.oneOfType([propTypesExports.oneOf(['auto']), propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  transitionDuration: PropTypes.oneOfType([PropTypes.oneOf(['auto']), PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })]),
   /**
    * Props applied to the transition element.
    * By default, the element is based on this [`Transition`](http://reactcommunity.org/react-transition-group/transition/) component.
    * @default {}
    */
-  TransitionProps: propTypesExports.object,
+  TransitionProps: PropTypes.object,
   /**
    * The variant to use. Use `menu` to prevent selected items from impacting the initial focus.
    * @default 'selectedMenu'
    */
-  variant: propTypesExports.oneOf(['menu', 'selectedMenu'])
+  variant: PropTypes.oneOf(['menu', 'selectedMenu'])
 } : void 0;
 var Menu$3 = Menu$2;
 
@@ -47867,44 +48314,44 @@ process.env.NODE_ENV !== "production" ? MenuItem.propTypes /* remove-proptypes *
    * Focus will also be triggered if the value changes from false to true.
    * @default false
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, compact vertical padding designed for keyboard and mouse input is used.
    * The prop defaults to the value inherited from the parent Menu component.
    * @default false
    */
-  dense: propTypesExports.bool,
+  dense: PropTypes.bool,
   /**
    * @ignore
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the left and right padding is removed.
    * @default false
    */
-  disableGutters: propTypesExports.bool,
+  disableGutters: PropTypes.bool,
   /**
    * If `true`, a 1px light border is added to the bottom of the menu item.
    * @default false
    */
-  divider: propTypesExports.bool,
+  divider: PropTypes.bool,
   /**
    * This prop can help identify which element has keyboard focus.
    * The class name will be applied when the element gains the focus through keyboard interaction.
@@ -47913,24 +48360,24 @@ process.env.NODE_ENV !== "production" ? MenuItem.propTypes /* remove-proptypes *
    * A [polyfill can be used](https://github.com/WICG/focus-visible) to apply a `focus-visible` class to other components
    * if needed.
    */
-  focusVisibleClassName: propTypesExports.string,
+  focusVisibleClassName: PropTypes.string,
   /**
    * @ignore
    */
-  role: propTypesExports /* @typescript-to-proptypes-ignore */.string,
+  role: PropTypes /* @typescript-to-proptypes-ignore */.string,
   /**
    * If `true`, the component is selected.
    * @default false
    */
-  selected: propTypesExports.bool,
+  selected: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * @default 0
    */
-  tabIndex: propTypesExports.number
+  tabIndex: PropTypes.number
 } : void 0;
 var MenuItem$1 = MenuItem;
 
@@ -48094,28 +48541,28 @@ process.env.NODE_ENV !== "production" ? NativeSelectInput.propTypes = {
    * The option elements to populate the select with.
    * Can be some `<option>` elements.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * The CSS class name of the select element.
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * If `true`, the select is disabled.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the `select input` will indicate an error.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * The icon that displays the arrow.
    */
-  IconComponent: propTypesExports.elementType.isRequired,
+  IconComponent: PropTypes.elementType.isRequired,
   /**
    * Use that prop to pass a ref to the native select element.
    * @deprecated
@@ -48124,26 +48571,26 @@ process.env.NODE_ENV !== "production" ? NativeSelectInput.propTypes = {
   /**
    * @ignore
    */
-  multiple: propTypesExports.bool,
+  multiple: PropTypes.bool,
   /**
    * Name attribute of the `select` or hidden `input` element.
    */
-  name: propTypesExports.string,
+  name: PropTypes.string,
   /**
    * Callback fired when a menu item is selected.
    *
    * @param {object} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * The input value.
    */
-  value: propTypesExports.any,
+  value: PropTypes.any,
   /**
    * The variant to use.
    */
-  variant: propTypesExports.oneOf(['standard', 'outlined', 'filled'])
+  variant: PropTypes.oneOf(['standard', 'outlined', 'filled'])
 } : void 0;
 var NativeSelectInput$1 = NativeSelectInput;
 
@@ -48248,28 +48695,28 @@ process.env.NODE_ENV !== "production" ? NotchedOutline.propTypes = {
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The label.
    */
-  label: propTypesExports.node,
+  label: PropTypes.node,
   /**
    * If `true`, the outline is notched to accommodate the label.
    */
-  notched: propTypesExports.bool.isRequired,
+  notched: PropTypes.bool.isRequired,
   /**
    * @ignore
    */
-  style: propTypesExports.object
+  style: PropTypes.object
 } : void 0;
 
 const _excluded$9 = ["components", "fullWidth", "inputComponent", "label", "multiline", "notched", "slots", "type"];
@@ -48447,22 +48894,22 @@ process.env.NODE_ENV !== "production" ? OutlinedInput.propTypes /* remove-propty
    * The name can be confusing, as it's more like an autofill.
    * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
    */
-  autoComplete: propTypesExports.string,
+  autoComplete: PropTypes.string,
   /**
    * If `true`, the `input` element is focused during the first mount.
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['primary', 'secondary']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary']), PropTypes.string]),
   /**
    * The components used for each slot inside.
    *
@@ -48471,48 +48918,48 @@ process.env.NODE_ENV !== "production" ? OutlinedInput.propTypes /* remove-propty
    *
    * @default {}
    */
-  components: propTypesExports.shape({
-    Input: propTypesExports.elementType,
-    Root: propTypesExports.elementType
+  components: PropTypes.shape({
+    Input: PropTypes.elementType,
+    Root: PropTypes.elementType
   }),
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: propTypesExports.any,
+  defaultValue: PropTypes.any,
   /**
    * If `true`, the component is disabled.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * End `InputAdornment` for this component.
    */
-  endAdornment: propTypesExports.node,
+  endAdornment: PropTypes.node,
   /**
    * If `true`, the `input` will indicate an error.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * If `true`, the `input` will take up the full width of its container.
    * @default false
    */
-  fullWidth: propTypesExports.bool,
+  fullWidth: PropTypes.bool,
   /**
    * The id of the `input` element.
    */
-  id: propTypesExports.string,
+  id: PropTypes.string,
   /**
    * The component used for the `input` element.
    * Either a string to use a HTML element or a component.
    * @default 'input'
    */
-  inputComponent: propTypesExports.elementType,
+  inputComponent: PropTypes.elementType,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    * @default {}
    */
-  inputProps: propTypesExports.object,
+  inputProps: PropTypes.object,
   /**
    * Pass a ref to the `input` element.
    */
@@ -48521,59 +48968,59 @@ process.env.NODE_ENV !== "production" ? OutlinedInput.propTypes /* remove-propty
    * The label of the `input`. It is only used for layout. The actual labelling
    * is handled by `InputLabel`.
    */
-  label: propTypesExports.node,
+  label: PropTypes.node,
   /**
    * If `dense`, will adjust vertical spacing. This is normally obtained via context from
    * FormControl.
    * The prop defaults to the value (`'none'`) inherited from the parent FormControl component.
    */
-  margin: propTypesExports.oneOf(['dense', 'none']),
+  margin: PropTypes.oneOf(['dense', 'none']),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
-  maxRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
-  minRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * If `true`, a [TextareaAutosize](/material-ui/react-textarea-autosize/) element is rendered.
    * @default false
    */
-  multiline: propTypesExports.bool,
+  multiline: PropTypes.bool,
   /**
    * Name attribute of the `input` element.
    */
-  name: propTypesExports.string,
+  name: PropTypes.string,
   /**
    * If `true`, the outline is notched to accommodate the label.
    */
-  notched: propTypesExports.bool,
+  notched: PropTypes.bool,
   /**
    * Callback fired when the value is changed.
    *
    * @param {React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
-  placeholder: propTypesExports.string,
+  placeholder: PropTypes.string,
   /**
    * It prevents the user from changing the value of the field
    * (not from interacting with the field).
    */
-  readOnly: propTypesExports.bool,
+  readOnly: PropTypes.bool,
   /**
    * If `true`, the `input` element is required.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
-  rows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  rows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * The components used for each slot inside.
    *
@@ -48581,27 +49028,27 @@ process.env.NODE_ENV !== "production" ? OutlinedInput.propTypes /* remove-propty
    *
    * @default {}
    */
-  slots: propTypesExports.shape({
-    input: propTypesExports.elementType,
-    root: propTypesExports.elementType
+  slots: PropTypes.shape({
+    input: PropTypes.elementType,
+    root: PropTypes.elementType
   }),
   /**
    * Start `InputAdornment` for this component.
    */
-  startAdornment: propTypesExports.node,
+  startAdornment: PropTypes.node,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    * @default 'text'
    */
-  type: propTypesExports.string,
+  type: PropTypes.string,
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value: propTypesExports.any
+  value: PropTypes.any
 } : void 0;
 OutlinedInput.muiName = 'Input';
 var OutlinedInput$1 = OutlinedInput;
@@ -48676,30 +49123,30 @@ process.env.NODE_ENV !== "production" ? ScopedCssBaseline.propTypes /* remove-pr
   /**
    * The content of the component.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * Enable `color-scheme` CSS property to use `theme.palette.mode`.
    * For more details, check out https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
    * For browser support, check out https://caniuse.com/?search=color-scheme
    */
-  enableColorScheme: propTypesExports.bool,
+  enableColorScheme: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var ScopedCssBaseline$1 = ScopedCssBaseline;
 
@@ -48825,7 +49272,10 @@ const SelectInput = /*#__PURE__*/React.forwardRef(function SelectInput(props, re
       readOnly,
       renderValue,
       SelectDisplayProps = {},
-      tabIndex: tabIndexProp,
+      tabIndex: tabIndexProp
+      // catching `type` from Input which makes no sense for SelectInput
+      ,
+
       value: valueProp,
       variant = 'standard'
     } = props,
@@ -48926,11 +49376,10 @@ const SelectInput = /*#__PURE__*/React.forwardRef(function SelectInput(props, re
 
   // Support autofill.
   const handleChange = event => {
-    const index = childrenArray.map(child => child.props.value).indexOf(event.target.value);
-    if (index === -1) {
+    const child = childrenArray.find(childItem => childItem.props.value === event.target.value);
+    if (child === undefined) {
       return;
     }
-    const child = childrenArray[index];
     setValueState(child.props.value);
     if (onChange) {
       onChange(event, child);
@@ -49193,59 +49642,59 @@ process.env.NODE_ENV !== "production" ? SelectInput.propTypes = {
   /**
    * @ignore
    */
-  'aria-describedby': propTypesExports.string,
+  'aria-describedby': PropTypes.string,
   /**
    * @ignore
    */
-  'aria-label': propTypesExports.string,
+  'aria-label': PropTypes.string,
   /**
    * @ignore
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * If `true`, the width of the popover will automatically be set according to the items inside the
    * menu, otherwise it will be at least the width of the select input.
    */
-  autoWidth: propTypesExports.bool,
+  autoWidth: PropTypes.bool,
   /**
    * The option elements to populate the select with.
    * Can be some `<MenuItem>` elements.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * The CSS class name of the select element.
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * If `true`, the component is toggled on mount. Use when the component open state is not controlled.
    * You can only use it when the `native` prop is `false` (default).
    */
-  defaultOpen: propTypesExports.bool,
+  defaultOpen: PropTypes.bool,
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: propTypesExports.any,
+  defaultValue: PropTypes.any,
   /**
    * If `true`, the select is disabled.
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the selected item is displayed even if its value is empty.
    */
-  displayEmpty: propTypesExports.bool,
+  displayEmpty: PropTypes.bool,
   /**
    * If `true`, the `select input` will indicate an error.
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * The icon that displays the arrow.
    */
-  IconComponent: propTypesExports.elementType.isRequired,
+  IconComponent: PropTypes.elementType.isRequired,
   /**
    * Imperative handle implementing `{ value: T, node: HTMLElement, focus(): void }`
    * Equivalent to `ref`
@@ -49255,23 +49704,23 @@ process.env.NODE_ENV !== "production" ? SelectInput.propTypes = {
    * The ID of an element that acts as an additional label. The Select will
    * be labelled by the additional label and the selected value.
    */
-  labelId: propTypesExports.string,
+  labelId: PropTypes.string,
   /**
    * Props applied to the [`Menu`](/material-ui/api/menu/) element.
    */
-  MenuProps: propTypesExports.object,
+  MenuProps: PropTypes.object,
   /**
    * If `true`, `value` must be an array and the menu will support multiple selections.
    */
-  multiple: propTypesExports.bool,
+  multiple: PropTypes.bool,
   /**
    * Name attribute of the `select` or hidden `input` element.
    */
-  name: propTypesExports.string,
+  name: PropTypes.string,
   /**
    * @ignore
    */
-  onBlur: propTypesExports.func,
+  onBlur: PropTypes.func,
   /**
    * Callback fired when a menu item is selected.
    *
@@ -49279,60 +49728,60 @@ process.env.NODE_ENV !== "production" ? SelectInput.propTypes = {
    * You can pull out the new value by accessing `event.target.value` (any).
    * @param {object} [child] The react element that was selected.
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * Callback fired when the component requests to be closed.
    * Use in controlled mode (see open).
    *
    * @param {object} event The event source of the callback.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
    * @ignore
    */
-  onFocus: propTypesExports.func,
+  onFocus: PropTypes.func,
   /**
    * Callback fired when the component requests to be opened.
    * Use in controlled mode (see open).
    *
    * @param {object} event The event source of the callback.
    */
-  onOpen: propTypesExports.func,
+  onOpen: PropTypes.func,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool,
+  open: PropTypes.bool,
   /**
    * @ignore
    */
-  readOnly: propTypesExports.bool,
+  readOnly: PropTypes.bool,
   /**
    * Render the selected value.
    *
    * @param {any} value The `value` provided to the component.
    * @returns {ReactNode}
    */
-  renderValue: propTypesExports.func,
+  renderValue: PropTypes.func,
   /**
    * Props applied to the clickable div element.
    */
-  SelectDisplayProps: propTypesExports.object,
+  SelectDisplayProps: PropTypes.object,
   /**
    * @ignore
    */
-  tabIndex: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * @ignore
    */
-  type: propTypesExports.any,
+  type: PropTypes.any,
   /**
    * The input value.
    */
-  value: propTypesExports.any,
+  value: PropTypes.any,
   /**
    * The variant to use.
    */
-  variant: propTypesExports.oneOf(['standard', 'outlined', 'filled'])
+  variant: PropTypes.oneOf(['standard', 'outlined', 'filled'])
 } : void 0;
 var SelectInput$1 = SelectInput;
 
@@ -49458,33 +49907,33 @@ process.env.NODE_ENV !== "production" ? Select.propTypes /* remove-proptypes */ 
    * menu, otherwise it will be at least the width of the select input.
    * @default false
    */
-  autoWidth: propTypesExports.bool,
+  autoWidth: PropTypes.bool,
   /**
    * The option elements to populate the select with.
    * Can be some `MenuItem` when `native` is false and `option` when `native` is true.
    *
    * ⚠️The `MenuItem` elements **must** be direct descendants when `native` is false.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    * @default {}
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * If `true`, the component is initially open. Use when the component open state is not controlled (i.e. the `open` prop is not defined).
    * You can only use it when the `native` prop is `false` (default).
    * @default false
    */
-  defaultOpen: propTypesExports.bool,
+  defaultOpen: PropTypes.bool,
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: propTypesExports.any,
+  defaultValue: PropTypes.any,
   /**
    * If `true`, a value is displayed even if no items are selected.
    *
@@ -49495,48 +49944,48 @@ process.env.NODE_ENV !== "production" ? Select.propTypes /* remove-proptypes */ 
    * The label should either be hidden or forced to a shrunk state.
    * @default false
    */
-  displayEmpty: propTypesExports.bool,
+  displayEmpty: PropTypes.bool,
   /**
    * The icon that displays the arrow.
    * @default ArrowDropDownIcon
    */
-  IconComponent: propTypesExports.elementType,
+  IconComponent: PropTypes.elementType,
   /**
    * The `id` of the wrapper element or the `select` element when `native`.
    */
-  id: propTypesExports.string,
+  id: PropTypes.string,
   /**
    * An `Input` element; does not have to be a material-ui specific `Input`.
    */
-  input: propTypesExports.element,
+  input: PropTypes.element,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    * When `native` is `true`, the attributes are applied on the `select` element.
    */
-  inputProps: propTypesExports.object,
+  inputProps: PropTypes.object,
   /**
    * See [OutlinedInput#label](/material-ui/api/outlined-input/#props)
    */
-  label: propTypesExports.node,
+  label: PropTypes.node,
   /**
    * The ID of an element that acts as an additional label. The Select will
    * be labelled by the additional label and the selected value.
    */
-  labelId: propTypesExports.string,
+  labelId: PropTypes.string,
   /**
    * Props applied to the [`Menu`](/material-ui/api/menu/) element.
    */
-  MenuProps: propTypesExports.object,
+  MenuProps: PropTypes.object,
   /**
    * If `true`, `value` must be an array and the menu will support multiple selections.
    * @default false
    */
-  multiple: propTypesExports.bool,
+  multiple: PropTypes.bool,
   /**
    * If `true`, the component uses a native `select` element.
    * @default false
    */
-  native: propTypesExports.bool,
+  native: PropTypes.bool,
   /**
    * Callback fired when a menu item is selected.
    *
@@ -49545,26 +49994,26 @@ process.env.NODE_ENV !== "production" ? Select.propTypes /* remove-proptypes */ 
    * **Warning**: This is a generic event, not a change event, unless the change event is caused by browser autofill.
    * @param {object} [child] The react element that was selected when `native` is `false` (default).
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * Callback fired when the component requests to be closed.
-   * Use it in either controlled (see the `open` prop), or uncontrolled mode (to detect when the Select collapes).
+   * Use it in either controlled (see the `open` prop), or uncontrolled mode (to detect when the Select collapses).
    *
    * @param {object} event The event source of the callback.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
    * Callback fired when the component requests to be opened.
    * Use it in either controlled (see the `open` prop), or uncontrolled mode (to detect when the Select expands).
    *
    * @param {object} event The event source of the callback.
    */
-  onOpen: propTypesExports.func,
+  onOpen: PropTypes.func,
   /**
    * If `true`, the component is shown.
    * You can only use it when the `native` prop is `false` (default).
    */
-  open: propTypesExports.bool,
+  open: PropTypes.bool,
   /**
    * Render the selected value.
    * You can only use it when the `native` prop is `false` (default).
@@ -49572,15 +50021,15 @@ process.env.NODE_ENV !== "production" ? Select.propTypes /* remove-proptypes */ 
    * @param {any} value The `value` provided to the component.
    * @returns {ReactNode}
    */
-  renderValue: propTypesExports.func,
+  renderValue: PropTypes.func,
   /**
    * Props applied to the clickable div element.
    */
-  SelectDisplayProps: propTypesExports.object,
+  SelectDisplayProps: PropTypes.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The `input` value. Providing an empty string will select no options.
    * Set to an empty string `''` if you don't want any of the available options to be selected.
@@ -49588,12 +50037,12 @@ process.env.NODE_ENV !== "production" ? Select.propTypes /* remove-proptypes */ 
    * If the value is an object it must have reference equality with the option in order to be selected.
    * If the value is not an object, the string representation must match with the string representation of the option in order to be selected.
    */
-  value: propTypesExports.oneOfType([propTypesExports.oneOf(['']), propTypesExports.any]),
+  value: PropTypes.oneOfType([PropTypes.oneOf(['']), PropTypes.any]),
   /**
    * The variant to use.
    * @default 'outlined'
    */
-  variant: propTypesExports.oneOf(['filled', 'outlined', 'standard'])
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard'])
 } : void 0;
 Select.muiName = 'Select';
 var Select$1 = Select;
@@ -49698,28 +50147,28 @@ process.env.NODE_ENV !== "production" ? SnackbarContent.propTypes /* remove-prop
   /**
    * The action to display. It renders after the message, at the end of the snackbar.
    */
-  action: propTypesExports.node,
+  action: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The message to display.
    */
-  message: propTypesExports.node,
+  message: PropTypes.node,
   /**
    * The ARIA role attribute of the element.
    * @default 'alert'
    */
-  role: propTypesExports /* @typescript-to-proptypes-ignore */.string,
+  role: PropTypes /* @typescript-to-proptypes-ignore */.string,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object])
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object])
 } : void 0;
 var SnackbarContent$1 = SnackbarContent;
 
@@ -49838,15 +50287,16 @@ const Snackbar = /*#__PURE__*/React.forwardRef(function Snackbar(inProps, ref) {
   const {
     getRootProps,
     onClickAway
-  } = useSnackbar(_extends$3({}, ownerState, {
-    ref
-  }));
+  } = useSnackbar(_extends$3({}, ownerState));
   const [exited, setExited] = React.useState(true);
   const rootProps = useSlotProps({
     elementType: SnackbarRoot,
     getSlotProps: getRootProps,
     externalForwardedProps: other,
     ownerState,
+    additionalProps: {
+      ref
+    },
     className: [classes.root, className]
   });
   const handleExited = node => {
@@ -49894,16 +50344,16 @@ process.env.NODE_ENV !== "production" ? Snackbar.propTypes /* remove-proptypes *
   /**
    * The action to display. It renders after the message, at the end of the snackbar.
    */
-  action: propTypesExports.node,
+  action: PropTypes.node,
   /**
    * The anchor of the `Snackbar`.
    * On smaller screens, the component grows to occupy all the available width,
    * the horizontal alignment is ignored.
    * @default { vertical: 'bottom', horizontal: 'left' }
    */
-  anchorOrigin: propTypesExports.shape({
-    horizontal: propTypesExports.oneOf(['center', 'left', 'right']).isRequired,
-    vertical: propTypesExports.oneOf(['bottom', 'top']).isRequired
+  anchorOrigin: PropTypes.shape({
+    horizontal: PropTypes.oneOf(['center', 'left', 'right']).isRequired,
+    vertical: PropTypes.oneOf(['bottom', 'top']).isRequired
   }),
   /**
    * The number of milliseconds to wait before automatically calling the
@@ -49912,32 +50362,32 @@ process.env.NODE_ENV !== "production" ? Snackbar.propTypes /* remove-proptypes *
    * the `null` value.
    * @default null
    */
-  autoHideDuration: propTypesExports.number,
+  autoHideDuration: PropTypes.number,
   /**
    * Replace the `SnackbarContent` component.
    */
-  children: propTypesExports.element,
+  children: PropTypes.element,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * Props applied to the `ClickAwayListener` element.
    */
-  ClickAwayListenerProps: propTypesExports.object,
+  ClickAwayListenerProps: PropTypes.object,
   /**
    * Props applied to the [`SnackbarContent`](/material-ui/api/snackbar-content/) element.
    */
-  ContentProps: propTypesExports.object,
+  ContentProps: PropTypes.object,
   /**
    * If `true`, the `autoHideDuration` timer will expire even if the window is not focused.
    * @default false
    */
-  disableWindowBlurListener: propTypesExports.bool,
+  disableWindowBlurListener: PropTypes.bool,
   /**
    * When displaying multiple consecutive Snackbars from a parent rendering a single
    * <Snackbar/>, add the key prop to ensure independent treatment of each message.
@@ -49948,11 +50398,11 @@ process.env.NODE_ENV !== "production" ? Snackbar.propTypes /* remove-proptypes *
   /**
    * The message to display.
    */
-  message: propTypesExports.node,
+  message: PropTypes.node,
   /**
    * @ignore
    */
-  onBlur: propTypesExports.func,
+  onBlur: PropTypes.func,
   /**
    * Callback fired when the component requests to be closed.
    * Typically `onClose` is used to set state in the parent component,
@@ -49963,40 +50413,40 @@ process.env.NODE_ENV !== "production" ? Snackbar.propTypes /* remove-proptypes *
    * @param {React.SyntheticEvent<any> | Event} event The event source of the callback.
    * @param {string} reason Can be: `"timeout"` (`autoHideDuration` expired), `"clickaway"`, or `"escapeKeyDown"`.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
    * @ignore
    */
-  onFocus: propTypesExports.func,
+  onFocus: PropTypes.func,
   /**
    * @ignore
    */
-  onMouseEnter: propTypesExports.func,
+  onMouseEnter: PropTypes.func,
   /**
    * @ignore
    */
-  onMouseLeave: propTypesExports.func,
+  onMouseLeave: PropTypes.func,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool,
+  open: PropTypes.bool,
   /**
    * The number of milliseconds to wait before dismissing after user interaction.
    * If `autoHideDuration` prop isn't specified, it does nothing.
    * If `autoHideDuration` prop is specified but `resumeHideDuration` isn't,
    * we default to `autoHideDuration / 2` ms.
    */
-  resumeHideDuration: propTypesExports.number,
+  resumeHideDuration: PropTypes.number,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The component used for the transition.
    * [Follow this guide](/material-ui/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
    * @default Grow
    */
-  TransitionComponent: propTypesExports.elementType,
+  TransitionComponent: PropTypes.elementType,
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
@@ -50005,17 +50455,17 @@ process.env.NODE_ENV !== "production" ? Snackbar.propTypes /* remove-proptypes *
    *   exit: theme.transitions.duration.leavingScreen,
    * }
    */
-  transitionDuration: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.shape({
-    appear: propTypesExports.number,
-    enter: propTypesExports.number,
-    exit: propTypesExports.number
+  transitionDuration: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    exit: PropTypes.number
   })]),
   /**
    * Props applied to the transition element.
    * By default, the element is based on this [`Transition`](http://reactcommunity.org/react-transition-group/transition/) component.
    * @default {}
    */
-  TransitionProps: propTypesExports.object
+  TransitionProps: PropTypes.object
 } : void 0;
 var Snackbar$1 = Snackbar;
 
@@ -50220,7 +50670,7 @@ const Tooltip = /*#__PURE__*/React.forwardRef(function Tooltip(inProps, ref) {
   });
   const {
       arrow = false,
-      children,
+      children: childrenProp,
       components = {},
       componentsProps = {},
       describeChild = false,
@@ -50248,6 +50698,11 @@ const Tooltip = /*#__PURE__*/React.forwardRef(function Tooltip(inProps, ref) {
       TransitionProps
     } = props,
     other = _objectWithoutPropertiesLoose(props, _excluded$3);
+
+  // to prevent runtime errors, developers will need to provide a child as a React element anyway.
+  const children = /*#__PURE__*/React.isValidElement(childrenProp) ? childrenProp : /*#__PURE__*/jsx("span", {
+    children: childrenProp
+  });
   const theme = useTheme$1();
   const isRtl = theme.direction === 'rtl';
   const [childNode, setChildNode] = React.useState();
@@ -50588,7 +51043,7 @@ process.env.NODE_ENV !== "production" ? Tooltip.propTypes /* remove-proptypes */
    * If `true`, adds an arrow to the tooltip.
    * @default false
    */
-  arrow: propTypesExports.bool,
+  arrow: PropTypes.bool,
   /**
    * Tooltip reference element.
    */
@@ -50596,11 +51051,11 @@ process.env.NODE_ENV !== "production" ? Tooltip.propTypes /* remove-proptypes */
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The components used for each slot inside.
    *
@@ -50609,11 +51064,11 @@ process.env.NODE_ENV !== "production" ? Tooltip.propTypes /* remove-proptypes */
    *
    * @default {}
    */
-  components: propTypesExports.shape({
-    Arrow: propTypesExports.elementType,
-    Popper: propTypesExports.elementType,
-    Tooltip: propTypesExports.elementType,
-    Transition: propTypesExports.elementType
+  components: PropTypes.shape({
+    Arrow: PropTypes.elementType,
+    Popper: PropTypes.elementType,
+    Tooltip: PropTypes.elementType,
+    Transition: PropTypes.elementType
   }),
   /**
    * The extra props for the slot components.
@@ -50624,107 +51079,107 @@ process.env.NODE_ENV !== "production" ? Tooltip.propTypes /* remove-proptypes */
    *
    * @default {}
    */
-  componentsProps: propTypesExports.shape({
-    arrow: propTypesExports.object,
-    popper: propTypesExports.object,
-    tooltip: propTypesExports.object,
-    transition: propTypesExports.object
+  componentsProps: PropTypes.shape({
+    arrow: PropTypes.object,
+    popper: PropTypes.object,
+    tooltip: PropTypes.object,
+    transition: PropTypes.object
   }),
   /**
    * Set to `true` if the `title` acts as an accessible description.
    * By default the `title` acts as an accessible label for the child.
    * @default false
    */
-  describeChild: propTypesExports.bool,
+  describeChild: PropTypes.bool,
   /**
    * Do not respond to focus-visible events.
    * @default false
    */
-  disableFocusListener: propTypesExports.bool,
+  disableFocusListener: PropTypes.bool,
   /**
    * Do not respond to hover events.
    * @default false
    */
-  disableHoverListener: propTypesExports.bool,
+  disableHoverListener: PropTypes.bool,
   /**
    * Makes a tooltip not interactive, i.e. it will close when the user
    * hovers over the tooltip before the `leaveDelay` is expired.
    * @default false
    */
-  disableInteractive: propTypesExports.bool,
+  disableInteractive: PropTypes.bool,
   /**
    * Do not respond to long press touch events.
    * @default false
    */
-  disableTouchListener: propTypesExports.bool,
+  disableTouchListener: PropTypes.bool,
   /**
    * The number of milliseconds to wait before showing the tooltip.
    * This prop won't impact the enter touch delay (`enterTouchDelay`).
    * @default 100
    */
-  enterDelay: propTypesExports.number,
+  enterDelay: PropTypes.number,
   /**
    * The number of milliseconds to wait before showing the tooltip when one was already recently opened.
    * @default 0
    */
-  enterNextDelay: propTypesExports.number,
+  enterNextDelay: PropTypes.number,
   /**
    * The number of milliseconds a user must touch the element before showing the tooltip.
    * @default 700
    */
-  enterTouchDelay: propTypesExports.number,
+  enterTouchDelay: PropTypes.number,
   /**
    * If `true`, the tooltip follow the cursor over the wrapped element.
    * @default false
    */
-  followCursor: propTypesExports.bool,
+  followCursor: PropTypes.bool,
   /**
    * This prop is used to help implement the accessibility logic.
    * If you don't provide this prop. It falls back to a randomly generated id.
    */
-  id: propTypesExports.string,
+  id: PropTypes.string,
   /**
    * The number of milliseconds to wait before hiding the tooltip.
    * This prop won't impact the leave touch delay (`leaveTouchDelay`).
    * @default 0
    */
-  leaveDelay: propTypesExports.number,
+  leaveDelay: PropTypes.number,
   /**
    * The number of milliseconds after the user stops touching an element before hiding the tooltip.
    * @default 1500
    */
-  leaveTouchDelay: propTypesExports.number,
+  leaveTouchDelay: PropTypes.number,
   /**
    * Callback fired when the component requests to be closed.
    *
    * @param {React.SyntheticEvent} event The event source of the callback.
    */
-  onClose: propTypesExports.func,
+  onClose: PropTypes.func,
   /**
    * Callback fired when the component requests to be open.
    *
    * @param {React.SyntheticEvent} event The event source of the callback.
    */
-  onOpen: propTypesExports.func,
+  onOpen: PropTypes.func,
   /**
    * If `true`, the component is shown.
    */
-  open: propTypesExports.bool,
+  open: PropTypes.bool,
   /**
    * Tooltip placement.
    * @default 'bottom'
    */
-  placement: propTypesExports.oneOf(['bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
+  placement: PropTypes.oneOf(['bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
   /**
    * The component used for the popper.
    * @default Popper
    */
-  PopperComponent: propTypesExports.elementType,
+  PopperComponent: PropTypes.elementType,
   /**
    * Props applied to the [`Popper`](/material-ui/api/popper/) element.
    * @default {}
    */
-  PopperProps: propTypesExports.object,
+  PopperProps: PropTypes.object,
   /**
    * The extra props for the slot components.
    * You can override the existing props or add new ones.
@@ -50733,11 +51188,11 @@ process.env.NODE_ENV !== "production" ? Tooltip.propTypes /* remove-proptypes */
    *
    * @default {}
    */
-  slotProps: propTypesExports.shape({
-    arrow: propTypesExports.object,
-    popper: propTypesExports.object,
-    tooltip: propTypesExports.object,
-    transition: propTypesExports.object
+  slotProps: PropTypes.shape({
+    arrow: PropTypes.object,
+    popper: PropTypes.object,
+    tooltip: PropTypes.object,
+    transition: PropTypes.object
   }),
   /**
    * The components used for each slot inside.
@@ -50746,31 +51201,31 @@ process.env.NODE_ENV !== "production" ? Tooltip.propTypes /* remove-proptypes */
    *
    * @default {}
    */
-  slots: propTypesExports.shape({
-    arrow: propTypesExports.elementType,
-    popper: propTypesExports.elementType,
-    tooltip: propTypesExports.elementType,
-    transition: propTypesExports.elementType
+  slots: PropTypes.shape({
+    arrow: PropTypes.elementType,
+    popper: PropTypes.elementType,
+    tooltip: PropTypes.elementType,
+    transition: PropTypes.elementType
   }),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Tooltip title. Zero-length titles string, undefined, null and false are never displayed.
    */
-  title: propTypesExports.node,
+  title: PropTypes.node,
   /**
    * The component used for the transition.
    * [Follow this guide](/material-ui/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
    * @default Grow
    */
-  TransitionComponent: propTypesExports.elementType,
+  TransitionComponent: PropTypes.elementType,
   /**
    * Props applied to the transition element.
    * By default, the element is based on this [`Transition`](http://reactcommunity.org/react-transition-group/transition/) component.
    */
-  TransitionProps: propTypesExports.object
+  TransitionProps: PropTypes.object
 } : void 0;
 var Tooltip$1 = Tooltip;
 
@@ -50852,36 +51307,36 @@ process.env.NODE_ENV !== "production" ? Toolbar.propTypes /* remove-proptypes */
   // ----------------------------------------------------------------------
   /**
    * The Toolbar children, usually a mixture of `IconButton`, `Button` and `Typography`.
-   * The Toolbar is a flex container, allowing flex item properites to be used to lay out the children.
+   * The Toolbar is a flex container, allowing flex item properties to be used to lay out the children.
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: propTypesExports.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, disables gutter padding.
    * @default false
    */
-  disableGutters: propTypesExports.bool,
+  disableGutters: PropTypes.bool,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * The variant to use.
    * @default 'regular'
    */
-  variant: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['dense', 'regular']), propTypesExports.string])
+  variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['dense', 'regular']), PropTypes.string])
 } : void 0;
 var Toolbar$1 = Toolbar;
 
@@ -50890,7 +51345,7 @@ function getTextFieldUtilityClass(slot) {
 }
 generateUtilityClasses('MuiTextField', ['root']);
 
-const _excluded$1 = ["autoComplete", "autoFocus", "children", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "maxRows", "minRows", "multiline", "name", "onBlur", "onChange", "onFocus", "placeholder", "required", "rows", "select", "SelectProps", "type", "value", "variant"];
+const _excluded$1 = ["autoComplete", "autoFocus", "children", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "maxRows", "minRows", "multiline", "name", "onBlur", "onChange", "onClick", "onFocus", "placeholder", "required", "rows", "select", "SelectProps", "type", "value", "variant"];
 const variantComponent = {
   standard: Input$1,
   filled: FilledInput$1,
@@ -50972,6 +51427,7 @@ const TextField = /*#__PURE__*/React.forwardRef(function TextField(inProps, ref)
       name,
       onBlur,
       onChange,
+      onClick,
       onFocus,
       placeholder,
       required = false,
@@ -51036,6 +51492,7 @@ const TextField = /*#__PURE__*/React.forwardRef(function TextField(inProps, ref)
     onBlur: onBlur,
     onChange: onChange,
     onFocus: onFocus,
+    onClick: onClick,
     placeholder: placeholder,
     inputProps: inputProps
   }, InputMore, InputProps));
@@ -51080,79 +51537,79 @@ process.env.NODE_ENV !== "production" ? TextField.propTypes /* remove-proptypes 
    * The name can be confusing, as it's more like an autofill.
    * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
    */
-  autoComplete: propTypesExports.string,
+  autoComplete: PropTypes.string,
   /**
    * If `true`, the `input` element is focused during the first mount.
    * @default false
    */
-  autoFocus: propTypesExports.bool,
+  autoFocus: PropTypes.bool,
   /**
    * @ignore
    */
-  children: propTypesExports.node,
+  children: PropTypes.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: propTypesExports.object,
+  classes: PropTypes.object,
   /**
    * @ignore
    */
-  className: propTypesExports.string,
+  className: PropTypes.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'primary'
    */
-  color: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), propTypesExports.string]),
+  color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: propTypesExports.any,
+  defaultValue: PropTypes.any,
   /**
    * If `true`, the component is disabled.
    * @default false
    */
-  disabled: propTypesExports.bool,
+  disabled: PropTypes.bool,
   /**
    * If `true`, the label is displayed in an error state.
    * @default false
    */
-  error: propTypesExports.bool,
+  error: PropTypes.bool,
   /**
    * Props applied to the [`FormHelperText`](/material-ui/api/form-helper-text/) element.
    */
-  FormHelperTextProps: propTypesExports.object,
+  FormHelperTextProps: PropTypes.object,
   /**
    * If `true`, the input will take up the full width of its container.
    * @default false
    */
-  fullWidth: propTypesExports.bool,
+  fullWidth: PropTypes.bool,
   /**
    * The helper text content.
    */
-  helperText: propTypesExports.node,
+  helperText: PropTypes.node,
   /**
    * The id of the `input` element.
    * Use this prop to make `label` and `helperText` accessible for screen readers.
    */
-  id: propTypesExports.string,
+  id: PropTypes.string,
   /**
    * Props applied to the [`InputLabel`](/material-ui/api/input-label/) element.
    * Pointer events like `onClick` are enabled if and only if `shrink` is `true`.
    */
-  InputLabelProps: propTypesExports.object,
+  InputLabelProps: PropTypes.object,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    */
-  inputProps: propTypesExports.object,
+  inputProps: PropTypes.object,
   /**
    * Props applied to the Input element.
    * It will be a [`FilledInput`](/material-ui/api/filled-input/),
    * [`OutlinedInput`](/material-ui/api/outlined-input/) or [`Input`](/material-ui/api/input/)
    * component depending on the `variant` prop value.
    */
-  InputProps: propTypesExports.object,
+  InputProps: PropTypes.object,
   /**
    * Pass a ref to the `input` element.
    */
@@ -51160,88 +51617,92 @@ process.env.NODE_ENV !== "production" ? TextField.propTypes /* remove-proptypes 
   /**
    * The label content.
    */
-  label: propTypesExports.node,
+  label: PropTypes.node,
   /**
    * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
    * @default 'none'
    */
-  margin: propTypesExports.oneOf(['dense', 'none', 'normal']),
+  margin: PropTypes.oneOf(['dense', 'none', 'normal']),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
-  maxRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  maxRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
-  minRows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  minRows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * If `true`, a `textarea` element is rendered instead of an input.
    * @default false
    */
-  multiline: propTypesExports.bool,
+  multiline: PropTypes.bool,
   /**
    * Name attribute of the `input` element.
    */
-  name: propTypesExports.string,
+  name: PropTypes.string,
   /**
    * @ignore
    */
-  onBlur: propTypesExports.func,
+  onBlur: PropTypes.func,
   /**
    * Callback fired when the value is changed.
    *
    * @param {object} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: propTypesExports.func,
+  onChange: PropTypes.func,
   /**
    * @ignore
    */
-  onFocus: propTypesExports.func,
+  onClick: PropTypes.func,
+  /**
+   * @ignore
+   */
+  onFocus: PropTypes.func,
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
-  placeholder: propTypesExports.string,
+  placeholder: PropTypes.string,
   /**
    * If `true`, the label is displayed as required and the `input` element is required.
    * @default false
    */
-  required: propTypesExports.bool,
+  required: PropTypes.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
-  rows: propTypesExports.oneOfType([propTypesExports.number, propTypesExports.string]),
+  rows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Render a [`Select`](/material-ui/api/select/) element while passing the Input element to `Select` as `input` parameter.
    * If this option is set you must pass the options of the select as children.
    * @default false
    */
-  select: propTypesExports.bool,
+  select: PropTypes.bool,
   /**
    * Props applied to the [`Select`](/material-ui/api/select/) element.
    */
-  SelectProps: propTypesExports.object,
+  SelectProps: PropTypes.object,
   /**
    * The size of the component.
    */
-  size: propTypesExports /* @typescript-to-proptypes-ignore */.oneOfType([propTypesExports.oneOf(['medium', 'small']), propTypesExports.string]),
+  size: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['medium', 'small']), PropTypes.string]),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: propTypesExports.oneOfType([propTypesExports.arrayOf(propTypesExports.oneOfType([propTypesExports.func, propTypesExports.object, propTypesExports.bool])), propTypesExports.func, propTypesExports.object]),
+  sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    */
-  type: propTypesExports /* @typescript-to-proptypes-ignore */.string,
+  type: PropTypes /* @typescript-to-proptypes-ignore */.string,
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value: propTypesExports.any,
+  value: PropTypes.any,
   /**
    * The variant to use.
    * @default 'outlined'
    */
-  variant: propTypesExports.oneOf(['filled', 'outlined', 'standard'])
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard'])
 } : void 0;
 var TextField$1 = TextField;
 
@@ -51296,11 +51757,7 @@ function useScrollTrigger(options = {}) {
 
 var Lock = {};
 
-var interopRequireDefaultExports = {};
-var interopRequireDefault = {
-  get exports(){ return interopRequireDefaultExports; },
-  set exports(v){ interopRequireDefaultExports = v; },
-};
+var interopRequireDefault = {exports: {}};
 
 (function (module) {
 	function _interopRequireDefault(obj) {
@@ -51308,8 +51765,10 @@ var interopRequireDefault = {
 	    "default": obj
 	  };
 	}
-	module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports; 
 } (interopRequireDefault));
+
+var interopRequireDefaultExports = interopRequireDefault.exports;
 
 var createSvgIcon = {};
 
@@ -51331,25 +51790,25 @@ function requireCreateSvgIcon () {
 		    return _utils.createSvgIcon;
 		  }
 		});
-		var _utils = require$$0;
-} (createSvgIcon));
+		var _utils = require$$0; 
+	} (createSvgIcon));
 	return createSvgIcon;
 }
 
-var _interopRequireDefault$f = interopRequireDefaultExports;
+var _interopRequireDefault$h = interopRequireDefaultExports;
 Object.defineProperty(Lock, "__esModule", {
   value: true
 });
-var default_1$f = Lock.default = void 0;
-var _createSvgIcon$f = _interopRequireDefault$f(requireCreateSvgIcon());
-var _jsxRuntime$f = require$$2;
-var _default$f = (0, _createSvgIcon$f.default)( /*#__PURE__*/(0, _jsxRuntime$f.jsx)("path", {
+var default_1$h = Lock.default = void 0;
+var _createSvgIcon$h = _interopRequireDefault$h(requireCreateSvgIcon());
+var _jsxRuntime$h = require$$2;
+var _default$h = (0, _createSvgIcon$h.default)( /*#__PURE__*/(0, _jsxRuntime$h.jsx)("path", {
   d: "M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
 }), 'Lock');
-default_1$f = Lock.default = _default$f;
+default_1$h = Lock.default = _default$h;
 
-var __assign$o = (undefined && undefined.__assign) || function () {
-    __assign$o = Object.assign || function(t) {
+var __assign$p = (undefined && undefined.__assign) || function () {
+    __assign$p = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -51357,7 +51816,7 @@ var __assign$o = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$o.apply(this, arguments);
+    return __assign$p.apply(this, arguments);
 };
 var __rest$o = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -51392,14 +51851,14 @@ var Button = function (props) {
         return theme.breakpoints.down('sm');
     });
     return isXSmall ? (label && !disabled ? (React.createElement(Tooltip$1, { title: translatedLabel },
-        React.createElement(IconButton$1, __assign$o({ "aria-label": translatedLabel, className: className, color: color, size: "large" }, rest, linkParams), children))) : (React.createElement(IconButton$1, __assign$o({ className: className, color: color, disabled: disabled, size: "large" }, rest, linkParams), children))) : (React.createElement(StyledButton$1, __assign$o({ className: className, color: color, size: size, "aria-label": translatedLabel, disabled: disabled, startIcon: alignIcon === 'left' && children ? children : undefined, endIcon: alignIcon === 'right' && children ? children : undefined }, rest, linkParams), translatedLabel));
+        React.createElement(IconButton$1, __assign$p({ "aria-label": translatedLabel, className: className, color: color, size: "large" }, rest, linkParams), children))) : (React.createElement(IconButton$1, __assign$p({ className: className, color: color, disabled: disabled, size: "large" }, rest, linkParams), children))) : (React.createElement(StyledButton$1, __assign$p({ className: className, color: color, size: size, "aria-label": translatedLabel, disabled: disabled, startIcon: alignIcon === 'left' && children ? children : undefined, endIcon: alignIcon === 'right' && children ? children : undefined }, rest, linkParams), translatedLabel));
 };
 Button.propTypes = {
-    alignIcon: propTypesExports.oneOf(['left', 'right']),
-    children: propTypesExports.element,
-    className: propTypesExports.string,
-    color: propTypesExports.oneOfType([
-        propTypesExports.oneOf([
+    alignIcon: PropTypes.oneOf(['left', 'right']),
+    children: PropTypes.element,
+    className: PropTypes.string,
+    color: PropTypes.oneOfType([
+        PropTypes.oneOf([
             'inherit',
             'default',
             'primary',
@@ -51409,11 +51868,11 @@ Button.propTypes = {
             'success',
             'warning',
         ]),
-        propTypesExports.string,
+        PropTypes.string,
     ]),
-    disabled: propTypesExports.bool,
-    label: propTypesExports.string,
-    size: propTypesExports.oneOf(['small', 'medium', 'large']),
+    disabled: PropTypes.bool,
+    label: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 var PREFIX$l = 'RaButton';
 var StyledButton$1 = styled$1(Button$2, {
@@ -51444,20 +51903,22 @@ var getLinkParams = function (locationDescriptor) {
 
 var Menu$1 = {};
 
-var _interopRequireDefault$e = interopRequireDefaultExports;
+var _interopRequireDefault$g = interopRequireDefaultExports;
 Object.defineProperty(Menu$1, "__esModule", {
   value: true
 });
-var default_1$e = Menu$1.default = void 0;
-var _createSvgIcon$e = _interopRequireDefault$e(requireCreateSvgIcon());
-var _jsxRuntime$e = require$$2;
-var _default$e = (0, _createSvgIcon$e.default)( /*#__PURE__*/(0, _jsxRuntime$e.jsx)("path", {
+var default_1$g = Menu$1.default = void 0;
+var _createSvgIcon$g = _interopRequireDefault$g(requireCreateSvgIcon());
+var _jsxRuntime$g = require$$2;
+var _default$g = (0, _createSvgIcon$g.default)( /*#__PURE__*/(0, _jsxRuntime$g.jsx)("path", {
   d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
 }), 'Menu');
-default_1$e = Menu$1.default = _default$e;
+default_1$g = Menu$1.default = _default$g;
 
 /**
  * A hook that returns the sidebar open state and a function to toggle it.
+ *
+ * The sidebar is open by default on desktop, and closed by default on mobile.
  *
  * @example
  * const ToggleSidebar = () => {
@@ -51470,7 +51931,8 @@ default_1$e = Menu$1.default = _default$e;
  * };
  */
 var useSidebarState = function () {
-    return useStore('sidebar.open', true);
+    var isXSmall = useMediaQuery(function (theme) { return theme === null || theme === void 0 ? void 0 : theme.breakpoints.down('sm'); }, { noSsr: true });
+    return useStore('sidebar.open', isXSmall ? false : true);
 };
 
 /**
@@ -51484,7 +51946,7 @@ var SidebarToggleButton = function (props) {
     var _a = useSidebarState(), open = _a[0], setOpen = _a[1];
     return (React.createElement(Tooltip$1, { className: className, title: translate(open ? 'ra.action.close_menu' : 'ra.action.open_menu', { _: 'Open/Close menu' }), enterDelay: 500 },
         React.createElement(StyledIconButton, { color: "inherit", onClick: function () { return setOpen(!open); } },
-            React.createElement(default_1$e, { classes: {
+            React.createElement(default_1$g, { classes: {
                     root: open
                         ? SidebarToggleButtonClasses.menuButtonIconOpen
                         : SidebarToggleButtonClasses.menuButtonIconClosed,
@@ -51519,8 +51981,8 @@ var StyledIconButton = styled$1(IconButton$1, {
         _b);
 });
 
-var __assign$n = (undefined && undefined.__assign) || function () {
-    __assign$n = Object.assign || function(t) {
+var __assign$o = (undefined && undefined.__assign) || function () {
+    __assign$o = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -51528,7 +51990,7 @@ var __assign$n = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$n.apply(this, arguments);
+    return __assign$o.apply(this, arguments);
 };
 var __rest$n = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -51545,12 +52007,12 @@ var LoadingIndicator = function (props) {
     var className = props.className, sx = props.sx, rest = __rest$n(props, ["className", "sx"]);
     var loading = useLoading();
     var theme = useTheme$1();
-    return (React.createElement(Root$9, { className: className, sx: sx }, loading ? (React.createElement(CircularProgress$1, __assign$n({ className: clsx('app-loader', LoadingIndicatorClasses.loader), color: "inherit", size: theme.spacing(2), thickness: 6 }, rest))) : (React.createElement(RefreshIconButton, { className: LoadingIndicatorClasses.loadedIcon }))));
+    return (React.createElement(Root$9, { className: className, sx: sx }, loading ? (React.createElement(CircularProgress$1, __assign$o({ className: clsx('app-loader', LoadingIndicatorClasses.loader), color: "inherit", size: theme.spacing(2), thickness: 6 }, rest))) : (React.createElement(RefreshIconButton, { className: LoadingIndicatorClasses.loadedIcon }))));
 };
 LoadingIndicator.propTypes = {
-    classes: propTypesExports.object,
-    className: propTypesExports.string,
-    width: propTypesExports.string,
+    classes: PropTypes.object,
+    className: PropTypes.string,
+    width: PropTypes.string,
 };
 var PREFIX$j = 'RaLoadingIndicator';
 var LoadingIndicatorClasses = {
@@ -51574,17 +52036,17 @@ var Root$9 = styled$1('div', {
 
 var AccountCircle = {};
 
-var _interopRequireDefault$d = interopRequireDefaultExports;
+var _interopRequireDefault$f = interopRequireDefaultExports;
 Object.defineProperty(AccountCircle, "__esModule", {
   value: true
 });
-var default_1$d = AccountCircle.default = void 0;
-var _createSvgIcon$d = _interopRequireDefault$d(requireCreateSvgIcon());
-var _jsxRuntime$d = require$$2;
-var _default$d = (0, _createSvgIcon$d.default)( /*#__PURE__*/(0, _jsxRuntime$d.jsx)("path", {
+var default_1$f = AccountCircle.default = void 0;
+var _createSvgIcon$f = _interopRequireDefault$f(requireCreateSvgIcon());
+var _jsxRuntime$f = require$$2;
+var _default$f = (0, _createSvgIcon$f.default)( /*#__PURE__*/(0, _jsxRuntime$f.jsx)("path", {
   d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"
 }), 'AccountCircle');
-default_1$d = AccountCircle.default = _default$d;
+default_1$f = AccountCircle.default = _default$f;
 
 /**
  * This context provides access to a function for closing the user menu.
@@ -51627,20 +52089,20 @@ var UserMenuContextProvider = function (_a) {
 
 var PowerSettingsNew = {};
 
-var _interopRequireDefault$c = interopRequireDefaultExports;
+var _interopRequireDefault$e = interopRequireDefaultExports;
 Object.defineProperty(PowerSettingsNew, "__esModule", {
   value: true
 });
-var default_1$c = PowerSettingsNew.default = void 0;
-var _createSvgIcon$c = _interopRequireDefault$c(requireCreateSvgIcon());
-var _jsxRuntime$c = require$$2;
-var _default$c = (0, _createSvgIcon$c.default)( /*#__PURE__*/(0, _jsxRuntime$c.jsx)("path", {
+var default_1$e = PowerSettingsNew.default = void 0;
+var _createSvgIcon$e = _interopRequireDefault$e(requireCreateSvgIcon());
+var _jsxRuntime$e = require$$2;
+var _default$e = (0, _createSvgIcon$e.default)( /*#__PURE__*/(0, _jsxRuntime$e.jsx)("path", {
   d: "M13 3h-2v10h2V3zm4.83 2.17-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"
 }), 'PowerSettingsNew');
-default_1$c = PowerSettingsNew.default = _default$c;
+default_1$e = PowerSettingsNew.default = _default$e;
 
-var __assign$m = (undefined && undefined.__assign) || function () {
-    __assign$m = Object.assign || function(t) {
+var __assign$n = (undefined && undefined.__assign) || function () {
+    __assign$n = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -51648,7 +52110,7 @@ var __assign$m = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$m.apply(this, arguments);
+    return __assign$n.apply(this, arguments);
 };
 var __rest$m = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -51661,6 +52123,7 @@ var __rest$m = (undefined && undefined.__rest) || function (s, e) {
         }
     return t;
 };
+var _a$1;
 /**
  * Logout button component, to be passed to the Admin component
  *
@@ -51681,16 +52144,16 @@ var Logout = React.forwardRef(function Logout(props, ref) {
     ]);
     if (!authenticated)
         return null;
-    return (React.createElement(StyledMenuItem$1, __assign$m({ className: clsx('logout', className), onClick: handleClick, ref: ref, 
+    return (React.createElement(StyledMenuItem$1, __assign$n({ className: clsx('logout', className), onClick: handleClick, ref: ref, 
         // @ts-ignore
         component: isXSmall ? 'span' : 'li' }, rest),
-        React.createElement(ListItemIcon$1, { className: LogoutClasses.icon }, icon ? icon : React.createElement(default_1$c, { fontSize: "small" })),
+        React.createElement(ListItemIcon$1, { className: LogoutClasses.icon }, icon ? icon : React.createElement(default_1$e, { fontSize: "small" })),
         React.createElement(ListItemText$1, null, translate('ra.auth.logout', { _: 'Logout' }))));
 });
 Logout.propTypes = {
-    className: propTypesExports.string,
-    redirectTo: propTypesExports.string,
-    icon: propTypesExports.element,
+    className: PropTypes.string,
+    redirectTo: PropTypes.string,
+    icon: PropTypes.element,
 };
 var PREFIX$i = 'RaLogout';
 var LogoutClasses = {
@@ -51699,13 +52162,9 @@ var LogoutClasses = {
 var StyledMenuItem$1 = styled$1(MenuItem$1, {
     name: PREFIX$i,
     overridesResolver: function (props, styles) { return styles.root; },
-})(function (_a) {
-    var _b;
-    _a.theme;
-    return (_b = {},
-        _b["& .".concat(LogoutClasses.icon)] = {},
-        _b);
-});
+})((_a$1 = {},
+    _a$1["& .".concat(LogoutClasses.icon)] = {},
+    _a$1));
 
 /**
  * The UserMenu component renders a Mui Button that shows a Menu.
@@ -51749,7 +52208,7 @@ var StyledMenuItem$1 = styled$1(MenuItem$1, {
  *
  */
 var UserMenu = function (props) {
-    var _a = useState$1(null), anchorEl = _a[0], setAnchorEl = _a[1];
+    var _a = useState(null), anchorEl = _a[0], setAnchorEl = _a[1];
     var translate = useTranslate();
     var _b = useGetIdentity(), isLoading = _b.isLoading, identity = _b.identity;
     var authProvider = useAuthProvider$1();
@@ -51770,10 +52229,10 @@ var UserMenu = function (props) {
             React.createElement(Menu$3, { id: "menu-appbar", disableScrollLock: true, anchorEl: anchorEl, anchorOrigin: AnchorOrigin, transformOrigin: TransformOrigin, open: open, onClose: handleClose }, children))));
 };
 UserMenu.propTypes = {
-    children: propTypesExports.node,
-    classes: propTypesExports.object,
-    label: propTypesExports.string,
-    icon: propTypesExports.node,
+    children: PropTypes.node,
+    classes: PropTypes.object,
+    label: PropTypes.string,
+    icon: PropTypes.node,
 };
 var PREFIX$h = 'RaUserMenu';
 var UserMenuClasses = {
@@ -51797,7 +52256,7 @@ var Root$8 = styled$1('div', {
         },
         _b);
 });
-var defaultIcon$1 = React.createElement(default_1$d, null);
+var defaultIcon$1 = React.createElement(default_1$f, null);
 var AnchorOrigin = {
     vertical: 'bottom',
     horizontal: 'right',
@@ -51813,8 +52272,8 @@ var HideOnScroll = function (props) {
     return (React.createElement(Slide$1, { appear: false, direction: "down", in: !trigger, className: className }, children));
 };
 HideOnScroll.propTypes = {
-    children: propTypesExports.node.isRequired,
-    className: propTypesExports.string,
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
 };
 
 var TitlePortal = function (_a) {
@@ -51822,8 +52281,116 @@ var TitlePortal = function (_a) {
     return (React.createElement(Typography$1, { flex: "1", textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden", variant: "h6", color: "inherit", id: "react-admin-title", className: className }));
 };
 
-var __assign$l = (undefined && undefined.__assign) || function () {
-    __assign$l = Object.assign || function(t) {
+var ThemesContext = createContext({});
+
+var useThemesContext = function (params) {
+    var _a = params || {}, lightTheme = _a.lightTheme, darkTheme = _a.darkTheme, defaultTheme = _a.defaultTheme;
+    var context = useContext(ThemesContext);
+    return {
+        lightTheme: lightTheme || context.lightTheme,
+        darkTheme: darkTheme || context.darkTheme,
+        defaultTheme: defaultTheme !== null && defaultTheme !== void 0 ? defaultTheme : context.defaultTheme,
+    };
+};
+
+var Brightness4 = {};
+
+var _interopRequireDefault$d = interopRequireDefaultExports;
+Object.defineProperty(Brightness4, "__esModule", {
+  value: true
+});
+var default_1$d = Brightness4.default = void 0;
+var _createSvgIcon$d = _interopRequireDefault$d(requireCreateSvgIcon());
+var _jsxRuntime$d = require$$2;
+var _default$d = (0, _createSvgIcon$d.default)( /*#__PURE__*/(0, _jsxRuntime$d.jsx)("path", {
+  d: "M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"
+}), 'Brightness4');
+default_1$d = Brightness4.default = _default$d;
+
+var Brightness7 = {};
+
+var _interopRequireDefault$c = interopRequireDefaultExports;
+Object.defineProperty(Brightness7, "__esModule", {
+  value: true
+});
+var default_1$c = Brightness7.default = void 0;
+var _createSvgIcon$c = _interopRequireDefault$c(requireCreateSvgIcon());
+var _jsxRuntime$c = require$$2;
+var _default$c = (0, _createSvgIcon$c.default)( /*#__PURE__*/(0, _jsxRuntime$c.jsx)("path", {
+  d: "M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"
+}), 'Brightness7');
+default_1$c = Brightness7.default = _default$c;
+
+/**
+ * Button toggling the theme (light or dark).
+ *
+ * @deprecated Set the lightTheme and darkTheme props in the <Admin> component.
+ *
+ * @example
+ * import { AppBar, TitlePortal, ToggleThemeLegacyButton } from 'react-admin';
+ *
+ * const MyAppBar = () => (
+ *     <AppBar>
+ *         <TitlePortal />
+ *         <ToggleThemeButton lightTheme={lightTheme} darkTheme={darkTheme} />
+ *     </AppBar>
+ * );
+ *
+ * const MyLayout = props => <Layout {...props} appBar={MyAppBar} />;
+ */
+var ToggleThemeLegacyButton = function (props) {
+    var translate = useTranslate();
+    var darkTheme = props.darkTheme, lightTheme = props.lightTheme;
+    var _a = useTheme(), theme = _a[0], setTheme = _a[1];
+    // @ts-ignore
+    var isDark = theme === 'dark' || (theme === null || theme === void 0 ? void 0 : theme.palette.mode) === 'dark';
+    var handleTogglePaletteType = function () {
+        setTheme(isDark ? lightTheme : darkTheme);
+    };
+    var toggleThemeTitle = translate('ra.action.toggle_theme', {
+        _: 'Toggle Theme',
+    });
+    return (React__default.createElement(Tooltip$1, { title: toggleThemeTitle, enterDelay: 300 },
+        React__default.createElement(IconButton$1, { color: "inherit", onClick: handleTogglePaletteType, "aria-label": toggleThemeTitle }, isDark ? React__default.createElement(default_1$c, null) : React__default.createElement(default_1$d, null))));
+};
+
+/**
+ * Button toggling the theme (light or dark).
+ *
+ * Enabled by default in the <AppBar> when the <Admin> component has a darkMode.
+ *
+ * @example
+ * import { AppBar, ToggleThemeButton } from 'react-admin';
+ *
+ * const MyAppBar = () => (
+ *     <AppBar toolbar={<ToggleThemeButton />} />
+ * );
+ *
+ * const MyLayout = props => <Layout {...props} appBar={MyAppBar} />;
+ */
+var ToggleThemeButton = function (props) {
+    var translate = useTranslate();
+    var _a = useThemesContext(props), darkTheme = _a.darkTheme, defaultTheme = _a.defaultTheme;
+    var prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
+        noSsr: true,
+    });
+    var _b = useTheme(defaultTheme || (prefersDarkMode && darkTheme ? 'dark' : 'light')), theme = _b[0], setTheme = _b[1];
+    // FIXME: remove in v5
+    if (props.darkTheme) {
+        return (React__default.createElement(ToggleThemeLegacyButton, { darkTheme: props.darkTheme, lightTheme: props.lightTheme }));
+    }
+    var handleTogglePaletteType = function () {
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+    };
+    var toggleThemeTitle = translate('ra.action.toggle_theme', {
+        _: 'Toggle Theme',
+    });
+    return (React__default.createElement(Tooltip$1, { title: toggleThemeTitle, enterDelay: 300 },
+        React__default.createElement(IconButton$1, { color: "inherit", onClick: handleTogglePaletteType, "aria-label": toggleThemeTitle }, theme === 'dark' ? React__default.createElement(default_1$c, null) : React__default.createElement(default_1$d, null))));
+};
+
+var __assign$m = (undefined && undefined.__assign) || function () {
+    __assign$m = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -51831,7 +52398,7 @@ var __assign$l = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$l.apply(this, arguments);
+    return __assign$m.apply(this, arguments);
 };
 var __rest$l = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -51872,7 +52439,7 @@ var AppBar = memo(function (props) {
         return theme.breakpoints.down('sm');
     });
     return (React.createElement(Container, { className: className },
-        React.createElement(StyledAppBar, __assign$l({ className: AppBarClasses.appBar, color: color }, rest),
+        React.createElement(StyledAppBar, __assign$m({ className: AppBarClasses.appBar, color: color }, rest),
             React.createElement(Toolbar$1, { disableGutters: true, variant: isXSmall ? 'regular' : 'dense', className: AppBarClasses.toolbar },
                 React.createElement(SidebarToggleButton, { className: AppBarClasses.menuButton }),
                 Children.count(children) === 0 ? (React.createElement(TitlePortal, { className: AppBarClasses.title })) : (children),
@@ -51881,16 +52448,18 @@ var AppBar = memo(function (props) {
 });
 var DefaultToolbar = function () {
     var locales = useLocales();
+    var darkTheme = useThemesContext().darkTheme;
     return (React.createElement(React.Fragment, null,
         locales && locales.length > 1 ? React.createElement(LocalesMenuButton, null) : null,
+        darkTheme && React.createElement(ToggleThemeButton, null),
         React.createElement(LoadingIndicator, null)));
 };
 var defaultToolbarElement = React.createElement(DefaultToolbar, null);
 AppBar.propTypes = {
-    alwaysOn: propTypesExports.bool,
-    children: propTypesExports.node,
-    className: propTypesExports.string,
-    color: propTypesExports.oneOf([
+    alwaysOn: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    color: PropTypes.oneOf([
         'default',
         'inherit',
         'primary',
@@ -51901,9 +52470,9 @@ AppBar.propTypes = {
     /**
      * @deprecated
      */
-    open: propTypesExports.bool,
-    toolbar: propTypesExports.element,
-    userMenu: propTypesExports.oneOfType([propTypesExports.element, propTypesExports.bool]),
+    open: PropTypes.bool,
+    toolbar: PropTypes.element,
+    userMenu: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 };
 var DefaultUserMenu = React.createElement(UserMenu, null);
 var PREFIX$g = 'RaAppBar';
@@ -51950,8 +52519,8 @@ var _default$b = (0, _createSvgIcon$b.default)( /*#__PURE__*/(0, _jsxRuntime$b.j
 }), 'Dashboard');
 default_1$b = Dashboard.default = _default$b;
 
-var __assign$k = (undefined && undefined.__assign) || function () {
-    __assign$k = Object.assign || function(t) {
+var __assign$l = (undefined && undefined.__assign) || function () {
+    __assign$l = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -51959,7 +52528,7 @@ var __assign$k = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$k.apply(this, arguments);
+    return __assign$l.apply(this, arguments);
 };
 var __rest$k = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -51981,7 +52550,7 @@ var __rest$k = (undefined && undefined.__rest) || function (s, e) {
  * @prop {string|ReactNode} primaryText The menu content, displayed when the menu isn't minimized. |
  * @prop {ReactNode} leftIcon The menu icon
  *
- * Additional props are passed down to the underling MUI <MenuItem> component
+ * Additional props are passed down to the underling Material UI <MenuItem> component
  * @see https://material-ui.com/api/menu-item/#menuitem-api
  *
  * @example // You can create a custom menu component using the <DashboardMenuItem> and <MenuItemLink> components:
@@ -52037,7 +52606,7 @@ var MenuItemLink = forwardRef(function (props, ref) {
     var match = useMatch({ path: to, end: to === "".concat(basename, "/") });
     var renderMenuItem = function () {
         var _a;
-        return (React__default.createElement(StyledMenuItem, __assign$k({ className: clsx(className, (_a = {},
+        return (React__default.createElement(StyledMenuItem, __assign$l({ className: clsx(className, (_a = {},
                 _a[MenuItemLinkClasses.active] = !!match,
                 _a)), 
             // @ts-ignore
@@ -52047,17 +52616,17 @@ var MenuItemLink = forwardRef(function (props, ref) {
                 ? translate(primaryText, { _: primaryText })
                 : primaryText));
     };
-    return open ? (renderMenuItem()) : (React__default.createElement(Tooltip$1, __assign$k({ title: typeof primaryText === 'string'
+    return open ? (renderMenuItem()) : (React__default.createElement(Tooltip$1, __assign$l({ title: typeof primaryText === 'string'
             ? translate(primaryText, { _: primaryText })
             : primaryText, placement: "right" }, tooltipProps), renderMenuItem()));
 });
 MenuItemLink.propTypes = {
-    className: propTypesExports.string,
-    leftIcon: propTypesExports.element,
-    onClick: propTypesExports.func,
-    primaryText: propTypesExports.node,
-    to: propTypesExports.oneOfType([propTypesExports.string, propTypesExports.object]).isRequired,
-    sidebarIsOpen: propTypesExports.bool,
+    className: PropTypes.string,
+    leftIcon: PropTypes.element,
+    onClick: PropTypes.func,
+    primaryText: PropTypes.node,
+    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    sidebarIsOpen: PropTypes.bool,
 };
 var PREFIX$f = 'RaMenuItemLink';
 var MenuItemLinkClasses = {
@@ -52079,10 +52648,10 @@ var StyledMenuItem = styled$1(MenuItem$1, {
         _b["& .".concat(MenuItemLinkClasses.icon)] = { minWidth: theme.spacing(5) },
         _b);
 });
-var LinkRef = forwardRef(function (props, ref) { return (React__default.createElement(Link, __assign$k({ ref: ref }, props))); });
+var LinkRef = forwardRef(function (props, ref) { return (React__default.createElement(Link, __assign$l({ ref: ref }, props))); });
 
-var __assign$j = (undefined && undefined.__assign) || function () {
-    __assign$j = Object.assign || function(t) {
+var __assign$k = (undefined && undefined.__assign) || function () {
+    __assign$k = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52090,7 +52659,7 @@ var __assign$j = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$j.apply(this, arguments);
+    return __assign$k.apply(this, arguments);
 };
 var __rest$j = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52106,14 +52675,14 @@ var __rest$j = (undefined && undefined.__rest) || function (s, e) {
 var DashboardMenuItem = function (props) {
     var basename = useBasename();
     var _a = props.leftIcon, leftIcon = _a === void 0 ? React__default.createElement(default_1$b, null) : _a, _b = props.to, to = _b === void 0 ? "".concat(basename, "/") : _b, _c = props.primaryText, primaryText = _c === void 0 ? 'ra.page.dashboard' : _c, rest = __rest$j(props, ["leftIcon", "to", "primaryText"]);
-    return (React__default.createElement(MenuItemLink, __assign$j({ leftIcon: leftIcon, to: to, primaryText: primaryText }, rest)));
+    return (React__default.createElement(MenuItemLink, __assign$k({ leftIcon: leftIcon, to: to, primaryText: primaryText }, rest)));
 };
 DashboardMenuItem.propTypes = {
-    leftIcon: propTypesExports.element,
-    locale: propTypesExports.string,
-    onClick: propTypesExports.func,
-    dense: propTypesExports.bool,
-    sidebarIsOpen: propTypesExports.bool,
+    leftIcon: PropTypes.element,
+    locale: PropTypes.string,
+    onClick: PropTypes.func,
+    dense: PropTypes.bool,
+    sidebarIsOpen: PropTypes.bool,
 };
 
 var Report = {};
@@ -52198,12 +52767,12 @@ var Configurable = function (props) {
     var isEditorOpen = prefixedPreferenceKey === currentPreferenceKey;
     var editorOpenRef = useRef(isEditorOpen);
     var wrapperRef = useRef(null);
-    var _c = useState$1(false), isCustomizeButtonVisible = _c[0], setIsCustomizeButtonVisible = _c[1];
-    useEffect$1(function () {
+    var _c = useState(false), isCustomizeButtonVisible = _c[0], setIsCustomizeButtonVisible = _c[1];
+    useEffect(function () {
         editorOpenRef.current = isEditorOpen;
     }, [isEditorOpen]);
     // on unmount, if selected, remove the editor
-    useEffect$1(function () {
+    useEffect(function () {
         return function () {
             if (!editorOpenRef.current)
                 return;
@@ -52227,14 +52796,14 @@ var Configurable = function (props) {
         // we'll compare the editor key instead
         setPreferenceKey(prefixedPreferenceKey);
     };
-    var handleShowButton = function (event) {
+    var handleShowButton = function () {
         setIsCustomizeButtonVisible(true);
     };
     var handleHideButton = function () {
         setIsCustomizeButtonVisible(false);
     };
     return (React.createElement(PreferenceKeyContextProvider, { value: prefixedPreferenceKey },
-        React.createElement(Root$7, { className: clsx(isEnabled && ConfigurableClasses.editMode, isEditorOpen && ConfigurableClasses.editorActive), sx: sx, ref: wrapperRef, onMouseEnter: isEnabled ? handleShowButton : undefined, onMouseLeave: isEnabled ? handleHideButton : undefined }, children),
+        React.createElement(Root$7, { className: clsx(ConfigurableClasses.root, isEnabled && ConfigurableClasses.editMode, isEditorOpen && ConfigurableClasses.editorActive), sx: sx, ref: wrapperRef, onMouseEnter: isEnabled ? handleShowButton : undefined, onMouseLeave: isEnabled ? handleHideButton : undefined }, children),
         React.createElement(Popover$1, { open: isEnabled && (isCustomizeButtonVisible || isEditorOpen), sx: {
                 pointerEvents: 'none',
                 '& .MuiPaper-root': {
@@ -52269,6 +52838,7 @@ var Configurable = function (props) {
 };
 var PREFIX$e = 'RaConfigurable';
 var ConfigurableClasses = {
+    root: "".concat(PREFIX$e, "-root"),
     editMode: "".concat(PREFIX$e, "-editMode"),
     editorActive: "".concat(PREFIX$e, "-editorActive"),
 };
@@ -52339,7 +52909,7 @@ var Inspector = function () {
     var removeItems = useRemoveItemsFromStore(preferenceKey);
     var theme = useTheme$1();
     var translate = useTranslate();
-    var _b = useState$1(0), version = _b[0], setVersion = _b[1];
+    var _b = useState(0), version = _b[0], setVersion = _b[1];
     var _c = useStore('ra.inspector.position', {
         x: 
         // We want it positioned to the far right of the screen
@@ -52352,7 +52922,7 @@ var Inspector = function () {
     }), dialogPosition = _c[0], setDialogPosition = _c[1];
     // poor man's drag and drop
     // store click position relative to the dialog position
-    var _d = useState$1(), clickPosition = _d[0], setClickPosition = _d[1];
+    var _d = useState(), clickPosition = _d[0], setClickPosition = _d[1];
     var handleDragStart = function (e) {
         // exit if the user drags on anything but the title
         var draggedElement = document === null || document === void 0 ? void 0 : document.elementFromPoint(e.clientX, e.clientY);
@@ -52381,7 +52951,7 @@ var Inspector = function () {
         }
     };
     // prevent "back to base" animation when the inspector is dropped
-    useEffect$1(function () {
+    useEffect(function () {
         if (!isEnabled)
             return;
         var handleDragover = function (e) {
@@ -52395,7 +52965,7 @@ var Inspector = function () {
         };
     }, [isEnabled]);
     // make sure that the dialog is always visible, as the stored position may be outside the screen
-    useEffect$1(function () {
+    useEffect(function () {
         if (!isEnabled)
             return;
         var moveInspectorIfOutsideScreen = function () {
@@ -52469,8 +53039,8 @@ var StyledPaper = styled$1(Paper$1, {
 });
 Inspector.displayName = 'Inspector';
 
-var __assign$i = (undefined && undefined.__assign) || function () {
-    __assign$i = Object.assign || function(t) {
+var __assign$j = (undefined && undefined.__assign) || function () {
+    __assign$j = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52478,7 +53048,7 @@ var __assign$i = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$i.apply(this, arguments);
+    return __assign$j.apply(this, arguments);
 };
 var __rest$i = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52496,11 +53066,11 @@ var PageTitle = function (_a) {
     var titleFromPreferences = usePreference()[0];
     var translate = useTranslate();
     var record = useRecordContext();
-    return titleFromPreferences ? (React.createElement("span", __assign$i({ className: className }, rest), translate(titleFromPreferences, __assign$i(__assign$i({}, record), { _: titleFromPreferences })))) : (React.createElement("span", { className: className }, !title ? (React.createElement("span", __assign$i({}, rest), defaultTitle)) : typeof title === 'string' ? (React.createElement("span", __assign$i({}, rest), translate(title, { _: title }))) : (title)));
+    return titleFromPreferences ? (React.createElement("span", __assign$j({ className: className }, rest), translate(titleFromPreferences, __assign$j(__assign$j({}, record), { _: titleFromPreferences })))) : (React.createElement("span", { className: className }, !title ? (React.createElement("span", __assign$j({}, rest), defaultTitle)) : typeof title === 'string' ? (React.createElement("span", __assign$j({}, rest), translate(title, { _: title }))) : (title)));
 };
 
-var __assign$h = (undefined && undefined.__assign) || function () {
-    __assign$h = Object.assign || function(t) {
+var __assign$i = (undefined && undefined.__assign) || function () {
+    __assign$i = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52508,7 +53078,7 @@ var __assign$h = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$h.apply(this, arguments);
+    return __assign$i.apply(this, arguments);
 };
 var __rest$h = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52524,7 +53094,7 @@ var __rest$h = (undefined && undefined.__rest) || function (s, e) {
 var PageTitleEditor = function () {
     var field = usePreferenceInput();
     return (React.createElement("form", null,
-        React.createElement(TextField$1, __assign$h({ label: "title", variant: "filled", size: "small", fullWidth: true, sx: { mb: 1 } }, field))));
+        React.createElement(TextField$1, __assign$i({ label: "title", variant: "filled", size: "small", fullWidth: true, sx: { mb: 1 } }, field))));
 };
 var PageTitleConfigurable = function (_a) {
     var preferenceKey = _a.preferenceKey, props = __rest$h(_a, ["preferenceKey"]);
@@ -52534,11 +53104,11 @@ var PageTitleConfigurable = function (_a) {
                 margin: '2px',
             },
         } },
-        React.createElement(PageTitle, __assign$h({}, props))));
+        React.createElement(PageTitle, __assign$i({}, props))));
 };
 
-var __assign$g = (undefined && undefined.__assign) || function () {
-    __assign$g = Object.assign || function(t) {
+var __assign$h = (undefined && undefined.__assign) || function () {
+    __assign$h = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52546,7 +53116,7 @@ var __assign$g = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$g.apply(this, arguments);
+    return __assign$h.apply(this, arguments);
 };
 var __rest$g = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52561,15 +53131,17 @@ var __rest$g = (undefined && undefined.__rest) || function (s, e) {
 };
 var Title = function (props) {
     var defaultTitle = props.defaultTitle, title = props.title, preferenceKey = props.preferenceKey, rest = __rest$g(props, ["defaultTitle", "title", "preferenceKey"]);
-    var _a = useState$1(function () {
+    var _a = useState(function () {
         return typeof document !== 'undefined'
             ? document.getElementById('react-admin-title')
             : null;
     }), container = _a[0], setContainer = _a[1];
     // on first mount, we don't have the container yet, so we wait for it
-    useEffect$1(function () {
+    useEffect(function () {
         setContainer(function (container) {
-            if (container)
+            var isInTheDom = typeof document !== 'undefined' &&
+                document.body.contains(container);
+            if (container && isInTheDom)
                 return container;
             return typeof document !== 'undefined'
                 ? document.getElementById('react-admin-title')
@@ -52579,16 +53151,16 @@ var Title = function (props) {
     if (!container)
         return null;
     warning$2(!defaultTitle && !title, 'Missing title prop in <Title> element');
-    return createPortal(React.createElement(PageTitleConfigurable, __assign$g({ title: title, defaultTitle: defaultTitle, preferenceKey: preferenceKey }, rest)), container);
+    return createPortal(React.createElement(PageTitleConfigurable, __assign$h({ title: title, defaultTitle: defaultTitle, preferenceKey: preferenceKey }, rest)), container);
 };
-var TitlePropType = propTypesExports.oneOfType([
-    propTypesExports.string,
-    propTypesExports.element,
+var TitlePropType = PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
 ]);
 Title.propTypes = {
-    defaultTitle: propTypesExports.string,
-    className: propTypesExports.string,
-    record: propTypesExports.any,
+    defaultTitle: PropTypes.string,
+    className: PropTypes.string,
+    record: PropTypes.any,
     title: TitlePropType,
 };
 
@@ -52601,15 +53173,15 @@ Title.propTypes = {
 var useResetErrorBoundaryOnLocationChange = function (resetErrorBoundary) {
     var pathname = useLocation().pathname;
     var originalPathname = useRef(pathname);
-    useEffect$1(function () {
+    useEffect(function () {
         if (pathname !== originalPathname.current) {
             resetErrorBoundary();
         }
     }, [pathname, resetErrorBoundary]);
 };
 
-var __assign$f = (undefined && undefined.__assign) || function () {
-    __assign$f = Object.assign || function(t) {
+var __assign$g = (undefined && undefined.__assign) || function () {
+    __assign$g = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52617,7 +53189,7 @@ var __assign$f = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$f.apply(this, arguments);
+    return __assign$g.apply(this, arguments);
 };
 var __rest$f = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52639,7 +53211,7 @@ var Error$1 = function (props) {
     }
     return (React.createElement(Fragment, null,
         title && React.createElement(Title, { title: title }),
-        React.createElement(Root$6, __assign$f({ className: className }, rest),
+        React.createElement(Root$6, __assign$g({ className: className }, rest),
             React.createElement("h1", { className: ErrorClasses.title, role: "alert" },
                 React.createElement(default_1$a, { className: ErrorClasses.icon }),
                 translate('ra.page.error')),
@@ -52676,9 +53248,9 @@ var Error$1 = function (props) {
                 React.createElement(Button$2, { variant: "contained", startIcon: React.createElement(default_1$8, null), onClick: goBack$1 }, translate('ra.action.back'))))));
 };
 Error$1.propTypes = {
-    className: propTypesExports.string,
-    error: propTypesExports.object.isRequired,
-    errorInfo: propTypesExports.object,
+    className: PropTypes.string,
+    error: PropTypes.object.isRequired,
+    errorInfo: PropTypes.object,
     title: TitlePropType,
 };
 var PREFIX$c = 'RaError';
@@ -52851,8 +53423,8 @@ var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
   return ErrorBoundary;
 }(React.Component);
 
-var __assign$e = (undefined && undefined.__assign) || function () {
-    __assign$e = Object.assign || function(t) {
+var __assign$f = (undefined && undefined.__assign) || function () {
+    __assign$f = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52860,7 +53432,7 @@ var __assign$e = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$e.apply(this, arguments);
+    return __assign$f.apply(this, arguments);
 };
 var __rest$e = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52874,7 +53446,7 @@ var __rest$e = (undefined && undefined.__rest) || function (s, e) {
     return t;
 };
 var Sidebar = function (props) {
-    var children = props.children; props.closedSize; props.size; var rest = __rest$e(props, ["children", "closedSize", "size"]);
+    var appBarAlwaysOn = props.appBarAlwaysOn, children = props.children; props.closedSize; props.size; var rest = __rest$e(props, ["appBarAlwaysOn", "children", "closedSize", "size"]);
     var isXSmall = useMediaQuery(function (theme) {
         return theme.breakpoints.down('sm');
     });
@@ -52882,11 +53454,11 @@ var Sidebar = function (props) {
     useLocale(); // force redraw on locale change
     var trigger = useScrollTrigger();
     var toggleSidebar = function () { return setOpen(!open); };
-    return isXSmall ? (React.createElement(StyledDrawer, __assign$e({ variant: "temporary", open: open, onClose: toggleSidebar, classes: SidebarClasses }, rest), children)) : (React.createElement(StyledDrawer, __assign$e({ variant: "permanent", open: open, onClose: toggleSidebar, classes: SidebarClasses, className: trigger ? SidebarClasses.appBarCollapsed : '' }, rest),
+    return isXSmall ? (React.createElement(StyledDrawer, __assign$f({ variant: "temporary", open: open, onClose: toggleSidebar, classes: SidebarClasses }, rest), children)) : (React.createElement(StyledDrawer, __assign$f({ variant: "permanent", open: open, onClose: toggleSidebar, classes: SidebarClasses, className: trigger && !appBarAlwaysOn ? SidebarClasses.appBarCollapsed : '' }, rest),
         React.createElement("div", { className: SidebarClasses.fixed }, children)));
 };
 Sidebar.propTypes = {
-    children: propTypesExports.node.isRequired,
+    children: PropTypes.node.isRequired,
 };
 var PREFIX$b = 'RaSidebar';
 var SidebarClasses = {
@@ -52959,8 +53531,8 @@ var StyledDrawer = styled$1(Drawer$1, {
         _b["& .MuiPaper-root"] = (_d = {
                 position: 'relative',
                 width: open
-                    ? get_1(theme, 'sidebar.width', DRAWER_WIDTH)
-                    : get_1(theme, 'sidebar.closedWidth', CLOSED_DRAWER_WIDTH),
+                    ? get$2(theme, 'sidebar.width', DRAWER_WIDTH)
+                    : get$2(theme, 'sidebar.closedWidth', CLOSED_DRAWER_WIDTH),
                 transition: theme.transitions.create('width', {
                     easing: theme.transitions.easing.sharp,
                     duration: theme.transitions.duration.leavingScreen,
@@ -53011,8 +53583,8 @@ var ResourceMenuItem = function (_a) {
         }), state: { _scrollToTop: true }, primaryText: React.createElement(React.Fragment, null, getResourceLabel(name, 2)), leftIcon: resources[name].icon ? (createElement(resources[name].icon)) : (React.createElement(default_1$4, null)) }));
 };
 
-var __assign$d = (undefined && undefined.__assign) || function () {
-    __assign$d = Object.assign || function(t) {
+var __assign$e = (undefined && undefined.__assign) || function () {
+    __assign$e = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53020,7 +53592,7 @@ var __assign$d = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$d.apply(this, arguments);
+    return __assign$e.apply(this, arguments);
 };
 var __rest$d = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53073,15 +53645,15 @@ var Menu = function (props) {
         .filter(function (name) { return resources[name].hasList; })
         .map(function (name) { return React.createElement(ResourceMenuItem, { key: name, name: name }); }), true) : _b, className = props.className, rest = __rest$d(props, ["hasDashboard", "children", "className"]);
     var open = useSidebarState()[0];
-    return (React.createElement(Root$5, __assign$d({ className: clsx((_a = {},
+    return (React.createElement(Root$5, __assign$e({ className: clsx((_a = {},
             _a[MenuClasses.open] = open,
             _a[MenuClasses.closed] = !open,
             _a), className) }, rest), children));
 };
 Menu.propTypes = {
-    className: propTypesExports.string,
-    dense: propTypesExports.bool,
-    hasDashboard: propTypesExports.bool,
+    className: PropTypes.string,
+    dense: PropTypes.bool,
+    hasDashboard: PropTypes.bool,
 };
 // re-export MenuItem commponents for convenience
 Menu.Item = MenuItemLink;
@@ -53113,16 +53685,16 @@ var Root$5 = styled$1(MenuList$1, {
             duration: theme.transitions.duration.leavingScreen,
         }),
         _b["&.".concat(MenuClasses.open)] = {
-            width: get_1(theme, 'sidebar.width', DRAWER_WIDTH),
+            width: get$2(theme, 'sidebar.width', DRAWER_WIDTH),
         },
         _b["&.".concat(MenuClasses.closed)] = {
-            width: get_1(theme, 'sidebar.closedWidth', CLOSED_DRAWER_WIDTH),
+            width: get$2(theme, 'sidebar.closedWidth', CLOSED_DRAWER_WIDTH),
         },
         _b);
 });
 
-var __assign$c = (undefined && undefined.__assign) || function () {
-    __assign$c = Object.assign || function(t) {
+var __assign$d = (undefined && undefined.__assign) || function () {
+    __assign$d = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53130,7 +53702,7 @@ var __assign$c = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$c.apply(this, arguments);
+    return __assign$d.apply(this, arguments);
 };
 var __rest$c = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53144,18 +53716,18 @@ var __rest$c = (undefined && undefined.__rest) || function (s, e) {
     return t;
 };
 var Layout = function (props) {
-    var _a = props.appBar, AppBar$1 = _a === void 0 ? AppBar : _a, children = props.children, className = props.className, dashboard = props.dashboard, errorComponent = props.error, _b = props.menu, Menu$1 = _b === void 0 ? Menu : _b, _c = props.sidebar, Sidebar$1 = _c === void 0 ? Sidebar : _c, title = props.title, rest = __rest$c(props, ["appBar", "children", "className", "dashboard", "error", "menu", "sidebar", "title"]);
+    var _a = props.appBar, AppBar$1 = _a === void 0 ? AppBar : _a, appBarAlwaysOn = props.appBarAlwaysOn, children = props.children, className = props.className, dashboard = props.dashboard, errorComponent = props.error, _b = props.menu, Menu$1 = _b === void 0 ? Menu : _b, _c = props.sidebar, Sidebar$1 = _c === void 0 ? Sidebar : _c, title = props.title, rest = __rest$c(props, ["appBar", "appBarAlwaysOn", "children", "className", "dashboard", "error", "menu", "sidebar", "title"]);
     var open = useSidebarState()[0];
-    var _d = useState$1(null), errorInfo = _d[0], setErrorInfo = _d[1];
+    var _d = useState(null), errorInfo = _d[0], setErrorInfo = _d[1];
     var handleError = function (error, info) {
         setErrorInfo(info);
     };
-    return (React__default.createElement(StyledLayout, __assign$c({ className: clsx('layout', className) }, rest),
+    return (React__default.createElement(StyledLayout, __assign$d({ className: clsx('layout', className) }, rest),
         React__default.createElement(SkipNavigationButton, null),
         React__default.createElement("div", { className: LayoutClasses.appFrame },
-            React__default.createElement(AppBar$1, { open: open, title: title }),
+            React__default.createElement(AppBar$1, { open: open, title: title, alwaysOn: appBarAlwaysOn }),
             React__default.createElement("main", { className: LayoutClasses.contentWithSidebar },
-                React__default.createElement(Sidebar$1, null,
+                React__default.createElement(Sidebar$1, { appBarAlwaysOn: appBarAlwaysOn },
                     React__default.createElement(Menu$1, { hasDashboard: !!dashboard })),
                 React__default.createElement("div", { id: "main-content", className: LayoutClasses.content },
                     React__default.createElement(ErrorBoundary, { onError: handleError, fallbackRender: function (_a) {
@@ -53215,15 +53787,15 @@ var StyledLayout = styled$1('div', {
                 padding: 0
             },
             _d[theme.breakpoints.up('xs')] = {
-                paddingRight: theme.spacing(2),
+                paddingRight: theme.spacing(1),
                 paddingLeft: theme.spacing(1),
             },
             _d),
         _b);
 });
 
-var __assign$b = (undefined && undefined.__assign) || function () {
-    __assign$b = Object.assign || function(t) {
+var __assign$c = (undefined && undefined.__assign) || function () {
+    __assign$c = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53231,7 +53803,7 @@ var __assign$b = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$b.apply(this, arguments);
+    return __assign$c.apply(this, arguments);
 };
 var __rest$b = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53247,16 +53819,16 @@ var __rest$b = (undefined && undefined.__rest) || function (s, e) {
 var Loading = function (props) {
     var className = props.className, _a = props.loadingPrimary, loadingPrimary = _a === void 0 ? 'ra.page.loading' : _a, _b = props.loadingSecondary, loadingSecondary = _b === void 0 ? 'ra.message.loading' : _b, rest = __rest$b(props, ["className", "loadingPrimary", "loadingSecondary"]);
     var translate = useTranslate();
-    return (React.createElement(Root$4, __assign$b({ className: className }, rest),
+    return (React.createElement(Root$4, __assign$c({ className: className }, rest),
         React.createElement("div", { className: LoadingClasses.message },
             React.createElement(CircularProgress$1, { className: LoadingClasses.icon, color: "primary" }),
-            React.createElement("h1", null, translate(loadingPrimary)),
-            React.createElement("div", null, translate(loadingSecondary)))));
+            React.createElement("h1", null, translate(loadingPrimary, { _: loadingPrimary })),
+            React.createElement("div", null, translate(loadingSecondary, { _: loadingSecondary })))));
 };
 Loading.propTypes = {
-    className: propTypesExports.string,
-    loadingPrimary: propTypesExports.string,
-    loadingSecondary: propTypesExports.string,
+    className: PropTypes.string,
+    loadingPrimary: PropTypes.string,
+    loadingSecondary: PropTypes.string,
 };
 Loading.defaultProps = {
     loadingPrimary: 'ra.page.loading',
@@ -53299,8 +53871,8 @@ var Root$4 = styled$1('div', {
         _b);
 });
 
-var __assign$a = (undefined && undefined.__assign) || function () {
-    __assign$a = Object.assign || function(t) {
+var __assign$b = (undefined && undefined.__assign) || function () {
+    __assign$b = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53308,7 +53880,7 @@ var __assign$a = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$a.apply(this, arguments);
+    return __assign$b.apply(this, arguments);
 };
 var __rest$a = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53323,13 +53895,13 @@ var __rest$a = (undefined && undefined.__rest) || function (s, e) {
 };
 var LoadingPage = function (_a) {
     var _b = _a.loadingPrimary, loadingPrimary = _b === void 0 ? 'ra.page.loading' : _b, _c = _a.loadingSecondary, loadingSecondary = _c === void 0 ? 'ra.message.loading' : _c, props = __rest$a(_a, ["loadingPrimary", "loadingSecondary"]);
-    return (React.createElement(Loading, __assign$a({ loadingPrimary: loadingPrimary, loadingSecondary: loadingSecondary }, props)));
+    return (React.createElement(Loading, __assign$b({ loadingPrimary: loadingPrimary, loadingSecondary: loadingSecondary }, props)));
 };
 LoadingPage.propTypes = {
-    theme: propTypesExports.object,
-    className: propTypesExports.string,
-    loadingPrimary: propTypesExports.string,
-    loadingSecondary: propTypesExports.string,
+    theme: PropTypes.object,
+    className: PropTypes.string,
+    loadingPrimary: PropTypes.string,
+    loadingSecondary: PropTypes.string,
 };
 
 var HotTub = {};
@@ -53350,8 +53922,8 @@ var _default$3 = (0, _createSvgIcon$3.default)([/*#__PURE__*/(0, _jsxRuntime$3.j
 }, "1")], 'HotTub');
 default_1$3 = HotTub.default = _default$3;
 
-var __assign$9 = (undefined && undefined.__assign) || function () {
-    __assign$9 = Object.assign || function(t) {
+var __assign$a = (undefined && undefined.__assign) || function () {
+    __assign$a = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53359,7 +53931,7 @@ var __assign$9 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$9.apply(this, arguments);
+    return __assign$a.apply(this, arguments);
 };
 var __rest$9 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53376,7 +53948,7 @@ var NotFound = function (props) {
     var className = props.className, title = props.title, rest = __rest$9(props, ["className", "title"]);
     var translate = useTranslate();
     useAuthenticated();
-    return (React.createElement(Root$3, __assign$9({ className: className }, sanitizeRestProps(rest)),
+    return (React.createElement(Root$3, __assign$a({ className: className }, sanitizeRestProps(rest)),
         React.createElement(Title, { defaultTitle: title }),
         React.createElement("div", { className: NotFoundClasses.message },
             React.createElement(default_1$3, { className: NotFoundClasses.icon }),
@@ -53392,9 +53964,9 @@ var sanitizeRestProps = function (_a) {
     return rest;
 };
 NotFound.propTypes = {
-    className: propTypesExports.string,
-    title: propTypesExports.string,
-    location: propTypesExports.object,
+    className: PropTypes.string,
+    title: PropTypes.string,
+    location: PropTypes.object,
 };
 var PREFIX$7 = 'RaNotFound';
 var NotFoundClasses = {
@@ -53440,8 +54012,8 @@ function goBack() {
     window.history.go(-1);
 }
 
-var __assign$8 = (undefined && undefined.__assign) || function () {
-    __assign$8 = Object.assign || function(t) {
+var __assign$9 = (undefined && undefined.__assign) || function () {
+    __assign$9 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53449,7 +54021,7 @@ var __assign$8 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$8.apply(this, arguments);
+    return __assign$9.apply(this, arguments);
 };
 var __rest$8 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53482,10 +54054,10 @@ var Notification = function (props) {
     var _a;
     var className = props.className, _b = props.type, type = _b === void 0 ? 'info' : _b, _c = props.autoHideDuration, autoHideDuration = _c === void 0 ? 4000 : _c, _d = props.multiLine, multiLine = _d === void 0 ? false : _d, _e = props.anchorOrigin, anchorOrigin = _e === void 0 ? defaultAnchorOrigin : _e, rest = __rest$8(props, ["className", "type", "autoHideDuration", "multiLine", "anchorOrigin"]);
     var _f = useNotificationContext(), notifications = _f.notifications, takeNotification = _f.takeNotification;
-    var _g = useState$1(false), open = _g[0], setOpen = _g[1];
+    var _g = useState(false), open = _g[0], setOpen = _g[1];
     var _h = React.useState(undefined), messageInfo = _h[0], setMessageInfo = _h[1];
     var translate = useTranslate();
-    useEffect$1(function () {
+    useEffect(function () {
         if (notifications.length && !messageInfo) {
             // Set a new snack when we don't have an active one
             setMessageInfo(takeNotification());
@@ -53512,7 +54084,7 @@ var Notification = function (props) {
     if (!messageInfo)
         return null;
     var message = messageInfo.message, typeFromMessage = messageInfo.type, _j = messageInfo.notificationOptions, autoHideDurationFromMessage = _j.autoHideDuration, messageArgs = _j.messageArgs, multilineFromMessage = _j.multiLine, undoable = _j.undoable, options = __rest$8(_j, ["autoHideDuration", "messageArgs", "multiLine", "undoable"]);
-    return (React.createElement(StyledSnackbar, __assign$8({ className: className, open: open, message: message &&
+    return (React.createElement(StyledSnackbar, __assign$9({ className: className, open: open, message: message &&
             typeof message === 'string' &&
             translate(message, messageArgs), autoHideDuration: autoHideDurationFromMessage || autoHideDuration, disableWindowBlurListener: undoable, TransitionProps: { onExited: handleExited }, onClose: handleRequestClose, ContentProps: {
             className: clsx(NotificationClasses[typeFromMessage || type], (_a = {},
@@ -53522,9 +54094,9 @@ var Notification = function (props) {
             React.createElement(React.Fragment, null, translate('ra.action.undo')))) : null, anchorOrigin: anchorOrigin }, rest, options), message && typeof message !== 'string' ? message : null));
 };
 Notification.propTypes = {
-    type: propTypesExports.string,
-    autoHideDuration: propTypesExports.number,
-    multiLine: propTypesExports.bool,
+    type: PropTypes.string,
+    autoHideDuration: PropTypes.number,
+    multiLine: PropTypes.bool,
 };
 var PREFIX$6 = 'RaNotification';
 var NotificationClasses = {
@@ -53564,31 +54136,68 @@ var StyledSnackbar = styled$1(Snackbar$1, {
         _b);
 });
 
-var useTheme = function (themeOverride) {
-    var themeMUI = useTheme$1();
-    var _a = useStore('theme', themeOverride), theme = _a[0], setter = _a[1];
-    return [theme || themeMUI, setter];
+/**
+ * Read and update the theme mode (light or dark)
+ *
+ * @example
+ * const [theme, setTheme] = useTheme('light');
+ * const toggleTheme = () => {
+ *    setTheme(theme === 'light' ? 'dark' : 'light');
+ * };
+ *
+ * @example // legacy mode, stores the full theme object
+ * // to be removed in v5
+ * const [theme, setTheme] = useTheme({
+ *    palette: {
+ *       type: 'light',
+ *   },
+ * });
+ */
+var useTheme = function (type) {
+    // FIXME: remove legacy mode in v5, and remove the RaThemeOptions type
+    var _a = useStore('theme', type), theme = _a[0], setter = _a[1];
+    return [theme, setter];
 };
 
 /**
- * This sets the MUI theme based on the store.
+ * This sets the Material UI theme based on the preferred theme type.
  *
  * @param props
  * @param props.children The children of the component.
- * @param props.theme The initial theme.
+ * @param {ThemeOptions} props.theme The initial theme. Optional, use the one from the context if not provided.
+ *
+ * @example
+ *
+ * import { ThemesContext, ThemeProvider } from 'react-admin';
+ *
+ * const App = () => (
+ *    <ThemesContext.Provider value={{ lightTheme, darkTheme }}>
+ *      <ThemeProvider>
+ *        <Button>Test</Button>
+ *      </ThemeProvider>
+ *   </ThemesContext.Provider>
+ * );
  */
 var ThemeProvider = function (_a) {
     var children = _a.children, themeOverride = _a.theme;
-    var theme = useTheme(themeOverride)[0];
+    var _b = useThemesContext(), lightTheme = _b.lightTheme, darkTheme = _b.darkTheme, defaultTheme = _b.defaultTheme;
+    var prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
+        noSsr: true,
+    });
+    var mode = useTheme(defaultTheme || (prefersDarkMode && darkTheme ? 'dark' : 'light'))[0];
     var themeValue = useMemo(function () {
         try {
-            return createTheme(theme);
+            return createTheme(typeof mode === 'object'
+                ? mode // FIXME: legacy useTheme, to be removed in v5
+                : mode === 'dark'
+                    ? darkTheme
+                    : lightTheme || themeOverride);
         }
         catch (e) {
             console.warn('Failed to reuse custom theme from store', e);
             return createTheme();
         }
-    }, [theme]);
+    }, [mode, themeOverride, lightTheme, darkTheme]);
     return React.createElement(ThemeProvider$1, { theme: themeValue }, children);
 };
 
@@ -53623,7 +54232,7 @@ default_1$2 = Translate.default = _default$2;
  * );
  */
 var LocalesMenuButton = function (props) {
-    var _a = useState$1(null), anchorEl = _a[0], setAnchorEl = _a[1];
+    var _a = useState(null), anchorEl = _a[0], setAnchorEl = _a[1];
     var languages = useLocales({ locales: props.languages });
     var _b = useLocaleState(), locale = _b[0], setLocale = _b[1];
     var getNameForLocale = function (locale) {
@@ -53664,8 +54273,8 @@ var _default$1 = (0, _createSvgIcon$1.default)( /*#__PURE__*/(0, _jsxRuntime$1.j
 }), 'Refresh');
 default_1$1 = Refresh.default = _default$1;
 
-var __assign$7 = (undefined && undefined.__assign) || function () {
-    __assign$7 = Object.assign || function(t) {
+var __assign$8 = (undefined && undefined.__assign) || function () {
+    __assign$8 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53673,7 +54282,7 @@ var __assign$7 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$7.apply(this, arguments);
+    return __assign$8.apply(this, arguments);
 };
 var __rest$7 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53698,13 +54307,13 @@ var RefreshIconButton = function (props) {
         }
     }, [refresh, onClick]);
     return (React.createElement(Tooltip$1, { title: label && translate(label, { _: 'Refresh' }) },
-        React.createElement(IconButton$1, __assign$7({ "aria-label": label && translate(label, { _: 'Refresh' }), className: className, color: "inherit", onClick: handleClick }, rest), icon)));
+        React.createElement(IconButton$1, __assign$8({ "aria-label": label && translate(label, { _: 'Refresh' }), className: className, color: "inherit", onClick: handleClick }, rest), icon)));
 };
 var defaultIcon = React.createElement(default_1$1, null);
 RefreshIconButton.propTypes = {
-    className: propTypesExports.string,
-    label: propTypesExports.string,
-    icon: propTypesExports.element,
+    className: PropTypes.string,
+    label: PropTypes.string,
+    icon: PropTypes.element,
 };
 
 var SkipNavigationButton = function () {
@@ -53757,8 +54366,8 @@ var skipToContent = function () {
     element.removeAttribute('tabIndex');
 };
 
-var __assign$6 = (undefined && undefined.__assign) || function () {
-    __assign$6 = Object.assign || function(t) {
+var __assign$7 = (undefined && undefined.__assign) || function () {
+    __assign$7 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53766,7 +54375,7 @@ var __assign$6 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$6.apply(this, arguments);
+    return __assign$7.apply(this, arguments);
 };
 var __rest$6 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53782,17 +54391,17 @@ var __rest$6 = (undefined && undefined.__rest) || function (s, e) {
 var AuthError = function (props) {
     var className = props.className, _a = props.title, title = _a === void 0 ? 'ra.page.error' : _a, _b = props.message, message = _b === void 0 ? 'ra.message.auth_error' : _b, rest = __rest$6(props, ["className", "title", "message"]);
     var translate = useTranslate();
-    return (React.createElement(Root$1, __assign$6({ className: className }, rest),
+    return (React.createElement(Root$1, __assign$7({ className: className }, rest),
         React.createElement("div", { className: AuthErrorClasses.message },
             React.createElement("h1", null, translate(title, { _: title })),
             React.createElement("div", null, translate(message, { _: message })),
             React.createElement(Button, { to: "/login", label: "ra.auth.sign_in" },
-                React.createElement(default_1$f, null)))));
+                React.createElement(default_1$h, null)))));
 };
 AuthError.propTypes = {
-    className: propTypesExports.string,
-    title: propTypesExports.string,
-    message: propTypesExports.string,
+    className: PropTypes.string,
+    title: PropTypes.string,
+    message: PropTypes.string,
 };
 var PREFIX$3 = 'RaAuthError';
 var AuthErrorClasses = {
@@ -53868,11 +54477,11 @@ var InputHelperText = function (props) {
     if (typeof helperText === 'string') {
         return React.createElement(React.Fragment, null, translate(helperText, { _: helperText }));
     }
-    // MUI's HelperText cannot reserve space unless we pass a single
+    // Material UI's HelperText cannot reserve space unless we pass a single
     // space as child, which isn't possible when the child is a component.
     // Therefore, we must reserve the space ourselves by passing the same
-    // markup as MUI.
-    // @see https://github.com/mui-org/material-ui/blob/62e439b7022d519ab638d65201e204b59b77f8da/packages/material-ui/src/FormHelperText/FormHelperText.js#L85-L90
+    // markup as Material UI.
+    // @see https://github.com/mui/material-ui/blob/62e439b7022d519ab638d65201e204b59b77f8da/packages/material-ui/src/FormHelperText/FormHelperText.js#L85-L90
     return React.createElement("span", { dangerouslySetInnerHTML: defaultInnerHTML });
 };
 var defaultInnerHTML = { __html: '&#8203;' };
@@ -53907,8 +54516,8 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("p
 }), 'Clear');
 default_1 = Clear.default = _default;
 
-var __assign$5 = (undefined && undefined.__assign) || function () {
-    __assign$5 = Object.assign || function(t) {
+var __assign$6 = (undefined && undefined.__assign) || function () {
+    __assign$6 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53916,7 +54525,7 @@ var __assign$5 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$5.apply(this, arguments);
+    return __assign$6.apply(this, arguments);
 };
 var __rest$4 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53931,7 +54540,7 @@ var __rest$4 = (undefined && undefined.__rest) || function (s, e) {
 };
 var _a;
 /**
- * An override of the default MUI TextField which is resettable
+ * An override of the default Material UI TextField which is resettable
  */
 var ResettableTextField = forwardRef(function (props, ref) {
     var clearAlwaysVisible = props.clearAlwaysVisible, InputProps = props.InputProps, value = props.value, resettable = props.resettable, disabled = props.disabled, variant = props.variant, margin = props.margin, className = props.className, rest = __rest$4(props, ["clearAlwaysVisible", "InputProps", "value", "resettable", "disabled", "variant", "margin", "className"]);
@@ -53990,7 +54599,7 @@ var ResettableTextField = forwardRef(function (props, ref) {
                             _a)) }))));
         }
     };
-    return (React.createElement(StyledTextField, __assign$5({ value: value, InputProps: __assign$5({ classes: props.select && variant === 'filled'
+    return (React.createElement(StyledTextField, __assign$6({ value: value, InputProps: __assign$6({ classes: props.select && variant === 'filled'
                 ? { adornedEnd: inputAdornedEnd }
                 : {}, endAdornment: getEndAdornment() }, InputPropsWithoutEndAdornment), disabled: disabled, variant: variant, margin: margin, className: className, size: "small" }, rest, { onFocus: handleFocus, onBlur: handleBlur, inputRef: ref })));
 });
@@ -53999,14 +54608,14 @@ var handleMouseDownClearButton = function (event) {
     event.preventDefault();
 };
 ResettableTextField.propTypes = {
-    clearAlwaysVisible: propTypesExports.bool,
-    disabled: propTypesExports.bool,
-    InputProps: propTypesExports.object,
-    onBlur: propTypesExports.func,
-    onChange: propTypesExports.func.isRequired,
-    onFocus: propTypesExports.func,
-    resettable: propTypesExports.bool,
-    value: propTypesExports.any,
+    clearAlwaysVisible: PropTypes.bool,
+    disabled: PropTypes.bool,
+    InputProps: PropTypes.object,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
+    onFocus: PropTypes.func,
+    resettable: PropTypes.bool,
+    value: PropTypes.any,
 };
 var PREFIX$2 = 'RaResettableTextField';
 var ResettableTextFieldClasses = {
@@ -54042,8 +54651,8 @@ var StyledTextField = styled$1(TextField$1, {
     overridesResolver: function (props, styles) { return styles.root; },
 })(ResettableTextFieldStyles);
 
-var __assign$4 = (undefined && undefined.__assign) || function () {
-    __assign$4 = Object.assign || function(t) {
+var __assign$5 = (undefined && undefined.__assign) || function () {
+    __assign$5 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54051,7 +54660,7 @@ var __assign$4 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$4.apply(this, arguments);
+    return __assign$5.apply(this, arguments);
 };
 var __rest$3 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54080,19 +54689,20 @@ var __rest$3 = (undefined && undefined.__rest) || function (s, e) {
  */
 var TextInput = function (props) {
     var className = props.className, defaultValue = props.defaultValue, label = props.label, format = props.format, helperText = props.helperText, onBlur = props.onBlur, onChange = props.onChange, parse = props.parse, resource = props.resource, source = props.source, validate = props.validate, rest = __rest$3(props, ["className", "defaultValue", "label", "format", "helperText", "onBlur", "onChange", "parse", "resource", "source", "validate"]);
-    var _a = useInput(__assign$4({ defaultValue: defaultValue, format: format, parse: parse, resource: resource, source: source, type: 'text', validate: validate, onBlur: onBlur, onChange: onChange }, rest)), field = _a.field, _b = _a.fieldState, error = _b.error, invalid = _b.invalid, isTouched = _b.isTouched, isSubmitted = _a.formState.isSubmitted, id = _a.id, isRequired = _a.isRequired;
-    return (React.createElement(ResettableTextField, __assign$4({ id: id }, field, { className: clsx('ra-input', "ra-input-".concat(source), className), label: label !== '' && label !== false ? (React.createElement(FieldTitle$1, { label: label, source: source, resource: resource, isRequired: isRequired })) : null, error: (isTouched || isSubmitted) && invalid, helperText: React.createElement(InputHelperText, { touched: isTouched || isSubmitted, error: error === null || error === void 0 ? void 0 : error.message, helperText: helperText }) }, sanitizeInputRestProps(rest))));
+    var _a = useInput(__assign$5({ defaultValue: defaultValue, format: format, parse: parse, resource: resource, source: source, type: 'text', validate: validate, onBlur: onBlur, onChange: onChange }, rest)), field = _a.field, _b = _a.fieldState, error = _b.error, invalid = _b.invalid, isTouched = _b.isTouched, isSubmitted = _a.formState.isSubmitted, id = _a.id, isRequired = _a.isRequired;
+    var renderHelperText = helperText !== false || ((isTouched || isSubmitted) && invalid);
+    return (React.createElement(ResettableTextField, __assign$5({ id: id }, field, { className: clsx('ra-input', "ra-input-".concat(source), className), label: label !== '' && label !== false ? (React.createElement(FieldTitle$1, { label: label, source: source, resource: resource, isRequired: isRequired })) : null, error: (isTouched || isSubmitted) && invalid, helperText: renderHelperText ? (React.createElement(InputHelperText, { touched: isTouched || isSubmitted, error: error === null || error === void 0 ? void 0 : error.message, helperText: helperText })) : null }, sanitizeInputRestProps(rest))));
 };
 TextInput.propTypes = {
-    className: propTypesExports.string,
-    label: propTypesExports.oneOfType([
-        propTypesExports.string,
-        propTypesExports.bool,
-        propTypesExports.element,
+    className: PropTypes.string,
+    label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.bool,
+        PropTypes.element,
     ]),
-    options: propTypesExports.object,
-    resource: propTypesExports.string,
-    source: propTypesExports.string,
+    options: PropTypes.object,
+    resource: PropTypes.string,
+    source: PropTypes.string,
 };
 TextInput.defaultProps = {
     options: {},
@@ -54159,11 +54769,11 @@ var StyledForm = styled$1(Form, {
         _b);
 });
 LoginForm.propTypes = {
-    redirectTo: propTypesExports.string,
+    redirectTo: PropTypes.string,
 };
 
-var __assign$3 = (undefined && undefined.__assign) || function () {
-    __assign$3 = Object.assign || function(t) {
+var __assign$4 = (undefined && undefined.__assign) || function () {
+    __assign$4 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54171,7 +54781,7 @@ var __assign$3 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$3.apply(this, arguments);
+    return __assign$4.apply(this, arguments);
 };
 var __rest$2 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54208,7 +54818,7 @@ var Login = function (props) {
     var backgroundImageLoaded = false;
     var checkAuth = useCheckAuth();
     var navigate = useNavigate();
-    useEffect$1(function () {
+    useEffect(function () {
         checkAuth({}, false)
             .then(function () {
             // already authenticated, redirect to the home page
@@ -54232,16 +54842,16 @@ var Login = function (props) {
             img.src = backgroundImage;
         }
     };
-    useEffect$1(function () {
+    useEffect(function () {
         if (!backgroundImageLoaded) {
             lazyLoadBackgroundImage();
         }
     });
-    return (React.createElement(Root, __assign$3({}, rest, { ref: containerRef }),
+    return (React.createElement(Root, __assign$4({}, rest, { ref: containerRef }),
         React.createElement(Card$1, { className: LoginClasses.card },
             React.createElement("div", { className: LoginClasses.avatar },
                 React.createElement(Avatar$1, { className: LoginClasses.icon },
-                    React.createElement(default_1$f, null))),
+                    React.createElement(default_1$h, null))),
             children)));
 };
 var PREFIX = 'RaLogin';
@@ -54282,26 +54892,26 @@ var Root = styled$1('div', {
         _b);
 });
 Login.propTypes = {
-    backgroundImage: propTypesExports.string,
-    children: propTypesExports.node,
-    className: propTypesExports.string,
+    backgroundImage: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
 };
 Login.defaultProps = {
     children: React.createElement(LoginForm, null),
 };
 
-var defaultTheme = {
-    palette: {
-        background: {
-            default: '#fafafb',
-        },
-        secondary: {
-            light: '#6ec6ff',
-            main: '#2196f3',
-            dark: '#0069c0',
-            contrastText: '#fff',
-        },
-    },
+var __assign$3 = (undefined && undefined.__assign) || function () {
+    __assign$3 = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign$3.apply(this, arguments);
+};
+var defaultThemeInvariants = {
     typography: {
         h6: {
             fontWeight: 400,
@@ -54312,16 +54922,6 @@ var defaultTheme = {
         closedWidth: 50,
     },
     components: {
-        MuiFilledInput: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                    '&$disabled': {
-                        backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                    },
-                },
-            },
-        },
         MuiTextField: {
             defaultProps: {
                 variant: 'filled',
@@ -54338,6 +54938,35 @@ var defaultTheme = {
         },
     },
 };
+var defaultLightTheme = __assign$3(__assign$3({ palette: {
+        background: {
+            default: '#fafafb',
+        },
+        secondary: {
+            light: '#6ec6ff',
+            main: '#2196f3',
+            dark: '#0069c0',
+            contrastText: '#fff',
+        },
+    } }, defaultThemeInvariants), { components: __assign$3(__assign$3({}, defaultThemeInvariants.components), { MuiFilledInput: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                    '&$disabled': {
+                        backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                    },
+                },
+            },
+        } }) });
+__assign$3({ palette: {
+        mode: 'dark',
+        primary: {
+            main: '#90caf9',
+        },
+        background: {
+            default: '#313131',
+        },
+    } }, defaultThemeInvariants);
 
 var __assign$2 = (undefined && undefined.__assign) || function () {
     __assign$2 = Object.assign || function(t) {
@@ -54362,18 +54991,10 @@ var __rest$1 = (undefined && undefined.__rest) || function (s, e) {
     return t;
 };
 var AdminUI = function (_a) {
-    var notification = _a.notification, props = __rest$1(_a, ["notification"]);
+    var _b = _a.layout, layout = _b === void 0 ? Layout : _b, _c = _a.catchAll, catchAll = _c === void 0 ? NotFound : _c, _d = _a.loading, loading = _d === void 0 ? LoadingPage : _d, _e = _a.loginPage, loginPage = _e === void 0 ? Login : _e, _f = _a.authCallbackPage, authCallbackPage = _f === void 0 ? AuthCallback : _f, _g = _a.notification, notification = _g === void 0 ? Notification : _g, props = __rest$1(_a, ["layout", "catchAll", "loading", "loginPage", "authCallbackPage", "notification"]);
     return (React.createElement(ScopedCssBaseline$1, { enableColorScheme: true },
-        React.createElement(CoreAdminUI, __assign$2({}, props)),
+        React.createElement(CoreAdminUI, __assign$2({ layout: layout, catchAll: catchAll, loading: loading, loginPage: loginPage, authCallbackPage: authCallbackPage }, props)),
         createElement(notification)));
-};
-AdminUI.defaultProps = {
-    layout: Layout,
-    catchAll: NotFound,
-    loading: LoadingPage,
-    loginPage: Login,
-    authCallbackPage: AuthCallback,
-    notification: Notification,
 };
 
 var __assign$1 = (undefined && undefined.__assign) || function () {
@@ -54399,9 +55020,14 @@ var __rest = (undefined && undefined.__rest) || function (s, e) {
     return t;
 };
 var AdminContext = function (props) {
-    var _a = props.theme, theme = _a === void 0 ? defaultTheme : _a, children = props.children, rest = __rest(props, ["theme", "children"]);
+    var theme = props.theme, _a = props.lightTheme, lightTheme = _a === void 0 ? defaultLightTheme : _a, darkTheme = props.darkTheme, defaultTheme = props.defaultTheme, children = props.children, rest = __rest(props, ["theme", "lightTheme", "darkTheme", "defaultTheme", "children"]);
     return (React.createElement(CoreAdminContext, __assign$1({}, rest),
-        React.createElement(ThemeProvider, { theme: theme }, children)));
+        React.createElement(ThemesContext.Provider, { value: {
+                lightTheme: theme || lightTheme,
+                darkTheme: darkTheme,
+                defaultTheme: defaultTheme,
+            } },
+            React.createElement(ThemeProvider, null, children))));
 };
 AdminContext.displayName = 'AdminContext';
 
@@ -54485,7 +55111,7 @@ var englishMessages = {
         message: {
             about: 'About',
             are_you_sure: 'Are you sure?',
-            auth_error: 'A error occurred while validating the authentication token.',
+            auth_error: 'An error occurred while validating the authentication token.',
             bulk_delete_content: 'Are you sure you want to delete this %{name}? |||| Are you sure you want to delete these %{smart_count} items?',
             bulk_delete_title: 'Delete %{name} |||| Delete %{smart_count} %{name}',
             bulk_update_content: 'Are you sure you want to update this %{name}? |||| Are you sure you want to update these %{smart_count} items?',
@@ -54826,6 +55452,16 @@ var hasSymbols$2 = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
+var test = {
+	foo: {}
+};
+
+var $Object = Object;
+
+var hasProto$1 = function hasProto() {
+	return { __proto__: test }.foo === test.foo && !({ __proto__: null } instanceof $Object);
+};
+
 /* eslint no-invalid-this: 1 */
 
 var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
@@ -54928,18 +55564,23 @@ var ThrowTypeError = $gOPD
 	: throwTypeError;
 
 var hasSymbols$1 = hasSymbols$2();
+var hasProto = hasProto$1();
 
-var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
+var getProto = Object.getPrototypeOf || (
+	hasProto
+		? function (x) { return x.__proto__; } // eslint-disable-line no-proto
+		: null
+);
 
 var needsEval = {};
 
-var TypedArray = typeof Uint8Array === 'undefined' ? undefined$1 : getProto(Uint8Array);
+var TypedArray = typeof Uint8Array === 'undefined' || !getProto ? undefined$1 : getProto(Uint8Array);
 
 var INTRINSICS = {
 	'%AggregateError%': typeof AggregateError === 'undefined' ? undefined$1 : AggregateError,
 	'%Array%': Array,
 	'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined$1 : ArrayBuffer,
-	'%ArrayIteratorPrototype%': hasSymbols$1 ? getProto([][Symbol.iterator]()) : undefined$1,
+	'%ArrayIteratorPrototype%': hasSymbols$1 && getProto ? getProto([][Symbol.iterator]()) : undefined$1,
 	'%AsyncFromSyncIteratorPrototype%': undefined$1,
 	'%AsyncFunction%': needsEval,
 	'%AsyncGenerator%': needsEval,
@@ -54969,10 +55610,10 @@ var INTRINSICS = {
 	'%Int32Array%': typeof Int32Array === 'undefined' ? undefined$1 : Int32Array,
 	'%isFinite%': isFinite,
 	'%isNaN%': isNaN,
-	'%IteratorPrototype%': hasSymbols$1 ? getProto(getProto([][Symbol.iterator]())) : undefined$1,
+	'%IteratorPrototype%': hasSymbols$1 && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined$1,
 	'%JSON%': typeof JSON === 'object' ? JSON : undefined$1,
 	'%Map%': typeof Map === 'undefined' ? undefined$1 : Map,
-	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols$1 ? undefined$1 : getProto(new Map()[Symbol.iterator]()),
+	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols$1 || !getProto ? undefined$1 : getProto(new Map()[Symbol.iterator]()),
 	'%Math%': Math,
 	'%Number%': Number,
 	'%Object%': Object,
@@ -54985,10 +55626,10 @@ var INTRINSICS = {
 	'%Reflect%': typeof Reflect === 'undefined' ? undefined$1 : Reflect,
 	'%RegExp%': RegExp,
 	'%Set%': typeof Set === 'undefined' ? undefined$1 : Set,
-	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols$1 ? undefined$1 : getProto(new Set()[Symbol.iterator]()),
+	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols$1 || !getProto ? undefined$1 : getProto(new Set()[Symbol.iterator]()),
 	'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined$1 : SharedArrayBuffer,
 	'%String%': String,
-	'%StringIteratorPrototype%': hasSymbols$1 ? getProto(''[Symbol.iterator]()) : undefined$1,
+	'%StringIteratorPrototype%': hasSymbols$1 && getProto ? getProto(''[Symbol.iterator]()) : undefined$1,
 	'%Symbol%': hasSymbols$1 ? Symbol : undefined$1,
 	'%SyntaxError%': $SyntaxError,
 	'%ThrowTypeError%': ThrowTypeError,
@@ -55004,12 +55645,14 @@ var INTRINSICS = {
 	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined$1 : WeakSet
 };
 
-try {
-	null.error; // eslint-disable-line no-unused-expressions
-} catch (e) {
-	// https://github.com/tc39/proposal-shadowrealm/pull/384#issuecomment-1364264229
-	var errorProto = getProto(getProto(e));
-	INTRINSICS['%Error.prototype%'] = errorProto;
+if (getProto) {
+	try {
+		null.error; // eslint-disable-line no-unused-expressions
+	} catch (e) {
+		// https://github.com/tc39/proposal-shadowrealm/pull/384#issuecomment-1364264229
+		var errorProto = getProto(getProto(e));
+		INTRINSICS['%Error.prototype%'] = errorProto;
+	}
 }
 
 var doEval = function doEval(name) {
@@ -55027,7 +55670,7 @@ var doEval = function doEval(name) {
 		}
 	} else if (name === '%AsyncIteratorPrototype%') {
 		var gen = doEval('%AsyncGenerator%');
-		if (gen) {
+		if (gen && getProto) {
 			value = getProto(gen.prototype);
 		}
 	}
@@ -55312,11 +55955,7 @@ defineProperties.supportsDescriptors = !!supportsDescriptors;
 
 var defineProperties_1 = defineProperties;
 
-var callBindExports = {};
-var callBind$4 = {
-  get exports(){ return callBindExports; },
-  set exports(v){ callBindExports = v; },
-};
+var callBind$4 = {exports: {}};
 
 (function (module) {
 
@@ -55364,8 +56003,10 @@ var callBind$4 = {
 		$defineProperty(module.exports, 'apply', { value: applyBind });
 	} else {
 		module.exports.apply = applyBind;
-	}
+	} 
 } (callBind$4));
+
+var callBindExports = callBind$4.exports;
 
 var GetIntrinsic$3 = getIntrinsic;
 
@@ -55381,12 +56022,6 @@ var callBound$4 = function callBoundIntrinsic(name, allowMissing) {
 	return intrinsic;
 };
 
-var RequireObjectCoercibleExports = {};
-var RequireObjectCoercible$4 = {
-  get exports(){ return RequireObjectCoercibleExports; },
-  set exports(v){ RequireObjectCoercibleExports = v; },
-};
-
 var GetIntrinsic$2 = getIntrinsic;
 
 var $TypeError$2 = GetIntrinsic$2('%TypeError%');
@@ -55400,22 +56035,13 @@ var CheckObjectCoercible = function CheckObjectCoercible(value, optMessage) {
 	return value;
 };
 
-(function (module) {
+var RequireObjectCoercible$4 = CheckObjectCoercible;
 
-	module.exports = CheckObjectCoercible;
-} (RequireObjectCoercible$4));
-
-var IsArrayExports = {};
-var IsArray$1 = {
-  get exports(){ return IsArrayExports; },
-  set exports(v){ IsArrayExports = v; },
-};
-
-var IsArray;
+var IsArray$1;
 var hasRequiredIsArray$1;
 
 function requireIsArray$1 () {
-	if (hasRequiredIsArray$1) return IsArray;
+	if (hasRequiredIsArray$1) return IsArray$1;
 	hasRequiredIsArray$1 = 1;
 
 	var GetIntrinsic = getIntrinsic;
@@ -55425,23 +56051,22 @@ function requireIsArray$1 () {
 	// eslint-disable-next-line global-require
 	var toStr = !$Array.isArray && callBound$4('Object.prototype.toString');
 
-	IsArray = $Array.isArray || function IsArray(argument) {
+	IsArray$1 = $Array.isArray || function IsArray(argument) {
 		return toStr(argument) === '[object Array]';
 	};
-	return IsArray;
+	return IsArray$1;
 }
 
+var IsArray;
 var hasRequiredIsArray;
 
 function requireIsArray () {
-	if (hasRequiredIsArray) return IsArrayExports;
+	if (hasRequiredIsArray) return IsArray;
 	hasRequiredIsArray = 1;
-	(function (module) {
 
-		// https://262.ecma-international.org/6.0/#sec-isarray
-		module.exports = requireIsArray$1();
-} (IsArray$1));
-	return IsArrayExports;
+	// https://262.ecma-international.org/6.0/#sec-isarray
+	IsArray = requireIsArray$1();
+	return IsArray;
 }
 
 var Call$1;
@@ -56138,12 +56763,6 @@ function requireHasProperty () {
 	return HasProperty$1;
 }
 
-var IsCallableExports = {};
-var IsCallable$1 = {
-  get exports(){ return IsCallableExports; },
-  set exports(v){ IsCallableExports = v; },
-};
-
 var isCallable;
 var hasRequiredIsCallable$1;
 
@@ -56253,18 +56872,17 @@ function requireIsCallable$1 () {
 	return isCallable;
 }
 
+var IsCallable$1;
 var hasRequiredIsCallable;
 
 function requireIsCallable () {
-	if (hasRequiredIsCallable) return IsCallableExports;
+	if (hasRequiredIsCallable) return IsCallable$1;
 	hasRequiredIsCallable = 1;
-	(function (module) {
 
-		// http://262.ecma-international.org/5.1/#sec-9.11
+	// http://262.ecma-international.org/5.1/#sec-9.11
 
-		module.exports = requireIsCallable$1();
-} (IsCallable$1));
-	return IsCallableExports;
+	IsCallable$1 = requireIsCallable$1();
+	return IsCallable$1;
 }
 
 var maxSafeInteger;
@@ -56397,16 +57015,12 @@ function requireIsDateObject () {
 	return isDateObject;
 }
 
-var isSymbolExports = {};
-var isSymbol = {
-  get exports(){ return isSymbolExports; },
-  set exports(v){ isSymbolExports = v; },
-};
+var isSymbol = {exports: {}};
 
 var hasRequiredIsSymbol;
 
 function requireIsSymbol () {
-	if (hasRequiredIsSymbol) return isSymbolExports;
+	if (hasRequiredIsSymbol) return isSymbol.exports;
 	hasRequiredIsSymbol = 1;
 
 	var toStr = Object.prototype.toString;
@@ -56442,7 +57056,7 @@ function requireIsSymbol () {
 			return false ;
 		};
 	}
-	return isSymbolExports;
+	return isSymbol.exports;
 }
 
 var es2015;
@@ -56653,7 +57267,7 @@ var ToString$2 = function ToString(argument) {
 	return $String(argument);
 };
 
-var RequireObjectCoercible$3 = RequireObjectCoercibleExports;
+var RequireObjectCoercible$3 = RequireObjectCoercible$4;
 var ToString$1 = ToString$2;
 var callBound$3 = callBound$4;
 var $replace = callBound$3('String.prototype.replace');
@@ -56706,7 +57320,7 @@ var shim$5 = function shimStringTrim() {
 
 var callBind$2 = callBindExports;
 var define$3 = defineProperties_1;
-var RequireObjectCoercible$2 = RequireObjectCoercibleExports;
+var RequireObjectCoercible$2 = RequireObjectCoercible$4;
 
 var implementation$6 = implementation$8;
 var getPolyfill$3 = polyfill$4;
@@ -56939,7 +57553,7 @@ function requireToObject () {
 
 	var $Object = GetIntrinsic('%Object%');
 
-	var RequireObjectCoercible = RequireObjectCoercibleExports;
+	var RequireObjectCoercible = RequireObjectCoercible$4;
 
 	// https://262.ecma-international.org/6.0/#sec-toobject
 
@@ -57096,7 +57710,7 @@ function requireShim () {
 var define$2 = defineProperties_1;
 var callBind$1 = callBindExports;
 var callBound$1 = callBound$4;
-var RequireObjectCoercible$1 = RequireObjectCoercibleExports;
+var RequireObjectCoercible$1 = RequireObjectCoercible$4;
 
 var implementation$3 = implementation$5;
 var getPolyfill$2 = polyfill$3;
@@ -57120,7 +57734,7 @@ define$2(boundCoercible, {
 
 var array_prototype_foreach = boundCoercible;
 
-var RequireObjectCoercible = RequireObjectCoercibleExports;
+var RequireObjectCoercible = RequireObjectCoercible$4;
 var callBound = callBound$4;
 var $isEnumerable = callBound('Object.prototype.propertyIsEnumerable');
 var $push = callBound('Array.prototype.push');
@@ -57674,7 +58288,7 @@ Polyglot.transformPhrase = function transform(phrase, substitutions, locale) {
 
 var nodePolyglot = Polyglot;
 
-var Polyglot$1 = nodePolyglot;
+var Polyglot$1 = /*@__PURE__*/getDefaultExportFromCjs(nodePolyglot);
 
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -57749,6 +58363,7 @@ var polyglotI18nProvider = (function (getMessages, initialLocale, availableLocal
 
 var defaultI18nProvider = polyglotI18nProvider(function () { return englishMessages; }, 'en', [{ name: 'en', value: 'English' }], { allowMissing: true });
 
+var defaultStore = localStorageStore();
 /**
  * Main admin component, entry point to the application.
  *
@@ -57833,27 +58448,40 @@ import { useEffect, useState } from 'react';
  * };
  */
 var Admin = function (props) {
-    var authProvider = props.authProvider, basename = props.basename, catchAll = props.catchAll, children = props.children, dashboard = props.dashboard, dataProvider = props.dataProvider, disableTelemetry = props.disableTelemetry, history = props.history, i18nProvider = props.i18nProvider, layout = props.layout, loading = props.loading, loginPage = props.loginPage, authCallbackPage = props.authCallbackPage, menu = props.menu, // deprecated, use a custom layout instead
-    notification = props.notification, queryClient = props.queryClient, requireAuth = props.requireAuth, store = props.store, ready = props.ready, theme = props.theme, _a = props.title, title = _a === void 0 ? 'React Admin' : _a;
+    var authProvider = props.authProvider, basename = props.basename, catchAll = props.catchAll, children = props.children, dashboard = props.dashboard, dataProvider = props.dataProvider, disableTelemetry = props.disableTelemetry, history = props.history, _a = props.i18nProvider, i18nProvider = _a === void 0 ? defaultI18nProvider : _a, layout = props.layout, loading = props.loading, loginPage = props.loginPage, authCallbackPage = props.authCallbackPage, menu = props.menu, // deprecated, use a custom layout instead
+    notification = props.notification, queryClient = props.queryClient, requireAuth = props.requireAuth, _b = props.store, store = _b === void 0 ? defaultStore : _b, ready = props.ready, theme = props.theme, lightTheme = props.lightTheme, darkTheme = props.darkTheme, defaultTheme = props.defaultTheme, _c = props.title, title = _c === void 0 ? 'React Admin' : _c;
     if (loginPage === true && process.env.NODE_ENV !== 'production') {
         console.warn('You passed true to the loginPage prop. You must either pass false to disable it or a component class to customize it');
     }
-    return (React.createElement(AdminContext, { authProvider: authProvider, basename: basename, dataProvider: dataProvider, i18nProvider: i18nProvider, store: store, history: history, queryClient: queryClient, theme: theme },
+    return (React.createElement(AdminContext, { authProvider: authProvider, basename: basename, dataProvider: dataProvider, i18nProvider: i18nProvider, store: store, history: history, queryClient: queryClient, theme: theme, lightTheme: lightTheme, darkTheme: darkTheme, defaultTheme: defaultTheme },
         React.createElement(AdminUI, { layout: layout, dashboard: dashboard, disableTelemetry: disableTelemetry, menu: menu, catchAll: catchAll, title: title, loading: loading, loginPage: loginPage, authCallbackPage: authCallbackPage, notification: notification, requireAuth: requireAuth, ready: ready }, children)));
 };
-Admin.defaultProps = {
-    i18nProvider: defaultI18nProvider,
-    store: localStorageStore(),
-};
 
+var getAuthHeader = function () {
+    var authService = AuthService.getInstance();
+    var authToken = authService.getAuthToken();
+    if (!(authToken === null || authToken === void 0 ? void 0 : authToken.value)) {
+        throw getError({ message: '[dataProvider][getAuthHeader] Invalid auth token to fetch!', statusCode: 401 });
+    }
+    return "".concat(Authentication.TYPE_BEARER, " ").concat(authToken.value);
+};
 var getDataProvider = function (opts) {
     var dataProviderHelper = LbProviderGetter(opts);
+    var NO_AUTH_PATHS = new Set([opts.authPath]);
     return function (type, resource, params) {
         var fetchType = sanitizeFetchType(type);
-        var fetcher = get_1(dataProviderHelper, fetchType);
+        var fetcher = get$2(dataProviderHelper, fetchType);
         if (!fetcher) {
             throw getError({ message: '[dataProvider] Invalid fetcher to send request' });
         }
+        if (NO_AUTH_PATHS.has(resource)) {
+            return fetcher === null || fetcher === void 0 ? void 0 : fetcher(resource, params);
+        }
+        var fetchParams = __assign$E({}, (params !== null && params !== void 0 ? params : {}));
+        if (!fetchParams.headers) {
+            fetchParams.headers = {};
+        }
+        fetchParams.headers['Authorization'] = getAuthHeader();
         return fetcher === null || fetcher === void 0 ? void 0 : fetcher(resource, params);
     };
 };
@@ -57874,18 +58502,19 @@ var getAuthProvider = function (opts) {
     return authProvider;
 };
 
+// import { getError } from '../utilities';
 var Application = function (props) {
-    var resources = props.resources, restProps = __rest$u(props, ["resources"]);
+    var resources = props.resources, restProps = __rest$v(props, ["resources"]);
     var logger = React__default.useContext(ApplicationContext).logger;
     var adminProps = React__default.useMemo(function () {
-        var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$u(restProps, ["urls", "i18n"]);
+        var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
-        var rs = __assign$C({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
-        if (!baseUrl || isEmpty_1(baseUrl)) {
-            throw getError({ message: 'Missing urls.base property' });
-        }
-        if (baseUrl && !isEmpty_1(baseUrl)) {
-            var dataProvider = getDataProvider({ baseUrl: baseUrl });
+        var rs = __assign$E({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
+        /* if (!baseUrl || isEmpty(baseUrl)) {
+          throw getError({ message: 'Missing urls.base property' });
+        } */
+        if (baseUrl && !isEmpty$7(baseUrl)) {
+            var dataProvider = getDataProvider({ baseUrl: baseUrl, authPath: auth });
             rs.dataProvider = dataProvider;
             rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth });
         }
@@ -57897,8 +58526,8 @@ var Application = function (props) {
             logger.info('Unmount RA application');
         };
     }, [logger, adminProps]);
-    return (React__default.createElement(Admin, __assign$C({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {
-        return React__default.createElement(Resource, __assign$C({ key: resource.name }, resource));
+    return (React__default.createElement(Admin, __assign$E({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {
+        return React__default.createElement(Resource, __assign$E({ key: resource.name }, resource));
     })));
 };
 
@@ -57914,7 +58543,7 @@ var ApplicationWrapper = function (_a) {
 // -------------------------------------------------------------------------------
 var Ra = function (props) {
     return (React__default.createElement(ApplicationWrapper, null,
-        React__default.createElement(Application, __assign$C({}, props))));
+        React__default.createElement(Application, __assign$E({}, props))));
 };
 
 export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE$1 as CREATE, DELETE$1 as DELETE, DELETE_MANY$1 as DELETE_MANY, GET_LIST$1 as GET_LIST, GET_MANY$1 as GET_MANY, GET_MANY_REFERENCE$1 as GET_MANY_REFERENCE, GET_ONE$1 as GET_ONE, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, UPDATE$1 as UPDATE, UPDATE_MANY$1 as UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };

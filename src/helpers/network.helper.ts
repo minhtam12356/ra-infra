@@ -5,7 +5,7 @@ const HTTPS = 'https';
 
 interface IRequestOptions {
   url: string;
-  method?: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
+  method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS';
   params?: object;
   body?: object;
   configs?: object;
@@ -31,7 +31,7 @@ export class NetworkHelper {
   async send(opts: IRequestOptions, logger?: any) {
     const t = new Date().getTime();
 
-    const { url, method = 'get', params, body, configs } = opts;
+    const { url, method = 'GET', params, body, configs } = opts;
     const props = {
       method,
       body: JSON.stringify(body),
@@ -55,7 +55,7 @@ export class NetworkHelper {
   // -------------------------------------------------------------
   async get(opts: IRequestOptions) {
     const { url, params, configs, ...rest } = opts;
-    const response = await this.send({ ...rest, url, method: 'get', params, configs });
+    const response = await this.send({ ...rest, url, method: 'GET', params, configs });
     return response;
   }
 
@@ -64,28 +64,28 @@ export class NetworkHelper {
   // -------------------------------------------------------------
   async post(opts: IRequestOptions) {
     const { url, body, configs, ...rest } = opts;
-    const response = await this.send({ ...rest, url, method: 'post', body, configs });
+    const response = await this.send({ ...rest, url, method: 'POST', body, configs });
     return response;
   }
 
   // -------------------------------------------------------------
   async put(opts: IRequestOptions) {
     const { url, body, configs, ...rest } = opts;
-    const response = await this.send({ ...rest, url, method: 'put', body, configs, ...rest });
+    const response = await this.send({ ...rest, url, method: 'PUT', body, configs, ...rest });
     return response;
   }
 
   // -------------------------------------------------------------
   async patch(opts: IRequestOptions) {
     const { url, body, configs, ...rest } = opts;
-    const response = await this.send({ ...rest, url, method: 'patch', body, configs });
+    const response = await this.send({ ...rest, url, method: 'PATCH', body, configs });
     return response;
   }
 
   // -------------------------------------------------------------
   async delete(opts: IRequestOptions) {
     const { url, configs, ...rest } = opts;
-    const response = await this.send({ ...rest, url, method: 'delete', configs });
+    const response = await this.send({ ...rest, url, method: 'DELETE', configs });
     return response;
   }
 }

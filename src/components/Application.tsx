@@ -3,7 +3,7 @@ import { Admin, AdminProps, Resource, ResourceProps } from 'react-admin';
 import { ApplicationContext, IApplication } from '../common';
 import { getAuthProvider, getDataProvider, getI18nProvider } from '../providers';
 import isEmpty from 'lodash/isEmpty';
-import { getError } from '../utilities';
+// import { getError } from '../utilities';
 
 export const Application: React.FC<IApplication> = (props: IApplication) => {
   const { resources, ...restProps } = props;
@@ -13,17 +13,14 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   const adminProps = React.useMemo(() => {
     const { urls, i18n = {}, ...rest } = restProps;
     const { base: baseUrl, auth = 'login' } = urls;
-    const rs: AdminProps = {
-      i18nProvider: getI18nProvider({ i18n }),
-      ...rest,
-    };
+    const rs: AdminProps = { i18nProvider: getI18nProvider({ i18n }), ...rest };
 
-    if (!baseUrl || isEmpty(baseUrl)) {
+    /* if (!baseUrl || isEmpty(baseUrl)) {
       throw getError({ message: 'Missing urls.base property' });
-    }
+    } */
 
     if (baseUrl && !isEmpty(baseUrl)) {
-      const dataProvider = getDataProvider({ baseUrl });
+      const dataProvider = getDataProvider({ baseUrl, authPath: auth });
       rs.dataProvider = dataProvider;
       rs.authProvider = getAuthProvider({ dataProvider, authPath: auth });
     }
