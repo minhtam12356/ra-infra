@@ -11476,6 +11476,10 @@ var AuthService = /** @class */ (function () {
         }
     };
     // ------------------------------------------------------------------------------------
+    AuthService.prototype.saveAuthIdentify = function (opts) {
+        localStorage.setItem(LocalStorageKeys.KEY_AUTH_IDENTITY, JSON.stringify(opts));
+    };
+    // ------------------------------------------------------------------------------------
     AuthService.prototype.saveAuthToken = function (opts) {
         localStorage.setItem(LocalStorageKeys.KEY_AUTH_TOKEN, JSON.stringify(opts));
     };
@@ -11512,8 +11516,9 @@ var AuthProviderGetter = function (opts) {
                     },
                 })
                     .then(function (rs) {
-                    var token = rs.data.token;
+                    var _a = rs.data, token = _a.token, userId = _a.userId;
                     authService.saveAuthToken(token);
+                    authService.saveAuthIdentify({ userId: userId });
                     resolve(rs);
                 })
                     .catch(function (error) {
@@ -11535,22 +11540,26 @@ var AuthProviderGetter = function (opts) {
         // -------------------------------------------------------------
         // CHECK_AUTH
         // -------------------------------------------------------------
-        checkAuth: function () { return __awaiter$6(void 0, void 0, void 0, function () {
-            var token;
-            return __generator$6(this, function (_a) {
-                token = authService.getAuthToken();
+        checkAuth: function () {
+            return new Promise(function (resolve, reject) {
+                var token = authService.getAuthToken();
                 if (!(token === null || token === void 0 ? void 0 : token.value)) {
-                    return [2 /*return*/, Promise.reject({ redirectTo: 'login' })];
+                    reject({ redirectTo: 'login' });
                 }
-                return [2 /*return*/, dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' }).then(function (rs) {
-                        var _a;
-                        if (!((_a = rs === null || rs === void 0 ? void 0 : rs.data) === null || _a === void 0 ? void 0 : _a.userId)) {
-                            return Promise.reject({ redirectTo: 'login' });
-                        }
-                        return Promise.resolve();
-                    })];
+                dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+                    .then(function (rs) {
+                    var _a;
+                    if (!((_a = rs === null || rs === void 0 ? void 0 : rs.data) === null || _a === void 0 ? void 0 : _a.userId)) {
+                        reject({ redirectTo: 'login' });
+                    }
+                    resolve();
+                })
+                    .catch(function (error) {
+                    console.error('[checkAuth] Error: ', error);
+                    reject({ redirectTo: 'login' });
+                });
             });
-        }); },
+        },
         // -------------------------------------------------------------
         // LOGOUT
         // -------------------------------------------------------------
@@ -11564,7 +11573,23 @@ var AuthProviderGetter = function (opts) {
         // GET_IDENTIFIER
         // -------------------------------------------------------------
         getIdentity: function () {
-            return Promise.resolve({ id: 0, fullName: 'TEST', username: 'TEST' });
+            return new Promise(function (resolve, reject) {
+                var userIdentity = authService.getUser();
+                if (!(userIdentity === null || userIdentity === void 0 ? void 0 : userIdentity.userId)) {
+                    reject({ message: '[getIdentity] No userId to get user identity!' });
+                }
+                dataProvider(App.DEFAULT_FETCH_METHOD, "users/".concat(userIdentity.userId, "/profile"), { method: 'GET' })
+                    .then(function (rs) {
+                    if (!(rs === null || rs === void 0 ? void 0 : rs.data)) {
+                        reject({ message: "[getIdentity] Not found any profile according to userId: ".concat(userIdentity.userId) });
+                    }
+                    resolve(rs.data);
+                })
+                    .catch(function (error) {
+                    console.error('[getIdentity] Error: ', error);
+                    reject({ message: error === null || error === void 0 ? void 0 : error.message, error: error });
+                });
+            });
         },
         // -------------------------------------------------------------
         // GET_PERMISSIONS

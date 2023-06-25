@@ -136,6 +136,10 @@ declare class AuthService {
     getUser(): any;
     getRoles: () => Set<unknown>;
     getAuthToken(): any;
+    saveAuthIdentify(opts: {
+        userId: number;
+        [key: string]: any;
+    }): void;
     saveAuthToken(opts: {
         value: string;
         type: string;

@@ -33,8 +33,9 @@ export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath
           },
         })
           .then((rs) => {
-            const { token } = rs.data;
+            const { token, userId } = rs.data;
             authService.saveAuthToken(token);
+            authService.saveAuthIdentify({ userId });
             resolve(rs);
           })
           .catch((error) => {
@@ -57,18 +58,25 @@ export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath
     // -------------------------------------------------------------
     // CHECK_AUTH
     // -------------------------------------------------------------
-    checkAuth: async () => {
-      const token = authService.getAuthToken();
-      if (!token?.value) {
-        return Promise.reject({ redirectTo: 'login' });
-      }
-
-      return dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' }).then((rs) => {
-        if (!rs?.data?.userId) {
-          return Promise.reject({ redirectTo: 'login' });
+    checkAuth: () => {
+      return new Promise((resolve, reject) => {
+        const token = authService.getAuthToken();
+        if (!token?.value) {
+          reject({ redirectTo: 'login' });
         }
 
-        return Promise.resolve();
+        dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+          .then((rs) => {
+            if (!rs?.data?.userId) {
+              reject({ redirectTo: 'login' });
+            }
+
+            resolve();
+          })
+          .catch((error) => {
+            console.error('[checkAuth] Error: ', error);
+            reject({ redirectTo: 'login' });
+          });
       });
     },
     // -------------------------------------------------------------
@@ -83,7 +91,25 @@ export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath
     // GET_IDENTIFIER
     // -------------------------------------------------------------
     getIdentity: () => {
-      return Promise.resolve({ id: 0, fullName: 'TEST', username: 'TEST' });
+      return new Promise((resolve, reject) => {
+        const userIdentity = authService.getUser();
+        if (!userIdentity?.userId) {
+          reject({ message: '[getIdentity] No userId to get user identity!' })
+        }
+
+        dataProvider(App.DEFAULT_FETCH_METHOD, `users/${userIdentity.userId}/profile`, { method: 'GET' })
+          .then((rs) => {
+            if (!rs?.data) {
+              reject({ message: `[getIdentity] Not found any profile according to userId: ${userIdentity.userId}` });
+            }
+
+            resolve(rs.data);
+          })
+          .catch((error: Error) => {
+            console.error('[getIdentity] Error: ', error);
+            reject({ message: error?.message, error });
+          });
+      });
     },
     // -------------------------------------------------------------
     // GET_PERMISSIONS

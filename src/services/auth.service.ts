@@ -44,6 +44,11 @@ export class AuthService {
   }
 
   // ------------------------------------------------------------------------------------
+  saveAuthIdentify(opts: { userId: number;[key: string]: any }) {
+    localStorage.setItem(LocalStorageKeys.KEY_AUTH_IDENTITY, JSON.stringify(opts));
+  }
+
+  // ------------------------------------------------------------------------------------
   saveAuthToken(opts: { value: string; type: string }) {
     localStorage.setItem(LocalStorageKeys.KEY_AUTH_TOKEN, JSON.stringify(opts));
   }
