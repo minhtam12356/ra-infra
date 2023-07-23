@@ -58723,9 +58723,9 @@ var Application = function (props) {
     var resources = props.resources, restProps = __rest$v(props, ["resources"]);
     var logger = React__default.useContext(ApplicationContext).logger;
     var adminProps = React__default.useMemo(function () {
-        var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, layout = restProps.layout, rest = __rest$v(restProps, ["urls", "i18n", "layout"]);
+        var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
-        var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n }), layout: layout }, rest);
+        var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
         /* if (!baseUrl || isEmpty(baseUrl)) {
           throw getError({ message: 'Missing urls.base property' });
         } */
