@@ -25,7 +25,6 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
       rs.authProvider = getAuthProvider({ dataProvider, authPath: auth });
     }
 
-console.log('checking layout', layout)
     return rs;
   }, [restProps]);
 
@@ -33,7 +32,7 @@ console.log('checking layout', layout)
     logger.info('Mounted RA application | Admin props: %o', adminProps);
 
     return () => {
-      logger.info('Unmount RA application');
+      logger.info('Unmount RA application: ', adminProps);
     };
   }, [logger, adminProps]);
 

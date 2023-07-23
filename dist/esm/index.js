@@ -58743,13 +58743,12 @@ var Application = function (props) {
             rs.dataProvider = dataProvider;
             rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth });
         }
-        console.log('checking layout', layout);
         return rs;
     }, [restProps]);
     React__default.useEffect(function () {
         logger.info('Mounted RA application | Admin props: %o', adminProps);
         return function () {
-            logger.info('Unmount RA application');
+            logger.info('Unmount RA application: ', adminProps);
         };
     }, [logger, adminProps]);
     return (React__default.createElement(Admin, __assign$F({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {
