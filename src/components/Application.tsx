@@ -11,9 +11,9 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   const { logger } = React.useContext(ApplicationContext);
 
   const adminProps = React.useMemo(() => {
-    const { urls, i18n = {}, ...rest } = restProps;
+    const { urls, i18n = {}, layout, ...rest } = restProps;
     const { base: baseUrl, auth = 'login' } = urls;
-    const rs: AdminProps = { i18nProvider: getI18nProvider({ i18n }), ...rest };
+    const rs: AdminProps = { i18nProvider: getI18nProvider({ i18n }), layout, ...rest };
 
     /* if (!baseUrl || isEmpty(baseUrl)) {
       throw getError({ message: 'Missing urls.base property' });
@@ -25,6 +25,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
       rs.authProvider = getAuthProvider({ dataProvider, authPath: auth });
     }
 
+console.log('checking layout', layout)
     return rs;
   }, [restProps]);
 
