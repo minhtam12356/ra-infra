@@ -11485,20 +11485,11 @@ var AuthProviderGetter = function (opts) {
         // -------------------------------------------------------------
         // LOGIN
         // -------------------------------------------------------------
-        login: function (params) {
+        login: function (body) {
             return new Promise(function (resolve, reject) {
                 dataProvider(App.DEFAULT_FETCH_METHOD, authPath, {
                     method: 'post',
-                    body: {
-                        identifier: {
-                            scheme: 'username',
-                            value: params.username,
-                        },
-                        credential: {
-                            scheme: 'basic',
-                            value: params.password,
-                        },
-                    },
+                    body: body,
                 })
                     .then(function (rs) {
                     var _a = rs.data, token = _a.token, userId = _a.userId;

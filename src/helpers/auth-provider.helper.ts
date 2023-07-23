@@ -17,20 +17,11 @@ export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath
     // -------------------------------------------------------------
     // LOGIN
     // -------------------------------------------------------------
-    login: (params: any) => {
+    login: (body: any) => {
       return new Promise((resolve, reject) => {
         dataProvider(App.DEFAULT_FETCH_METHOD, authPath, {
           method: 'post',
-          body: {
-            identifier: {
-              scheme: 'username',
-              value: params.username,
-            },
-            credential: {
-              scheme: 'basic',
-              value: params.password,
-            },
-          },
+          body,
         })
           .then((rs) => {
             const { token, userId } = rs.data;
@@ -94,7 +85,7 @@ export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath
       return new Promise((resolve, reject) => {
         const userIdentity = authService.getUser();
         if (!userIdentity?.userId) {
-          reject({ message: '[getIdentity] No userId to get user identity!' })
+          reject({ message: '[getIdentity] No userId to get user identity!' });
         }
 
         dataProvider(App.DEFAULT_FETCH_METHOD, `users/${userIdentity.userId}/profile`, { method: 'GET' })
