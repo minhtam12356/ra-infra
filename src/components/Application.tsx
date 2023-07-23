@@ -32,7 +32,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     logger.info('Mounted RA application | Admin props: %o', adminProps);
 
     return () => {
-      logger.info('Unmount RA application');
+      logger.info('Unmount RA application: ', adminProps);
     };
   }, [logger, adminProps]);
 
