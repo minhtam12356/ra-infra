@@ -70,6 +70,7 @@ declare const LbProviderGetter: (opts: {
 declare const AuthProviderGetter: (opts: {
     dataProvider: IDataProvider;
     authPath: string;
+    checkAuth?: (() => Promise<void>) | undefined;
 }) => AuthProvider;
 
 interface IApplicationContext {

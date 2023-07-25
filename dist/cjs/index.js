@@ -70,7 +70,7 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
-/* global Reflect, Promise, SuppressedError, Symbol */
+/* global Reflect, Promise */
 
 var extendStatics = function(d, b) {
     extendStatics = Object.setPrototypeOf ||
@@ -87,15 +87,15 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
-var __assign$F = function() {
-    __assign$F = Object.assign || function __assign(t) {
+var __assign$E = function() {
+    __assign$E = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
         }
         return t;
     };
-    return __assign$F.apply(this, arguments);
+    return __assign$E.apply(this, arguments);
 };
 
 function __rest$v(s, e) {
@@ -110,7 +110,7 @@ function __rest$v(s, e) {
     return t;
 }
 
-function __awaiter$7(thisArg, _arguments, P, generator) {
+function __awaiter$6(thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -120,7 +120,7 @@ function __awaiter$7(thisArg, _arguments, P, generator) {
     });
 }
 
-function __generator$7(thisArg, body) {
+function __generator$6(thisArg, body) {
     var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
     return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
@@ -157,11 +157,6 @@ function __spreadArray$5(to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 }
-
-typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
-    var e = new Error(message);
-    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
-};
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -8556,14 +8551,14 @@ var NetworkHelper = /** @class */ (function () {
     // SEND REQUEST
     // -------------------------------------------------------------
     NetworkHelper.prototype.send = function (opts, logger) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var t, url, _a, method, params, body, configs, props, requestUrl, response;
-            return __generator$7(this, function (_b) {
+            return __generator$6(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         t = new Date().getTime();
                         url = opts.url, _a = opts.method, method = _a === void 0 ? 'GET' : _a, params = opts.params, body = opts.body, configs = opts.configs;
-                        props = __assign$F({ method: method, body: JSON.stringify(body) }, configs);
+                        props = __assign$E({ method: method, body: JSON.stringify(body) }, configs);
                         requestUrl = url;
                         if (params) {
                             requestUrl = "".concat(url, "?").concat(stringify$1(params));
@@ -8582,13 +8577,13 @@ var NetworkHelper = /** @class */ (function () {
     // GET REQUEST
     // -------------------------------------------------------------
     NetworkHelper.prototype.get = function (opts) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var url, params, configs, rest, response;
-            return __generator$7(this, function (_a) {
+            return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         url = opts.url, params = opts.params, configs = opts.configs, rest = __rest$v(opts, ["url", "params", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$F(__assign$F({}, rest), { url: url, method: 'GET', params: params, configs: configs }))];
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'GET', params: params, configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8600,13 +8595,13 @@ var NetworkHelper = /** @class */ (function () {
     // POST REQUEST
     // -------------------------------------------------------------
     NetworkHelper.prototype.post = function (opts) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var url, body, configs, rest, response;
-            return __generator$7(this, function (_a) {
+            return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$v(opts, ["url", "body", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$F(__assign$F({}, rest), { url: url, method: 'POST', body: body, configs: configs }))];
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'POST', body: body, configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8616,13 +8611,13 @@ var NetworkHelper = /** @class */ (function () {
     };
     // -------------------------------------------------------------
     NetworkHelper.prototype.put = function (opts) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var url, body, configs, rest, response;
-            return __generator$7(this, function (_a) {
+            return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$v(opts, ["url", "body", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$F(__assign$F(__assign$F({}, rest), { url: url, method: 'PUT', body: body, configs: configs }), rest))];
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E(__assign$E({}, rest), { url: url, method: 'PUT', body: body, configs: configs }), rest))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8632,13 +8627,13 @@ var NetworkHelper = /** @class */ (function () {
     };
     // -------------------------------------------------------------
     NetworkHelper.prototype.patch = function (opts) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var url, body, configs, rest, response;
-            return __generator$7(this, function (_a) {
+            return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         url = opts.url, body = opts.body, configs = opts.configs, rest = __rest$v(opts, ["url", "body", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$F(__assign$F({}, rest), { url: url, method: 'PATCH', body: body, configs: configs }))];
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'PATCH', body: body, configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -8648,13 +8643,13 @@ var NetworkHelper = /** @class */ (function () {
     };
     // -------------------------------------------------------------
     NetworkHelper.prototype.delete = function (opts) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var url, configs, rest, response;
-            return __generator$7(this, function (_a) {
+            return __generator$6(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         url = opts.url, configs = opts.configs, rest = __rest$v(opts, ["url", "configs"]);
-                        return [4 /*yield*/, this.send(__assign$F(__assign$F({}, rest), { url: url, method: 'DELETE', configs: configs }))];
+                        return [4 /*yield*/, this.send(__assign$E(__assign$E({}, rest), { url: url, method: 'DELETE', configs: configs }))];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -11122,7 +11117,7 @@ var getRequestProps = function (params) {
     };
     switch (type) {
         case 'form': {
-            rs.headers = __assign$F(__assign$F({}, headers), { 'Content-Type': 'application/x-www-form-urlencoded' });
+            rs.headers = __assign$E(__assign$E({}, headers), { 'Content-Type': 'application/x-www-form-urlencoded' });
             var formData = new FormData();
             for (var key in body) {
                 if (!params.body[key]) {
@@ -11134,14 +11129,14 @@ var getRequestProps = function (params) {
             break;
         }
         case 'file': {
-            rs.headers = __assign$F(__assign$F({}, headers), { 'Content-Type': 'multipart/form-data' });
+            rs.headers = __assign$E(__assign$E({}, headers), { 'Content-Type': 'multipart/form-data' });
             var formData = new FormData();
             formData.append('files', file);
             rs.body = formData;
             break;
         }
         default: {
-            rs.headers = __assign$F(__assign$F({}, headers), { 'Content-Type': 'application/json' });
+            rs.headers = __assign$E(__assign$E({}, headers), { 'Content-Type': 'application/json' });
             rs.body = body;
             break;
         }
@@ -11170,11 +11165,11 @@ var convertResponse = function (opts) {
             var rs = { id: data === null || data === void 0 ? void 0 : data.id };
             switch (params === null || params === void 0 ? void 0 : params.type) {
                 case 'file': {
-                    rs = __assign$F(__assign$F({}, rs), { files: data });
+                    rs = __assign$E(__assign$E({}, rs), { files: data });
                     break;
                 }
                 default: {
-                    rs = __assign$F(__assign$F({}, data), { id: data.id });
+                    rs = __assign$E(__assign$E({}, data), { id: data.id });
                     break;
                 }
             }
@@ -11182,7 +11177,7 @@ var convertResponse = function (opts) {
         }
         case DELETE$1: {
             return {
-                data: __assign$F(__assign$F({}, data), { id: params.id }),
+                data: __assign$E(__assign$E({}, data), { id: params.id }),
             };
         }
         default: {
@@ -11368,7 +11363,7 @@ var LbProviderGetter = function (opts) { return ({
     create: function (resource, params) {
         var request = getRequestProps(params);
         var paths = [resource];
-        var response = doRequest(__assign$F({ type: CREATE$1, baseUrl: opts.baseUrl, method: 'POST', paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: CREATE$1, baseUrl: opts.baseUrl, method: 'POST', paths: paths, params: params }, request));
         return response;
     },
     // -------------------------------------------------------------
@@ -11377,13 +11372,13 @@ var LbProviderGetter = function (opts) { return ({
     update: function (resource, params) {
         var request = getRequestProps(params);
         var paths = [resource, (params === null || params === void 0 ? void 0 : params.id) ? params.id.toString() : ''];
-        var response = doRequest(__assign$F({ type: UPDATE$1, baseUrl: opts.baseUrl, method: 'PATCH', paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: UPDATE$1, baseUrl: opts.baseUrl, method: 'PATCH', paths: paths, params: params }, request));
         return response;
     },
     updateMany: function (resource, params) {
-        return __awaiter$7(this, void 0, void 0, function () {
+        return __awaiter$6(this, void 0, void 0, function () {
             var _a, ids, _b, data, query, paths, response;
-            return __generator$7(this, function (_c) {
+            return __generator$6(this, function (_c) {
                 _a = params.ids, ids = _a === void 0 ? [] : _a, _b = params.data, data = _b === void 0 ? {} : _b;
                 if (!(ids === null || ids === void 0 ? void 0 : ids.length)) {
                     throw getError({ message: '[updateMany] No IDs to execute update!' });
@@ -11425,7 +11420,7 @@ var LbProviderGetter = function (opts) { return ({
     deleteMany: function (resource, params) {
         var request = getRequestProps(params);
         var paths = [resource];
-        var response = doRequest(__assign$F({ type: DELETE_MANY$1, baseUrl: opts.baseUrl, method: 'DELETE', paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: DELETE_MANY$1, baseUrl: opts.baseUrl, method: 'DELETE', paths: paths, params: params }, request));
         return response;
     },
     // -------------------------------------------------------------
@@ -11438,7 +11433,7 @@ var LbProviderGetter = function (opts) { return ({
         var method = params.method, rest = __rest$v(params, ["method"]);
         var request = getRequestProps(rest);
         var paths = [resource];
-        var response = doRequest(__assign$F({ type: SEND, baseUrl: opts.baseUrl, method: method, paths: paths, params: params }, request));
+        var response = doRequest(__assign$E({ type: SEND, baseUrl: opts.baseUrl, method: method, paths: paths, params: params }, request));
         return response;
     },
 }); };
@@ -11537,24 +11532,26 @@ var AuthProviderGetter = function (opts) {
         // CHECK_AUTH
         // -------------------------------------------------------------
         checkAuth: function () {
-            return new Promise(function (resolve, reject) {
-                var token = authService.getAuthToken();
-                if (!(token === null || token === void 0 ? void 0 : token.value)) {
-                    reject({ redirectTo: 'login' });
-                }
-                dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
-                    .then(function (rs) {
-                    var _a;
-                    if (!((_a = rs === null || rs === void 0 ? void 0 : rs.data) === null || _a === void 0 ? void 0 : _a.userId)) {
+            var _a;
+            return (((_a = opts === null || opts === void 0 ? void 0 : opts.checkAuth) === null || _a === void 0 ? void 0 : _a.call(opts)) ||
+                new Promise(function (resolve, reject) {
+                    var token = authService.getAuthToken();
+                    if (!(token === null || token === void 0 ? void 0 : token.value)) {
                         reject({ redirectTo: 'login' });
                     }
-                    resolve();
-                })
-                    .catch(function (error) {
-                    console.error('[checkAuth] Error: ', error);
-                    reject({ redirectTo: 'login' });
-                });
-            });
+                    dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+                        .then(function (rs) {
+                        var _a;
+                        if (!((_a = rs === null || rs === void 0 ? void 0 : rs.data) === null || _a === void 0 ? void 0 : _a.userId)) {
+                            reject({ redirectTo: 'login' });
+                        }
+                        resolve();
+                    })
+                        .catch(function (error) {
+                        console.error('[checkAuth] Error: ', error);
+                        // reject({ redirectTo: 'login' });
+                    });
+                }));
         },
         // -------------------------------------------------------------
         // LOGOUT
@@ -14616,7 +14613,7 @@ function useQuery(arg1, arg2, arg3) {
 }
 
 /**
- * @remix-run/router v1.7.2
+ * @remix-run/router v1.7.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -15185,7 +15182,7 @@ const validRequestMethodsArr = ["get", ...validMutationMethodsArr];
 new Set(validRequestMethodsArr);
 
 /**
- * React Router v6.14.2
+ * React Router v6.14.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -16019,7 +16016,7 @@ function createRoutesFromChildren(children, parentPath) {
 }
 
 /**
- * React Router DOM v6.14.2
+ * React Router DOM v6.14.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -16176,7 +16173,7 @@ function getFormSubmissionInfo(target, basename) {
 
 const _excluded$11 = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset"],
   _excluded2$5 = ["aria-current", "caseSensitive", "className", "end", "style", "to", "children"],
-  _excluded3$1 = ["reloadDocument", "replace", "state", "method", "action", "onSubmit", "submit", "relative", "preventScrollReset"];
+  _excluded3$1 = ["reloadDocument", "replace", "method", "action", "onSubmit", "submit", "relative", "preventScrollReset"];
 if (process.env.NODE_ENV !== "production") ;
 const isBrowser$6 = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
 const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
@@ -16338,7 +16335,6 @@ const FormImpl = /*#__PURE__*/React__namespace.forwardRef((_ref6, forwardedRef) 
   let {
       reloadDocument,
       replace,
-      state,
       method = defaultMethod,
       action,
       onSubmit,
@@ -16360,7 +16356,6 @@ const FormImpl = /*#__PURE__*/React__namespace.forwardRef((_ref6, forwardedRef) 
     submit(submitter || event.currentTarget, {
       method: submitMethod,
       replace,
-      state,
       relative,
       preventScrollReset
     });
@@ -16469,7 +16464,6 @@ function useSubmit() {
       formMethod: options.method || method,
       formEncType: options.encType || encType,
       replace: options.replace,
-      state: options.state,
       fromRouteId: currentRouteId
     });
   }, [router, basename, currentRouteId]);
@@ -18811,8 +18805,8 @@ var useCreatePath = function () {
 };
 var removeDoubleSlashes = function (path) { return path.replace('//', '/'); };
 
-var __assign$E = (undefined && undefined.__assign) || function () {
-    __assign$E = Object.assign || function(t) {
+var __assign$D = (undefined && undefined.__assign) || function () {
+    __assign$D = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -18820,7 +18814,7 @@ var __assign$E = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$E.apply(this, arguments);
+    return __assign$D.apply(this, arguments);
 };
 /**
  * Hook for Redirection Side Effect
@@ -18853,11 +18847,11 @@ var useRedirect = function () {
             var target = redirectTo(resource, id, data);
             var absoluteTarget = typeof target === 'string'
                 ? "".concat(basename, "/").concat(target)
-                : __assign$E({ pathname: "".concat(basename, "/").concat(target.pathname) }, target);
+                : __assign$D({ pathname: "".concat(basename, "/").concat(target.pathname) }, target);
             navigate(typeof absoluteTarget === 'string'
                 ? parsePath(absoluteTarget)
                 : absoluteTarget, {
-                state: __assign$E({ _scrollToTop: true }, state),
+                state: __assign$D({ _scrollToTop: true }, state),
             });
             return;
         }
@@ -18872,7 +18866,7 @@ var useRedirect = function () {
         else {
             // redirection to an internal link
             navigate(createPath({ resource: resource, id: id, type: redirectTo }), {
-                state: __assign$E({ _scrollToTop: true }, state),
+                state: __assign$D({ _scrollToTop: true }, state),
             });
             return;
         }
@@ -19374,150 +19368,6 @@ var defaultDataProvider = {
     update: function () { return Promise.resolve({ data: null }); },
     updateMany: function () { return Promise.resolve({ data: [] }); }, // avoids adding a context in tests
 };
-
-var __awaiter$6 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator$6 = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-var timer;
-/**
- * Returns a callback used to call the authProvider.checkError() method
- * and an error from the dataProvider. If the authProvider rejects the call,
- * the hook logs the user out and shows a logged out notification.
- *
- * Used in the useDataProvider hook to check for access denied responses
- * (e.g. 401 or 403 responses) and trigger a logout.
- *
- * @see useLogout
- * @see useDataProvider
- *
- * @returns {Function} logoutIfAccessDenied callback
- *
- * @example
- *
- * import { useLogoutIfAccessDenied, useNotify, DataProviderContext } from 'react-admin';
- *
- * const FetchRestrictedResource = () => {
- *     const dataProvider = useContext(DataProviderContext);
- *     const logoutIfAccessDenied = useLogoutIfAccessDenied();
- *     const notify = useNotify()
- *     useEffect(() => {
- *         dataProvider.getOne('secret', { id: 123 })
- *             .catch(error => {
- *                  logoutIfAccessDenied(error);
- *                  notify('server error',  { type: 'error' });
- *              })
- *     }, []);
- *     // ...
- * }
- */
-var useLogoutIfAccessDenied = function () {
-    var authProvider = useAuthProvider$1();
-    var logout = useLogout$1();
-    var notify = useNotify();
-    var navigate = useNavigate();
-    var logoutIfAccessDenied = React.useCallback(function (error, disableNotification) {
-        return authProvider
-            .checkError(error)
-            .then(function () { return false; })
-            .catch(function (e) { return __awaiter$6(void 0, void 0, void 0, function () {
-            var logoutUser, redirectTo, shouldNotify;
-            var _a;
-            return __generator$6(this, function (_b) {
-                logoutUser = (_a = e === null || e === void 0 ? void 0 : e.logoutUser) !== null && _a !== void 0 ? _a : true;
-                //manual debounce
-                if (timer) {
-                    // side effects already triggered in this tick, exit
-                    return [2 /*return*/, true];
-                }
-                timer = setTimeout(function () {
-                    timer = undefined;
-                }, 0);
-                redirectTo = e && e.redirectTo != null
-                    ? e.redirectTo
-                    : error && error.redirectTo
-                        ? error.redirectTo
-                        : undefined;
-                shouldNotify = !(disableNotification ||
-                    (e && e.message === false) ||
-                    (error && error.message === false) ||
-                    (redirectTo === null || redirectTo === void 0 ? void 0 : redirectTo.startsWith('http')));
-                if (shouldNotify) {
-                    // notify only if not yet logged out
-                    authProvider
-                        .checkAuth({})
-                        .then(function () {
-                        if (logoutUser) {
-                            notify(getErrorMessage$2(e, 'ra.notification.logged_out'), { type: 'error' });
-                        }
-                        else {
-                            notify(getErrorMessage$2(e, 'ra.notification.not_authorized'), { type: 'error' });
-                        }
-                    })
-                        .catch(function () { });
-                }
-                if (logoutUser) {
-                    logout({}, redirectTo);
-                }
-                else {
-                    if (redirectTo.startsWith('http')) {
-                        // absolute link (e.g. https://my.oidc.server/login)
-                        window.location.href = redirectTo;
-                    }
-                    else {
-                        // internal location
-                        navigate(redirectTo);
-                    }
-                }
-                return [2 /*return*/, true];
-            });
-        }); });
-    }, [authProvider, logout, notify, navigate]);
-    return authProvider
-        ? logoutIfAccessDenied
-        : logoutIfAccessDeniedWithoutProvider;
-};
-var logoutIfAccessDeniedWithoutProvider = function () { return Promise.resolve(false); };
-var getErrorMessage$2 = function (error, defaultMessage) {
-    return typeof error === 'string'
-        ? error
-        : typeof error === 'undefined' || !error.message
-            ? defaultMessage
-            : error.message;
-};
-var useLogoutIfAccessDenied$1 = useLogoutIfAccessDenied;
 
 /**
  * Get the state of the dataProvider connection.
@@ -21331,9 +21181,6 @@ function createFormControl(props = {}, flushRootRender) {
             },
         });
         _names.mount.add(name);
-        if (!isUndefined(options.value)) {
-            set(_formValues, name, options.value);
-        }
         field
             ? disabledIsDefined &&
                 set(_formValues, name, options.disabled
@@ -21682,7 +21529,6 @@ function createFormControl(props = {}, flushRootRender) {
  */
 function useForm(props = {}) {
     const _formControl = React.useRef();
-    const _values = React.useRef();
     const [formState, updateFormState] = React.useState({
         isDirty: false,
         isValidating: false,
@@ -21716,9 +21562,10 @@ function useForm(props = {}) {
         },
     });
     React.useEffect(() => {
-        if (props.values && !deepEqual(props.values, _values.current)) {
+        if (props.values &&
+            (!deepEqual(props.values, control._defaultValues) ||
+                !deepEqual(props.values, control._formValues))) {
             control._reset(props.values, control._options.resetOptions);
-            _values.current = props.values;
         }
         else {
             control._resetDefaultValues();
@@ -21788,8 +21635,8 @@ var PreferencesEditorContextProvider = function (_a) {
     return (React__namespace.createElement(PreferencesEditorContext.Provider, { value: context }, children));
 };
 
-var __assign$D = (undefined && undefined.__assign) || function () {
-    __assign$D = Object.assign || function(t) {
+var __assign$C = (undefined && undefined.__assign) || function () {
+    __assign$C = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -21797,7 +21644,7 @@ var __assign$D = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$D.apply(this, arguments);
+    return __assign$C.apply(this, arguments);
 };
 var __rest$t = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -21843,7 +21690,7 @@ var ResourceDefinitionContextProvider = function (_a) {
             var _a;
             return isEqual$1(prev[config.name], config)
                 ? prev
-                : __assign$D(__assign$D({}, prev), (_a = {}, _a[config.name] = config, _a));
+                : __assign$C(__assign$C({}, prev), (_a = {}, _a[config.name] = config, _a));
         });
     }, []);
     var unregister = React.useCallback(function (config) {
@@ -21891,8 +21738,8 @@ var useResourceDefinitionContext = function () {
     return React.useContext(ResourceDefinitionContext);
 };
 
-var __assign$C = (undefined && undefined.__assign) || function () {
-    __assign$C = Object.assign || function(t) {
+var __assign$B = (undefined && undefined.__assign) || function () {
+    __assign$B = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -21900,7 +21747,7 @@ var __assign$C = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$C.apply(this, arguments);
+    return __assign$B.apply(this, arguments);
 };
 var __awaiter$5 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -21917,7 +21764,7 @@ var __generator$5 = (undefined && undefined.__generator) || function (thisArg, b
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -21979,12 +21826,12 @@ var useConfigureAdminRouterFromChildren = function (children) {
 var useRoutesAndResourcesFromChildren = function (children, permissions, isLoading) {
     // Gather custom routes and resources that were declared as direct children of CoreAdminRouter
     // e.g. Not returned from the child function (if any)
-    // We need to know right away whether some resources were declared to correctly
+    // We need to know right away wether some resources were declared to correctly
     // initialize the status at the next stop
     var doLogout = useLogout$1();
     var _a = useRoutesAndResourcesState(getRoutesAndResourceFromNodes(children)), routesAndResources = _a[0], setRoutesAndResources = _a[1], mergeRoutesAndResources = _a[2];
     var _b = useSafeSetState(function () {
-        return getStatus(__assign$C({ children: children }, routesAndResources));
+        return getStatus(__assign$B({ children: children }, routesAndResources));
     }), status = _b[0], setStatus = _b[1];
     React.useEffect(function () {
         var resolveChildFunction = function (childFunc) { return __awaiter$5(void 0, void 0, void 0, function () {
@@ -22225,272 +22072,6 @@ var CoreAdminUI = function (props) {
 var createOrGetElement = function (el) { return (React.isValidElement(el) ? el : React.createElement(el)); };
 var Noop = function () { return null; };
 
-var reactIs$4 = {exports: {}};
-
-var reactIs_production_min$3 = {};
-
-/** @license React v17.0.2
- * react-is.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var hasRequiredReactIs_production_min$3;
-
-function requireReactIs_production_min$3 () {
-	if (hasRequiredReactIs_production_min$3) return reactIs_production_min$3;
-	hasRequiredReactIs_production_min$3 = 1;
-var b=60103,c=60106,d=60107,e=60108,f=60114,g=60109,h=60110,k=60112,l=60113,m=60120,n=60115,p=60116,q=60121,r=60122,u=60117,v=60129,w=60131;
-	if("function"===typeof Symbol&&Symbol.for){var x=Symbol.for;b=x("react.element");c=x("react.portal");d=x("react.fragment");e=x("react.strict_mode");f=x("react.profiler");g=x("react.provider");h=x("react.context");k=x("react.forward_ref");l=x("react.suspense");m=x("react.suspense_list");n=x("react.memo");p=x("react.lazy");q=x("react.block");r=x("react.server.block");u=x("react.fundamental");v=x("react.debug_trace_mode");w=x("react.legacy_hidden");}
-	function y(a){if("object"===typeof a&&null!==a){var t=a.$$typeof;switch(t){case b:switch(a=a.type,a){case d:case f:case e:case l:case m:return a;default:switch(a=a&&a.$$typeof,a){case h:case k:case p:case n:case g:return a;default:return t}}case c:return t}}}var z=g,A=b,B=k,C=d,D=p,E=n,F=c,G=f,H=e,I=l;reactIs_production_min$3.ContextConsumer=h;reactIs_production_min$3.ContextProvider=z;reactIs_production_min$3.Element=A;reactIs_production_min$3.ForwardRef=B;reactIs_production_min$3.Fragment=C;reactIs_production_min$3.Lazy=D;reactIs_production_min$3.Memo=E;reactIs_production_min$3.Portal=F;reactIs_production_min$3.Profiler=G;reactIs_production_min$3.StrictMode=H;
-	reactIs_production_min$3.Suspense=I;reactIs_production_min$3.isAsyncMode=function(){return !1};reactIs_production_min$3.isConcurrentMode=function(){return !1};reactIs_production_min$3.isContextConsumer=function(a){return y(a)===h};reactIs_production_min$3.isContextProvider=function(a){return y(a)===g};reactIs_production_min$3.isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===b};reactIs_production_min$3.isForwardRef=function(a){return y(a)===k};reactIs_production_min$3.isFragment=function(a){return y(a)===d};reactIs_production_min$3.isLazy=function(a){return y(a)===p};reactIs_production_min$3.isMemo=function(a){return y(a)===n};
-	reactIs_production_min$3.isPortal=function(a){return y(a)===c};reactIs_production_min$3.isProfiler=function(a){return y(a)===f};reactIs_production_min$3.isStrictMode=function(a){return y(a)===e};reactIs_production_min$3.isSuspense=function(a){return y(a)===l};reactIs_production_min$3.isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===d||a===f||a===v||a===e||a===l||a===m||a===w||"object"===typeof a&&null!==a&&(a.$$typeof===p||a.$$typeof===n||a.$$typeof===g||a.$$typeof===h||a.$$typeof===k||a.$$typeof===u||a.$$typeof===q||a[0]===r)?!0:!1};
-	reactIs_production_min$3.typeOf=y;
-	return reactIs_production_min$3;
-}
-
-var reactIs_development$3 = {};
-
-/** @license React v17.0.2
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var hasRequiredReactIs_development$3;
-
-function requireReactIs_development$3 () {
-	if (hasRequiredReactIs_development$3) return reactIs_development$3;
-	hasRequiredReactIs_development$3 = 1;
-
-	if (process.env.NODE_ENV !== "production") {
-	  (function() {
-
-	// ATTENTION
-	// When adding new symbols to this file,
-	// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
-	// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-	// nor polyfill, then a plain number is used for performance.
-	var REACT_ELEMENT_TYPE = 0xeac7;
-	var REACT_PORTAL_TYPE = 0xeaca;
-	var REACT_FRAGMENT_TYPE = 0xeacb;
-	var REACT_STRICT_MODE_TYPE = 0xeacc;
-	var REACT_PROFILER_TYPE = 0xead2;
-	var REACT_PROVIDER_TYPE = 0xeacd;
-	var REACT_CONTEXT_TYPE = 0xeace;
-	var REACT_FORWARD_REF_TYPE = 0xead0;
-	var REACT_SUSPENSE_TYPE = 0xead1;
-	var REACT_SUSPENSE_LIST_TYPE = 0xead8;
-	var REACT_MEMO_TYPE = 0xead3;
-	var REACT_LAZY_TYPE = 0xead4;
-	var REACT_BLOCK_TYPE = 0xead9;
-	var REACT_SERVER_BLOCK_TYPE = 0xeada;
-	var REACT_FUNDAMENTAL_TYPE = 0xead5;
-	var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
-	var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
-
-	if (typeof Symbol === 'function' && Symbol.for) {
-	  var symbolFor = Symbol.for;
-	  REACT_ELEMENT_TYPE = symbolFor('react.element');
-	  REACT_PORTAL_TYPE = symbolFor('react.portal');
-	  REACT_FRAGMENT_TYPE = symbolFor('react.fragment');
-	  REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
-	  REACT_PROFILER_TYPE = symbolFor('react.profiler');
-	  REACT_PROVIDER_TYPE = symbolFor('react.provider');
-	  REACT_CONTEXT_TYPE = symbolFor('react.context');
-	  REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
-	  REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
-	  REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
-	  REACT_MEMO_TYPE = symbolFor('react.memo');
-	  REACT_LAZY_TYPE = symbolFor('react.lazy');
-	  REACT_BLOCK_TYPE = symbolFor('react.block');
-	  REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
-	  REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
-	  symbolFor('react.scope');
-	  symbolFor('react.opaque.id');
-	  REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
-	  symbolFor('react.offscreen');
-	  REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
-	}
-
-	// Filter certain DOM attributes (e.g. src, href) if their values are empty strings.
-
-	var enableScopeAPI = false; // Experimental Create Event Handle API.
-
-	function isValidElementType(type) {
-	  if (typeof type === 'string' || typeof type === 'function') {
-	    return true;
-	  } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
-
-
-	  if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI ) {
-	    return true;
-	  }
-
-	  if (typeof type === 'object' && type !== null) {
-	    if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) {
-	      return true;
-	    }
-	  }
-
-	  return false;
-	}
-
-	function typeOf(object) {
-	  if (typeof object === 'object' && object !== null) {
-	    var $$typeof = object.$$typeof;
-
-	    switch ($$typeof) {
-	      case REACT_ELEMENT_TYPE:
-	        var type = object.type;
-
-	        switch (type) {
-	          case REACT_FRAGMENT_TYPE:
-	          case REACT_PROFILER_TYPE:
-	          case REACT_STRICT_MODE_TYPE:
-	          case REACT_SUSPENSE_TYPE:
-	          case REACT_SUSPENSE_LIST_TYPE:
-	            return type;
-
-	          default:
-	            var $$typeofType = type && type.$$typeof;
-
-	            switch ($$typeofType) {
-	              case REACT_CONTEXT_TYPE:
-	              case REACT_FORWARD_REF_TYPE:
-	              case REACT_LAZY_TYPE:
-	              case REACT_MEMO_TYPE:
-	              case REACT_PROVIDER_TYPE:
-	                return $$typeofType;
-
-	              default:
-	                return $$typeof;
-	            }
-
-	        }
-
-	      case REACT_PORTAL_TYPE:
-	        return $$typeof;
-	    }
-	  }
-
-	  return undefined;
-	}
-	var ContextConsumer = REACT_CONTEXT_TYPE;
-	var ContextProvider = REACT_PROVIDER_TYPE;
-	var Element = REACT_ELEMENT_TYPE;
-	var ForwardRef = REACT_FORWARD_REF_TYPE;
-	var Fragment = REACT_FRAGMENT_TYPE;
-	var Lazy = REACT_LAZY_TYPE;
-	var Memo = REACT_MEMO_TYPE;
-	var Portal = REACT_PORTAL_TYPE;
-	var Profiler = REACT_PROFILER_TYPE;
-	var StrictMode = REACT_STRICT_MODE_TYPE;
-	var Suspense = REACT_SUSPENSE_TYPE;
-	var hasWarnedAboutDeprecatedIsAsyncMode = false;
-	var hasWarnedAboutDeprecatedIsConcurrentMode = false; // AsyncMode should be deprecated
-
-	function isAsyncMode(object) {
-	  {
-	    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-	      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-	      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
-	    }
-	  }
-
-	  return false;
-	}
-	function isConcurrentMode(object) {
-	  {
-	    if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
-	      hasWarnedAboutDeprecatedIsConcurrentMode = true; // Using console['warn'] to evade Babel and ESLint
-
-	      console['warn']('The ReactIs.isConcurrentMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
-	    }
-	  }
-
-	  return false;
-	}
-	function isContextConsumer(object) {
-	  return typeOf(object) === REACT_CONTEXT_TYPE;
-	}
-	function isContextProvider(object) {
-	  return typeOf(object) === REACT_PROVIDER_TYPE;
-	}
-	function isElement(object) {
-	  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-	}
-	function isForwardRef(object) {
-	  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-	}
-	function isFragment(object) {
-	  return typeOf(object) === REACT_FRAGMENT_TYPE;
-	}
-	function isLazy(object) {
-	  return typeOf(object) === REACT_LAZY_TYPE;
-	}
-	function isMemo(object) {
-	  return typeOf(object) === REACT_MEMO_TYPE;
-	}
-	function isPortal(object) {
-	  return typeOf(object) === REACT_PORTAL_TYPE;
-	}
-	function isProfiler(object) {
-	  return typeOf(object) === REACT_PROFILER_TYPE;
-	}
-	function isStrictMode(object) {
-	  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-	}
-	function isSuspense(object) {
-	  return typeOf(object) === REACT_SUSPENSE_TYPE;
-	}
-
-	reactIs_development$3.ContextConsumer = ContextConsumer;
-	reactIs_development$3.ContextProvider = ContextProvider;
-	reactIs_development$3.Element = Element;
-	reactIs_development$3.ForwardRef = ForwardRef;
-	reactIs_development$3.Fragment = Fragment;
-	reactIs_development$3.Lazy = Lazy;
-	reactIs_development$3.Memo = Memo;
-	reactIs_development$3.Portal = Portal;
-	reactIs_development$3.Profiler = Profiler;
-	reactIs_development$3.StrictMode = StrictMode;
-	reactIs_development$3.Suspense = Suspense;
-	reactIs_development$3.isAsyncMode = isAsyncMode;
-	reactIs_development$3.isConcurrentMode = isConcurrentMode;
-	reactIs_development$3.isContextConsumer = isContextConsumer;
-	reactIs_development$3.isContextProvider = isContextProvider;
-	reactIs_development$3.isElement = isElement;
-	reactIs_development$3.isForwardRef = isForwardRef;
-	reactIs_development$3.isFragment = isFragment;
-	reactIs_development$3.isLazy = isLazy;
-	reactIs_development$3.isMemo = isMemo;
-	reactIs_development$3.isPortal = isPortal;
-	reactIs_development$3.isProfiler = isProfiler;
-	reactIs_development$3.isStrictMode = isStrictMode;
-	reactIs_development$3.isSuspense = isSuspense;
-	reactIs_development$3.isValidElementType = isValidElementType;
-	reactIs_development$3.typeOf = typeOf;
-	  })();
-	}
-	return reactIs_development$3;
-}
-
-if (process.env.NODE_ENV === 'production') {
-  reactIs$4.exports = requireReactIs_production_min$3();
-} else {
-  reactIs$4.exports = requireReactIs_development$3();
-}
-
-var reactIsExports$2 = reactIs$4.exports;
-
 /**
  * Context to store the current resource name.
  *
@@ -22535,23 +22116,14 @@ var ResourceContextProvider = function (_a) {
 };
 
 var Resource = function (props) {
-    var create = props.create, edit = props.edit, list = props.list, name = props.name, show = props.show;
+    var Create = props.create, Edit = props.edit, List = props.list, name = props.name, Show = props.show;
     return (React__namespace.createElement(ResourceContextProvider, { value: name },
         React__namespace.createElement(Routes, null,
-            create && (React__namespace.createElement(Route, { path: "create/*", element: getElement(create) })),
-            show && React__namespace.createElement(Route, { path: ":id/show/*", element: getElement(show) }),
-            edit && React__namespace.createElement(Route, { path: ":id/*", element: getElement(edit) }),
-            list && React__namespace.createElement(Route, { path: "/*", element: getElement(list) }),
+            Create && (React__namespace.createElement(Route, { path: "create/*", element: React.isValidElement(Create) ? Create : React__namespace.createElement(Create, null) })),
+            Show && (React__namespace.createElement(Route, { path: ":id/show/*", element: React.isValidElement(Show) ? Show : React__namespace.createElement(Show, null) })),
+            Edit && (React__namespace.createElement(Route, { path: ":id/*", element: React.isValidElement(Edit) ? Edit : React__namespace.createElement(Edit, null) })),
+            List && (React__namespace.createElement(Route, { path: "/*", element: React.isValidElement(List) ? List : React__namespace.createElement(List, null) })),
             props.children)));
-};
-var getElement = function (ElementOrComponent) {
-    if (React.isValidElement(ElementOrComponent)) {
-        return ElementOrComponent;
-    }
-    if (reactIsExports$2.isValidElementType(ElementOrComponent)) {
-        return React__namespace.createElement(ElementOrComponent, null);
-    }
-    return null;
 };
 Resource.raName = 'Resource';
 Resource.registerResource = function (_a) {
@@ -23885,7 +23457,7 @@ var getSourceParts = function (source) {
     // remove digits, e.g. 'book.authors.2.categories.3.identifier.name' => 'book.authors.categories.identifier.name'
     var sourceWithoutDigits = source.replace(/\.\d+\./g, '.');
     // get final part, e.g. 'book.authors.2.categories.3.identifier.name' => 'identifier.name'
-    // we're not using a regexp here to avoid code scanning alert "Polynomial regular expression used on uncontrolled data"
+    // we're not using a regexp here to avoid code sacnning alert "Polynomial regular expression used on uncontrolled data"
     var parts = source.split('.');
     var lastPartWithDigits;
     parts.forEach(function (part, index) {
@@ -23908,14 +23480,280 @@ var onlyDigits = function (s) {
     return true;
 };
 
+var reactIs$4 = {exports: {}};
+
+var reactIs_production_min$3 = {};
+
+/** @license React v17.0.2
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var hasRequiredReactIs_production_min$3;
+
+function requireReactIs_production_min$3 () {
+	if (hasRequiredReactIs_production_min$3) return reactIs_production_min$3;
+	hasRequiredReactIs_production_min$3 = 1;
+var b=60103,c=60106,d=60107,e=60108,f=60114,g=60109,h=60110,k=60112,l=60113,m=60120,n=60115,p=60116,q=60121,r=60122,u=60117,v=60129,w=60131;
+	if("function"===typeof Symbol&&Symbol.for){var x=Symbol.for;b=x("react.element");c=x("react.portal");d=x("react.fragment");e=x("react.strict_mode");f=x("react.profiler");g=x("react.provider");h=x("react.context");k=x("react.forward_ref");l=x("react.suspense");m=x("react.suspense_list");n=x("react.memo");p=x("react.lazy");q=x("react.block");r=x("react.server.block");u=x("react.fundamental");v=x("react.debug_trace_mode");w=x("react.legacy_hidden");}
+	function y(a){if("object"===typeof a&&null!==a){var t=a.$$typeof;switch(t){case b:switch(a=a.type,a){case d:case f:case e:case l:case m:return a;default:switch(a=a&&a.$$typeof,a){case h:case k:case p:case n:case g:return a;default:return t}}case c:return t}}}var z=g,A=b,B=k,C=d,D=p,E=n,F=c,G=f,H=e,I=l;reactIs_production_min$3.ContextConsumer=h;reactIs_production_min$3.ContextProvider=z;reactIs_production_min$3.Element=A;reactIs_production_min$3.ForwardRef=B;reactIs_production_min$3.Fragment=C;reactIs_production_min$3.Lazy=D;reactIs_production_min$3.Memo=E;reactIs_production_min$3.Portal=F;reactIs_production_min$3.Profiler=G;reactIs_production_min$3.StrictMode=H;
+	reactIs_production_min$3.Suspense=I;reactIs_production_min$3.isAsyncMode=function(){return !1};reactIs_production_min$3.isConcurrentMode=function(){return !1};reactIs_production_min$3.isContextConsumer=function(a){return y(a)===h};reactIs_production_min$3.isContextProvider=function(a){return y(a)===g};reactIs_production_min$3.isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===b};reactIs_production_min$3.isForwardRef=function(a){return y(a)===k};reactIs_production_min$3.isFragment=function(a){return y(a)===d};reactIs_production_min$3.isLazy=function(a){return y(a)===p};reactIs_production_min$3.isMemo=function(a){return y(a)===n};
+	reactIs_production_min$3.isPortal=function(a){return y(a)===c};reactIs_production_min$3.isProfiler=function(a){return y(a)===f};reactIs_production_min$3.isStrictMode=function(a){return y(a)===e};reactIs_production_min$3.isSuspense=function(a){return y(a)===l};reactIs_production_min$3.isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===d||a===f||a===v||a===e||a===l||a===m||a===w||"object"===typeof a&&null!==a&&(a.$$typeof===p||a.$$typeof===n||a.$$typeof===g||a.$$typeof===h||a.$$typeof===k||a.$$typeof===u||a.$$typeof===q||a[0]===r)?!0:!1};
+	reactIs_production_min$3.typeOf=y;
+	return reactIs_production_min$3;
+}
+
+var reactIs_development$3 = {};
+
+/** @license React v17.0.2
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var hasRequiredReactIs_development$3;
+
+function requireReactIs_development$3 () {
+	if (hasRequiredReactIs_development$3) return reactIs_development$3;
+	hasRequiredReactIs_development$3 = 1;
+
+	if (process.env.NODE_ENV !== "production") {
+	  (function() {
+
+	// ATTENTION
+	// When adding new symbols to this file,
+	// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+	// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+	// nor polyfill, then a plain number is used for performance.
+	var REACT_ELEMENT_TYPE = 0xeac7;
+	var REACT_PORTAL_TYPE = 0xeaca;
+	var REACT_FRAGMENT_TYPE = 0xeacb;
+	var REACT_STRICT_MODE_TYPE = 0xeacc;
+	var REACT_PROFILER_TYPE = 0xead2;
+	var REACT_PROVIDER_TYPE = 0xeacd;
+	var REACT_CONTEXT_TYPE = 0xeace;
+	var REACT_FORWARD_REF_TYPE = 0xead0;
+	var REACT_SUSPENSE_TYPE = 0xead1;
+	var REACT_SUSPENSE_LIST_TYPE = 0xead8;
+	var REACT_MEMO_TYPE = 0xead3;
+	var REACT_LAZY_TYPE = 0xead4;
+	var REACT_BLOCK_TYPE = 0xead9;
+	var REACT_SERVER_BLOCK_TYPE = 0xeada;
+	var REACT_FUNDAMENTAL_TYPE = 0xead5;
+	var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
+	var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
+
+	if (typeof Symbol === 'function' && Symbol.for) {
+	  var symbolFor = Symbol.for;
+	  REACT_ELEMENT_TYPE = symbolFor('react.element');
+	  REACT_PORTAL_TYPE = symbolFor('react.portal');
+	  REACT_FRAGMENT_TYPE = symbolFor('react.fragment');
+	  REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+	  REACT_PROFILER_TYPE = symbolFor('react.profiler');
+	  REACT_PROVIDER_TYPE = symbolFor('react.provider');
+	  REACT_CONTEXT_TYPE = symbolFor('react.context');
+	  REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+	  REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
+	  REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+	  REACT_MEMO_TYPE = symbolFor('react.memo');
+	  REACT_LAZY_TYPE = symbolFor('react.lazy');
+	  REACT_BLOCK_TYPE = symbolFor('react.block');
+	  REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+	  REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+	  symbolFor('react.scope');
+	  symbolFor('react.opaque.id');
+	  REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+	  symbolFor('react.offscreen');
+	  REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+	}
+
+	// Filter certain DOM attributes (e.g. src, href) if their values are empty strings.
+
+	var enableScopeAPI = false; // Experimental Create Event Handle API.
+
+	function isValidElementType(type) {
+	  if (typeof type === 'string' || typeof type === 'function') {
+	    return true;
+	  } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+
+
+	  if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI ) {
+	    return true;
+	  }
+
+	  if (typeof type === 'object' && type !== null) {
+	    if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) {
+	      return true;
+	    }
+	  }
+
+	  return false;
+	}
+
+	function typeOf(object) {
+	  if (typeof object === 'object' && object !== null) {
+	    var $$typeof = object.$$typeof;
+
+	    switch ($$typeof) {
+	      case REACT_ELEMENT_TYPE:
+	        var type = object.type;
+
+	        switch (type) {
+	          case REACT_FRAGMENT_TYPE:
+	          case REACT_PROFILER_TYPE:
+	          case REACT_STRICT_MODE_TYPE:
+	          case REACT_SUSPENSE_TYPE:
+	          case REACT_SUSPENSE_LIST_TYPE:
+	            return type;
+
+	          default:
+	            var $$typeofType = type && type.$$typeof;
+
+	            switch ($$typeofType) {
+	              case REACT_CONTEXT_TYPE:
+	              case REACT_FORWARD_REF_TYPE:
+	              case REACT_LAZY_TYPE:
+	              case REACT_MEMO_TYPE:
+	              case REACT_PROVIDER_TYPE:
+	                return $$typeofType;
+
+	              default:
+	                return $$typeof;
+	            }
+
+	        }
+
+	      case REACT_PORTAL_TYPE:
+	        return $$typeof;
+	    }
+	  }
+
+	  return undefined;
+	}
+	var ContextConsumer = REACT_CONTEXT_TYPE;
+	var ContextProvider = REACT_PROVIDER_TYPE;
+	var Element = REACT_ELEMENT_TYPE;
+	var ForwardRef = REACT_FORWARD_REF_TYPE;
+	var Fragment = REACT_FRAGMENT_TYPE;
+	var Lazy = REACT_LAZY_TYPE;
+	var Memo = REACT_MEMO_TYPE;
+	var Portal = REACT_PORTAL_TYPE;
+	var Profiler = REACT_PROFILER_TYPE;
+	var StrictMode = REACT_STRICT_MODE_TYPE;
+	var Suspense = REACT_SUSPENSE_TYPE;
+	var hasWarnedAboutDeprecatedIsAsyncMode = false;
+	var hasWarnedAboutDeprecatedIsConcurrentMode = false; // AsyncMode should be deprecated
+
+	function isAsyncMode(object) {
+	  {
+	    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+	      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+	      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
+	    }
+	  }
+
+	  return false;
+	}
+	function isConcurrentMode(object) {
+	  {
+	    if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
+	      hasWarnedAboutDeprecatedIsConcurrentMode = true; // Using console['warn'] to evade Babel and ESLint
+
+	      console['warn']('The ReactIs.isConcurrentMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
+	    }
+	  }
+
+	  return false;
+	}
+	function isContextConsumer(object) {
+	  return typeOf(object) === REACT_CONTEXT_TYPE;
+	}
+	function isContextProvider(object) {
+	  return typeOf(object) === REACT_PROVIDER_TYPE;
+	}
+	function isElement(object) {
+	  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+	}
+	function isForwardRef(object) {
+	  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+	}
+	function isFragment(object) {
+	  return typeOf(object) === REACT_FRAGMENT_TYPE;
+	}
+	function isLazy(object) {
+	  return typeOf(object) === REACT_LAZY_TYPE;
+	}
+	function isMemo(object) {
+	  return typeOf(object) === REACT_MEMO_TYPE;
+	}
+	function isPortal(object) {
+	  return typeOf(object) === REACT_PORTAL_TYPE;
+	}
+	function isProfiler(object) {
+	  return typeOf(object) === REACT_PROFILER_TYPE;
+	}
+	function isStrictMode(object) {
+	  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+	}
+	function isSuspense(object) {
+	  return typeOf(object) === REACT_SUSPENSE_TYPE;
+	}
+
+	reactIs_development$3.ContextConsumer = ContextConsumer;
+	reactIs_development$3.ContextProvider = ContextProvider;
+	reactIs_development$3.Element = Element;
+	reactIs_development$3.ForwardRef = ForwardRef;
+	reactIs_development$3.Fragment = Fragment;
+	reactIs_development$3.Lazy = Lazy;
+	reactIs_development$3.Memo = Memo;
+	reactIs_development$3.Portal = Portal;
+	reactIs_development$3.Profiler = Profiler;
+	reactIs_development$3.StrictMode = StrictMode;
+	reactIs_development$3.Suspense = Suspense;
+	reactIs_development$3.isAsyncMode = isAsyncMode;
+	reactIs_development$3.isConcurrentMode = isConcurrentMode;
+	reactIs_development$3.isContextConsumer = isContextConsumer;
+	reactIs_development$3.isContextProvider = isContextProvider;
+	reactIs_development$3.isElement = isElement;
+	reactIs_development$3.isForwardRef = isForwardRef;
+	reactIs_development$3.isFragment = isFragment;
+	reactIs_development$3.isLazy = isLazy;
+	reactIs_development$3.isMemo = isMemo;
+	reactIs_development$3.isPortal = isPortal;
+	reactIs_development$3.isProfiler = isProfiler;
+	reactIs_development$3.isStrictMode = isStrictMode;
+	reactIs_development$3.isSuspense = isSuspense;
+	reactIs_development$3.isValidElementType = isValidElementType;
+	reactIs_development$3.typeOf = typeOf;
+	  })();
+	}
+	return reactIs_development$3;
+}
+
+if (process.env.NODE_ENV === 'production') {
+  reactIs$4.exports = requireReactIs_production_min$3();
+} else {
+  reactIs$4.exports = requireReactIs_development$3();
+}
+
+var reactIsExports$2 = reactIs$4.exports;
+
 var ComponentPropType = (function (props, propName, componentName) {
     if (props[propName] && !reactIsExports$2.isValidElementType(props[propName])) {
         return new Error("Invalid prop '".concat(propName, "' supplied to '").concat(componentName, "': the prop is not a valid React component"));
     }
 });
 
-var __assign$B = (undefined && undefined.__assign) || function () {
-    __assign$B = Object.assign || function(t) {
+var __assign$A = (undefined && undefined.__assign) || function () {
+    __assign$A = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -23923,7 +23761,7 @@ var __assign$B = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$B.apply(this, arguments);
+    return __assign$A.apply(this, arguments);
 };
 var styles$3 = {
     root: {
@@ -23976,7 +23814,7 @@ var Button$3 = function (_a) {
     var _b = React.useState(false), hovered = _b[0], setHovered = _b[1];
     return (React__namespace.createElement("div", null,
         React__namespace.createElement("a", { href: href, style: hovered
-                ? __assign$B(__assign$B({}, styles$3.link), styles$3.linkHovered) : styles$3.link, onMouseEnter: function () { return setHovered(true); }, onMouseLeave: function () { return setHovered(false); } },
+                ? __assign$A(__assign$A({}, styles$3.link), styles$3.linkHovered) : styles$3.link, onMouseEnter: function () { return setHovered(true); }, onMouseLeave: function () { return setHovered(false); } },
             React__namespace.createElement("img", { src: img, alt: label, style: styles$3.image }),
             React__namespace.createElement("br", null),
             label)));
@@ -24115,7 +23953,7 @@ var useStore = function (key, defaultValue) {
  * const ResetDatagridPrefs = () {
  *    const removeItems = useRemoveItemsFromStore();
  *
- *    const handleClick = () => {
+ *    const hancleClick = () => {
  *        removeItems('datagrid.prefs');
  *    };
  *
@@ -24262,8 +24100,8 @@ var useLogout = function () {
 };
 var useLogout$1 = useLogout;
 
-var __assign$A = (undefined && undefined.__assign) || function () {
-    __assign$A = Object.assign || function(t) {
+var __assign$z = (undefined && undefined.__assign) || function () {
+    __assign$z = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -24271,7 +24109,7 @@ var __assign$A = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$A.apply(this, arguments);
+    return __assign$z.apply(this, arguments);
 };
 var emptyParams$2 = {};
 /**
@@ -24321,7 +24159,7 @@ var useAuthState = function (params, logoutOnFailure, queryOptions) {
     var result = useQuery(['auth', 'checkAuth', params], function () {
         // The authProvider is optional in react-admin
         return authProvider === null || authProvider === void 0 ? void 0 : authProvider.checkAuth(params).then(function () { return true; });
-    }, __assign$A({ onError: function (error) {
+    }, __assign$z({ onError: function (error) {
             var loginUrl = removeDoubleSlashes("".concat(basename, "/").concat(defaultAuthParams$1.loginUrl));
             if (logoutOnFailure) {
                 logout({}, error && error.redirectTo != null
@@ -24352,17 +24190,6 @@ var getErrorMessage$1 = function (error, defaultMessage) {
             : error.message;
 };
 
-var __assign$z = (undefined && undefined.__assign) || function () {
-    __assign$z = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign$z.apply(this, arguments);
-};
 var __awaiter$4 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -24378,7 +24205,7 @@ var __generator$4 = (undefined && undefined.__generator) || function (thisArg, b
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -24416,7 +24243,7 @@ var emptyParams$1 = {};
  *
  * @param {Object} params Any params you want to pass to the authProvider
  *
- * @returns The current auth check state. Destructure as { permissions, error, isLoading, refetch }.
+ * @returns The current auth check state. Destructure as { permissions, error, isLoading }.
  *
  * @example
  *     import { usePermissions } from 'react-admin';
@@ -24436,22 +24263,15 @@ var usePermissions = function (params, queryParams) {
         staleTime: 5 * 60 * 1000,
     }; }
     var authProvider = useAuthProvider$1();
-    var logoutIfAccessDenied = useLogoutIfAccessDenied$1();
     var result = useQuery(['auth', 'getPermissions', params], authProvider
         ? function () { return authProvider.getPermissions(params); }
         : function () { return __awaiter$4(void 0, void 0, void 0, function () { return __generator$4(this, function (_a) {
             return [2 /*return*/, []];
-        }); }); }, __assign$z({ onError: function (error) {
-            if (process.env.NODE_ENV !== 'production') {
-                console.error(error);
-            }
-            logoutIfAccessDenied(error);
-        } }, queryParams));
+        }); }); }, queryParams);
     return React.useMemo(function () { return ({
         permissions: result.data,
         isLoading: result.isLoading,
         error: result.error,
-        refetch: result.refetch,
     }); }, [result]);
 };
 var usePermissions$1 = usePermissions;
@@ -24775,7 +24595,7 @@ var __generator$3 = (undefined && undefined.__generator) || function (thisArg, b
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -25045,7 +24865,7 @@ var __generator$2 = (undefined && undefined.__generator) || function (thisArg, b
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -25413,7 +25233,7 @@ var __generator$1 = (undefined && undefined.__generator) || function (thisArg, b
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -25995,7 +25815,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -26082,10 +25902,10 @@ var useInput = function (props) {
         for (var _i = 0; _i < arguments.length; _i++) {
             event[_i] = arguments[_i];
         }
-        controllerField.onBlur();
         if (initialOnBlur) {
             initialOnBlur.apply(void 0, event);
         }
+        controllerField.onBlur();
     });
     var onChange = useEvent(function () {
         var _a, _b, _c, _d, _e;
@@ -26093,14 +25913,14 @@ var useInput = function (props) {
         for (var _i = 0; _i < arguments.length; _i++) {
             event[_i] = arguments[_i];
         }
+        if (initialOnChange) {
+            initialOnChange.apply(void 0, event);
+        }
         var eventOrValue = (props.type === 'checkbox' &&
             ((_b = (_a = event[0]) === null || _a === void 0 ? void 0 : _a.target) === null || _b === void 0 ? void 0 : _b.value) === 'on'
             ? event[0].target.checked
             : (_e = (_d = (_c = event[0]) === null || _c === void 0 ? void 0 : _c.target) === null || _d === void 0 ? void 0 : _d.value) !== null && _e !== void 0 ? _e : event[0]);
         controllerField.onChange(parse ? parse(eventOrValue) : eventOrValue);
-        if (initialOnChange) {
-            initialOnChange.apply(void 0, event);
-        }
     });
     var field = __assign$q(__assign$q({}, controllerField), { value: format ? format(controllerField.value) : controllerField.value, onBlur: onBlur, onChange: onChange });
     return {
@@ -28093,6 +27913,7 @@ function unsupportedProp(props, propName, componentName, location, propFullName)
   return null;
 }
 
+/* eslint-disable react-hooks/rules-of-hooks, react-hooks/exhaustive-deps */
 function useControlled({
   controlled,
   default: defaultProp,
@@ -28131,7 +27952,6 @@ function useControlled({
 /**
  * https://github.com/facebook/react/issues/14099#issuecomment-440013892
  */
-
 function useEventCallback(fn) {
   const ref = React__namespace.useRef(fn);
   useEnhancedEffect$1(() => {
@@ -28162,6 +27982,7 @@ function useForkRef(...refs) {
   }, refs);
 }
 
+// based on https://github.com/WICG/focus-visible/blob/v4.1.5/src/focus-visible.js
 let hadKeyboardEvent = true;
 let hadFocusVisibleRecently = false;
 let hadFocusVisibleRecentlyTimeout;
@@ -32071,8 +31892,8 @@ const width = style$1({
 const maxWidth = props => {
   if (props.maxWidth !== undefined && props.maxWidth !== null) {
     const styleFromPropValue = propValue => {
-      var _props$theme;
-      const breakpoint = ((_props$theme = props.theme) == null || (_props$theme = _props$theme.breakpoints) == null || (_props$theme = _props$theme.values) == null ? void 0 : _props$theme[propValue]) || values$1[propValue];
+      var _props$theme, _props$theme$breakpoi, _props$theme$breakpoi2;
+      const breakpoint = ((_props$theme = props.theme) == null ? void 0 : (_props$theme$breakpoi = _props$theme.breakpoints) == null ? void 0 : (_props$theme$breakpoi2 = _props$theme$breakpoi.values) == null ? void 0 : _props$theme$breakpoi2[propValue]) || values$1[propValue];
       return {
         maxWidth: breakpoint || sizingTransform(propValue)
       };
@@ -32598,7 +32419,7 @@ const splitProps = props => {
     systemProps: {},
     otherProps: {}
   };
-  const config = (_props$theme$unstable = props == null || (_props$theme = props.theme) == null ? void 0 : _props$theme.unstable_sxConfig) != null ? _props$theme$unstable : defaultSxConfig$1;
+  const config = (_props$theme$unstable = props == null ? void 0 : (_props$theme = props.theme) == null ? void 0 : _props$theme.unstable_sxConfig) != null ? _props$theme$unstable : defaultSxConfig$1;
   Object.keys(props).forEach(prop => {
     if (config[prop]) {
       result.systemProps[prop] = props[prop];
@@ -32725,12 +32546,12 @@ const getVariantStyles = (name, theme) => {
   return variantsStyles;
 };
 const variantsResolver = (props, styles, theme, name) => {
-  var _theme$components;
+  var _theme$components, _theme$components$nam;
   const {
     ownerState = {}
   } = props;
   const variantsStyles = [];
-  const themeVariants = theme == null || (_theme$components = theme.components) == null || (_theme$components = _theme$components[name]) == null ? void 0 : _theme$components.variants;
+  const themeVariants = theme == null ? void 0 : (_theme$components = theme.components) == null ? void 0 : (_theme$components$nam = _theme$components[name]) == null ? void 0 : _theme$components$nam.variants;
   if (themeVariants) {
     themeVariants.forEach(themeVariant => {
       let isMatch = true;
@@ -33204,7 +33025,10 @@ function mergeOuterLocalTheme(outerTheme, localTheme) {
     }
     return mergedTheme;
   }
-  return _extends$3({}, outerTheme, localTheme);
+  return {
+    ...outerTheme,
+    ...localTheme
+  };
 }
 
 /**
@@ -33799,9 +33623,6 @@ function createTransitions(inputTransitions) {
       if (!isNumber(delay) && !isString(delay)) {
         console.error('MUI: Argument "delay" must be a number or a string.');
       }
-      if (typeof options !== 'object') {
-        console.error(['MUI: Secong argument of transition.create must be an object.', "Arguments should be either `create('prop1', options)` or `create(['prop1', 'prop2'], options)`"].join('\n'));
-      }
       if (Object.keys(other).length !== 0) {
         console.error(`MUI: Unrecognized argument(s) [${Object.keys(other).join(',')}].`);
       }
@@ -34040,9 +33861,9 @@ function extractEventHandlers(object, excludeKeys = []) {
  * If `componentProps` is a function, calls it with the provided `ownerState`.
  * Otherwise, just returns `componentProps`.
  */
-function resolveComponentProps(componentProps, ownerState, slotState) {
+function resolveComponentProps(componentProps, ownerState) {
   if (typeof componentProps === 'function') {
-    return componentProps(ownerState, slotState);
+    return componentProps(ownerState);
   }
   return componentProps;
 }
@@ -34131,7 +33952,7 @@ function mergeSlotProps(parameters) {
   };
 }
 
-const _excluded$R = ["elementType", "externalSlotProps", "ownerState", "skipResolvingSlotProps"];
+const _excluded$R = ["elementType", "externalSlotProps", "ownerState"];
 /**
  * @ignore - do not document.
  * Builds the props to be passed into the slot of an unstyled component.
@@ -34145,11 +33966,10 @@ function useSlotProps(parameters) {
   const {
       elementType,
       externalSlotProps,
-      ownerState,
-      skipResolvingSlotProps = false
+      ownerState
     } = parameters,
     rest = _objectWithoutPropertiesLoose(parameters, _excluded$R);
-  const resolvedComponentsProps = skipResolvingSlotProps ? {} : resolveComponentProps(externalSlotProps, ownerState);
+  const resolvedComponentsProps = resolveComponentProps(externalSlotProps, ownerState);
   const {
     props: mergedProps,
     internalRef
@@ -34332,6 +34152,7 @@ if (process.env.NODE_ENV !== 'production') {
   ClickAwayListener['propTypes' + ''] = exactProp(ClickAwayListener.propTypes);
 }
 
+/* eslint-disable consistent-return, jsx-a11y/no-noninteractive-tabindex */
 // Inspired by https://github.com/focus-trap/tabbable
 const candidatesSelector = ['input', 'select', 'textarea', 'a[href]', 'button', '[tabindex]', 'audio[controls]', 'video[controls]', '[contenteditable]:not([contenteditable="false"])'].join(',');
 function getTabIndex(node) {
@@ -37821,8 +37642,7 @@ const TextareaAutosize = /*#__PURE__*/React__namespace.forwardRef(function Texta
       ref: shadowRef,
       tabIndex: -1,
       style: _extends$3({}, styles$2.shadow, style, {
-        paddingTop: 0,
-        paddingBottom: 0
+        padding: 0
       })
     })]
   });
@@ -37894,7 +37714,7 @@ const SvgIconRoot = styled$1('svg', {
   theme,
   ownerState
 }) => {
-  var _theme$transitions, _theme$transitions$cr, _theme$transitions2, _theme$typography, _theme$typography$pxT, _theme$typography2, _theme$typography2$px, _theme$typography3, _theme$typography3$px, _palette$ownerState$c, _palette, _palette2, _palette3;
+  var _theme$transitions, _theme$transitions$cr, _theme$transitions2, _theme$transitions2$d, _theme$typography, _theme$typography$pxT, _theme$typography2, _theme$typography2$px, _theme$typography3, _theme$typography3$px, _palette$ownerState$c, _palette, _palette$ownerState$c2, _palette2, _palette2$action, _palette3, _palette3$action;
   return {
     userSelect: 'none',
     width: '1em',
@@ -37904,19 +37724,19 @@ const SvgIconRoot = styled$1('svg', {
     // e.g. heroicons uses fill="none" and stroke="currentColor"
     fill: ownerState.hasSvgAsChild ? undefined : 'currentColor',
     flexShrink: 0,
-    transition: (_theme$transitions = theme.transitions) == null || (_theme$transitions$cr = _theme$transitions.create) == null ? void 0 : _theme$transitions$cr.call(_theme$transitions, 'fill', {
-      duration: (_theme$transitions2 = theme.transitions) == null || (_theme$transitions2 = _theme$transitions2.duration) == null ? void 0 : _theme$transitions2.shorter
+    transition: (_theme$transitions = theme.transitions) == null ? void 0 : (_theme$transitions$cr = _theme$transitions.create) == null ? void 0 : _theme$transitions$cr.call(_theme$transitions, 'fill', {
+      duration: (_theme$transitions2 = theme.transitions) == null ? void 0 : (_theme$transitions2$d = _theme$transitions2.duration) == null ? void 0 : _theme$transitions2$d.shorter
     }),
     fontSize: {
       inherit: 'inherit',
-      small: ((_theme$typography = theme.typography) == null || (_theme$typography$pxT = _theme$typography.pxToRem) == null ? void 0 : _theme$typography$pxT.call(_theme$typography, 20)) || '1.25rem',
-      medium: ((_theme$typography2 = theme.typography) == null || (_theme$typography2$px = _theme$typography2.pxToRem) == null ? void 0 : _theme$typography2$px.call(_theme$typography2, 24)) || '1.5rem',
-      large: ((_theme$typography3 = theme.typography) == null || (_theme$typography3$px = _theme$typography3.pxToRem) == null ? void 0 : _theme$typography3$px.call(_theme$typography3, 35)) || '2.1875rem'
+      small: ((_theme$typography = theme.typography) == null ? void 0 : (_theme$typography$pxT = _theme$typography.pxToRem) == null ? void 0 : _theme$typography$pxT.call(_theme$typography, 20)) || '1.25rem',
+      medium: ((_theme$typography2 = theme.typography) == null ? void 0 : (_theme$typography2$px = _theme$typography2.pxToRem) == null ? void 0 : _theme$typography2$px.call(_theme$typography2, 24)) || '1.5rem',
+      large: ((_theme$typography3 = theme.typography) == null ? void 0 : (_theme$typography3$px = _theme$typography3.pxToRem) == null ? void 0 : _theme$typography3$px.call(_theme$typography3, 35)) || '2.1875rem'
     }[ownerState.fontSize],
     // TODO v5 deprecate, v6 remove for sx
-    color: (_palette$ownerState$c = (_palette = (theme.vars || theme).palette) == null || (_palette = _palette[ownerState.color]) == null ? void 0 : _palette.main) != null ? _palette$ownerState$c : {
-      action: (_palette2 = (theme.vars || theme).palette) == null || (_palette2 = _palette2.action) == null ? void 0 : _palette2.active,
-      disabled: (_palette3 = (theme.vars || theme).palette) == null || (_palette3 = _palette3.action) == null ? void 0 : _palette3.disabled,
+    color: (_palette$ownerState$c = (_palette = (theme.vars || theme).palette) == null ? void 0 : (_palette$ownerState$c2 = _palette[ownerState.color]) == null ? void 0 : _palette$ownerState$c2.main) != null ? _palette$ownerState$c : {
+      action: (_palette2 = (theme.vars || theme).palette) == null ? void 0 : (_palette2$action = _palette2.action) == null ? void 0 : _palette2$action.active,
+      disabled: (_palette3 = (theme.vars || theme).palette) == null ? void 0 : (_palette3$action = _palette3.action) == null ? void 0 : _palette3$action.disabled,
       inherit: undefined
     }[ownerState.color]
   };
@@ -43444,7 +43264,7 @@ process.env.NODE_ENV !== "production" ? Button$1.propTypes /* remove-proptypes *
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: PropTypes /* @typescript-to-proptypes-ignore */.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, the component is disabled.
    * @default false
@@ -48549,7 +48369,7 @@ process.env.NODE_ENV !== "production" ? MenuItem.propTypes /* remove-proptypes *
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: PropTypes /* @typescript-to-proptypes-ignore */.elementType,
+  component: PropTypes.elementType,
   /**
    * If `true`, compact vertical padding designed for keyboard and mouse input is used.
    * The prop defaults to the value inherited from the parent Menu component.
@@ -49062,7 +48882,7 @@ const OutlinedInput = /*#__PURE__*/React__namespace.forwardRef(function Outlined
   const fcs = formControlState({
     props,
     muiFormControl,
-    states: ['color', 'disabled', 'error', 'focused', 'hiddenLabel', 'size', 'required']
+    states: ['required']
   });
   const ownerState = _extends$3({}, props, {
     color: fcs.color || 'primary',
@@ -51998,7 +51818,6 @@ function requireCreateSvgIcon () {
 	if (hasRequiredCreateSvgIcon) return createSvgIcon;
 	hasRequiredCreateSvgIcon = 1;
 	(function (exports) {
-		'use client';
 
 		Object.defineProperty(exports, "__esModule", {
 		  value: true
@@ -53874,7 +53693,7 @@ Menu.propTypes = {
     dense: PropTypes.bool,
     hasDashboard: PropTypes.bool,
 };
-// re-export MenuItem components for convenience
+// re-export MenuItem commponents for convenience
 Menu.Item = MenuItemLink;
 Menu.DashboardItem = DashboardMenuItem;
 Menu.ResourceItem = ResourceMenuItem;
@@ -54277,16 +54096,6 @@ var Notification = function (props) {
     var _h = React__namespace.useState(undefined), messageInfo = _h[0], setMessageInfo = _h[1];
     var translate = useTranslate();
     React.useEffect(function () {
-        var _a;
-        var beforeunload = function (e) {
-            e.preventDefault();
-            var confirmationMessage = '';
-            e.returnValue = confirmationMessage;
-            return confirmationMessage;
-        };
-        if ((_a = messageInfo === null || messageInfo === void 0 ? void 0 : messageInfo.notificationOptions) === null || _a === void 0 ? void 0 : _a.undoable) {
-            window.addEventListener('beforeunload', beforeunload);
-        }
         if (notifications.length && !messageInfo) {
             // Set a new snack when we don't have an active one
             setMessageInfo(takeNotification());
@@ -54296,12 +54105,6 @@ var Notification = function (props) {
             // Close an active snack when a new one is added
             setOpen(false);
         }
-        return function () {
-            var _a;
-            if ((_a = messageInfo === null || messageInfo === void 0 ? void 0 : messageInfo.notificationOptions) === null || _a === void 0 ? void 0 : _a.undoable) {
-                window.removeEventListener('beforeunload', beforeunload);
-            }
-        };
     }, [notifications, messageInfo, open, takeNotification]);
     var handleRequestClose = React.useCallback(function () {
         setOpen(false);
@@ -55417,7 +55220,6 @@ var englishMessages = {
             email: 'Must be a valid email',
             oneOf: 'Must be one of: %{options}',
             regex: 'Must match a specific format (regexp): %{pattern}',
-            unique: 'Must be unique',
         },
         saved_queries: {
             label: 'Saved queries',
@@ -58713,7 +58515,7 @@ var getDataProvider = function (opts) {
         if (NO_AUTH_PATHS.has(resource)) {
             return fetcher === null || fetcher === void 0 ? void 0 : fetcher(resource, params);
         }
-        var fetchParams = __assign$F({}, (params !== null && params !== void 0 ? params : {}));
+        var fetchParams = __assign$E({}, (params !== null && params !== void 0 ? params : {}));
         if (!fetchParams.headers) {
             fetchParams.headers = {};
         }
@@ -58745,7 +58547,7 @@ var Application = function (props) {
     var adminProps = React.useMemo(function () {
         var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
-        var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
+        var rs = __assign$E({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
         /* if (!baseUrl || isEmpty(baseUrl)) {
           throw getError({ message: 'Missing urls.base property' });
         } */
@@ -58762,8 +58564,8 @@ var Application = function (props) {
             logger.info('Unmount RA application: ', adminProps);
         };
     }, [logger, adminProps]);
-    return (React.createElement(Admin, __assign$F({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {
-        return React.createElement(Resource, __assign$F({ key: resource.name }, resource));
+    return (React.createElement(Admin, __assign$E({}, adminProps), resources === null || resources === void 0 ? void 0 : resources.map(function (resource) {
+        return React.createElement(Resource, __assign$E({ key: resource.name }, resource));
     })));
 };
 
@@ -58779,7 +58581,7 @@ var ApplicationWrapper = function (_a) {
 // -------------------------------------------------------------------------------
 var Ra = function (props) {
     return (React.createElement(ApplicationWrapper, null,
-        React.createElement(Application, __assign$F({}, props))));
+        React.createElement(Application, __assign$E({}, props))));
 };
 
 exports.Application = Application;

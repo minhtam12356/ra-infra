@@ -6,7 +6,11 @@ import { App } from '../common/constants';
 
 const authService = AuthService.getInstance();
 
-export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath: string }): AuthProvider => {
+export const AuthProviderGetter = (opts: {
+  dataProvider: IDataProvider;
+  authPath: string;
+  checkAuth?: () => Promise<void>;
+}): AuthProvider => {
   const { dataProvider, authPath } = opts;
 
   if (!dataProvider) {
@@ -50,25 +54,28 @@ export const AuthProviderGetter = (opts: { dataProvider: IDataProvider; authPath
     // CHECK_AUTH
     // -------------------------------------------------------------
     checkAuth: () => {
-      return new Promise((resolve, reject) => {
-        const token = authService.getAuthToken();
-        if (!token?.value) {
-          reject({ redirectTo: 'login' });
-        }
-
-        dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
-          .then((rs) => {
-            if (!rs?.data?.userId) {
-              reject({ redirectTo: 'login' });
-            }
-
-            resolve();
-          })
-          .catch((error) => {
-            console.error('[checkAuth] Error: ', error);
+      return (
+        opts?.checkAuth?.() ||
+        new Promise((resolve, reject) => {
+          const token = authService.getAuthToken();
+          if (!token?.value) {
             reject({ redirectTo: 'login' });
-          });
-      });
+          }
+
+          dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+            .then((rs) => {
+              if (!rs?.data?.userId) {
+                reject({ redirectTo: 'login' });
+              }
+
+              resolve();
+            })
+            .catch((error) => {
+              console.error('[checkAuth] Error: ', error);
+              // reject({ redirectTo: 'login' });
+            });
+        })
+      );
     },
     // -------------------------------------------------------------
     // LOGOUT
