@@ -29,10 +29,10 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     }
 
     return rs;
-  }, [restProps, getI18nProvider, getAuthProvider, getDataProvider]);
+  }, [restProps]);
 
   React.useEffect(() => {
-    logger.info('Mounted RA application | Admin props: %o', adminProps);
+    logger.info('Mounted RA application | Admin props');
 
     return () => {
       logger.info('Unmount RA application: ', adminProps);
