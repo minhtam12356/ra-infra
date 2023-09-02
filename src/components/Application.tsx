@@ -2,13 +2,8 @@ import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 import { Admin, AdminProps, CustomRoutes, Resource, ResourceProps } from 'react-admin';
 import { Route } from 'react-router-dom';
-import { ApplicationContext, IApplication } from '../common';
+import { ApplicationContext, IApplication, TRoute } from '../common';
 import { getAuthProvider, getDataProvider, getI18nProvider } from '../providers';
-
-type TRoute = {
-  path: string;
-  element: React.ReactNode;
-};
 
 export const Application: React.FC<IApplication> = (props: IApplication) => {
   const { resources, routesCustom, ...restProps } = props;
@@ -28,7 +23,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     }
 
     return rs;
-  }, [restProps, getI18nProvider, getAuthProvider, getDataProvider]);
+  }, [restProps]);
 
   React.useEffect(() => {
     logger.info('Mounted RA application | Admin props', adminProps);

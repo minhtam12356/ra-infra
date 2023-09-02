@@ -1,11 +1,16 @@
 import { AdminProps, LegacyDataProvider, ResourceProps } from 'react-admin';
 
+export type TRoute = {
+  path: string;
+  element: React.ReactNode;
+};
 export interface IApplication extends AdminProps {
   urls: {
     base: string;
     auth?: string;
   };
   resources?: ResourceProps[];
+  routesCustom?: TRoute[];
   i18n?: Record<string | symbol, any>;
 
   [key: string | symbol]: any;

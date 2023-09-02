@@ -1,4 +1,5 @@
-import React from 'react';
+/// <reference types="react" />
+import React$1 from 'react';
 import { AuthProvider, AdminProps, ResourceProps, LegacyDataProvider } from 'react-admin';
 import * as ra_core from 'ra-core';
 
@@ -76,14 +77,19 @@ declare const AuthProviderGetter: (opts: {
 interface IApplicationContext {
     logger: Logger;
 }
-declare const ApplicationContext: React.Context<IApplicationContext>;
+declare const ApplicationContext: React$1.Context<IApplicationContext>;
 
+type TRoute = {
+    path: string;
+    element: React.ReactNode;
+};
 interface IApplication extends AdminProps {
     urls: {
         base: string;
         auth?: string;
     };
-    resources: ResourceProps[];
+    resources?: ResourceProps[];
+    routesCustom?: TRoute[];
     i18n?: Record<string | symbol, any>;
     [key: string | symbol]: any;
 }
@@ -148,11 +154,11 @@ declare class AuthService {
     cleanUp(): void;
 }
 
-declare const Application: React.FC<IApplication>;
+declare const Application: React$1.FC<IApplication>;
 
-declare const ApplicationWrapper: React.FC<{
-    children: React.ReactNode;
+declare const ApplicationWrapper: React$1.FC<{
+    children: React$1.ReactNode;
 }>;
-declare const Ra: React.FC<IApplication>;
+declare const Ra: React$1.FC<IApplication>;
 
-export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IDispatchAction, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TDataProvider, TRequestMethod, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };
+export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IDispatchAction, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TDataProvider, TRequestMethod, TRoute, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };

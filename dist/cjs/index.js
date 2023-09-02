@@ -58696,24 +58696,7 @@ var getAuthProvider = function (opts) {
 var Application = function (props) {
     var resources = props.resources, routesCustom = props.routesCustom, restProps = __rest$v(props, ["resources", "routesCustom"]);
     var logger = React.useContext(ApplicationContext).logger;
-    // const adminProps = React.useMemo(() => {
-    //   const { urls, i18n = {}, ...rest } = restProps;
-    //   const { base: baseUrl, auth = 'login' } = urls;
-    //   const rs: AdminProps = { i18nProvider: getI18nProvider({ i18n }), ...rest };
-    //
-    //   /* if (!baseUrl || isEmpty(baseUrl)) {
-    //     throw getError({ message: 'Missing urls.base property' });
-    //   } */
-    //
-    //   if (baseUrl && !isEmpty(baseUrl)) {
-    //     const dataProvider = getDataProvider({ baseUrl, authPath: auth });
-    //     rs.dataProvider = dataProvider;
-    //     rs.authProvider = getAuthProvider({ dataProvider, authPath: auth });
-    //   }
-    //
-    //   return rs;
-    // }, [restProps]);
-    var adminProps = function () {
+    var adminProps = React.useMemo(function () {
         var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
         var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
@@ -58723,14 +58706,13 @@ var Application = function (props) {
             rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth });
         }
         return rs;
-    };
+    }, [restProps]);
     React.useEffect(function () {
-        logger.info('Mounted RA application | Admin props: %o', adminProps);
-        logger.info('restProps: %o', restProps);
+        logger.info('Mounted RA application | Admin props', adminProps);
         return function () {
             logger.info('Unmount RA application: ', adminProps);
         };
-    }, [logger, adminProps, restProps]);
+    }, [logger, adminProps]);
     return (React.createElement(Admin, __assign$F({}, adminProps), resources === null || resources === void 0 ? void 0 :
         resources.map(function (resource) {
             return React.createElement(Resource, __assign$F({ key: resource.name }, resource));
