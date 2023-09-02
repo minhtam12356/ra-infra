@@ -1,10 +1,9 @@
+import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 import { Admin, AdminProps, CustomRoutes, Resource, ResourceProps } from 'react-admin';
+import { Route } from 'react-router-dom';
 import { ApplicationContext, IApplication } from '../common';
 import { getAuthProvider, getDataProvider, getI18nProvider } from '../providers';
-import isEmpty from 'lodash/isEmpty';
-import { Route } from 'react-router-dom';
-// import { getError } from '../utilities';
 
 type TRoute = {
   path: string;
@@ -32,7 +31,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   }, [restProps, getI18nProvider, getAuthProvider, getDataProvider]);
 
   React.useEffect(() => {
-    logger.info('Mounted RA application | Admin props');
+    logger.info('Mounted RA application | Admin props', adminProps);
 
     return () => {
       logger.info('Unmount RA application: ', adminProps);
@@ -45,13 +44,13 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
         return <Resource key={resource.name} {...resource} />;
       })}
 
+      {routesCustom?.length && (
+        <CustomRoutes>
+          {routesCustom.map((route: TRoute) => {
+            return <Route key={route.path} {...route} />;
+          })}
+        </CustomRoutes>
+      )}
     </Admin>
   );
 };
-      // {routesCustom?.length && (
-      //   <CustomRoutes>
-      //     {routesCustom.map((route: TRoute) => {
-      //       return <Route key={route.path} {...route} />;
-      //     })}
-      //   </CustomRoutes>
-      // )}
