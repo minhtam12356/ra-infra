@@ -62,18 +62,19 @@ export const AuthProviderGetter = (opts: {
             reject({ redirectTo: 'login' });
           }
 
-          dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
-            .then((rs) => {
-              if (!rs?.data?.userId) {
-                reject({ redirectTo: 'login' });
-              }
-
-              resolve();
-            })
-            .catch((error) => {
-              console.error('[checkAuth] Error: ', error);
-              // reject({ redirectTo: 'login' });
-            });
+          // dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+          //   .then((rs) => {
+          //     if (!rs?.data?.userId) {
+          //       reject({ redirectTo: 'login' });
+          //     }
+          //
+          //     resolve();
+          //   })
+          //   .catch((error) => {
+          //     console.error('[checkAuth] Error: ', error);
+          //     // reject({ redirectTo: 'login' });
+          //   });
+          resolve();
         })
       );
     },

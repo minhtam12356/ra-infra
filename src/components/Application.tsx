@@ -23,7 +23,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     }
 
     return rs;
-  }, [restProps]);
+  }, [restProps, getAuthProvider, getDataProvider, getI18nProvider]);
 
   React.useEffect(() => {
     logger.info('Mounted RA application | Admin props', adminProps);

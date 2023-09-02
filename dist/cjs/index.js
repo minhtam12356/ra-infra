@@ -11544,18 +11544,19 @@ var AuthProviderGetter = function (opts) {
                     if (!(token === null || token === void 0 ? void 0 : token.value)) {
                         reject({ redirectTo: 'login' });
                     }
-                    dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
-                        .then(function (rs) {
-                        var _a;
-                        if (!((_a = rs === null || rs === void 0 ? void 0 : rs.data) === null || _a === void 0 ? void 0 : _a.userId)) {
-                            reject({ redirectTo: 'login' });
-                        }
-                        resolve();
-                    })
-                        .catch(function (error) {
-                        console.error('[checkAuth] Error: ', error);
-                        // reject({ redirectTo: 'login' });
-                    });
+                    // dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+                    //   .then((rs) => {
+                    //     if (!rs?.data?.userId) {
+                    //       reject({ redirectTo: 'login' });
+                    //     }
+                    //
+                    //     resolve();
+                    //   })
+                    //   .catch((error) => {
+                    //     console.error('[checkAuth] Error: ', error);
+                    //     // reject({ redirectTo: 'login' });
+                    //   });
+                    resolve();
                 }));
         },
         // -------------------------------------------------------------
@@ -58706,7 +58707,7 @@ var Application = function (props) {
             rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth });
         }
         return rs;
-    }, [restProps]);
+    }, [restProps, getAuthProvider, getDataProvider, getI18nProvider]);
     React.useEffect(function () {
         logger.info('Mounted RA application | Admin props', adminProps);
         return function () {
