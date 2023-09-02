@@ -58695,7 +58695,6 @@ var Application = function (props) {
     // }, [restProps]);
     var adminProps = function () {
         var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
-        logger.info('restProps: %o', restProps);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
         var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
         if (baseUrl && !isEmpty$7(baseUrl)) {
@@ -58707,10 +58706,11 @@ var Application = function (props) {
     };
     React__default.useEffect(function () {
         logger.info('Mounted RA application | Admin props: %o', adminProps);
+        logger.info('restProps: %o', restProps);
         return function () {
             logger.info('Unmount RA application: ', adminProps);
         };
-    }, [logger, adminProps]);
+    }, [logger, adminProps, restProps]);
     return (React__default.createElement(Admin, __assign$F({}, adminProps), resources === null || resources === void 0 ? void 0 :
         resources.map(function (resource) {
             return React__default.createElement(Resource, __assign$F({ key: resource.name }, resource));

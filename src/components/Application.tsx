@@ -37,7 +37,6 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   const adminProps = () => {
     const { urls, i18n = {}, ...rest } = restProps;
 
-    logger.info('restProps: %o', restProps);
     const { base: baseUrl, auth = 'login' } = urls;
     const rs: AdminProps = { i18nProvider: getI18nProvider({ i18n }), ...rest };
 
@@ -53,10 +52,12 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   React.useEffect(() => {
     logger.info('Mounted RA application | Admin props: %o', adminProps);
 
+    logger.info('restProps: %o', restProps);
+
     return () => {
       logger.info('Unmount RA application: ', adminProps);
     };
-  }, [logger, adminProps]);
+  }, [logger, adminProps, restProps]);
 
   return (
     <Admin {...adminProps}>
