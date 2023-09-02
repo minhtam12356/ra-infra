@@ -29,7 +29,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     }
 
     return rs;
-  }, [restProps]);
+  }, [restProps, getI18nProvider, getAuthProvider, getDataProvider]);
 
   React.useEffect(() => {
     logger.info('Mounted RA application | Admin props');
@@ -45,13 +45,13 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
         return <Resource key={resource.name} {...resource} />;
       })}
 
-      {routesCustom?.length && (
-        <CustomRoutes>
-          {routesCustom.map((route: TRoute) => {
-            return <Route key={route.path} {...route} />;
-          })}
-        </CustomRoutes>
-      )}
     </Admin>
   );
 };
+      // {routesCustom?.length && (
+      //   <CustomRoutes>
+      //     {routesCustom.map((route: TRoute) => {
+      //       return <Route key={route.path} {...route} />;
+      //     })}
+      //   </CustomRoutes>
+      // )}
