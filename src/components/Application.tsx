@@ -16,25 +16,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
 
   const { logger } = React.useContext(ApplicationContext);
 
-  // const adminProps = React.useMemo(() => {
-  //   const { urls, i18n = {}, ...rest } = restProps;
-  //   const { base: baseUrl, auth = 'login' } = urls;
-  //   const rs: AdminProps = { i18nProvider: getI18nProvider({ i18n }), ...rest };
-  //
-  //   /* if (!baseUrl || isEmpty(baseUrl)) {
-  //     throw getError({ message: 'Missing urls.base property' });
-  //   } */
-  //
-  //   if (baseUrl && !isEmpty(baseUrl)) {
-  //     const dataProvider = getDataProvider({ baseUrl, authPath: auth });
-  //     rs.dataProvider = dataProvider;
-  //     rs.authProvider = getAuthProvider({ dataProvider, authPath: auth });
-  //   }
-  //
-  //   return rs;
-  // }, [restProps]);
-
-  const adminProps = () => {
+  const adminProps = React.useMemo(() => {
     const { urls, i18n = {}, ...rest } = restProps;
 
     const { base: baseUrl, auth = 'login' } = urls;
@@ -47,7 +29,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     }
 
     return rs;
-  };
+  }, [restProps, getI18nProvider, getAuthProvider, getDataProvider]);
 
   React.useEffect(() => {
     logger.info('Mounted RA application | Admin props: %o', adminProps);

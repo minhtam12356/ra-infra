@@ -5,7 +5,7 @@ export interface IApplication extends AdminProps {
     base: string;
     auth?: string;
   };
-  resources: ResourceProps[];
+  resources?: ResourceProps[];
   i18n?: Record<string | symbol, any>;
 
   [key: string | symbol]: any;
