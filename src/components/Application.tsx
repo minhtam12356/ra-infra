@@ -52,18 +52,17 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
   React.useEffect(() => {
     logger.info('Mounted RA application | Admin props: %o', adminProps);
 
-    logger.info('restProps: %o', restProps);
-
     return () => {
       logger.info('Unmount RA application: ', adminProps);
     };
-  }, [logger, adminProps, restProps]);
+  }, [logger, adminProps]);
 
   return (
     <Admin {...adminProps}>
       {resources?.map((resource: ResourceProps) => {
         return <Resource key={resource.name} {...resource} />;
       })}
+
       {routesCustom?.length && (
         <CustomRoutes>
           {routesCustom.map((route: TRoute) => {
