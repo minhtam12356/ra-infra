@@ -74,7 +74,7 @@ export const AuthProviderGetter = (opts: {
           //     console.error('[checkAuth] Error: ', error);
           //     // reject({ redirectTo: 'login' });
           //   });
-          resolve();
+          return resolve();
         })
       );
     },
@@ -96,18 +96,18 @@ export const AuthProviderGetter = (opts: {
           reject({ message: '[getIdentity] No userId to get user identity!' });
         }
 
-        dataProvider(App.DEFAULT_FETCH_METHOD, `users/${userIdentity.userId}/profile`, { method: 'GET' })
-          .then((rs) => {
-            if (!rs?.data) {
-              reject({ message: `[getIdentity] Not found any profile according to userId: ${userIdentity.userId}` });
-            }
-
-            resolve(rs.data);
-          })
-          .catch((error: Error) => {
-            console.error('[getIdentity] Error: ', error);
-            reject({ message: error?.message, error });
-          });
+        // dataProvider(App.DEFAULT_FETCH_METHOD, `users/${userIdentity.userId}/profile`, { method: 'GET' })
+        //   .then((rs) => {
+        //     if (!rs?.data) {
+        //       reject({ message: `[getIdentity] Not found any profile according to userId: ${userIdentity.userId}` });
+        //     }
+        //
+        //     resolve(rs.data);
+        //   })
+        //   .catch((error: Error) => {
+        //     console.error('[getIdentity] Error: ', error);
+        //     reject({ message: error?.message, error });
+        //   });
       });
     },
     // -------------------------------------------------------------
