@@ -58701,6 +58701,7 @@ var Application = function (props) {
     var adminProps = React.useMemo(function () {
         var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
+        logger.info('I18n checking', i18n);
         var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
         if (baseUrl && !isEmpty$7(baseUrl)) {
             var dataProvider = getDataProvider({ baseUrl: baseUrl, authPath: auth });
@@ -58708,7 +58709,7 @@ var Application = function (props) {
             rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth, checkAuth: checkAuth });
         }
         return rs;
-    }, [restProps, getAuthProvider, getDataProvider, getI18nProvider]);
+    }, [restProps]);
     React.useEffect(function () {
         logger.info('Mounted RA application | Admin props', adminProps);
         return function () {

@@ -14,6 +14,9 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     const { urls, i18n = {}, ...rest } = restProps;
 
     const { base: baseUrl, auth = 'login' } = urls;
+
+    logger.info('I18n checking', i18n);
+
     const rs: AdminProps = { i18nProvider: getI18nProvider({ i18n }), ...rest };
 
     if (baseUrl && !isEmpty(baseUrl)) {
@@ -23,7 +26,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     }
 
     return rs;
-  }, [restProps, getAuthProvider, getDataProvider, getI18nProvider]);
+  }, [restProps]);
 
   React.useEffect(() => {
     logger.info('Mounted RA application | Admin props', adminProps);
