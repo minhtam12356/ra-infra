@@ -58676,7 +58676,7 @@ var getAuthProvider = function (opts) {
 };
 
 var Application = function (props) {
-    var resources = props.resources, routesCustom = props.routesCustom, restProps = __rest$v(props, ["resources", "routesCustom"]);
+    var resources = props.resources, routesCustom = props.routesCustom, checkAuth = props.checkAuth, restProps = __rest$v(props, ["resources", "routesCustom", "checkAuth"]);
     var logger = React__default.useContext(ApplicationContext).logger;
     var adminProps = React__default.useMemo(function () {
         var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
@@ -58685,7 +58685,7 @@ var Application = function (props) {
         if (baseUrl && !isEmpty$7(baseUrl)) {
             var dataProvider = getDataProvider({ baseUrl: baseUrl, authPath: auth });
             rs.dataProvider = dataProvider;
-            rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth });
+            rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth, checkAuth: checkAuth });
         }
         return rs;
     }, [restProps, getAuthProvider, getDataProvider, getI18nProvider]);

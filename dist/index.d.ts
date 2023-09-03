@@ -134,6 +134,7 @@ declare const getI18nProvider: (opts: {
 declare const getAuthProvider: (opts: {
     dataProvider: IDataProvider;
     authPath: string;
+    checkAuth?: () => Promise<void>;
 }) => AuthProvider;
 
 declare class AuthService {

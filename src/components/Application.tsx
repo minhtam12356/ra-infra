@@ -6,7 +6,7 @@ import { ApplicationContext, IApplication, TRoute } from '../common';
 import { getAuthProvider, getDataProvider, getI18nProvider } from '../providers';
 
 export const Application: React.FC<IApplication> = (props: IApplication) => {
-  const { resources, routesCustom, ...restProps } = props;
+  const { resources, routesCustom, checkAuth, ...restProps } = props;
 
   const { logger } = React.useContext(ApplicationContext);
 
@@ -19,7 +19,7 @@ export const Application: React.FC<IApplication> = (props: IApplication) => {
     if (baseUrl && !isEmpty(baseUrl)) {
       const dataProvider = getDataProvider({ baseUrl, authPath: auth });
       rs.dataProvider = dataProvider;
-      rs.authProvider = getAuthProvider({ dataProvider, authPath: auth });
+      rs.authProvider = getAuthProvider({ dataProvider, authPath: auth, checkAuth });
     }
 
     return rs;
