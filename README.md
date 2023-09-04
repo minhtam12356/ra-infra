@@ -45,3 +45,48 @@ export default defineConfig({
   },
 });
 ```
+
+### Usage
+
+#### Providers
+
+```javascript
+const listLanguages = [
+  { locale: 'en', name: 'English' },
+  //...
+];
+
+const i18n = {
+  en: {...},
+  fr: {...},
+  //...
+};
+
+
+const dataProvider = getDataProvider({
+  baseUrl: 'YOUR_BASE_URL',
+  authPath: 'YOUR-ENDPOINT', //api for login
+});
+
+//---------------------------------------------------
+const authProvider = getAuthProvider({
+  dataProvider,
+  authPath: 'YOUR-ENDPOINT', //api for login
+});
+
+//---------------------------------------------------
+const i18nProvider = getI18nProvider({
+  i18n,
+  listLanguages,
+});
+
+ <Admin
+   requireAuth
+   i18nProvider={i18nProvider}
+   dataProvider={dataProvider}
+   authProvider={authProvider}
+   {...rest}
+ >
+ </Admin>
+
+```
