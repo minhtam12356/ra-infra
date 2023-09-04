@@ -62,19 +62,18 @@ export const AuthProviderGetter = (opts: {
             reject({ redirectTo: 'login' });
           }
 
-          // dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
-          //   .then((rs) => {
-          //     if (!rs?.data?.userId) {
-          //       reject({ redirectTo: 'login' });
-          //     }
-          //
-          //     resolve();
-          //   })
-          //   .catch((error) => {
-          //     console.error('[checkAuth] Error: ', error);
-          //     // reject({ redirectTo: 'login' });
-          //   });
-          return resolve();
+          dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+            .then((rs) => {
+              if (!rs?.data?.userId) {
+                reject({ redirectTo: 'login' });
+              }
+
+              resolve();
+            })
+            .catch((error) => {
+              console.error('[checkAuth] Error: ', error);
+              // reject({ redirectTo: 'login' });
+            });
         })
       );
     },
@@ -96,18 +95,18 @@ export const AuthProviderGetter = (opts: {
           reject({ message: '[getIdentity] No userId to get user identity!' });
         }
 
-        // dataProvider(App.DEFAULT_FETCH_METHOD, `users/${userIdentity.userId}/profile`, { method: 'GET' })
-        //   .then((rs) => {
-        //     if (!rs?.data) {
-        //       reject({ message: `[getIdentity] Not found any profile according to userId: ${userIdentity.userId}` });
-        //     }
-        //
-        //     resolve(rs.data);
-        //   })
-        //   .catch((error: Error) => {
-        //     console.error('[getIdentity] Error: ', error);
-        //     reject({ message: error?.message, error });
-        //   });
+        dataProvider(App.DEFAULT_FETCH_METHOD, `users/${userIdentity.userId}/profile`, { method: 'GET' })
+          .then((rs) => {
+            if (!rs?.data) {
+              reject({ message: `[getIdentity] Not found any profile according to userId: ${userIdentity.userId}` });
+            }
+
+            resolve(rs.data);
+          })
+          .catch((error: Error) => {
+            console.error('[getIdentity] Error: ', error);
+            reject({ message: error?.message, error });
+          });
       });
     },
     // -------------------------------------------------------------
