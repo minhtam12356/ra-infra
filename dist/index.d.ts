@@ -127,8 +127,13 @@ declare const getDataProvider: (opts: {
     authPath: string;
 }) => (type: string, resource: string, params: any) => Promise<any>;
 
+type TListLanguage = {
+    locale: string;
+    name: string;
+};
 declare const getI18nProvider: (opts: {
     i18n: Record<string | symbol, any>;
+    listLanguages?: TListLanguage[] | undefined;
 }) => ra_core.I18nProvider;
 
 declare const getAuthProvider: (opts: {

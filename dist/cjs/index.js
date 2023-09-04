@@ -58681,13 +58681,15 @@ var getDataProvider = function (opts) {
 
 var language = ((navigator === null || navigator === void 0 ? void 0 : navigator.language) || 'ko-KR').split('-')[0];
 var getI18nProvider = function (opts) {
-    var i18nSources = opts.i18n;
+    var i18nSources = opts.i18n, listLanguages = opts.listLanguages;
     return polyglotI18nProvider(function (locale) {
         return i18nSources === null || i18nSources === void 0 ? void 0 : i18nSources[locale];
-    }, language, {
-        allowMissing: true,
-        onMissingKey: function (key, _, __) { return key; },
-    });
+    }, language, (listLanguages === null || listLanguages === void 0 ? void 0 : listLanguages.length)
+        ? listLanguages
+        : {
+            allowMissing: true,
+            onMissingKey: function (key, _, __) { return key; },
+        });
 };
 
 var getAuthProvider = function (opts) {
@@ -58696,17 +58698,16 @@ var getAuthProvider = function (opts) {
 };
 
 var Application = function (props) {
-    var resources = props.resources, routesCustom = props.routesCustom, checkAuth = props.checkAuth, restProps = __rest$v(props, ["resources", "routesCustom", "checkAuth"]);
+    var resources = props.resources, routesCustom = props.routesCustom, restProps = __rest$v(props, ["resources", "routesCustom"]);
     var logger = React.useContext(ApplicationContext).logger;
     var adminProps = React.useMemo(function () {
-        var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, rest = __rest$v(restProps, ["urls", "i18n"]);
+        var urls = restProps.urls, _a = restProps.i18n, i18n = _a === void 0 ? {} : _a, listLanguages = restProps.listLanguages, rest = __rest$v(restProps, ["urls", "i18n", "listLanguages"]);
         var baseUrl = urls.base, _b = urls.auth, auth = _b === void 0 ? 'login' : _b;
-        logger.info('I18n checking', i18n);
-        var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n }) }, rest);
+        var rs = __assign$F({ i18nProvider: getI18nProvider({ i18n: i18n, listLanguages: listLanguages }) }, rest);
         if (baseUrl && !isEmpty$7(baseUrl)) {
             var dataProvider = getDataProvider({ baseUrl: baseUrl, authPath: auth });
             rs.dataProvider = dataProvider;
-            rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth, checkAuth: checkAuth });
+            rs.authProvider = getAuthProvider({ dataProvider: dataProvider, authPath: auth });
         }
         return rs;
     }, [restProps]);
