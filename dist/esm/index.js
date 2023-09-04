@@ -11524,19 +11524,18 @@ var AuthProviderGetter = function (opts) {
                     if (!(token === null || token === void 0 ? void 0 : token.value)) {
                         reject({ redirectTo: 'login' });
                     }
-                    // dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
-                    //   .then((rs) => {
-                    //     if (!rs?.data?.userId) {
-                    //       reject({ redirectTo: 'login' });
-                    //     }
-                    //
-                    //     resolve();
-                    //   })
-                    //   .catch((error) => {
-                    //     console.error('[checkAuth] Error: ', error);
-                    //     // reject({ redirectTo: 'login' });
-                    //   });
-                    return resolve();
+                    dataProvider(App.DEFAULT_FETCH_METHOD, 'auth/who-am-i', { method: 'GET' })
+                        .then(function (rs) {
+                        var _a;
+                        if (!((_a = rs === null || rs === void 0 ? void 0 : rs.data) === null || _a === void 0 ? void 0 : _a.userId)) {
+                            reject({ redirectTo: 'login' });
+                        }
+                        resolve();
+                    })
+                        .catch(function (error) {
+                        console.error('[checkAuth] Error: ', error);
+                        // reject({ redirectTo: 'login' });
+                    });
                 }));
         },
         // -------------------------------------------------------------
@@ -11557,18 +11556,17 @@ var AuthProviderGetter = function (opts) {
                 if (!(userIdentity === null || userIdentity === void 0 ? void 0 : userIdentity.userId)) {
                     reject({ message: '[getIdentity] No userId to get user identity!' });
                 }
-                // dataProvider(App.DEFAULT_FETCH_METHOD, `users/${userIdentity.userId}/profile`, { method: 'GET' })
-                //   .then((rs) => {
-                //     if (!rs?.data) {
-                //       reject({ message: `[getIdentity] Not found any profile according to userId: ${userIdentity.userId}` });
-                //     }
-                //
-                //     resolve(rs.data);
-                //   })
-                //   .catch((error: Error) => {
-                //     console.error('[getIdentity] Error: ', error);
-                //     reject({ message: error?.message, error });
-                //   });
+                dataProvider(App.DEFAULT_FETCH_METHOD, "users/".concat(userIdentity.userId, "/profile"), { method: 'GET' })
+                    .then(function (rs) {
+                    if (!(rs === null || rs === void 0 ? void 0 : rs.data)) {
+                        reject({ message: "[getIdentity] Not found any profile according to userId: ".concat(userIdentity.userId) });
+                    }
+                    resolve(rs.data);
+                })
+                    .catch(function (error) {
+                    console.error('[getIdentity] Error: ', error);
+                    reject({ message: error === null || error === void 0 ? void 0 : error.message, error: error });
+                });
             });
         },
         // -------------------------------------------------------------
