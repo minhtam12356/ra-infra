@@ -5,13 +5,13 @@ declare const _default: ({
         format: string;
         sourcemap: boolean;
     }[];
-    plugins: import("rollup").Plugin[];
+    plugins: import("rollup").Plugin<any>[];
 } | {
     input: string;
     output: {
         file: string;
         format: string;
     }[];
-    plugins: import("rollup").Plugin[];
+    plugins: import("rollup").Plugin<any>[];
 })[];
 export default _default;

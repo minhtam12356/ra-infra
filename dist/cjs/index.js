@@ -148,7 +148,7 @@ function __generator$7(thisArg, body) {
     }
 }
 
-function __spreadArray$5(to, from, pack) {
+function __spreadArray$4(to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
             if (!ar) ar = Array.prototype.slice.call(from, 0, i);
@@ -7207,7 +7207,7 @@ var Symbol$6 = _Symbol;
 var objectProto$g = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$e = objectProto$g.hasOwnProperty;
+var hasOwnProperty$f = objectProto$g.hasOwnProperty;
 
 /**
  * Used to resolve the
@@ -7227,7 +7227,7 @@ var symToStringTag$1 = Symbol$6 ? Symbol$6.toStringTag : undefined;
  * @returns {string} Returns the raw `toStringTag`.
  */
 function getRawTag$1(value) {
-  var isOwn = hasOwnProperty$e.call(value, symToStringTag$1),
+  var isOwn = hasOwnProperty$f.call(value, symToStringTag$1),
       tag = value[symToStringTag$1];
 
   try {
@@ -7541,11 +7541,11 @@ var funcProto$1 = Function.prototype,
 var funcToString$1 = funcProto$1.toString;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$d = objectProto$e.hasOwnProperty;
+var hasOwnProperty$e = objectProto$e.hasOwnProperty;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  funcToString$1.call(hasOwnProperty$d).replace(reRegExpChar, '\\$&')
+  funcToString$1.call(hasOwnProperty$e).replace(reRegExpChar, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -7651,7 +7651,7 @@ var HASH_UNDEFINED$2 = '__lodash_hash_undefined__';
 var objectProto$d = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$c = objectProto$d.hasOwnProperty;
+var hasOwnProperty$d = objectProto$d.hasOwnProperty;
 
 /**
  * Gets the hash value for `key`.
@@ -7668,7 +7668,7 @@ function hashGet$1(key) {
     var result = data[key];
     return result === HASH_UNDEFINED$2 ? undefined : result;
   }
-  return hasOwnProperty$c.call(data, key) ? data[key] : undefined;
+  return hasOwnProperty$d.call(data, key) ? data[key] : undefined;
 }
 
 var _hashGet = hashGet$1;
@@ -7679,7 +7679,7 @@ var nativeCreate$1 = _nativeCreate;
 var objectProto$c = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$b = objectProto$c.hasOwnProperty;
+var hasOwnProperty$c = objectProto$c.hasOwnProperty;
 
 /**
  * Checks if a hash value for `key` exists.
@@ -7692,7 +7692,7 @@ var hasOwnProperty$b = objectProto$c.hasOwnProperty;
  */
 function hashHas$1(key) {
   var data = this.__data__;
-  return nativeCreate$1 ? (data[key] !== undefined) : hasOwnProperty$b.call(data, key);
+  return nativeCreate$1 ? (data[key] !== undefined) : hasOwnProperty$c.call(data, key);
 }
 
 var _hashHas = hashHas$1;
@@ -8514,7 +8514,7 @@ var Logger = /** @class */ (function () {
         if (!applicationLogger) {
             throw getError({ message: '[info] Invalid logger instance!' });
         }
-        applicationLogger.info.apply(applicationLogger, __spreadArray$5([this.generateLog({ level: 'INFO', message: message })], args, false));
+        applicationLogger.info.apply(applicationLogger, __spreadArray$4([this.generateLog({ level: 'INFO', message: message })], args, false));
     };
     Logger.prototype.warn = function (message) {
         var args = [];
@@ -8524,7 +8524,7 @@ var Logger = /** @class */ (function () {
         if (!applicationLogger) {
             throw getError({ message: '[error] Invalid logger instance!' });
         }
-        applicationLogger.warn.apply(applicationLogger, __spreadArray$5([this.generateLog({ level: 'WARN', message: message })], args, false));
+        applicationLogger.warn.apply(applicationLogger, __spreadArray$4([this.generateLog({ level: 'WARN', message: message })], args, false));
     };
     Logger.prototype.error = function (message) {
         var args = [];
@@ -8534,7 +8534,7 @@ var Logger = /** @class */ (function () {
         if (!applicationLogger) {
             throw getError({ message: '[error] Invalid logger instance!' });
         }
-        applicationLogger.error.apply(applicationLogger, __spreadArray$5([this.generateLog({ level: 'ERROR', message: message })], args, false));
+        applicationLogger.error.apply(applicationLogger, __spreadArray$4([this.generateLog({ level: 'ERROR', message: message })], args, false));
     };
     return Logger;
 }());
@@ -8716,7 +8716,7 @@ var isPrototype$3 = _isPrototype,
 var objectProto$a = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$a = objectProto$a.hasOwnProperty;
+var hasOwnProperty$b = objectProto$a.hasOwnProperty;
 
 /**
  * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
@@ -8731,7 +8731,7 @@ function baseKeys$2(object) {
   }
   var result = [];
   for (var key in Object(object)) {
-    if (hasOwnProperty$a.call(object, key) && key != 'constructor') {
+    if (hasOwnProperty$b.call(object, key) && key != 'constructor') {
       result.push(key);
     }
   }
@@ -8857,7 +8857,7 @@ var baseIsArguments = _baseIsArguments,
 var objectProto$9 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$9 = objectProto$9.hasOwnProperty;
+var hasOwnProperty$a = objectProto$9.hasOwnProperty;
 
 /** Built-in value references. */
 var propertyIsEnumerable$1 = objectProto$9.propertyIsEnumerable;
@@ -8881,7 +8881,7 @@ var propertyIsEnumerable$1 = objectProto$9.propertyIsEnumerable;
  * // => false
  */
 var isArguments$5 = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
-  return isObjectLike$6(value) && hasOwnProperty$9.call(value, 'callee') &&
+  return isObjectLike$6(value) && hasOwnProperty$a.call(value, 'callee') &&
     !propertyIsEnumerable$1.call(value, 'callee');
 };
 
@@ -9186,7 +9186,7 @@ var mapTag$4 = '[object Map]',
 var objectProto$8 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$8 = objectProto$8.hasOwnProperty;
+var hasOwnProperty$9 = objectProto$8.hasOwnProperty;
 
 /**
  * Checks if `value` is an empty object, collection, map, or set.
@@ -9238,7 +9238,7 @@ function isEmpty$6(value) {
     return !baseKeys$1(value).length;
   }
   for (var key in value) {
-    if (hasOwnProperty$8.call(value, key)) {
+    if (hasOwnProperty$9.call(value, key)) {
       return false;
     }
   }
@@ -9449,7 +9449,7 @@ var baseAssignValue$2 = _baseAssignValue,
 var objectProto$7 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$7 = objectProto$7.hasOwnProperty;
+var hasOwnProperty$8 = objectProto$7.hasOwnProperty;
 
 /**
  * Assigns `value` to `key` of `object` if the existing value is not equivalent
@@ -9463,7 +9463,7 @@ var hasOwnProperty$7 = objectProto$7.hasOwnProperty;
  */
 function assignValue$3(object, key, value) {
   var objValue = object[key];
-  if (!(hasOwnProperty$7.call(object, key) && eq$3(objValue, value)) ||
+  if (!(hasOwnProperty$8.call(object, key) && eq$3(objValue, value)) ||
       (value === undefined && !(key in object))) {
     baseAssignValue$2(object, key, value);
   }
@@ -9572,7 +9572,7 @@ var baseTimes = _baseTimes,
 var objectProto$6 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$6 = objectProto$6.hasOwnProperty;
+var hasOwnProperty$7 = objectProto$6.hasOwnProperty;
 
 /**
  * Creates an array of the enumerable property names of the array-like `value`.
@@ -9592,7 +9592,7 @@ function arrayLikeKeys$2(value, inherited) {
       length = result.length;
 
   for (var key in value) {
-    if ((inherited || hasOwnProperty$6.call(value, key)) &&
+    if ((inherited || hasOwnProperty$7.call(value, key)) &&
         !(skipIndexes && (
            // Safari 9 has enumerable `arguments.length` in strict mode.
            key == 'length' ||
@@ -9697,7 +9697,7 @@ var isObject$7 = isObject_1,
 var objectProto$5 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$5 = objectProto$5.hasOwnProperty;
+var hasOwnProperty$6 = objectProto$5.hasOwnProperty;
 
 /**
  * The base implementation of `_.keysIn` which doesn't treat sparse arrays as dense.
@@ -9714,7 +9714,7 @@ function baseKeysIn$1(object) {
       result = [];
 
   for (var key in object) {
-    if (!(key == 'constructor' && (isProto || !hasOwnProperty$5.call(object, key)))) {
+    if (!(key == 'constructor' && (isProto || !hasOwnProperty$6.call(object, key)))) {
       result.push(key);
     }
   }
@@ -10073,7 +10073,7 @@ var _getAllKeysIn = getAllKeysIn$2;
 var objectProto$3 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$4 = objectProto$3.hasOwnProperty;
+var hasOwnProperty$5 = objectProto$3.hasOwnProperty;
 
 /**
  * Initializes an array clone.
@@ -10087,7 +10087,7 @@ function initCloneArray$1(array) {
       result = new array.constructor(length);
 
   // Add properties assigned by `RegExp#exec`.
-  if (length && typeof array[0] == 'string' && hasOwnProperty$4.call(array, 'index')) {
+  if (length && typeof array[0] == 'string' && hasOwnProperty$5.call(array, 'index')) {
     result.index = array.index;
     result.input = array.input;
   }
@@ -10689,7 +10689,7 @@ var funcProto = Function.prototype,
 var funcToString = funcProto.toString;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$3 = objectProto$2.hasOwnProperty;
+var hasOwnProperty$4 = objectProto$2.hasOwnProperty;
 
 /** Used to infer the `Object` constructor. */
 var objectCtorString = funcToString.call(Object);
@@ -10730,7 +10730,7 @@ function isPlainObject$5(value) {
   if (proto === null) {
     return true;
   }
-  var Ctor = hasOwnProperty$3.call(proto, 'constructor') && proto.constructor;
+  var Ctor = hasOwnProperty$4.call(proto, 'constructor') && proto.constructor;
   return typeof Ctor == 'function' && Ctor instanceof Ctor &&
     funcToString.call(Ctor) == objectCtorString;
 }
@@ -14618,7 +14618,7 @@ function useQuery(arg1, arg2, arg3) {
 }
 
 /**
- * @remix-run/router v1.8.0
+ * @remix-run/router v1.9.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -14682,7 +14682,7 @@ function warning$4(cond, message) {
     try {
       // Welcome to debugging history!
       //
-      // This error is thrown as a convenience so you can more easily
+      // This error is thrown as a convenience, so you can more easily
       // find the source for a warning that appears in the console by
       // enabling "pause on exceptions" in your JavaScript debugger.
       throw new Error(message);
@@ -14786,7 +14786,7 @@ function flattenRoutes(routes, branches, parentsMeta, parentPath) {
     }
     let path = joinPaths([parentPath, meta.relativePath]);
     let routesMeta = parentsMeta.concat(meta);
-    // Add the children before adding this route to the array so we traverse the
+    // Add the children before adding this route to the array, so we traverse the
     // route tree depth-first and child routes appear before their parents in
     // the "flattened" version.
     if (route.children && route.children.length > 0) {
@@ -14850,14 +14850,14 @@ function explodeOptionalSegments(path) {
   let restExploded = explodeOptionalSegments(rest.join("/"));
   let result = [];
   // All child paths with the prefix.  Do this for all children before the
-  // optional version for all children so we get consistent ordering where the
+  // optional version for all children, so we get consistent ordering where the
   // parent optional aspect is preferred as required.  Otherwise, we can get
   // child sections interspersed where deeper optional segments are higher than
-  // parent optional segments, where for example, /:two would explodes _earlier_
+  // parent optional segments, where for example, /:two would explode _earlier_
   // then /:one.  By always including the parent as required _for all children_
   // first, we avoid this issue
   result.push(...restExploded.map(subpath => subpath === "" ? required : [required, subpath].join("/")));
-  // Then if this is an optional value, add all child versions without
+  // Then, if this is an optional value, add all child versions without
   if (isOptional) {
     result.push(...restExploded);
   }
@@ -14992,7 +14992,7 @@ function compilePath(path, caseSensitive, end) {
     regexpSource += "\\/*$";
   } else if (path !== "" && path !== "/") {
     // If our path is non-empty and contains anything beyond an initial slash,
-    // then we have _some_ form of path in our regex so we should expect to
+    // then we have _some_ form of path in our regex, so we should expect to
     // match only if we find the end of this path segment.  Look for an optional
     // non-captured trailing slash (to match a portion of the URL) or the end
     // of the path (if we've matched to the end).  We used to do this with a
@@ -15187,7 +15187,7 @@ const validRequestMethodsArr = ["get", ...validMutationMethodsArr];
 new Set(validRequestMethodsArr);
 
 /**
- * React Router v6.15.0
+ * React Router v6.16.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -16015,7 +16015,7 @@ function createRoutesFromChildren(children, parentPath) {
 }
 
 /**
- * React Router DOM v6.15.0
+ * React Router DOM v6.16.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -17312,7 +17312,7 @@ var COMPARE_PARTIAL_FLAG$1 = 1;
 var objectProto$1 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$2 = objectProto$1.hasOwnProperty;
+var hasOwnProperty$3 = objectProto$1.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqualDeep` for objects with support for
@@ -17340,7 +17340,7 @@ function equalObjects$1(object, other, bitmask, customizer, equalFunc, stack) {
   var index = objLength;
   while (index--) {
     var key = objProps[index];
-    if (!(isPartial ? key in other : hasOwnProperty$2.call(other, key))) {
+    if (!(isPartial ? key in other : hasOwnProperty$3.call(other, key))) {
       return false;
     }
   }
@@ -17415,7 +17415,7 @@ var argsTag = '[object Arguments]',
 var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$1 = objectProto.hasOwnProperty;
+var hasOwnProperty$2 = objectProto.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqual` for arrays and objects which performs
@@ -17458,8 +17458,8 @@ function baseIsEqualDeep$1(object, other, bitmask, customizer, equalFunc, stack)
       : equalByTag(object, other, objTag, bitmask, customizer, equalFunc, stack);
   }
   if (!(bitmask & COMPARE_PARTIAL_FLAG)) {
-    var objIsWrapped = objIsObj && hasOwnProperty$1.call(object, '__wrapped__'),
-        othIsWrapped = othIsObj && hasOwnProperty$1.call(other, '__wrapped__');
+    var objIsWrapped = objIsObj && hasOwnProperty$2.call(object, '__wrapped__'),
+        othIsWrapped = othIsObj && hasOwnProperty$2.call(other, '__wrapped__');
 
     if (objIsWrapped || othIsWrapped) {
       var objUnwrapped = objIsWrapped ? object.value() : object,
@@ -17614,7 +17614,7 @@ var NotificationContext = React.createContext({
     setNotifications: function () { },
 });
 
-var __spreadArray$4 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+var __spreadArray$3 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
             if (!ar) ar = Array.prototype.slice.call(from, 0, i);
@@ -17627,7 +17627,7 @@ var NotificationContextProvider = function (_a) {
     var children = _a.children;
     var _b = React.useState([]), notifications = _b[0], setNotifications = _b[1];
     var addNotification = React.useCallback(function (notification) {
-        setNotifications(function (notifications) { return __spreadArray$4(__spreadArray$4([], notifications, true), [notification], false); });
+        setNotifications(function (notifications) { return __spreadArray$3(__spreadArray$3([], notifications, true), [notification], false); });
     }, []);
     var takeNotification = React.useCallback(function () {
         var notification = notifications[0], rest = notifications.slice(1);
@@ -18905,7 +18905,7 @@ var useScrollToTop = function () {
     }, [location]);
 };
 
-var __spreadArray$3 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+var __spreadArray$2 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
             if (!ar) ar = Array.prototype.slice.call(from, 0, i);
@@ -18929,11 +18929,11 @@ var fetchActionsWithArrayOfIdentifiedRecordsResponse = [
     'getMany',
     'getManyReference',
 ];
-var fetchActionsWithArrayOfRecordsResponse = __spreadArray$3(__spreadArray$3([], fetchActionsWithArrayOfIdentifiedRecordsResponse, true), [
+var fetchActionsWithArrayOfRecordsResponse = __spreadArray$2(__spreadArray$2([], fetchActionsWithArrayOfIdentifiedRecordsResponse, true), [
     'updateMany',
     'deleteMany',
 ], false);
-__spreadArray$3(__spreadArray$3([], fetchActionsWithRecordResponse, true), fetchActionsWithArrayOfRecordsResponse, true);
+__spreadArray$2(__spreadArray$2([], fetchActionsWithRecordResponse, true), fetchActionsWithArrayOfRecordsResponse, true);
 var sanitizeFetchType = function (fetchType) {
     switch (fetchType) {
         case GET_LIST:
@@ -19796,6 +19796,8 @@ var get = (obj, path, defaultValue) => {
         : result;
 };
 
+var isBoolean = (value) => typeof value === 'boolean';
+
 const EVENTS = {
     BLUR: 'blur',
     FOCUS_OUT: 'focusout',
@@ -19917,13 +19919,13 @@ var shouldRenderFormState = (formStateData, _proxyFormState, updateFormState, is
 
 var convertToArrayPayload = (value) => (Array.isArray(value) ? value : [value]);
 
-var shouldSubscribeByName = (name, signalName, exact) => exact && signalName
-    ? name === signalName
-    : !name ||
-        !signalName ||
-        name === signalName ||
-        convertToArrayPayload(name).some((currentName) => currentName &&
-            (currentName.startsWith(signalName) ||
+var shouldSubscribeByName = (name, signalName, exact) => !name ||
+    !signalName ||
+    name === signalName ||
+    convertToArrayPayload(name).some((currentName) => currentName &&
+        (exact
+            ? currentName === signalName
+            : currentName.startsWith(signalName) ||
                 signalName.startsWith(currentName)));
 
 function useSubscribe(props) {
@@ -20110,7 +20112,7 @@ function set(object, path, value) {
  */
 function useController(props) {
     const methods = useFormContext();
-    const { name, control = methods.control, shouldUnregister } = props;
+    const { name, disabled, control = methods.control, shouldUnregister } = props;
     const isArrayField = isNameInFieldArray(control._names.array, name);
     const value = useWatch({
         control,
@@ -20151,10 +20153,20 @@ function useController(props) {
                 : updateMounted(name, false);
         };
     }, [name, control, isArrayField, shouldUnregister]);
+    React.useEffect(() => {
+        if (get(control._fields, name)) {
+            control._updateDisabledField({
+                disabled,
+                fields: control._fields,
+                name,
+            });
+        }
+    }, [disabled, name, control]);
     return {
         field: {
             name,
             value,
+            ...(isBoolean(disabled) ? { disabled } : {}),
             onChange: React.useCallback((event) => _registerProps.current.onChange({
                 target: {
                     value: getEventValue(event),
@@ -20255,8 +20267,6 @@ var updateFieldArrayRootError = (errors, error, name) => {
     set(errors, name, fieldArrayErrors);
     return errors;
 };
-
-var isBoolean = (value) => typeof value === 'boolean';
 
 var isFileInput = (element) => element.type === 'file';
 
@@ -20984,7 +20994,7 @@ function createFormControl(props = {}, flushRootRender) {
     };
     const _executeSchema = async (name) => _options.resolver(_formValues, _options.context, getResolverOptions(name || _names.mount, _fields, _options.criteriaMode, _options.shouldUseNativeValidation));
     const executeSchemaAndUpdateState = async (names) => {
-        const { errors } = await _executeSchema();
+        const { errors } = await _executeSchema(names);
         if (names) {
             for (const name of names) {
                 const error = get(errors, name);
@@ -21192,7 +21202,7 @@ function createFormControl(props = {}, flushRootRender) {
             else {
                 error = (await validateField(field, _formValues, shouldDisplayAllAssociatedErrors, _options.shouldUseNativeValidation))[name];
                 isFieldValueUpdated =
-                    isNaN(fieldValue) ||
+                    Number.isNaN(fieldValue) ||
                         fieldValue === get(_formValues, name, fieldValue);
                 if (isFieldValueUpdated) {
                     if (error) {
@@ -21312,6 +21322,15 @@ function createFormControl(props = {}, flushRootRender) {
         });
         !options.keepIsValid && _updateValid();
     };
+    const _updateDisabledField = ({ disabled, name, field, fields, }) => {
+        if (isBoolean(disabled)) {
+            const value = disabled
+                ? undefined
+                : get(_formValues, name, getFieldValue(field ? field._f : get(fields, name)._f));
+            set(_formValues, name, value);
+            updateTouchAndDirty(name, value, false, false, true);
+        }
+    };
     const register = (name, options = {}) => {
         let field = get(_fields, name);
         const disabledIsDefined = isBoolean(options.disabled);
@@ -21325,12 +21344,16 @@ function createFormControl(props = {}, flushRootRender) {
             },
         });
         _names.mount.add(name);
-        field
-            ? disabledIsDefined &&
-                set(_formValues, name, options.disabled
-                    ? undefined
-                    : get(_formValues, name, getFieldValue(field._f)))
-            : updateValidAndValue(name, true, options.value);
+        if (field) {
+            _updateDisabledField({
+                field,
+                disabled: options.disabled,
+                name,
+            });
+        }
+        else {
+            updateValidAndValue(name, true, options.value);
+        }
         return {
             ...(disabledIsDefined ? { disabled: options.disabled } : {}),
             ...(_options.progressive
@@ -21458,7 +21481,7 @@ function createFormControl(props = {}, flushRootRender) {
         }
     };
     const _reset = (formValues, keepStateOptions = {}) => {
-        const updatedValues = formValues || _defaultValues;
+        const updatedValues = formValues ? cloneObject(formValues) : _defaultValues;
         const cloneUpdatedValues = cloneObject(updatedValues);
         const values = formValues && !isEmptyObject$1(formValues)
             ? cloneUpdatedValues
@@ -21537,8 +21560,10 @@ function createFormControl(props = {}, flushRootRender) {
                 ? _formState.touchedFields
                 : {},
             errors: keepStateOptions.keepErrors ? _formState.errors : {},
+            isSubmitSuccessful: keepStateOptions.keepIsSubmitSuccessful
+                ? _formState.isSubmitSuccessful
+                : false,
             isSubmitting: false,
-            isSubmitSuccessful: false,
         });
     };
     const reset = (formValues, keepStateOptions) => _reset(isFunction$2(formValues)
@@ -21583,6 +21608,7 @@ function createFormControl(props = {}, flushRootRender) {
             _updateValid,
             _removeUnmounted,
             _updateFieldArray,
+            _updateDisabledField,
             _getFieldArray,
             _reset,
             _resetDefaultValues,
@@ -22150,7 +22176,6 @@ var getRoutesAndResourceFromNodes = function (children) {
 };
 
 var CoreAdminRoutes = function (props) {
-    var oneSecondHasPassed = useTimeout(1000);
     useScrollToTop();
     var createPath = useCreatePath();
     var _a = useConfigureAdminRouterFromChildren(props.children), customRoutesWithLayout = _a.customRoutesWithLayout, customRoutesWithoutLayout = _a.customRoutesWithoutLayout, status = _a.status, resources = _a.resources;
@@ -22172,7 +22197,8 @@ var CoreAdminRoutes = function (props) {
     if (status === 'loading' || !canRender) {
         return (React__namespace.createElement(Routes, null,
             customRoutesWithoutLayout,
-            oneSecondHasPassed ? (React__namespace.createElement(Route, { path: "*", element: React__namespace.createElement(LoadingPage, null) })) : (React__namespace.createElement(Route, { path: "*", element: null }))));
+            React__namespace.createElement(Route, { path: "*", element: React__namespace.createElement("div", { style: { height: '100vh' } },
+                    React__namespace.createElement(LoadingPage, null)) })));
     }
     return (React__namespace.createElement(Routes, null,
         customRoutesWithoutLayout,
@@ -22492,7 +22518,7 @@ if (process.env.NODE_ENV === 'production') {
   reactIs$4.exports = requireReactIs_development$3();
 }
 
-var reactIsExports$2 = reactIs$4.exports;
+var reactIsExports$3 = reactIs$4.exports;
 
 /**
  * Context to store the current resource name.
@@ -22551,7 +22577,7 @@ var getElement = function (ElementOrComponent) {
     if (React.isValidElement(ElementOrComponent)) {
         return ElementOrComponent;
     }
-    if (reactIsExports$2.isValidElementType(ElementOrComponent)) {
+    if (reactIsExports$3.isValidElementType(ElementOrComponent)) {
         return React__namespace.createElement(ElementOrComponent, null);
     }
     return null;
@@ -23912,7 +23938,7 @@ var onlyDigits = function (s) {
 };
 
 var ComponentPropType = (function (props, propName, componentName) {
-    if (props[propName] && !reactIsExports$2.isValidElementType(props[propName])) {
+    if (props[propName] && !reactIsExports$3.isValidElementType(props[propName])) {
         return new Error("Invalid prop '".concat(propName, "' supplied to '").concat(componentName, "': the prop is not a valid React component"));
     }
 });
@@ -24445,7 +24471,7 @@ var usePermissions = function (params, queryParams) {
         : function () { return __awaiter$4(void 0, void 0, void 0, function () { return __generator$4(this, function (_a) {
             return [2 /*return*/, []];
         }); }); }, __assign$z({ onError: function (error) {
-            if (process.env.NODE_ENV !== 'production') {
+            if (process.env.NODE_ENV === 'development') {
                 console.error(error);
             }
             logoutIfAccessDenied(error);
@@ -24932,7 +24958,7 @@ var usePreferencesEditor = function () {
     return React.useContext(PreferencesEditorContext);
 };
 
-var __spreadArray$2 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+var __spreadArray$1 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
             if (!ar) ar = Array.prototype.slice.call(from, 0, i);
@@ -24975,7 +25001,7 @@ var usePreferenceInput = function (key, defaultValue) {
             setValueFromStore(value);
             var form = event.target.form;
             if (form) {
-                var index = __spreadArray$2([], form, true).indexOf(event.target);
+                var index = __spreadArray$1([], form, true).indexOf(event.target);
                 (_a = form.elements[index + 1]) === null || _a === void 0 ? void 0 : _a.focus();
             }
             event.preventDefault();
@@ -25169,7 +25195,7 @@ var isEmptyObject = function (obj) {
     return Object.getOwnPropertyNames(obj).length === 0;
 };
 
-var __spreadArray$1 = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
             if (!ar) ar = Array.prototype.slice.call(from, 0, i);
@@ -25213,7 +25239,7 @@ var FormGroupsProvider = function (_a) {
         registerField: function (source, group) {
             if (group != null) {
                 if (!(formGroups.current[group] || []).includes(source)) {
-                    formGroups.current[group] = __spreadArray$1(__spreadArray$1([], (formGroups.current[group] || []), true), [
+                    formGroups.current[group] = __spreadArray(__spreadArray([], (formGroups.current[group] || []), true), [
                         source,
                     ], false);
                     // Notify subscribers that the group fields have changed
@@ -26022,7 +26048,7 @@ var useInput = function (props) {
     // This ensures dynamically added inputs have their value set correctly (ArrayInput for example).
     // We don't do this for the form level defaultValues so that it works as it should in react-hook-form
     // (i.e. field level defaultValue override form level defaultValues for this field).
-    var _c = useController(__assign$r({ name: finalName, defaultValue: get$2(record, source, defaultValue), rules: {
+    var _c = useController(__assign$r(__assign$r({ name: finalName, defaultValue: get$2(record, source, defaultValue), rules: {
             validate: function (value, values) { return __awaiter(void 0, void 0, void 0, function () {
                 var error;
                 return __generator(this, function (_a) {
@@ -26045,7 +26071,11 @@ var useInput = function (props) {
                     }
                 });
             }); },
-        } }, options)), controllerField = _c.field, fieldState = _c.fieldState, formState = _c.formState;
+        } }, options), { 
+        // Workaround for https://github.com/react-hook-form/react-hook-form/issues/10907
+        // FIXME - remove when fixed
+        // @ts-ignore - only exists since react-hook-form 7.46.0
+        disabled: options.disabled || undefined })), controllerField = _c.field, fieldState = _c.fieldState, formState = _c.formState;
     // Because our forms may receive an asynchronously loaded record for instance,
     // they may reset their default values which would override the input default value.
     // This hook ensures that the input default value is applied when a new record is loaded but has
@@ -26488,19 +26518,13 @@ function requireReactIs_development$2 () {
 	return reactIs_development$2;
 }
 
-var hasRequiredReactIs;
-
-function requireReactIs () {
-	if (hasRequiredReactIs) return reactIs$3.exports;
-	hasRequiredReactIs = 1;
-
-	if (process.env.NODE_ENV === 'production') {
-	  reactIs$3.exports = requireReactIs_production_min$2();
-	} else {
-	  reactIs$3.exports = requireReactIs_development$2();
-	}
-	return reactIs$3.exports;
+if (process.env.NODE_ENV === 'production') {
+  reactIs$3.exports = requireReactIs_production_min$2();
+} else {
+  reactIs$3.exports = requireReactIs_development$2();
 }
+
+var reactIsExports$2 = reactIs$3.exports;
 
 /*
 object-assign
@@ -26755,7 +26779,7 @@ function requireFactoryWithTypeCheckers () {
 	if (hasRequiredFactoryWithTypeCheckers) return factoryWithTypeCheckers;
 	hasRequiredFactoryWithTypeCheckers = 1;
 
-	var ReactIs = requireReactIs();
+	var ReactIs = reactIsExports$2;
 	var assign = requireObjectAssign();
 
 	var ReactPropTypesSecret = requireReactPropTypesSecret();
@@ -27438,7 +27462,7 @@ function requireFactoryWithThrowingShims () {
  */
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactIs = requireReactIs();
+  var ReactIs = reactIsExports$2;
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -27962,7 +27986,11 @@ function deprecatedPropType(validator, reason) {
 }
 
 function isMuiElement(element, muiNames) {
-  return /*#__PURE__*/React__namespace.isValidElement(element) && muiNames.indexOf(element.type.muiName) !== -1;
+  var _muiName, _element$type;
+  return /*#__PURE__*/React__namespace.isValidElement(element) && muiNames.indexOf( // For server components `muiName` is avaialble in element.type._payload.value.muiName
+  // relevant info - https://github.com/facebook/react/blob/2807d781a08db8e9873687fccc25c0f12b4fb3d4/packages/react/src/ReactLazy.js#L45
+  // eslint-disable-next-line no-underscore-dangle
+  (_muiName = element.type.muiName) != null ? _muiName : (_element$type = element.type) == null || (_element$type = _element$type._payload) == null || (_element$type = _element$type.value) == null ? void 0 : _element$type.muiName) !== -1;
 }
 
 function ownerDocument(node) {
@@ -28019,6 +28047,13 @@ function setRef(ref, value) {
   }
 }
 
+/**
+ * A version of `React.useLayoutEffect` that does not show a warning when server-side rendering.
+ * This is useful for effects that are only needed for client-side rendering but not for SSR.
+ *
+ * Before you use this hook, make sure to read https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
+ * and confirm it doesn't apply to your use-case.
+ */
 const useEnhancedEffect = typeof window !== 'undefined' ? React__namespace.useLayoutEffect : React__namespace.useEffect;
 var useEnhancedEffect$1 = useEnhancedEffect;
 
@@ -28103,7 +28138,8 @@ function useControlled({
 }
 
 /**
- * https://github.com/facebook/react/issues/14099#issuecomment-440013892
+ * Inspired by https://github.com/facebook/react/issues/14099#issuecomment-440013892
+ * See RFC in https://github.com/reactjs/rfcs/pull/220
  */
 
 function useEventCallback(fn) {
@@ -28655,7 +28691,7 @@ var LAYER = '@layer';
  * @param {number}
  * @return {number}
  */
-var abs$1 = Math.abs;
+var abs = Math.abs;
 
 /**
  * @param {number}
@@ -28846,7 +28882,7 @@ function caret () {
  * @param {number} end
  * @return {string}
  */
-function slice$2 (begin, end) {
+function slice$1 (begin, end) {
 	return substr(characters, begin, end)
 }
 
@@ -28899,7 +28935,7 @@ function dealloc (value) {
  * @return {string}
  */
 function delimit (type) {
-	return trim$1(slice$2(position - 1, delimiter$1(type === 91 ? type + 2 : type === 40 ? type + 1 : type)))
+	return trim$1(slice$1(position - 1, delimiter$1(type === 91 ? type + 2 : type === 40 ? type + 1 : type)))
 }
 
 /**
@@ -28927,7 +28963,7 @@ function escaping (index, count) {
 		if (character < 48 || character > 102 || (character > 57 && character < 65) || (character > 70 && character < 97))
 			break
 
-	return slice$2(index, caret() + (count < 6 && peek() == 32 && next() == 32))
+	return slice$1(index, caret() + (count < 6 && peek() == 32 && next() == 32))
 }
 
 /**
@@ -28973,7 +29009,7 @@ function commenter (type, index) {
 		else if (type + character === 42 + 42 && peek() === 47)
 			break
 
-	return '/*' + slice$2(index, position - 1) + '*' + from(type === 47 ? type : next())
+	return '/*' + slice$1(index, position - 1) + '*' + from(type === 47 ? type : next())
 }
 
 /**
@@ -28984,7 +29020,7 @@ function identifier (index) {
 	while (!token(peek()))
 		next();
 
-	return slice$2(index, position)
+	return slice$1(index, position)
 }
 
 /**
@@ -29147,7 +29183,7 @@ function ruleset (value, root, parent, index, offset, rules, points, type, props
 	var size = sizeof(rule);
 
 	for (var i = 0, j = 0, k = 0; i < index; ++i)
-		for (var x = 0, y = substr(value, post + 1, post = abs$1(j = points[i])), z = value; x < size; ++x)
+		for (var x = 0, y = substr(value, post + 1, post = abs(j = points[i])), z = value; x < size; ++x)
 			if (z = trim$1(j > 0 ? rule[x] + ' ' + y : replace(y, /&\f/g, rule[x])))
 				props[k++] = z;
 
@@ -29272,7 +29308,7 @@ var identifierWithPointTracking = function identifierWithPointTracking(begin, po
     next();
   }
 
-  return slice$2(begin, position);
+  return slice$1(begin, position);
 };
 
 var toRules = function toRules(parsed, points) {
@@ -29895,231 +29931,7 @@ var createCache = function createCache(options) {
   return cache;
 };
 
-var reactIs$1 = {exports: {}};
-
-var reactIs_production_min = {};
-
-/** @license React v16.13.1
- * react-is.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var hasRequiredReactIs_production_min;
-
-function requireReactIs_production_min () {
-	if (hasRequiredReactIs_production_min) return reactIs_production_min;
-	hasRequiredReactIs_production_min = 1;
-var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?
-	Symbol.for("react.suspense_list"):60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.block"):60121,w=b?Symbol.for("react.fundamental"):60117,x=b?Symbol.for("react.responder"):60118,y=b?Symbol.for("react.scope"):60119;
-	function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}reactIs_production_min.AsyncMode=l;reactIs_production_min.ConcurrentMode=m;reactIs_production_min.ContextConsumer=k;reactIs_production_min.ContextProvider=h;reactIs_production_min.Element=c;reactIs_production_min.ForwardRef=n;reactIs_production_min.Fragment=e;reactIs_production_min.Lazy=t;reactIs_production_min.Memo=r;reactIs_production_min.Portal=d;
-	reactIs_production_min.Profiler=g;reactIs_production_min.StrictMode=f;reactIs_production_min.Suspense=p;reactIs_production_min.isAsyncMode=function(a){return A(a)||z(a)===l};reactIs_production_min.isConcurrentMode=A;reactIs_production_min.isContextConsumer=function(a){return z(a)===k};reactIs_production_min.isContextProvider=function(a){return z(a)===h};reactIs_production_min.isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===c};reactIs_production_min.isForwardRef=function(a){return z(a)===n};reactIs_production_min.isFragment=function(a){return z(a)===e};reactIs_production_min.isLazy=function(a){return z(a)===t};
-	reactIs_production_min.isMemo=function(a){return z(a)===r};reactIs_production_min.isPortal=function(a){return z(a)===d};reactIs_production_min.isProfiler=function(a){return z(a)===g};reactIs_production_min.isStrictMode=function(a){return z(a)===f};reactIs_production_min.isSuspense=function(a){return z(a)===p};
-	reactIs_production_min.isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};reactIs_production_min.typeOf=z;
-	return reactIs_production_min;
-}
-
-var reactIs_development = {};
-
-/** @license React v16.13.1
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var hasRequiredReactIs_development;
-
-function requireReactIs_development () {
-	if (hasRequiredReactIs_development) return reactIs_development;
-	hasRequiredReactIs_development = 1;
-
-
-
-	if (process.env.NODE_ENV !== "production") {
-	  (function() {
-
-	// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-	// nor polyfill, then a plain number is used for performance.
-	var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-	var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-	var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-	var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-	var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-	var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-	var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-	var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-	// (unstable) APIs that have been removed. Can we remove the symbols?
-
-	var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-	var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-	var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-	var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-	var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
-	var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-	var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-	var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-	var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
-	var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
-	var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
-
-	function isValidElementType(type) {
-	  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-	  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-	}
-
-	function typeOf(object) {
-	  if (typeof object === 'object' && object !== null) {
-	    var $$typeof = object.$$typeof;
-
-	    switch ($$typeof) {
-	      case REACT_ELEMENT_TYPE:
-	        var type = object.type;
-
-	        switch (type) {
-	          case REACT_ASYNC_MODE_TYPE:
-	          case REACT_CONCURRENT_MODE_TYPE:
-	          case REACT_FRAGMENT_TYPE:
-	          case REACT_PROFILER_TYPE:
-	          case REACT_STRICT_MODE_TYPE:
-	          case REACT_SUSPENSE_TYPE:
-	            return type;
-
-	          default:
-	            var $$typeofType = type && type.$$typeof;
-
-	            switch ($$typeofType) {
-	              case REACT_CONTEXT_TYPE:
-	              case REACT_FORWARD_REF_TYPE:
-	              case REACT_LAZY_TYPE:
-	              case REACT_MEMO_TYPE:
-	              case REACT_PROVIDER_TYPE:
-	                return $$typeofType;
-
-	              default:
-	                return $$typeof;
-	            }
-
-	        }
-
-	      case REACT_PORTAL_TYPE:
-	        return $$typeof;
-	    }
-	  }
-
-	  return undefined;
-	} // AsyncMode is deprecated along with isAsyncMode
-
-	var AsyncMode = REACT_ASYNC_MODE_TYPE;
-	var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-	var ContextConsumer = REACT_CONTEXT_TYPE;
-	var ContextProvider = REACT_PROVIDER_TYPE;
-	var Element = REACT_ELEMENT_TYPE;
-	var ForwardRef = REACT_FORWARD_REF_TYPE;
-	var Fragment = REACT_FRAGMENT_TYPE;
-	var Lazy = REACT_LAZY_TYPE;
-	var Memo = REACT_MEMO_TYPE;
-	var Portal = REACT_PORTAL_TYPE;
-	var Profiler = REACT_PROFILER_TYPE;
-	var StrictMode = REACT_STRICT_MODE_TYPE;
-	var Suspense = REACT_SUSPENSE_TYPE;
-	var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
-
-	function isAsyncMode(object) {
-	  {
-	    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-	      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-	      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-	    }
-	  }
-
-	  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-	}
-	function isConcurrentMode(object) {
-	  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-	}
-	function isContextConsumer(object) {
-	  return typeOf(object) === REACT_CONTEXT_TYPE;
-	}
-	function isContextProvider(object) {
-	  return typeOf(object) === REACT_PROVIDER_TYPE;
-	}
-	function isElement(object) {
-	  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-	}
-	function isForwardRef(object) {
-	  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-	}
-	function isFragment(object) {
-	  return typeOf(object) === REACT_FRAGMENT_TYPE;
-	}
-	function isLazy(object) {
-	  return typeOf(object) === REACT_LAZY_TYPE;
-	}
-	function isMemo(object) {
-	  return typeOf(object) === REACT_MEMO_TYPE;
-	}
-	function isPortal(object) {
-	  return typeOf(object) === REACT_PORTAL_TYPE;
-	}
-	function isProfiler(object) {
-	  return typeOf(object) === REACT_PROFILER_TYPE;
-	}
-	function isStrictMode(object) {
-	  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-	}
-	function isSuspense(object) {
-	  return typeOf(object) === REACT_SUSPENSE_TYPE;
-	}
-
-	reactIs_development.AsyncMode = AsyncMode;
-	reactIs_development.ConcurrentMode = ConcurrentMode;
-	reactIs_development.ContextConsumer = ContextConsumer;
-	reactIs_development.ContextProvider = ContextProvider;
-	reactIs_development.Element = Element;
-	reactIs_development.ForwardRef = ForwardRef;
-	reactIs_development.Fragment = Fragment;
-	reactIs_development.Lazy = Lazy;
-	reactIs_development.Memo = Memo;
-	reactIs_development.Portal = Portal;
-	reactIs_development.Profiler = Profiler;
-	reactIs_development.StrictMode = StrictMode;
-	reactIs_development.Suspense = Suspense;
-	reactIs_development.isAsyncMode = isAsyncMode;
-	reactIs_development.isConcurrentMode = isConcurrentMode;
-	reactIs_development.isContextConsumer = isContextConsumer;
-	reactIs_development.isContextProvider = isContextProvider;
-	reactIs_development.isElement = isElement;
-	reactIs_development.isForwardRef = isForwardRef;
-	reactIs_development.isFragment = isFragment;
-	reactIs_development.isLazy = isLazy;
-	reactIs_development.isMemo = isMemo;
-	reactIs_development.isPortal = isPortal;
-	reactIs_development.isProfiler = isProfiler;
-	reactIs_development.isStrictMode = isStrictMode;
-	reactIs_development.isSuspense = isSuspense;
-	reactIs_development.isValidElementType = isValidElementType;
-	reactIs_development.typeOf = typeOf;
-	  })();
-	}
-	return reactIs_development;
-}
-
-if (process.env.NODE_ENV === 'production') {
-  reactIs$1.exports = requireReactIs_production_min();
-} else {
-  reactIs$1.exports = requireReactIs_development();
-}
-
-var reactIsExports = reactIs$1.exports;
-
-var reactIs = reactIsExports;
+var reactIs$1 = reactIsExports$2;
 var FORWARD_REF_STATICS = {
   '$$typeof': true,
   render: true,
@@ -30136,8 +29948,8 @@ var MEMO_STATICS = {
   type: true
 };
 var TYPE_STATICS = {};
-TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
-TYPE_STATICS[reactIs.Memo] = MEMO_STATICS;
+TYPE_STATICS[reactIs$1.ForwardRef] = FORWARD_REF_STATICS;
+TYPE_STATICS[reactIs$1.Memo] = MEMO_STATICS;
 
 var isBrowser$4 = typeof document !== 'undefined';
 function getRegisteredStyles(registered, registeredStyles, classNames) {
@@ -30617,7 +30429,7 @@ var useInsertionEffectAlwaysWithSyncFallback = !isBrowser$3 ? syncFallback : use
 var useInsertionEffectWithLayoutFallback = useInsertionEffect || React__namespace.useLayoutEffect;
 
 var isBrowser$2 = typeof document !== 'undefined';
-var hasOwnProperty = {}.hasOwnProperty;
+var hasOwnProperty$1 = {}.hasOwnProperty;
 
 var EmotionCacheContext = /* #__PURE__ */React__namespace.createContext( // we're doing this to avoid preconstruct's dead code elimination in this one case
 // because this module is primarily intended for the browser and node
@@ -30738,7 +30550,7 @@ var Emotion = /* #__PURE__ */withEmotionCache(function (props, cache, ref) {
   var newProps = {};
 
   for (var key in props) {
-    if (hasOwnProperty.call(props, key) && key !== 'css' && key !== typePropName && (process.env.NODE_ENV === 'production' || key !== labelPropName)) {
+    if (hasOwnProperty$1.call(props, key) && key !== 'css' && key !== typePropName && (process.env.NODE_ENV === 'production' || key !== labelPropName)) {
       newProps[key] = props[key];
     }
   }
@@ -31396,7 +31208,7 @@ process.env.NODE_ENV !== "production" ? GlobalStyles$2.propTypes = {
 } : void 0;
 
 /**
- * @mui/styled-engine v5.14.7
+ * @mui/styled-engine v5.14.13
  *
  * @license MIT
  * This source code is licensed under the MIT license found in the
@@ -31616,6 +31428,11 @@ function getStyleValue$1(themeMapping, transform, propValueFinal, userValue = pr
     value = themeMapping[propValueFinal] || userValue;
   } else {
     value = getPath(themeMapping, propValueFinal) || userValue;
+  }
+  if (typeof value === 'object') {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(`MUI: The value found in theme for prop: "${propValueFinal}" is an [Object] instead of string or number. Check if you forgot to add the correct dotted notation, eg, "background.paper" instead of "background".`);
+    }
   }
   if (transform) {
     value = transform(value, userValue, themeMapping);
@@ -32047,10 +31864,20 @@ const width = style$1({
 const maxWidth = props => {
   if (props.maxWidth !== undefined && props.maxWidth !== null) {
     const styleFromPropValue = propValue => {
-      var _props$theme;
+      var _props$theme, _props$theme2;
       const breakpoint = ((_props$theme = props.theme) == null || (_props$theme = _props$theme.breakpoints) == null || (_props$theme = _props$theme.values) == null ? void 0 : _props$theme[propValue]) || values$1[propValue];
+      if (!breakpoint) {
+        return {
+          maxWidth: sizingTransform(propValue)
+        };
+      }
+      if (((_props$theme2 = props.theme) == null || (_props$theme2 = _props$theme2.breakpoints) == null ? void 0 : _props$theme2.unit) !== 'px') {
+        return {
+          maxWidth: `${breakpoint}${props.theme.breakpoints.unit}`
+        };
+      }
       return {
-        maxWidth: breakpoint || sizingTransform(propValue)
+        maxWidth: breakpoint
       };
     };
     return handleBreakpoints(props, props.maxWidth, styleFromPropValue);
@@ -32690,39 +32517,47 @@ const getStyleOverrides = (name, theme) => {
   }
   return null;
 };
+const transformVariants = variants => {
+  const variantsStyles = {};
+  if (variants) {
+    variants.forEach(definition => {
+      const key = propsToClassKey(definition.props);
+      variantsStyles[key] = definition.style;
+    });
+  }
+  return variantsStyles;
+};
 const getVariantStyles = (name, theme) => {
   let variants = [];
   if (theme && theme.components && theme.components[name] && theme.components[name].variants) {
     variants = theme.components[name].variants;
   }
-  const variantsStyles = {};
-  variants.forEach(definition => {
-    const key = propsToClassKey(definition.props);
-    variantsStyles[key] = definition.style;
-  });
-  return variantsStyles;
+  return transformVariants(variants);
 };
-const variantsResolver = (props, styles, theme, name) => {
-  var _theme$components;
+const variantsResolver = (props, styles, variants) => {
   const {
     ownerState = {}
   } = props;
   const variantsStyles = [];
-  const themeVariants = theme == null || (_theme$components = theme.components) == null || (_theme$components = _theme$components[name]) == null ? void 0 : _theme$components.variants;
-  if (themeVariants) {
-    themeVariants.forEach(themeVariant => {
+  if (variants) {
+    variants.forEach(variant => {
       let isMatch = true;
-      Object.keys(themeVariant.props).forEach(key => {
-        if (ownerState[key] !== themeVariant.props[key] && props[key] !== themeVariant.props[key]) {
+      Object.keys(variant.props).forEach(key => {
+        if (ownerState[key] !== variant.props[key] && props[key] !== variant.props[key]) {
           isMatch = false;
         }
       });
       if (isMatch) {
-        variantsStyles.push(styles[propsToClassKey(themeVariant.props)]);
+        variantsStyles.push(styles[propsToClassKey(variant.props)]);
       }
     });
   }
   return variantsStyles;
+};
+const themeVariantsResolver = (props, styles, theme, name) => {
+  var _theme$components;
+  const themeVariants = theme == null || (_theme$components = theme.components) == null || (_theme$components = _theme$components[name]) == null ? void 0 : _theme$components.variants;
+  return variantsResolver(props, styles, themeVariants);
 };
 
 // Update /system/styled/#api in case if this changes
@@ -32749,6 +32584,29 @@ function defaultOverridesResolver(slot) {
   }
   return (props, styles) => styles[slot];
 }
+const muiStyledFunctionResolver = ({
+  styledArg,
+  props,
+  defaultTheme,
+  themeId
+}) => {
+  const resolvedStyles = styledArg(_extends$3({}, props, {
+    theme: resolveTheme(_extends$3({}, props, {
+      defaultTheme,
+      themeId
+    }))
+  }));
+  let optionalVariants;
+  if (resolvedStyles && resolvedStyles.variants) {
+    optionalVariants = resolvedStyles.variants;
+    delete resolvedStyles.variants;
+  }
+  if (optionalVariants) {
+    const variantsStyles = variantsResolver(props, transformVariants(optionalVariants), optionalVariants);
+    return [resolvedStyles, ...variantsStyles];
+  }
+  return resolvedStyles;
+};
 function createStyled(input = {}) {
   const {
     themeId,
@@ -32815,16 +32673,61 @@ function createStyled(input = {}) {
         // On the server Emotion doesn't use React.forwardRef for creating components, so the created
         // component stays as a function. This condition makes sure that we do not interpolate functions
         // which are basically components used as a selectors.
-        return typeof stylesArg === 'function' && stylesArg.__emotion_real !== stylesArg ? props => {
-          return stylesArg(_extends$3({}, props, {
-            theme: resolveTheme(_extends$3({}, props, {
-              defaultTheme,
-              themeId
-            }))
-          }));
-        } : stylesArg;
+        if (typeof stylesArg === 'function' && stylesArg.__emotion_real !== stylesArg) {
+          return props => muiStyledFunctionResolver({
+            styledArg: stylesArg,
+            props,
+            defaultTheme,
+            themeId
+          });
+        }
+        if (isPlainObject(stylesArg)) {
+          let transformedStylesArg = stylesArg;
+          let styledArgVariants;
+          if (stylesArg && stylesArg.variants) {
+            styledArgVariants = stylesArg.variants;
+            delete transformedStylesArg.variants;
+            transformedStylesArg = props => {
+              let result = stylesArg;
+              const variantStyles = variantsResolver(props, transformVariants(styledArgVariants), styledArgVariants);
+              variantStyles.forEach(variantStyle => {
+                result = deepmerge(result, variantStyle);
+              });
+              return result;
+            };
+          }
+          return transformedStylesArg;
+        }
+        return stylesArg;
       }) : [];
       let transformedStyleArg = styleArg;
+      if (isPlainObject(styleArg)) {
+        let styledArgVariants;
+        if (styleArg && styleArg.variants) {
+          styledArgVariants = styleArg.variants;
+          delete transformedStyleArg.variants;
+          transformedStyleArg = props => {
+            let result = styleArg;
+            const variantStyles = variantsResolver(props, transformVariants(styledArgVariants), styledArgVariants);
+            variantStyles.forEach(variantStyle => {
+              result = deepmerge(result, variantStyle);
+            });
+            return result;
+          };
+        }
+      } else if (typeof styleArg === 'function' &&
+      // On the server Emotion doesn't use React.forwardRef for creating components, so the created
+      // component stays as a function. This condition makes sure that we do not interpolate functions
+      // which are basically components used as a selectors.
+      styleArg.__emotion_real !== styleArg) {
+        // If the type is function, we need to define the default theme.
+        transformedStyleArg = props => muiStyledFunctionResolver({
+          styledArg: styleArg,
+          props,
+          defaultTheme,
+          themeId
+        });
+      }
       if (componentName && overridesResolver) {
         expressionsWithDefaultTheme.push(props => {
           const theme = resolveTheme(_extends$3({}, props, {
@@ -32850,7 +32753,7 @@ function createStyled(input = {}) {
             defaultTheme,
             themeId
           }));
-          return variantsResolver(props, getVariantStyles(componentName, theme), theme, componentName);
+          return themeVariantsResolver(props, getVariantStyles(componentName, theme), theme, componentName);
         });
       }
       if (!skipSx) {
@@ -32862,18 +32765,6 @@ function createStyled(input = {}) {
         // If the type is array, than we need to add placeholders in the template for the overrides, variants and the sx styles.
         transformedStyleArg = [...styleArg, ...placeholders];
         transformedStyleArg.raw = [...styleArg.raw, ...placeholders];
-      } else if (typeof styleArg === 'function' &&
-      // On the server Emotion doesn't use React.forwardRef for creating components, so the created
-      // component stays as a function. This condition makes sure that we do not interpolate functions
-      // which are basically components used as a selectors.
-      styleArg.__emotion_real !== styleArg) {
-        // If the type is function, we need to define the default theme.
-        transformedStyleArg = props => styleArg(_extends$3({}, props, {
-          theme: resolveTheme(_extends$3({}, props, {
-            defaultTheme,
-            themeId
-          }))
-        }));
       }
       const Component = defaultStyledResolver(transformedStyleArg, ...expressionsWithDefaultTheme);
       if (process.env.NODE_ENV !== 'production') {
@@ -34087,7 +33978,7 @@ process.env.NODE_ENV !== "production" ? SvgIcon.propTypes /* remove-proptypes */
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * You can use the `htmlColor` prop to apply a color attribute to the SVG element.
    * @default 'inherit'
    */
@@ -34192,6 +34083,270 @@ var utils = /*#__PURE__*/Object.freeze({
     useForkRef: useForkRef,
     useIsFocusVisible: useIsFocusVisible
 });
+
+var reactIs = {exports: {}};
+
+var reactIs_production_min = {};
+
+/**
+ * @license React
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var hasRequiredReactIs_production_min;
+
+function requireReactIs_production_min () {
+	if (hasRequiredReactIs_production_min) return reactIs_production_min;
+	hasRequiredReactIs_production_min = 1;
+var b=Symbol.for("react.element"),c=Symbol.for("react.portal"),d=Symbol.for("react.fragment"),e=Symbol.for("react.strict_mode"),f=Symbol.for("react.profiler"),g=Symbol.for("react.provider"),h=Symbol.for("react.context"),k=Symbol.for("react.server_context"),l=Symbol.for("react.forward_ref"),m=Symbol.for("react.suspense"),n=Symbol.for("react.suspense_list"),p=Symbol.for("react.memo"),q=Symbol.for("react.lazy"),t=Symbol.for("react.offscreen"),u;u=Symbol.for("react.module.reference");
+	function v(a){if("object"===typeof a&&null!==a){var r=a.$$typeof;switch(r){case b:switch(a=a.type,a){case d:case f:case e:case m:case n:return a;default:switch(a=a&&a.$$typeof,a){case k:case h:case l:case q:case p:case g:return a;default:return r}}case c:return r}}}reactIs_production_min.ContextConsumer=h;reactIs_production_min.ContextProvider=g;reactIs_production_min.Element=b;reactIs_production_min.ForwardRef=l;reactIs_production_min.Fragment=d;reactIs_production_min.Lazy=q;reactIs_production_min.Memo=p;reactIs_production_min.Portal=c;reactIs_production_min.Profiler=f;reactIs_production_min.StrictMode=e;reactIs_production_min.Suspense=m;
+	reactIs_production_min.SuspenseList=n;reactIs_production_min.isAsyncMode=function(){return !1};reactIs_production_min.isConcurrentMode=function(){return !1};reactIs_production_min.isContextConsumer=function(a){return v(a)===h};reactIs_production_min.isContextProvider=function(a){return v(a)===g};reactIs_production_min.isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===b};reactIs_production_min.isForwardRef=function(a){return v(a)===l};reactIs_production_min.isFragment=function(a){return v(a)===d};reactIs_production_min.isLazy=function(a){return v(a)===q};reactIs_production_min.isMemo=function(a){return v(a)===p};
+	reactIs_production_min.isPortal=function(a){return v(a)===c};reactIs_production_min.isProfiler=function(a){return v(a)===f};reactIs_production_min.isStrictMode=function(a){return v(a)===e};reactIs_production_min.isSuspense=function(a){return v(a)===m};reactIs_production_min.isSuspenseList=function(a){return v(a)===n};
+	reactIs_production_min.isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===d||a===f||a===e||a===m||a===n||a===t||"object"===typeof a&&null!==a&&(a.$$typeof===q||a.$$typeof===p||a.$$typeof===g||a.$$typeof===h||a.$$typeof===l||a.$$typeof===u||void 0!==a.getModuleId)?!0:!1};reactIs_production_min.typeOf=v;
+	return reactIs_production_min;
+}
+
+var reactIs_development = {};
+
+/**
+ * @license React
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var hasRequiredReactIs_development;
+
+function requireReactIs_development () {
+	if (hasRequiredReactIs_development) return reactIs_development;
+	hasRequiredReactIs_development = 1;
+
+	if (process.env.NODE_ENV !== "production") {
+	  (function() {
+
+	// ATTENTION
+	// When adding new symbols to this file,
+	// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+	// The Symbol used to tag the ReactElement-like types.
+	var REACT_ELEMENT_TYPE = Symbol.for('react.element');
+	var REACT_PORTAL_TYPE = Symbol.for('react.portal');
+	var REACT_FRAGMENT_TYPE = Symbol.for('react.fragment');
+	var REACT_STRICT_MODE_TYPE = Symbol.for('react.strict_mode');
+	var REACT_PROFILER_TYPE = Symbol.for('react.profiler');
+	var REACT_PROVIDER_TYPE = Symbol.for('react.provider');
+	var REACT_CONTEXT_TYPE = Symbol.for('react.context');
+	var REACT_SERVER_CONTEXT_TYPE = Symbol.for('react.server_context');
+	var REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
+	var REACT_SUSPENSE_TYPE = Symbol.for('react.suspense');
+	var REACT_SUSPENSE_LIST_TYPE = Symbol.for('react.suspense_list');
+	var REACT_MEMO_TYPE = Symbol.for('react.memo');
+	var REACT_LAZY_TYPE = Symbol.for('react.lazy');
+	var REACT_OFFSCREEN_TYPE = Symbol.for('react.offscreen');
+
+	// -----------------------------------------------------------------------------
+
+	var enableScopeAPI = false; // Experimental Create Event Handle API.
+	var enableCacheElement = false;
+	var enableTransitionTracing = false; // No known bugs, but needs performance testing
+
+	var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
+	// stuff. Intended to enable React core members to more easily debug scheduling
+	// issues in DEV builds.
+
+	var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
+
+	var REACT_MODULE_REFERENCE;
+
+	{
+	  REACT_MODULE_REFERENCE = Symbol.for('react.module.reference');
+	}
+
+	function isValidElementType(type) {
+	  if (typeof type === 'string' || typeof type === 'function') {
+	    return true;
+	  } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+
+
+	  if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing  || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden  || type === REACT_OFFSCREEN_TYPE || enableScopeAPI  || enableCacheElement  || enableTransitionTracing ) {
+	    return true;
+	  }
+
+	  if (typeof type === 'object' && type !== null) {
+	    if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
+	    // types supported by any Flight configuration anywhere since
+	    // we don't know which Flight build this will end up being used
+	    // with.
+	    type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) {
+	      return true;
+	    }
+	  }
+
+	  return false;
+	}
+
+	function typeOf(object) {
+	  if (typeof object === 'object' && object !== null) {
+	    var $$typeof = object.$$typeof;
+
+	    switch ($$typeof) {
+	      case REACT_ELEMENT_TYPE:
+	        var type = object.type;
+
+	        switch (type) {
+	          case REACT_FRAGMENT_TYPE:
+	          case REACT_PROFILER_TYPE:
+	          case REACT_STRICT_MODE_TYPE:
+	          case REACT_SUSPENSE_TYPE:
+	          case REACT_SUSPENSE_LIST_TYPE:
+	            return type;
+
+	          default:
+	            var $$typeofType = type && type.$$typeof;
+
+	            switch ($$typeofType) {
+	              case REACT_SERVER_CONTEXT_TYPE:
+	              case REACT_CONTEXT_TYPE:
+	              case REACT_FORWARD_REF_TYPE:
+	              case REACT_LAZY_TYPE:
+	              case REACT_MEMO_TYPE:
+	              case REACT_PROVIDER_TYPE:
+	                return $$typeofType;
+
+	              default:
+	                return $$typeof;
+	            }
+
+	        }
+
+	      case REACT_PORTAL_TYPE:
+	        return $$typeof;
+	    }
+	  }
+
+	  return undefined;
+	}
+	var ContextConsumer = REACT_CONTEXT_TYPE;
+	var ContextProvider = REACT_PROVIDER_TYPE;
+	var Element = REACT_ELEMENT_TYPE;
+	var ForwardRef = REACT_FORWARD_REF_TYPE;
+	var Fragment = REACT_FRAGMENT_TYPE;
+	var Lazy = REACT_LAZY_TYPE;
+	var Memo = REACT_MEMO_TYPE;
+	var Portal = REACT_PORTAL_TYPE;
+	var Profiler = REACT_PROFILER_TYPE;
+	var StrictMode = REACT_STRICT_MODE_TYPE;
+	var Suspense = REACT_SUSPENSE_TYPE;
+	var SuspenseList = REACT_SUSPENSE_LIST_TYPE;
+	var hasWarnedAboutDeprecatedIsAsyncMode = false;
+	var hasWarnedAboutDeprecatedIsConcurrentMode = false; // AsyncMode should be deprecated
+
+	function isAsyncMode(object) {
+	  {
+	    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+	      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+	      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
+	    }
+	  }
+
+	  return false;
+	}
+	function isConcurrentMode(object) {
+	  {
+	    if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
+	      hasWarnedAboutDeprecatedIsConcurrentMode = true; // Using console['warn'] to evade Babel and ESLint
+
+	      console['warn']('The ReactIs.isConcurrentMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
+	    }
+	  }
+
+	  return false;
+	}
+	function isContextConsumer(object) {
+	  return typeOf(object) === REACT_CONTEXT_TYPE;
+	}
+	function isContextProvider(object) {
+	  return typeOf(object) === REACT_PROVIDER_TYPE;
+	}
+	function isElement(object) {
+	  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+	}
+	function isForwardRef(object) {
+	  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+	}
+	function isFragment(object) {
+	  return typeOf(object) === REACT_FRAGMENT_TYPE;
+	}
+	function isLazy(object) {
+	  return typeOf(object) === REACT_LAZY_TYPE;
+	}
+	function isMemo(object) {
+	  return typeOf(object) === REACT_MEMO_TYPE;
+	}
+	function isPortal(object) {
+	  return typeOf(object) === REACT_PORTAL_TYPE;
+	}
+	function isProfiler(object) {
+	  return typeOf(object) === REACT_PROFILER_TYPE;
+	}
+	function isStrictMode(object) {
+	  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+	}
+	function isSuspense(object) {
+	  return typeOf(object) === REACT_SUSPENSE_TYPE;
+	}
+	function isSuspenseList(object) {
+	  return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
+	}
+
+	reactIs_development.ContextConsumer = ContextConsumer;
+	reactIs_development.ContextProvider = ContextProvider;
+	reactIs_development.Element = Element;
+	reactIs_development.ForwardRef = ForwardRef;
+	reactIs_development.Fragment = Fragment;
+	reactIs_development.Lazy = Lazy;
+	reactIs_development.Memo = Memo;
+	reactIs_development.Portal = Portal;
+	reactIs_development.Profiler = Profiler;
+	reactIs_development.StrictMode = StrictMode;
+	reactIs_development.Suspense = Suspense;
+	reactIs_development.SuspenseList = SuspenseList;
+	reactIs_development.isAsyncMode = isAsyncMode;
+	reactIs_development.isConcurrentMode = isConcurrentMode;
+	reactIs_development.isContextConsumer = isContextConsumer;
+	reactIs_development.isContextProvider = isContextProvider;
+	reactIs_development.isElement = isElement;
+	reactIs_development.isForwardRef = isForwardRef;
+	reactIs_development.isFragment = isFragment;
+	reactIs_development.isLazy = isLazy;
+	reactIs_development.isMemo = isMemo;
+	reactIs_development.isPortal = isPortal;
+	reactIs_development.isProfiler = isProfiler;
+	reactIs_development.isStrictMode = isStrictMode;
+	reactIs_development.isSuspense = isSuspense;
+	reactIs_development.isSuspenseList = isSuspenseList;
+	reactIs_development.isValidElementType = isValidElementType;
+	reactIs_development.typeOf = typeOf;
+	  })();
+	}
+	return reactIs_development;
+}
+
+if (process.env.NODE_ENV === 'production') {
+  reactIs.exports = requireReactIs_production_min();
+} else {
+  reactIs.exports = requireReactIs_development();
+}
+
+var reactIsExports = reactIs.exports;
 
 var config = {
   disabled: false
@@ -35866,7 +36021,7 @@ process.env.NODE_ENV !== "production" ? Accordion.propTypes /* remove-proptypes 
    */
   children: chainPropTypes(PropTypes.node.isRequired, props => {
     const summary = React__namespace.Children.toArray(props.children)[0];
-    if (reactIsExports$1.isFragment(summary)) {
+    if (reactIsExports.isFragment(summary)) {
       return new Error("MUI: The Accordion doesn't accept a Fragment as a child. " + 'Consider providing an array instead.');
     }
     if (! /*#__PURE__*/React__namespace.isValidElement(summary)) {
@@ -37210,7 +37365,7 @@ process.env.NODE_ENV !== "production" ? IconButton.propTypes /* remove-proptypes
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'default'
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'default', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
@@ -37590,7 +37745,7 @@ process.env.NODE_ENV !== "production" ? AppBar$1.propTypes /* remove-proptypes *
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'primary'
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['default', 'inherit', 'primary', 'secondary', 'transparent']), PropTypes.string]),
@@ -38126,51 +38281,6 @@ function FocusTrap(props) {
       return;
     }
     const doc = ownerDocument(rootRef.current);
-    const contain = nativeEvent => {
-      const {
-        current: rootElement
-      } = rootRef;
-
-      // Cleanup functions are executed lazily in React 17.
-      // Contain can be called between the component being unmounted and its cleanup function being run.
-      if (rootElement === null) {
-        return;
-      }
-      if (!doc.hasFocus() || disableEnforceFocus || !isEnabled() || ignoreNextEnforceFocus.current) {
-        ignoreNextEnforceFocus.current = false;
-        return;
-      }
-      if (!rootElement.contains(doc.activeElement)) {
-        // if the focus event is not coming from inside the children's react tree, reset the refs
-        if (nativeEvent && reactFocusEventTarget.current !== nativeEvent.target || doc.activeElement !== reactFocusEventTarget.current) {
-          reactFocusEventTarget.current = null;
-        } else if (reactFocusEventTarget.current !== null) {
-          return;
-        }
-        if (!activated.current) {
-          return;
-        }
-        let tabbable = [];
-        if (doc.activeElement === sentinelStart.current || doc.activeElement === sentinelEnd.current) {
-          tabbable = getTabbable(rootRef.current);
-        }
-        if (tabbable.length > 0) {
-          var _lastKeydown$current, _lastKeydown$current2;
-          const isShiftTab = Boolean(((_lastKeydown$current = lastKeydown.current) == null ? void 0 : _lastKeydown$current.shiftKey) && ((_lastKeydown$current2 = lastKeydown.current) == null ? void 0 : _lastKeydown$current2.key) === 'Tab');
-          const focusNext = tabbable[0];
-          const focusPrevious = tabbable[tabbable.length - 1];
-          if (typeof focusNext !== 'string' && typeof focusPrevious !== 'string') {
-            if (isShiftTab) {
-              focusPrevious.focus();
-            } else {
-              focusNext.focus();
-            }
-          }
-        } else {
-          rootElement.focus();
-        }
-      }
-    };
     const loopFocus = nativeEvent => {
       lastKeydown.current = nativeEvent;
       if (disableEnforceFocus || !isEnabled() || nativeEvent.key !== 'Tab') {
@@ -38188,6 +38298,62 @@ function FocusTrap(props) {
         }
       }
     };
+    const contain = () => {
+      const rootElement = rootRef.current;
+
+      // Cleanup functions are executed lazily in React 17.
+      // Contain can be called between the component being unmounted and its cleanup function being run.
+      if (rootElement === null) {
+        return;
+      }
+      if (!doc.hasFocus() || !isEnabled() || ignoreNextEnforceFocus.current) {
+        ignoreNextEnforceFocus.current = false;
+        return;
+      }
+
+      // The focus is already inside
+      if (rootElement.contains(doc.activeElement)) {
+        return;
+      }
+
+      // The disableEnforceFocus is set and the focus is outside of the focus trap (and sentinel nodes)
+      if (disableEnforceFocus && doc.activeElement !== sentinelStart.current && doc.activeElement !== sentinelEnd.current) {
+        return;
+      }
+
+      // if the focus event is not coming from inside the children's react tree, reset the refs
+      if (doc.activeElement !== reactFocusEventTarget.current) {
+        reactFocusEventTarget.current = null;
+      } else if (reactFocusEventTarget.current !== null) {
+        return;
+      }
+      if (!activated.current) {
+        return;
+      }
+      let tabbable = [];
+      if (doc.activeElement === sentinelStart.current || doc.activeElement === sentinelEnd.current) {
+        tabbable = getTabbable(rootRef.current);
+      }
+
+      // one of the sentinel nodes was focused, so move the focus
+      // to the first/last tabbable element inside the focus trap
+      if (tabbable.length > 0) {
+        var _lastKeydown$current, _lastKeydown$current2;
+        const isShiftTab = Boolean(((_lastKeydown$current = lastKeydown.current) == null ? void 0 : _lastKeydown$current.shiftKey) && ((_lastKeydown$current2 = lastKeydown.current) == null ? void 0 : _lastKeydown$current2.key) === 'Tab');
+        const focusNext = tabbable[0];
+        const focusPrevious = tabbable[tabbable.length - 1];
+        if (typeof focusNext !== 'string' && typeof focusPrevious !== 'string') {
+          if (isShiftTab) {
+            focusPrevious.focus();
+          } else {
+            focusNext.focus();
+          }
+        }
+        // no tabbable elements in the trap focus or the focus was outside of the focus trap
+      } else {
+        rootElement.focus();
+      }
+    };
     doc.addEventListener('focusin', contain);
     doc.addEventListener('keydown', loopFocus, true);
 
@@ -38199,7 +38365,7 @@ function FocusTrap(props) {
     // https://html.spec.whatwg.org/multipage/interaction.html#focus-fixup-rule.
     const interval = setInterval(() => {
       if (doc.activeElement && doc.activeElement.tagName === 'BODY') {
-        contain(null);
+        contain();
       }
     }, 50);
     return () => {
@@ -38457,7 +38623,7 @@ function getBasePlacement(placement) {
   return placement.split('-')[0];
 }
 
-var max = Math.max;
+var max$1 = Math.max;
 var min = Math.min;
 var round$1 = Math.round;
 
@@ -38660,8 +38826,8 @@ function getMainAxisFromPlacement(placement) {
   return ['top', 'bottom'].indexOf(placement) >= 0 ? 'x' : 'y';
 }
 
-function within(min$1, value, max$1) {
-  return max(min$1, min(value, max$1));
+function within(min$1, value, max) {
+  return max$1(min$1, min(value, max));
 }
 function withinMaxClamp(min, value, max) {
   var v = within(min, value, max);
@@ -39061,13 +39227,13 @@ function getDocumentRect(element) {
   var html = getDocumentElement(element);
   var winScroll = getWindowScroll(element);
   var body = (_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body;
-  var width = max(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
-  var height = max(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
+  var width = max$1(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
+  var height = max$1(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
   var x = -winScroll.scrollLeft + getWindowScrollBarX(element);
   var y = -winScroll.scrollTop;
 
   if (getComputedStyle(body || html).direction === 'rtl') {
-    x += max(html.clientWidth, body ? body.clientWidth : 0) - width;
+    x += max$1(html.clientWidth, body ? body.clientWidth : 0) - width;
   }
 
   return {
@@ -39176,10 +39342,10 @@ function getClippingRect(element, boundary, rootBoundary, strategy) {
   var firstClippingParent = clippingParents[0];
   var clippingRect = clippingParents.reduce(function (accRect, clippingParent) {
     var rect = getClientRectFromMixedType(element, clippingParent, strategy);
-    accRect.top = max(rect.top, accRect.top);
+    accRect.top = max$1(rect.top, accRect.top);
     accRect.right = min(rect.right, accRect.right);
     accRect.bottom = min(rect.bottom, accRect.bottom);
-    accRect.left = max(rect.left, accRect.left);
+    accRect.left = max$1(rect.left, accRect.left);
     return accRect;
   }, getClientRectFromMixedType(element, firstClippingParent, strategy));
   clippingRect.width = clippingRect.right - clippingRect.left;
@@ -39687,7 +39853,7 @@ function preventOverflow(_ref) {
     var len = mainAxis === 'y' ? 'height' : 'width';
     var offset = popperOffsets[mainAxis];
     var min$1 = offset + overflow[mainSide];
-    var max$1 = offset - overflow[altSide];
+    var max = offset - overflow[altSide];
     var additive = tether ? -popperRect[len] / 2 : 0;
     var minLen = variation === start ? referenceRect[len] : popperRect[len];
     var maxLen = variation === start ? -popperRect[len] : -referenceRect[len]; // We need to include the arrow in the calculation so the arrow doesn't go
@@ -39714,7 +39880,7 @@ function preventOverflow(_ref) {
     var offsetModifierValue = (_offsetModifierState$ = offsetModifierState == null ? void 0 : offsetModifierState[mainAxis]) != null ? _offsetModifierState$ : 0;
     var tetherMin = offset + minOffset - offsetModifierValue - clientOffset;
     var tetherMax = offset + maxOffset - offsetModifierValue;
-    var preventedOffset = within(tether ? min(min$1, tetherMin) : min$1, offset, tether ? max(max$1, tetherMax) : max$1);
+    var preventedOffset = within(tether ? min(min$1, tetherMin) : min$1, offset, tether ? max$1(max, tetherMax) : max);
     popperOffsets[mainAxis] = preventedOffset;
     data[mainAxis] = preventedOffset - offset;
   }
@@ -40854,7 +41020,7 @@ function useModal(parameters) {
   }, [open, handleClose, hasTransition, closeAfterTransition, handleOpen]);
   const createHandleKeyDown = otherHandlers => event => {
     var _otherHandlers$onKeyD;
-    (_otherHandlers$onKeyD = otherHandlers.onKeyDown) == null ? void 0 : _otherHandlers$onKeyD.call(otherHandlers, event);
+    (_otherHandlers$onKeyD = otherHandlers.onKeyDown) == null || _otherHandlers$onKeyD.call(otherHandlers, event);
 
     // The handler doesn't take event.defaultPrevented into account:
     //
@@ -40875,7 +41041,7 @@ function useModal(parameters) {
   };
   const createHandleBackdropClick = otherHandlers => event => {
     var _otherHandlers$onClic;
-    (_otherHandlers$onClic = otherHandlers.onClick) == null ? void 0 : _otherHandlers$onClic.call(otherHandlers, event);
+    (_otherHandlers$onClic = otherHandlers.onClick) == null || _otherHandlers$onClic.call(otherHandlers, event);
     if (event.target !== event.currentTarget) {
       return;
     }
@@ -40923,8 +41089,8 @@ function useModal(parameters) {
       }
     };
     return {
-      onEnter: createChainedFunction(handleEnter, children.props.onEnter),
-      onExited: createChainedFunction(handleExited, children.props.onExited)
+      onEnter: createChainedFunction(handleEnter, children == null ? void 0 : children.props.onEnter),
+      onExited: createChainedFunction(handleExited, children == null ? void 0 : children.props.onExited)
     };
   };
   return {
@@ -40950,7 +41116,7 @@ function useModal(parameters) {
  *
  * - [useSnackbar API](https://mui.com/base-ui/react-snackbar/hooks-api/#use-snackbar)
  */
-function useSnackbar(parameters) {
+function useSnackbar(parameters = {}) {
   const {
     autoHideDuration = null,
     disableWindowBlurListener = false,
@@ -40972,7 +41138,7 @@ function useSnackbar(parameters) {
         // IE11, Edge (prior to using Blink?) use 'Esc'
         if (nativeEvent.key === 'Escape' || nativeEvent.key === 'Esc') {
           // not calling `preventDefault` since we don't know if people may ignore this event e.g. a permanently open snackbar
-          onClose == null ? void 0 : onClose(nativeEvent, 'escapeKeyDown');
+          onClose == null || onClose(nativeEvent, 'escapeKeyDown');
         }
       }
     }
@@ -40982,7 +41148,7 @@ function useSnackbar(parameters) {
     };
   }, [open, onClose]);
   const handleClose = useEventCallback((event, reason) => {
-    onClose == null ? void 0 : onClose(event, reason);
+    onClose == null || onClose(event, reason);
   });
   const setAutoHideTimer = useEventCallback(autoHideDurationParam => {
     if (!onClose || autoHideDurationParam == null) {
@@ -41002,7 +41168,7 @@ function useSnackbar(parameters) {
     };
   }, [open, autoHideDuration, setAutoHideTimer]);
   const handleClickAway = event => {
-    onClose == null ? void 0 : onClose(event, 'clickaway');
+    onClose == null || onClose(event, 'clickaway');
   };
 
   // Pause the timer when the user is interacting with the Snackbar
@@ -41020,22 +41186,22 @@ function useSnackbar(parameters) {
   }, [autoHideDuration, resumeHideDuration, setAutoHideTimer]);
   const createHandleBlur = otherHandlers => event => {
     const onBlurCallback = otherHandlers.onBlur;
-    onBlurCallback == null ? void 0 : onBlurCallback(event);
+    onBlurCallback == null || onBlurCallback(event);
     handleResume();
   };
   const createHandleFocus = otherHandlers => event => {
     const onFocusCallback = otherHandlers.onFocus;
-    onFocusCallback == null ? void 0 : onFocusCallback(event);
+    onFocusCallback == null || onFocusCallback(event);
     handlePause();
   };
   const createMouseEnter = otherHandlers => event => {
     const onMouseEnterCallback = otherHandlers.onMouseEnter;
-    onMouseEnterCallback == null ? void 0 : onMouseEnterCallback(event);
+    onMouseEnterCallback == null || onMouseEnterCallback(event);
     handlePause();
   };
   const createMouseLeave = otherHandlers => event => {
     const onMouseLeaveCallback = otherHandlers.onMouseLeave;
-    onMouseLeaveCallback == null ? void 0 : onMouseLeaveCallback(event);
+    onMouseLeaveCallback == null || onMouseLeaveCallback(event);
     handleResume();
   };
   React__namespace.useEffect(() => {
@@ -41050,14 +41216,13 @@ function useSnackbar(parameters) {
     }
     return undefined;
   }, [disableWindowBlurListener, handleResume, open]);
-  const getRootProps = (otherHandlers = {}) => {
-    const propsEventHandlers = extractEventHandlers(parameters);
-    const externalEventHandlers = _extends$3({}, propsEventHandlers, otherHandlers);
+  const getRootProps = (externalProps = {}) => {
+    const externalEventHandlers = _extends$3({}, extractEventHandlers(parameters), extractEventHandlers(externalProps));
     return _extends$3({
       // ClickAwayListener adds an `onClick` prop which results in the alert not being announced.
       // See https://github.com/mui/material-ui/issues/29080
       role: 'presentation'
-    }, externalEventHandlers, {
+    }, externalProps, externalEventHandlers, {
       onBlur: createHandleBlur(externalEventHandlers),
       onFocus: createHandleFocus(externalEventHandlers),
       onMouseEnter: createMouseEnter(externalEventHandlers),
@@ -41198,53 +41363,57 @@ const TextareaAutosize = /*#__PURE__*/React__namespace.forwardRef(function Texta
     if (isEmpty$1(newState)) {
       return;
     }
-    setState(prevState => {
-      return updateState(prevState, newState);
-    });
+    setState(prevState => updateState(prevState, newState));
   }, [getUpdatedState]);
-  const syncHeightWithFlushSync = () => {
-    const newState = getUpdatedState();
-    if (isEmpty$1(newState)) {
-      return;
-    }
-
-    // In React 18, state updates in a ResizeObserver's callback are happening after the paint which causes flickering
-    // when doing some visual updates in it. Using flushSync ensures that the dom will be painted after the states updates happen
-    // Related issue - https://github.com/facebook/react/issues/24331
-    ReactDOM__namespace.flushSync(() => {
-      setState(prevState => {
-        return updateState(prevState, newState);
-      });
-    });
-  };
-  React__namespace.useEffect(() => {
-    const handleResize = debounce$1(() => {
-      renders.current = 0;
-
-      // If the TextareaAutosize component is replaced by Suspense with a fallback, the last
-      // ResizeObserver's handler that runs because of the change in the layout is trying to
-      // access a dom node that is no longer there (as the fallback component is being shown instead).
-      // See https://github.com/mui/material-ui/issues/32640
-      if (inputRef.current) {
-        syncHeightWithFlushSync();
+  useEnhancedEffect$1(() => {
+    const syncHeightWithFlushSync = () => {
+      const newState = getUpdatedState();
+      if (isEmpty$1(newState)) {
+        return;
       }
-    });
-    let resizeObserver;
+
+      // In React 18, state updates in a ResizeObserver's callback are happening after
+      // the paint, this leads to an infinite rendering.
+      //
+      // Using flushSync ensures that the states is updated before the next pain.
+      // Related issue - https://github.com/facebook/react/issues/24331
+      ReactDOM__namespace.flushSync(() => {
+        setState(prevState => updateState(prevState, newState));
+      });
+    };
+    const handleResize = () => {
+      renders.current = 0;
+      syncHeightWithFlushSync();
+    };
+    // Workaround a "ResizeObserver loop completed with undelivered notifications" error
+    // in test.
+    // Note that we might need to use this logic in production per https://github.com/WICG/resize-observer/issues/38
+    // Also see https://github.com/mui/mui-x/issues/8733
+    let rAF;
+    const rAFHandleResize = () => {
+      cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(() => {
+        handleResize();
+      });
+    };
+    const debounceHandleResize = debounce$1(handleResize);
     const input = inputRef.current;
     const containerWindow = ownerWindow(input);
-    containerWindow.addEventListener('resize', handleResize);
+    containerWindow.addEventListener('resize', debounceHandleResize);
+    let resizeObserver;
     if (typeof ResizeObserver !== 'undefined') {
-      resizeObserver = new ResizeObserver(handleResize);
+      resizeObserver = new ResizeObserver(process.env.NODE_ENV === 'test' ? rAFHandleResize : handleResize);
       resizeObserver.observe(input);
     }
     return () => {
-      handleResize.clear();
-      containerWindow.removeEventListener('resize', handleResize);
+      debounceHandleResize.clear();
+      cancelAnimationFrame(rAF);
+      containerWindow.removeEventListener('resize', debounceHandleResize);
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
     };
-  });
+  }, [getUpdatedState]);
   useEnhancedEffect$1(() => {
     syncHeight();
   });
@@ -41631,7 +41800,7 @@ const useUtilityClasses$v = ownerState => {
     type
   } = ownerState;
   const slots = {
-    root: ['root', `color${capitalize(color)}`, disabled && 'disabled', error && 'error', fullWidth && 'fullWidth', focused && 'focused', formControl && 'formControl', size === 'small' && 'sizeSmall', multiline && 'multiline', startAdornment && 'adornedStart', endAdornment && 'adornedEnd', hiddenLabel && 'hiddenLabel', readOnly && 'readOnly'],
+    root: ['root', `color${capitalize(color)}`, disabled && 'disabled', error && 'error', fullWidth && 'fullWidth', focused && 'focused', formControl && 'formControl', size && size !== 'medium' && `size${capitalize(size)}`, multiline && 'multiline', startAdornment && 'adornedStart', endAdornment && 'adornedEnd', hiddenLabel && 'hiddenLabel', readOnly && 'readOnly'],
     input: ['input', disabled && 'disabled', type === 'search' && 'inputTypeSearch', multiline && 'inputMultiline', size === 'small' && 'inputSizeSmall', hiddenLabel && 'inputHiddenLabel', startAdornment && 'inputAdornedStart', endAdornment && 'inputAdornedEnd', readOnly && 'readOnly']
   };
   return composeClasses(slots, getInputBaseUtilityClass, classes);
@@ -42085,7 +42254,7 @@ process.env.NODE_ENV !== "production" ? InputBase.propTypes /* remove-proptypes 
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
@@ -42465,8 +42634,8 @@ const Avatar = /*#__PURE__*/React__namespace.forwardRef(function Avatar(inProps,
   if (hasImgNotFailing) {
     children = /*#__PURE__*/require$$2.jsx(AvatarImg, _extends$3({
       alt: alt,
-      src: src,
       srcSet: srcSet,
+      src: src,
       sizes: sizes,
       ownerState: ownerState,
       className: classes.img
@@ -42965,6 +43134,15 @@ if (process.env.NODE_ENV !== 'production') {
 }
 var ButtonGroupContext$1 = ButtonGroupContext;
 
+/**
+ * @ignore - internal component.
+ */
+const ButtonGroupButtonContext = /*#__PURE__*/React__namespace.createContext(undefined);
+if (process.env.NODE_ENV !== 'production') {
+  ButtonGroupButtonContext.displayName = 'ButtonGroupButtonContext';
+}
+var ButtonGroupButtonContext$1 = ButtonGroupButtonContext;
+
 const _excluded$x = ["children", "color", "component", "className", "disabled", "disableElevation", "disableFocusRipple", "endIcon", "focusVisibleClassName", "fullWidth", "size", "startIcon", "type", "variant"];
 const useUtilityClasses$s = ownerState => {
   const {
@@ -43170,6 +43348,7 @@ const ButtonEndIcon = styled$1('span', {
 const Button$1 = /*#__PURE__*/React__namespace.forwardRef(function Button(inProps, ref) {
   // props priority: `inProps` > `contextProps` > `themeDefaultProps`
   const contextProps = React__namespace.useContext(ButtonGroupContext$1);
+  const buttonGroupButtonContextPositionClassName = React__namespace.useContext(ButtonGroupButtonContext$1);
   const resolvedProps = resolveProps(contextProps, inProps);
   const props = useThemeProps({
     props: resolvedProps,
@@ -43214,9 +43393,10 @@ const Button$1 = /*#__PURE__*/React__namespace.forwardRef(function Button(inProp
     ownerState: ownerState,
     children: endIconProp
   });
+  const positionClassName = buttonGroupButtonContextPositionClassName || '';
   return /*#__PURE__*/require$$2.jsxs(ButtonRoot, _extends$3({
     ownerState: ownerState,
-    className: clsx$1(contextProps.className, classes.root, className),
+    className: clsx$1(contextProps.className, classes.root, className, positionClassName),
     component: component,
     disabled: disabled,
     focusRipple: !disableFocusRipple,
@@ -43248,7 +43428,7 @@ process.env.NODE_ENV !== "production" ? Button$1.propTypes /* remove-proptypes *
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'primary'
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'primary', 'secondary', 'success', 'error', 'info', 'warning']), PropTypes.string]),
@@ -43673,7 +43853,7 @@ process.env.NODE_ENV !== "production" ? CircularProgress.propTypes /* remove-pro
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'primary'
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['inherit', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
@@ -43691,7 +43871,7 @@ process.env.NODE_ENV !== "production" ? CircularProgress.propTypes /* remove-pro
   /**
    * The size of the component.
    * If using a number, the pixel unit is assumed.
-   * If using a string, you need to provide the CSS unit, e.g '3rem'.
+   * If using a string, you need to provide the CSS unit, e.g. '3rem'.
    * @default 40
    */
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -43768,7 +43948,7 @@ function getModalUtilityClass(slot) {
 }
 generateUtilityClasses('MuiModal', ['root', 'hidden', 'backdrop']);
 
-const _excluded$t = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "container", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "onBackdropClick", "onClose", "open", "slotProps", "slots", "theme"];
+const _excluded$t = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "container", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "onBackdropClick", "onClose", "onTransitionEnter", "onTransitionExited", "open", "slotProps", "slots", "theme"];
 const useUtilityClasses$o = ownerState => {
   const {
     open,
@@ -44988,7 +45168,7 @@ process.env.NODE_ENV !== "production" ? FilledInput.propTypes /* remove-proptype
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary']), PropTypes.string]),
@@ -45380,7 +45560,7 @@ process.env.NODE_ENV !== "production" ? FormControl.propTypes /* remove-proptype
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'primary'
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
@@ -45722,7 +45902,7 @@ process.env.NODE_ENV !== "production" ? FormLabel.propTypes /* remove-proptypes 
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['error', 'info', 'primary', 'secondary', 'success', 'warning']), PropTypes.string]),
   /**
@@ -46288,7 +46468,7 @@ process.env.NODE_ENV !== "production" ? Input.propTypes /* remove-proptypes */ =
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary']), PropTypes.string]),
@@ -46635,7 +46815,7 @@ const useUtilityClasses$g = ownerState => {
     required
   } = ownerState;
   const slots = {
-    root: ['root', formControl && 'formControl', !disableAnimation && 'animated', shrink && 'shrink', size === 'small' && 'sizeSmall', variant],
+    root: ['root', formControl && 'formControl', !disableAnimation && 'animated', shrink && 'shrink', size && size !== 'normal' && `size${capitalize(size)}`, variant],
     asterisk: [required && 'asterisk']
   };
   const composedClasses = composeClasses(slots, getInputLabelUtilityClasses, classes);
@@ -46774,7 +46954,7 @@ process.env.NODE_ENV !== "production" ? InputLabel.propTypes /* remove-proptypes
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['error', 'info', 'primary', 'secondary', 'success', 'warning']), PropTypes.string]),
   /**
@@ -47380,7 +47560,7 @@ const MenuList = /*#__PURE__*/React__namespace.forwardRef(function MenuList(prop
       return;
     }
     if (process.env.NODE_ENV !== 'production') {
-      if (reactIsExports$1.isFragment(child)) {
+      if (reactIsExports.isFragment(child)) {
         console.error(["MUI: The Menu component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
       }
     }
@@ -48110,7 +48290,7 @@ const Menu$2 = /*#__PURE__*/React__namespace.forwardRef(function Menu(inProps, r
       return;
     }
     if (process.env.NODE_ENV !== 'production') {
-      if (reactIsExports$1.isFragment(child)) {
+      if (reactIsExports.isFragment(child)) {
         console.error(["MUI: The Menu component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
       }
     }
@@ -49052,7 +49232,7 @@ process.env.NODE_ENV !== "production" ? OutlinedInput.propTypes /* remove-propty
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * The prop defaults to the value (`'primary'`) inherited from the parent FormControl component.
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary']), PropTypes.string]),
@@ -49391,6 +49571,7 @@ const useUtilityClasses$6 = ownerState => {
  * @ignore - internal component.
  */
 const SelectInput = /*#__PURE__*/React__namespace.forwardRef(function SelectInput(props, ref) {
+  var _MenuProps$slotProps;
   const {
       'aria-describedby': ariaDescribedby,
       'aria-label': ariaLabel,
@@ -49624,7 +49805,7 @@ const SelectInput = /*#__PURE__*/React__namespace.forwardRef(function SelectInpu
       return null;
     }
     if (process.env.NODE_ENV !== 'production') {
-      if (reactIsExports$1.isFragment(child)) {
+      if (reactIsExports.isFragment(child)) {
         console.error(["MUI: The Select component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
       }
     }
@@ -49714,11 +49895,14 @@ const SelectInput = /*#__PURE__*/React__namespace.forwardRef(function SelectInpu
     error
   });
   const classes = useUtilityClasses$6(ownerState);
+  const paperProps = _extends$3({}, MenuProps.PaperProps, (_MenuProps$slotProps = MenuProps.slotProps) == null ? void 0 : _MenuProps$slotProps.paper);
+  const listboxId = useId();
   return /*#__PURE__*/require$$2.jsxs(React__namespace.Fragment, {
     children: [/*#__PURE__*/require$$2.jsx(SelectSelect, _extends$3({
       ref: handleDisplayRef,
       tabIndex: tabIndex,
-      role: "button",
+      role: "combobox",
+      "aria-controls": listboxId,
       "aria-disabled": disabled ? 'true' : undefined,
       "aria-expanded": open ? 'true' : 'false',
       "aria-haspopup": "listbox",
@@ -49773,12 +49957,16 @@ const SelectInput = /*#__PURE__*/React__namespace.forwardRef(function SelectInpu
       MenuListProps: _extends$3({
         'aria-labelledby': labelId,
         role: 'listbox',
-        disableListWrap: true
+        'aria-multiselectable': multiple ? 'true' : undefined,
+        disableListWrap: true,
+        id: listboxId
       }, MenuProps.MenuListProps),
-      PaperProps: _extends$3({}, MenuProps.PaperProps, {
-        style: _extends$3({
-          minWidth: menuMinWidth
-        }, MenuProps.PaperProps != null ? MenuProps.PaperProps.style : null)
+      slotProps: _extends$3({}, MenuProps.slotProps, {
+        paper: _extends$3({}, paperProps, {
+          style: _extends$3({
+            minWidth: menuMinWidth
+          }, paperProps != null ? paperProps.style : null)
+        })
       }),
       children: items
     }))]
@@ -51486,7 +51674,7 @@ process.env.NODE_ENV !== "production" ? Toolbar.propTypes /* remove-proptypes */
    */
   variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['dense', 'regular']), PropTypes.string])
 } : void 0;
-var Toolbar$1 = Toolbar;
+var MuiToolbar = Toolbar;
 
 function getTextFieldUtilityClass(slot) {
   return generateUtilityClass('MuiTextField', slot);
@@ -51704,7 +51892,7 @@ process.env.NODE_ENV !== "production" ? TextField.propTypes /* remove-proptypes 
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
-   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'primary'
    */
   color: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']), PropTypes.string]),
@@ -51994,7 +52182,7 @@ var Button = function (props) {
         return theme.breakpoints.down('sm');
     });
     return isXSmall ? (label && !disabled ? (React__namespace.createElement(Tooltip$1, { title: translatedLabel },
-        React__namespace.createElement(IconButton$1, __assign$q({ "aria-label": translatedLabel, className: className, color: color, size: "large" }, rest, linkParams), children))) : (React__namespace.createElement(IconButton$1, __assign$q({ className: className, color: color, disabled: disabled, size: "large" }, rest, linkParams), children))) : (React__namespace.createElement(StyledButton$1, __assign$q({ className: className, color: color, size: size, "aria-label": translatedLabel, disabled: disabled, startIcon: alignIcon === 'left' && children ? children : undefined, endIcon: alignIcon === 'right' && children ? children : undefined }, rest, linkParams), translatedLabel));
+        React__namespace.createElement(IconButton$1, __assign$q({ "aria-label": translatedLabel, className: className, color: color, size: "large" }, linkParams, rest), children))) : (React__namespace.createElement(IconButton$1, __assign$q({ className: className, color: color, disabled: disabled, size: "large" }, linkParams, rest), children))) : (React__namespace.createElement(StyledButton$1, __assign$q({ className: className, color: color, size: size, "aria-label": translatedLabel, disabled: disabled, startIcon: alignIcon === 'left' && children ? children : undefined, endIcon: alignIcon === 'right' && children ? children : undefined }, linkParams, rest), translatedLabel));
 };
 Button.propTypes = {
     alignIcon: PropTypes.oneOf(['left', 'right']),
@@ -52152,7 +52340,9 @@ var LoadingIndicator = function (props) {
     var className = props.className, sx = props.sx, rest = __rest$n(props, ["className", "sx"]);
     var loading = useLoading();
     var theme = useTheme$1();
-    return (React__namespace.createElement(Root$9, { className: className, sx: sx }, loading ? (React__namespace.createElement(CircularProgress$1, __assign$p({ className: clsx('app-loader', LoadingIndicatorClasses.loader), color: "inherit", size: theme.spacing(2), thickness: 6 }, rest))) : (React__namespace.createElement(RefreshIconButton, { className: LoadingIndicatorClasses.loadedIcon }))));
+    return (React__namespace.createElement(Root$9, { className: className, sx: sx },
+        React__namespace.createElement(RefreshIconButton, { className: "".concat(LoadingIndicatorClasses.loadedIcon, " ").concat(loading && LoadingIndicatorClasses.loadedLoading) }),
+        loading && (React__namespace.createElement(CircularProgress$1, __assign$p({ className: clsx('app-loader', LoadingIndicatorClasses.loader), color: "inherit", size: theme.spacing(2), thickness: 6 }, rest)))));
 };
 LoadingIndicator.propTypes = {
     classes: PropTypes.object,
@@ -52162,20 +52352,28 @@ LoadingIndicator.propTypes = {
 var PREFIX$j = 'RaLoadingIndicator';
 var LoadingIndicatorClasses = {
     loader: "".concat(PREFIX$j, "-loader"),
+    loadedLoading: "".concat(PREFIX$j, "-loadedLoading"),
     loadedIcon: "".concat(PREFIX$j, "-loadedIcon"),
 };
 var Root$9 = styled$1('div', {
     name: PREFIX$j,
     overridesResolver: function (props, styles) { return styles.root; },
 })(function (_a) {
-    var _b;
-    var theme = _a.theme;
-    return (_b = {},
-        _b["& .".concat(LoadingIndicatorClasses.loader)] = {
-            marginLeft: theme.spacing(1.5),
-            marginRight: theme.spacing(1.5),
+    var _b, _c;
+    _a.theme;
+    return (_b = {
+            position: 'relative'
         },
-        _b["& .".concat(LoadingIndicatorClasses.loadedIcon)] = {},
+        _b["& .".concat(LoadingIndicatorClasses.loadedIcon)] = (_c = {},
+            _c["&.".concat(LoadingIndicatorClasses.loadedLoading)] = {
+                opacity: 0,
+            },
+            _c),
+        _b["& .".concat(LoadingIndicatorClasses.loader)] = {
+            position: 'absolute',
+            top: '30%',
+            left: '30%',
+        },
         _b);
 });
 
@@ -52368,7 +52566,7 @@ var UserMenu = function (props) {
         return null;
     var open = Boolean(anchorEl);
     return (React__namespace.createElement(Root$8, { className: className },
-        isLargeEnough && !isLoading && (identity === null || identity === void 0 ? void 0 : identity.fullName) ? (React__namespace.createElement(Button$2, { "aria-label": label && translate(label, { _: label }), className: UserMenuClasses.userButton, color: "inherit", startIcon: identity.avatar ? (React__namespace.createElement(Avatar$1, { className: UserMenuClasses.avatar, src: identity.avatar, alt: identity.fullName })) : (icon), onClick: handleMenu }, identity.fullName)) : (React__namespace.createElement(Tooltip$1, { title: label && translate(label, { _: 'Profile' }) },
+        isLargeEnough && !isLoading && (identity === null || identity === void 0 ? void 0 : identity.fullName) ? (React__namespace.createElement(Button$2, { "aria-label": label && translate(label, { _: label }), className: UserMenuClasses.userButton, color: "inherit", startIcon: identity.avatar ? (React__namespace.createElement(Avatar$1, { className: UserMenuClasses.avatar, src: identity.avatar, alt: identity.fullName })) : (icon), onClick: handleMenu, variant: "text" }, identity.fullName)) : (React__namespace.createElement(Tooltip$1, { title: label && translate(label, { _: 'Profile' }) },
             React__namespace.createElement(IconButton$1, { "aria-label": label && translate(label, { _: 'Profile' }), "aria-owns": open ? 'menu-appbar' : null, "aria-haspopup": true, color: "inherit", onClick: handleMenu }, !isLoading && (identity === null || identity === void 0 ? void 0 : identity.avatar) ? (React__namespace.createElement(Avatar$1, { className: UserMenuClasses.avatar, src: identity.avatar, alt: identity.fullName })) : (icon)))),
         React__namespace.createElement(UserMenuContextProvider, { value: context },
             React__namespace.createElement(Menu$3, { id: "menu-appbar", disableScrollLock: true, anchorEl: anchorEl, anchorOrigin: AnchorOrigin, transformOrigin: TransformOrigin, open: open, onClose: handleClose }, children))));
@@ -52396,8 +52594,8 @@ var Root$8 = styled$1('div', {
             marginInlineStart: theme.spacing(0.5),
         },
         _b["& .".concat(UserMenuClasses.avatar)] = {
-            width: theme.spacing(4),
-            height: theme.spacing(4),
+            width: theme.spacing(3),
+            height: theme.spacing(3),
         },
         _b);
 });
@@ -52475,6 +52673,165 @@ var _default$c = (0, _createSvgIcon$c.default)( /*#__PURE__*/(0, _jsxRuntime$c.j
 default_1$c = Brightness7.default = _default$c;
 
 /**
+ * Read and update the theme mode (light or dark)
+ *
+ * @example
+ * const [theme, setTheme] = useTheme('light');
+ * const toggleTheme = () => {
+ *    setTheme(theme === 'light' ? 'dark' : 'light');
+ * };
+ *
+ * @example // legacy mode, stores the full theme object
+ * // to be removed in v5
+ * const [theme, setTheme] = useTheme({
+ *    palette: {
+ *       type: 'light',
+ *   },
+ * });
+ */
+var useTheme = function (type) {
+    // FIXME: remove legacy mode in v5, and remove the RaThemeOptions type
+    var _a = useStore('theme', type), theme = _a[0], setter = _a[1];
+    return [theme, setter];
+};
+
+/**
+ * This sets the Material UI theme based on the preferred theme type.
+ *
+ * @param props
+ * @param props.children The children of the component.
+ * @param {ThemeOptions} props.theme The initial theme. Optional, use the one from the context if not provided.
+ *
+ * @example
+ *
+ * import { ThemesContext, ThemeProvider } from 'react-admin';
+ *
+ * const App = () => (
+ *    <ThemesContext.Provider value={{ lightTheme, darkTheme }}>
+ *      <ThemeProvider>
+ *        <Button>Test</Button>
+ *      </ThemeProvider>
+ *   </ThemesContext.Provider>
+ * );
+ */
+var ThemeProvider = function (_a) {
+    var children = _a.children, themeOverride = _a.theme;
+    var _b = useThemesContext(), lightTheme = _b.lightTheme, darkTheme = _b.darkTheme, defaultTheme = _b.defaultTheme;
+    var prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
+        noSsr: true,
+    });
+    var mode = useTheme(defaultTheme || (prefersDarkMode && darkTheme ? 'dark' : 'light'))[0];
+    var themeValue = React.useMemo(function () {
+        try {
+            return createTheme(typeof mode === 'object'
+                ? mode // FIXME: legacy useTheme, to be removed in v5
+                : mode === 'dark'
+                    ? darkTheme
+                    : lightTheme || themeOverride);
+        }
+        catch (e) {
+            console.warn('Failed to reuse custom theme from store', e);
+            return createTheme();
+        }
+    }, [mode, themeOverride, lightTheme, darkTheme]);
+    return React__namespace.createElement(ThemeProvider$1, { theme: themeValue }, children);
+};
+
+var __assign$m = (undefined && undefined.__assign) || function () {
+    __assign$m = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign$m.apply(this, arguments);
+};
+var defaultThemeInvariants = {
+    typography: {
+        h6: {
+            fontWeight: 400,
+        },
+    },
+    sidebar: {
+        width: 240,
+        closedWidth: 50,
+    },
+    components: {
+        MuiAutocomplete: {
+            variants: [
+                {
+                    props: {},
+                    style: function (_a) {
+                        var _b;
+                        var theme = _a.theme;
+                        return (_b = {},
+                            _b[theme.breakpoints.down('sm')] = { width: '100%' },
+                            _b);
+                    },
+                },
+            ],
+        },
+        MuiTextField: {
+            defaultProps: {
+                variant: 'filled',
+                margin: 'dense',
+                size: 'small',
+            },
+            variants: [
+                {
+                    props: {},
+                    style: function (_a) {
+                        var _b;
+                        var theme = _a.theme;
+                        return (_b = {},
+                            _b[theme.breakpoints.down('sm')] = { width: '100%' },
+                            _b);
+                    },
+                },
+            ],
+        },
+        MuiFormControl: {
+            defaultProps: {
+                variant: 'filled',
+                margin: 'dense',
+                size: 'small',
+            },
+        },
+    },
+};
+var defaultLightTheme = __assign$m(__assign$m({ palette: {
+        background: {
+            default: '#fafafb',
+        },
+        secondary: {
+            light: '#6ec6ff',
+            main: '#2196f3',
+            dark: '#0069c0',
+            contrastText: '#fff',
+        },
+    } }, defaultThemeInvariants), { components: __assign$m(__assign$m({}, defaultThemeInvariants.components), { MuiFilledInput: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                    '&$disabled': {
+                        backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                    },
+                },
+            },
+        } }) });
+__assign$m({ palette: {
+        mode: 'dark',
+        primary: {
+            main: '#90caf9',
+        },
+        background: {
+            default: '#313131',
+        },
+    } }, defaultThemeInvariants);
+
+/**
  * Button toggling the theme (light or dark).
  *
  * @deprecated Set the lightTheme and darkTheme props in the <Admin> component.
@@ -52542,8 +52899,8 @@ var ToggleThemeButton = function (props) {
         React.createElement(IconButton$1, { color: "inherit", onClick: handleTogglePaletteType, "aria-label": toggleThemeTitle }, theme === 'dark' ? React.createElement(default_1$c, null) : React.createElement(default_1$d, null))));
 };
 
-var __assign$m = (undefined && undefined.__assign) || function () {
-    __assign$m = Object.assign || function(t) {
+var __assign$l = (undefined && undefined.__assign) || function () {
+    __assign$l = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52551,7 +52908,7 @@ var __assign$m = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$m.apply(this, arguments);
+    return __assign$l.apply(this, arguments);
 };
 var __rest$l = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52592,8 +52949,8 @@ var AppBar = React.memo(function (props) {
         return theme.breakpoints.down('sm');
     });
     return (React__namespace.createElement(Container, { className: className },
-        React__namespace.createElement(StyledAppBar, __assign$m({ className: AppBarClasses.appBar, color: color }, rest),
-            React__namespace.createElement(Toolbar$1, { disableGutters: true, variant: isXSmall ? 'regular' : 'dense', className: AppBarClasses.toolbar },
+        React__namespace.createElement(StyledAppBar, __assign$l({ className: AppBarClasses.appBar, color: color }, rest),
+            React__namespace.createElement(MuiToolbar, { disableGutters: true, variant: isXSmall ? 'regular' : 'dense', className: AppBarClasses.toolbar },
                 React__namespace.createElement(SidebarToggleButton, { className: AppBarClasses.menuButton }),
                 React.Children.count(children) === 0 ? (React__namespace.createElement(TitlePortal, { className: AppBarClasses.title })) : (children),
                 toolbar,
@@ -52672,8 +53029,8 @@ var _default$b = (0, _createSvgIcon$b.default)( /*#__PURE__*/(0, _jsxRuntime$b.j
 }), 'Dashboard');
 default_1$b = Dashboard.default = _default$b;
 
-var __assign$l = (undefined && undefined.__assign) || function () {
-    __assign$l = Object.assign || function(t) {
+var __assign$k = (undefined && undefined.__assign) || function () {
+    __assign$k = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52681,7 +53038,7 @@ var __assign$l = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$l.apply(this, arguments);
+    return __assign$k.apply(this, arguments);
 };
 var __rest$k = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52744,7 +53101,7 @@ var __rest$k = (undefined && undefined.__rest) || function (s, e) {
  * );
  */
 var MenuItemLink = React.forwardRef(function (props, ref) {
-    var className = props.className, primaryText = props.primaryText, leftIcon = props.leftIcon, onClick = props.onClick; props.sidebarIsOpen; var tooltipProps = props.tooltipProps, rest = __rest$k(props, ["className", "primaryText", "leftIcon", "onClick", "sidebarIsOpen", "tooltipProps"]);
+    var className = props.className, primaryText = props.primaryText, leftIcon = props.leftIcon, onClick = props.onClick; props.sidebarIsOpen; var tooltipProps = props.tooltipProps, children = props.children, rest = __rest$k(props, ["className", "primaryText", "leftIcon", "onClick", "sidebarIsOpen", "tooltipProps", "children"]);
     var isSmall = useMediaQuery(function (theme) { return theme.breakpoints.down('md'); });
     var translate = useTranslate();
     var basename = useBasename();
@@ -52759,17 +53116,19 @@ var MenuItemLink = React.forwardRef(function (props, ref) {
     var match = useMatch({ path: to, end: to === "".concat(basename, "/") });
     var renderMenuItem = function () {
         var _a;
-        return (React.createElement(StyledMenuItem, __assign$l({ className: clsx(className, (_a = {},
+        return (React.createElement(StyledMenuItem, __assign$k({ className: clsx(className, (_a = {},
                 _a[MenuItemLinkClasses.active] = !!match,
                 _a)), 
             // @ts-ignore
             component: LinkRef, ref: ref, tabIndex: 0 }, rest, { onClick: handleMenuTap }),
             leftIcon && (React.createElement(ListItemIcon$1, { className: MenuItemLinkClasses.icon }, leftIcon)),
-            typeof primaryText === 'string'
-                ? translate(primaryText, { _: primaryText })
-                : primaryText));
+            children
+                ? children
+                : typeof primaryText === 'string'
+                    ? translate(primaryText, { _: primaryText })
+                    : primaryText));
     };
-    return open ? (renderMenuItem()) : (React.createElement(Tooltip$1, __assign$l({ title: typeof primaryText === 'string'
+    return open ? (renderMenuItem()) : (React.createElement(Tooltip$1, __assign$k({ title: typeof primaryText === 'string'
             ? translate(primaryText, { _: primaryText })
             : primaryText, placement: "right" }, tooltipProps), renderMenuItem()));
 });
@@ -52801,10 +53160,10 @@ var StyledMenuItem = styled$1(MenuItem$1, {
         _b["& .".concat(MenuItemLinkClasses.icon)] = { minWidth: theme.spacing(5) },
         _b);
 });
-var LinkRef = React.forwardRef(function (props, ref) { return (React.createElement(Link, __assign$l({ ref: ref }, props))); });
+var LinkRef = React.forwardRef(function (props, ref) { return (React.createElement(Link, __assign$k({ ref: ref }, props))); });
 
-var __assign$k = (undefined && undefined.__assign) || function () {
-    __assign$k = Object.assign || function(t) {
+var __assign$j = (undefined && undefined.__assign) || function () {
+    __assign$j = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -52812,7 +53171,7 @@ var __assign$k = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$k.apply(this, arguments);
+    return __assign$j.apply(this, arguments);
 };
 var __rest$j = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -52828,7 +53187,7 @@ var __rest$j = (undefined && undefined.__rest) || function (s, e) {
 var DashboardMenuItem = function (props) {
     var basename = useBasename();
     var _a = props.leftIcon, leftIcon = _a === void 0 ? React.createElement(default_1$b, null) : _a, _b = props.to, to = _b === void 0 ? "".concat(basename, "/") : _b, _c = props.primaryText, primaryText = _c === void 0 ? 'ra.page.dashboard' : _c, rest = __rest$j(props, ["leftIcon", "to", "primaryText"]);
-    return (React.createElement(MenuItemLink, __assign$k({ leftIcon: leftIcon, to: to, primaryText: primaryText }, rest)));
+    return (React.createElement(MenuItemLink, __assign$j({ leftIcon: leftIcon, to: to, primaryText: primaryText }, rest)));
 };
 DashboardMenuItem.propTypes = {
     leftIcon: PropTypes.element,
@@ -53192,8 +53551,8 @@ var StyledPaper = styled$1(Paper$1, {
 });
 Inspector.displayName = 'Inspector';
 
-var __assign$j = (undefined && undefined.__assign) || function () {
-    __assign$j = Object.assign || function(t) {
+var __assign$i = (undefined && undefined.__assign) || function () {
+    __assign$i = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53201,7 +53560,7 @@ var __assign$j = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$j.apply(this, arguments);
+    return __assign$i.apply(this, arguments);
 };
 var __rest$i = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53219,11 +53578,11 @@ var PageTitle = function (_a) {
     var titleFromPreferences = usePreference()[0];
     var translate = useTranslate();
     var record = useRecordContext();
-    return titleFromPreferences ? (React__namespace.createElement("span", __assign$j({ className: className }, rest), translate(titleFromPreferences, __assign$j(__assign$j({}, record), { _: titleFromPreferences })))) : (React__namespace.createElement("span", { className: className }, !title ? (React__namespace.createElement("span", __assign$j({}, rest), defaultTitle)) : typeof title === 'string' ? (React__namespace.createElement("span", __assign$j({}, rest), translate(title, { _: title }))) : (title)));
+    return titleFromPreferences ? (React__namespace.createElement("span", __assign$i({ className: className }, rest), translate(titleFromPreferences, __assign$i(__assign$i({}, record), { _: titleFromPreferences })))) : (React__namespace.createElement("span", { className: className }, !title ? (React__namespace.createElement("span", __assign$i({}, rest), defaultTitle)) : typeof title === 'string' ? (React__namespace.createElement("span", __assign$i({}, rest), translate(title, { _: title }))) : (title)));
 };
 
-var __assign$i = (undefined && undefined.__assign) || function () {
-    __assign$i = Object.assign || function(t) {
+var __assign$h = (undefined && undefined.__assign) || function () {
+    __assign$h = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53231,7 +53590,7 @@ var __assign$i = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$i.apply(this, arguments);
+    return __assign$h.apply(this, arguments);
 };
 var __rest$h = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53247,7 +53606,7 @@ var __rest$h = (undefined && undefined.__rest) || function (s, e) {
 var PageTitleEditor = function () {
     var field = usePreferenceInput();
     return (React__namespace.createElement("form", null,
-        React__namespace.createElement(TextField$1, __assign$i({ label: "title", variant: "filled", size: "small", fullWidth: true, sx: { mb: 1 } }, field))));
+        React__namespace.createElement(TextField$1, __assign$h({ label: "title", variant: "filled", size: "small", fullWidth: true, sx: { mb: 1 } }, field))));
 };
 var PageTitleConfigurable = function (_a) {
     var preferenceKey = _a.preferenceKey, props = __rest$h(_a, ["preferenceKey"]);
@@ -53257,11 +53616,11 @@ var PageTitleConfigurable = function (_a) {
                 margin: '2px',
             },
         } },
-        React__namespace.createElement(PageTitle, __assign$i({}, props))));
+        React__namespace.createElement(PageTitle, __assign$h({}, props))));
 };
 
-var __assign$h = (undefined && undefined.__assign) || function () {
-    __assign$h = Object.assign || function(t) {
+var __assign$g = (undefined && undefined.__assign) || function () {
+    __assign$g = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53269,7 +53628,7 @@ var __assign$h = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$h.apply(this, arguments);
+    return __assign$g.apply(this, arguments);
 };
 var __rest$g = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53304,7 +53663,7 @@ var Title = function (props) {
     if (!container)
         return null;
     warning$2(!defaultTitle && !title, 'Missing title prop in <Title> element');
-    return ReactDOM.createPortal(React__namespace.createElement(PageTitleConfigurable, __assign$h({ title: title, defaultTitle: defaultTitle, preferenceKey: preferenceKey }, rest)), container);
+    return ReactDOM.createPortal(React__namespace.createElement(PageTitleConfigurable, __assign$g({ title: title, defaultTitle: defaultTitle, preferenceKey: preferenceKey }, rest)), container);
 };
 var TitlePropType = PropTypes.oneOfType([
     PropTypes.string,
@@ -53333,8 +53692,8 @@ var useResetErrorBoundaryOnLocationChange = function (resetErrorBoundary) {
     }, [pathname, resetErrorBoundary]);
 };
 
-var __assign$g = (undefined && undefined.__assign) || function () {
-    __assign$g = Object.assign || function(t) {
+var __assign$f = (undefined && undefined.__assign) || function () {
+    __assign$f = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53342,7 +53701,7 @@ var __assign$g = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$g.apply(this, arguments);
+    return __assign$f.apply(this, arguments);
 };
 var __rest$f = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53364,7 +53723,7 @@ var Error$1 = function (props) {
     }
     return (React__namespace.createElement(React.Fragment, null,
         title && React__namespace.createElement(Title, { title: title }),
-        React__namespace.createElement(Root$6, __assign$g({ className: className }, rest),
+        React__namespace.createElement(Root$6, __assign$f({ className: className }, rest),
             React__namespace.createElement("h1", { className: ErrorClasses.title, role: "alert" },
                 React__namespace.createElement(default_1$a, { className: ErrorClasses.icon }),
                 translate('ra.page.error')),
@@ -53576,8 +53935,8 @@ var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
   return ErrorBoundary;
 }(React__namespace.Component);
 
-var __assign$f = (undefined && undefined.__assign) || function () {
-    __assign$f = Object.assign || function(t) {
+var __assign$e = (undefined && undefined.__assign) || function () {
+    __assign$e = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53585,7 +53944,7 @@ var __assign$f = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$f.apply(this, arguments);
+    return __assign$e.apply(this, arguments);
 };
 var __rest$e = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53607,7 +53966,7 @@ var Sidebar = function (props) {
     useLocale(); // force redraw on locale change
     var trigger = useScrollTrigger();
     var toggleSidebar = function () { return setOpen(!open); };
-    return isXSmall ? (React__namespace.createElement(StyledDrawer, __assign$f({ variant: "temporary", open: open, onClose: toggleSidebar, classes: SidebarClasses }, rest), children)) : (React__namespace.createElement(StyledDrawer, __assign$f({ variant: "permanent", open: open, onClose: toggleSidebar, classes: SidebarClasses, className: trigger && !appBarAlwaysOn ? SidebarClasses.appBarCollapsed : '' }, rest),
+    return isXSmall ? (React__namespace.createElement(StyledDrawer, __assign$e({ variant: "temporary", open: open, onClose: toggleSidebar, classes: SidebarClasses }, rest), children)) : (React__namespace.createElement(StyledDrawer, __assign$e({ variant: "permanent", open: open, onClose: toggleSidebar, classes: SidebarClasses, className: trigger && !appBarAlwaysOn ? SidebarClasses.appBarCollapsed : '' }, rest),
         React__namespace.createElement("div", { className: SidebarClasses.fixed }, children)));
 };
 Sidebar.propTypes = {
@@ -53736,8 +54095,15 @@ var ResourceMenuItem = function (_a) {
         }), state: { _scrollToTop: true }, primaryText: React__namespace.createElement(React__namespace.Fragment, null, getResourceLabel(name, 2)), leftIcon: resources[name].icon ? (React.createElement(resources[name].icon)) : (React__namespace.createElement(default_1$4, null)) }));
 };
 
-var __assign$e = (undefined && undefined.__assign) || function () {
-    __assign$e = Object.assign || function(t) {
+var ResourceMenuItems = function () {
+    var resources = useResourceDefinitions();
+    return (React__namespace.createElement(React__namespace.Fragment, null, Object.keys(resources)
+        .filter(function (name) { return resources[name].hasList; })
+        .map(function (name) { return (React__namespace.createElement(ResourceMenuItem, { key: name, name: name })); })));
+};
+
+var __assign$d = (undefined && undefined.__assign) || function () {
+    __assign$d = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53745,7 +54111,7 @@ var __assign$e = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$e.apply(this, arguments);
+    return __assign$d.apply(this, arguments);
 };
 var __rest$d = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53757,15 +54123,6 @@ var __rest$d = (undefined && undefined.__rest) || function (s, e) {
                 t[p[i]] = s[p[i]];
         }
     return t;
-};
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
 };
 /**
  * Renders a menu with one menu item per resource by default. You can also set menu items by hand.
@@ -53791,14 +54148,12 @@ var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from
  */
 var Menu = function (props) {
     var _a;
-    var resources = useResourceDefinitions();
-    var hasDashboard = props.hasDashboard, _b = props.children, children = _b === void 0 ? __spreadArray([
-        hasDashboard ? (React__namespace.createElement(DashboardMenuItem, { key: "default-dashboard-menu-item" })) : null
-    ], Object.keys(resources)
-        .filter(function (name) { return resources[name].hasList; })
-        .map(function (name) { return React__namespace.createElement(ResourceMenuItem, { key: name, name: name }); }), true) : _b, className = props.className, rest = __rest$d(props, ["hasDashboard", "children", "className"]);
+    var hasDashboard = props.hasDashboard, _b = props.children, children = _b === void 0 ? hasDashboard ? ([
+        React__namespace.createElement(DashboardMenuItem, { key: "default-dashboard-menu-item" }),
+        React__namespace.createElement(ResourceMenuItems, { key: "default-resource-menu-items" }),
+    ]) : (React__namespace.createElement(ResourceMenuItems, null)) : _b, className = props.className, rest = __rest$d(props, ["hasDashboard", "children", "className"]);
     var open = useSidebarState()[0];
-    return (React__namespace.createElement(Root$5, __assign$e({ className: clsx((_a = {},
+    return (React__namespace.createElement(Root$5, __assign$d({ className: clsx((_a = {},
             _a[MenuClasses.open] = open,
             _a[MenuClasses.closed] = !open,
             _a), className) }, rest), children));
@@ -53812,6 +54167,7 @@ Menu.propTypes = {
 Menu.Item = MenuItemLink;
 Menu.DashboardItem = DashboardMenuItem;
 Menu.ResourceItem = ResourceMenuItem;
+Menu.ResourceItems = ResourceMenuItems;
 var PREFIX$a = 'RaMenu';
 var MenuClasses = {
     open: "".concat(PREFIX$a, "-open"),
@@ -53826,9 +54182,7 @@ var Root$5 = styled$1(MenuList$1, {
     return (_b = {
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-start',
-            marginTop: '0.5em',
-            marginBottom: '1em'
+            justifyContent: 'flex-start'
         },
         _b[theme.breakpoints.only('xs')] = {
             marginTop: 0,
@@ -53846,8 +54200,8 @@ var Root$5 = styled$1(MenuList$1, {
         _b);
 });
 
-var __assign$d = (undefined && undefined.__assign) || function () {
-    __assign$d = Object.assign || function(t) {
+var __assign$c = (undefined && undefined.__assign) || function () {
+    __assign$c = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53855,7 +54209,7 @@ var __assign$d = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$d.apply(this, arguments);
+    return __assign$c.apply(this, arguments);
 };
 var __rest$c = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -53868,14 +54222,84 @@ var __rest$c = (undefined && undefined.__rest) || function (s, e) {
         }
     return t;
 };
+var Loading = function (props) {
+    var className = props.className, _a = props.loadingPrimary, loadingPrimary = _a === void 0 ? 'ra.page.loading' : _a, _b = props.loadingSecondary, loadingSecondary = _b === void 0 ? 'ra.message.loading' : _b, rest = __rest$c(props, ["className", "loadingPrimary", "loadingSecondary"]);
+    var oneSecondHasPassed = useTimeout(1000);
+    var translate = useTranslate();
+    return oneSecondHasPassed ? (React__namespace.createElement(Root$4, __assign$c({ className: className }, rest),
+        React__namespace.createElement("div", { className: LoadingClasses.message },
+            React__namespace.createElement(CircularProgress$1, { className: LoadingClasses.icon }),
+            React__namespace.createElement(Typography$1, { variant: "h5", mt: 3, color: "text.secondary" }, translate(loadingPrimary, { _: loadingPrimary })),
+            React__namespace.createElement(Typography$1, { variant: "body2" }, translate(loadingSecondary, { _: loadingSecondary }))))) : null;
+};
+Loading.propTypes = {
+    className: PropTypes.string,
+    loadingPrimary: PropTypes.string,
+    loadingSecondary: PropTypes.string,
+};
+var PREFIX$9 = 'RaLoading';
+var LoadingClasses = {
+    root: "".concat(PREFIX$9, "-root"),
+    icon: "".concat(PREFIX$9, "-icon"),
+    message: "".concat(PREFIX$9, "-message"),
+};
+var Root$4 = styled$1('div', {
+    name: PREFIX$9,
+    overridesResolver: function (props, styles) { return styles.root; },
+})(function (_a) {
+    var _b;
+    var theme = _a.theme;
+    return (_b = {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%'
+        },
+        _b["& .".concat(LoadingClasses.message)] = {
+            textAlign: 'center',
+            fontFamily: 'Roboto, sans-serif',
+            color: theme.palette.text.disabled,
+            paddingTop: '1em',
+            paddingBottom: '1em',
+        },
+        _b["& .".concat(LoadingClasses.icon)] = {
+            width: '9em',
+            height: '9em',
+        },
+        _b);
+});
+
+var __assign$b = (undefined && undefined.__assign) || function () {
+    __assign$b = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign$b.apply(this, arguments);
+};
+var __rest$b = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var Layout = function (props) {
-    var _a = props.appBar, AppBar$1 = _a === void 0 ? AppBar : _a, appBarAlwaysOn = props.appBarAlwaysOn, children = props.children, className = props.className, dashboard = props.dashboard, errorComponent = props.error, _b = props.menu, Menu$1 = _b === void 0 ? Menu : _b, _c = props.sidebar, Sidebar$1 = _c === void 0 ? Sidebar : _c, title = props.title, rest = __rest$c(props, ["appBar", "appBarAlwaysOn", "children", "className", "dashboard", "error", "menu", "sidebar", "title"]);
+    var _a = props.appBar, AppBar$1 = _a === void 0 ? AppBar : _a, appBarAlwaysOn = props.appBarAlwaysOn, children = props.children, className = props.className, dashboard = props.dashboard, errorComponent = props.error, _b = props.menu, Menu$1 = _b === void 0 ? Menu : _b, _c = props.sidebar, Sidebar$1 = _c === void 0 ? Sidebar : _c, title = props.title, rest = __rest$b(props, ["appBar", "appBarAlwaysOn", "children", "className", "dashboard", "error", "menu", "sidebar", "title"]);
     var open = useSidebarState()[0];
     var _d = React.useState(null), errorInfo = _d[0], setErrorInfo = _d[1];
     var handleError = function (error, info) {
         setErrorInfo(info);
     };
-    return (React.createElement(StyledLayout, __assign$d({ className: clsx('layout', className) }, rest),
+    return (React.createElement(Core, __assign$b({ className: clsx('layout', className) }, rest),
         React.createElement(SkipNavigationButton, null),
         React.createElement("div", { className: LayoutClasses.appFrame },
             React.createElement(AppBar$1, { open: open, title: title, alwaysOn: appBarAlwaysOn }),
@@ -53886,17 +54310,18 @@ var Layout = function (props) {
                     React.createElement(ErrorBoundary, { onError: handleError, fallbackRender: function (_a) {
                             var error = _a.error, resetErrorBoundary = _a.resetErrorBoundary;
                             return (React.createElement(Error$1, { error: error, errorComponent: errorComponent, errorInfo: errorInfo, resetErrorBoundary: resetErrorBoundary, title: title }));
-                        } }, children))),
+                        } },
+                        React.createElement(React.Suspense, { fallback: React.createElement(Loading, null) }, children)))),
             React.createElement(Inspector, null))));
 };
-var PREFIX$9 = 'RaLayout';
+var PREFIX$8 = 'RaLayout';
 var LayoutClasses = {
-    appFrame: "".concat(PREFIX$9, "-appFrame"),
-    contentWithSidebar: "".concat(PREFIX$9, "-contentWithSidebar"),
-    content: "".concat(PREFIX$9, "-content"),
+    appFrame: "".concat(PREFIX$8, "-appFrame"),
+    contentWithSidebar: "".concat(PREFIX$8, "-contentWithSidebar"),
+    content: "".concat(PREFIX$8, "-content"),
 };
-var StyledLayout = styled$1('div', {
-    name: PREFIX$9,
+var Core = styled$1('div', {
+    name: PREFIX$8,
     overridesResolver: function (props, styles) { return styles.root; },
 })(function (_a) {
     var _b, _c, _d;
@@ -53947,8 +54372,8 @@ var StyledLayout = styled$1('div', {
         _b);
 });
 
-var __assign$c = (undefined && undefined.__assign) || function () {
-    __assign$c = Object.assign || function(t) {
+var __assign$a = (undefined && undefined.__assign) || function () {
+    __assign$a = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -53956,80 +54381,7 @@ var __assign$c = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$c.apply(this, arguments);
-};
-var __rest$b = (undefined && undefined.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-var Loading = function (props) {
-    var className = props.className, _a = props.loadingPrimary, loadingPrimary = _a === void 0 ? 'ra.page.loading' : _a, _b = props.loadingSecondary, loadingSecondary = _b === void 0 ? 'ra.message.loading' : _b, rest = __rest$b(props, ["className", "loadingPrimary", "loadingSecondary"]);
-    var translate = useTranslate();
-    return (React__namespace.createElement(Root$4, __assign$c({ className: className }, rest),
-        React__namespace.createElement("div", { className: LoadingClasses.message },
-            React__namespace.createElement(CircularProgress$1, { className: LoadingClasses.icon, color: "primary" }),
-            React__namespace.createElement("h1", null, translate(loadingPrimary, { _: loadingPrimary })),
-            React__namespace.createElement("div", null, translate(loadingSecondary, { _: loadingSecondary })))));
-};
-Loading.propTypes = {
-    className: PropTypes.string,
-    loadingPrimary: PropTypes.string,
-    loadingSecondary: PropTypes.string,
-};
-var PREFIX$8 = 'RaLoading';
-var LoadingClasses = {
-    root: "".concat(PREFIX$8, "-root"),
-    icon: "".concat(PREFIX$8, "-icon"),
-    message: "".concat(PREFIX$8, "-message"),
-};
-var Root$4 = styled$1('div', {
-    name: PREFIX$8,
-    overridesResolver: function (props, styles) { return styles.root; },
-})(function (_a) {
-    var _b;
-    var theme = _a.theme;
-    return (_b = {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center'
-        },
-        _b[theme.breakpoints.up('md')] = {
-            height: '100%',
-        },
-        _b[theme.breakpoints.down('xl')] = {
-            height: '100vh',
-            marginTop: '-3em',
-        },
-        _b["& .".concat(LoadingClasses.icon)] = {
-            width: '9em',
-            height: '9em',
-        },
-        _b["& .".concat(LoadingClasses.message)] = {
-            textAlign: 'center',
-            fontFamily: 'Roboto, sans-serif',
-            opacity: 0.5,
-            margin: '0 1em',
-        },
-        _b);
-});
-
-var __assign$b = (undefined && undefined.__assign) || function () {
-    __assign$b = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign$b.apply(this, arguments);
+    return __assign$a.apply(this, arguments);
 };
 var __rest$a = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54044,7 +54396,7 @@ var __rest$a = (undefined && undefined.__rest) || function (s, e) {
 };
 var LoadingPage = function (_a) {
     var _b = _a.loadingPrimary, loadingPrimary = _b === void 0 ? 'ra.page.loading' : _b, _c = _a.loadingSecondary, loadingSecondary = _c === void 0 ? 'ra.message.loading' : _c, props = __rest$a(_a, ["loadingPrimary", "loadingSecondary"]);
-    return (React__namespace.createElement(Loading, __assign$b({ loadingPrimary: loadingPrimary, loadingSecondary: loadingSecondary }, props)));
+    return (React__namespace.createElement(Loading, __assign$a({ loadingPrimary: loadingPrimary, loadingSecondary: loadingSecondary }, props)));
 };
 LoadingPage.propTypes = {
     theme: PropTypes.object,
@@ -54071,8 +54423,8 @@ var _default$3 = (0, _createSvgIcon$3.default)([/*#__PURE__*/(0, _jsxRuntime$3.j
 }, "1")], 'HotTub');
 default_1$3 = HotTub.default = _default$3;
 
-var __assign$a = (undefined && undefined.__assign) || function () {
-    __assign$a = Object.assign || function(t) {
+var __assign$9 = (undefined && undefined.__assign) || function () {
+    __assign$9 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54080,7 +54432,7 @@ var __assign$a = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$a.apply(this, arguments);
+    return __assign$9.apply(this, arguments);
 };
 var __rest$9 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54097,7 +54449,7 @@ var NotFound = function (props) {
     var className = props.className, title = props.title, rest = __rest$9(props, ["className", "title"]);
     var translate = useTranslate();
     useAuthenticated();
-    return (React__namespace.createElement(Root$3, __assign$a({ className: className }, sanitizeRestProps(rest)),
+    return (React__namespace.createElement(Root$3, __assign$9({ className: className }, sanitizeRestProps(rest)),
         React__namespace.createElement(Title, { defaultTitle: title }),
         React__namespace.createElement("div", { className: NotFoundClasses.message },
             React__namespace.createElement(default_1$3, { className: NotFoundClasses.icon }),
@@ -54161,8 +54513,8 @@ function goBack() {
     window.history.go(-1);
 }
 
-var __assign$9 = (undefined && undefined.__assign) || function () {
-    __assign$9 = Object.assign || function(t) {
+var __assign$8 = (undefined && undefined.__assign) || function () {
+    __assign$8 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54170,7 +54522,7 @@ var __assign$9 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$9.apply(this, arguments);
+    return __assign$8.apply(this, arguments);
 };
 var __rest$8 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54249,7 +54601,7 @@ var Notification = function (props) {
     if (!messageInfo)
         return null;
     var message = messageInfo.message, typeFromMessage = messageInfo.type, _j = messageInfo.notificationOptions, autoHideDurationFromMessage = _j.autoHideDuration, messageArgs = _j.messageArgs, multilineFromMessage = _j.multiLine, undoable = _j.undoable, options = __rest$8(_j, ["autoHideDuration", "messageArgs", "multiLine", "undoable"]);
-    return (React__namespace.createElement(StyledSnackbar, __assign$9({ className: className, open: open, message: message &&
+    return (React__namespace.createElement(StyledSnackbar, __assign$8({ className: className, open: open, message: message &&
             typeof message === 'string' &&
             translate(message, messageArgs), autoHideDuration: 
         // Only apply the default autoHideDuration when autoHideDurationFromMessage is undefined
@@ -54306,71 +54658,6 @@ var StyledSnackbar = styled$1(Snackbar$1, {
         _b);
 });
 
-/**
- * Read and update the theme mode (light or dark)
- *
- * @example
- * const [theme, setTheme] = useTheme('light');
- * const toggleTheme = () => {
- *    setTheme(theme === 'light' ? 'dark' : 'light');
- * };
- *
- * @example // legacy mode, stores the full theme object
- * // to be removed in v5
- * const [theme, setTheme] = useTheme({
- *    palette: {
- *       type: 'light',
- *   },
- * });
- */
-var useTheme = function (type) {
-    // FIXME: remove legacy mode in v5, and remove the RaThemeOptions type
-    var _a = useStore('theme', type), theme = _a[0], setter = _a[1];
-    return [theme, setter];
-};
-
-/**
- * This sets the Material UI theme based on the preferred theme type.
- *
- * @param props
- * @param props.children The children of the component.
- * @param {ThemeOptions} props.theme The initial theme. Optional, use the one from the context if not provided.
- *
- * @example
- *
- * import { ThemesContext, ThemeProvider } from 'react-admin';
- *
- * const App = () => (
- *    <ThemesContext.Provider value={{ lightTheme, darkTheme }}>
- *      <ThemeProvider>
- *        <Button>Test</Button>
- *      </ThemeProvider>
- *   </ThemesContext.Provider>
- * );
- */
-var ThemeProvider = function (_a) {
-    var children = _a.children, themeOverride = _a.theme;
-    var _b = useThemesContext(), lightTheme = _b.lightTheme, darkTheme = _b.darkTheme, defaultTheme = _b.defaultTheme;
-    var prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
-        noSsr: true,
-    });
-    var mode = useTheme(defaultTheme || (prefersDarkMode && darkTheme ? 'dark' : 'light'))[0];
-    var themeValue = React.useMemo(function () {
-        try {
-            return createTheme(typeof mode === 'object'
-                ? mode // FIXME: legacy useTheme, to be removed in v5
-                : mode === 'dark'
-                    ? darkTheme
-                    : lightTheme || themeOverride);
-        }
-        catch (e) {
-            console.warn('Failed to reuse custom theme from store', e);
-            return createTheme();
-        }
-    }, [mode, themeOverride, lightTheme, darkTheme]);
-    return React__namespace.createElement(ThemeProvider$1, { theme: themeValue }, children);
-};
-
 var Translate = {};
 
 var _interopRequireDefault$2 = interopRequireDefaultExports;
@@ -54420,7 +54707,7 @@ var LocalesMenuButton = function (props) {
         setAnchorEl(null);
     };
     return (React__namespace.createElement(Root$2, { component: "span" },
-        React__namespace.createElement(Button$2, { color: "inherit", "aria-controls": "simple-menu", "aria-label": "", "aria-haspopup": "true", onClick: handleLanguageClick, startIcon: React__namespace.createElement(default_1$2, null), endIcon: React__namespace.createElement(default_1$9, { fontSize: "small" }) }, getNameForLocale(locale)),
+        React__namespace.createElement(Button$2, { color: "inherit", variant: "text", "aria-controls": "simple-menu", "aria-label": "", "aria-haspopup": "true", onClick: handleLanguageClick, startIcon: React__namespace.createElement(default_1$2, null), endIcon: React__namespace.createElement(default_1$9, { fontSize: "small" }) }, getNameForLocale(locale)),
         React__namespace.createElement(Menu$3, { id: "simple-menu", anchorEl: anchorEl, keepMounted: true, open: Boolean(anchorEl), onClose: handleClose }, languages.map(function (language) { return (React__namespace.createElement(MenuItem$1, { key: language.locale, onClick: changeLocale(language.locale), selected: language.locale === locale }, language.name)); }))));
 };
 var PREFIX$5 = 'RaLocalesMenuButton';
@@ -54443,8 +54730,8 @@ var _default$1 = (0, _createSvgIcon$1.default)( /*#__PURE__*/(0, _jsxRuntime$1.j
 }), 'Refresh');
 default_1$1 = Refresh.default = _default$1;
 
-var __assign$8 = (undefined && undefined.__assign) || function () {
-    __assign$8 = Object.assign || function(t) {
+var __assign$7 = (undefined && undefined.__assign) || function () {
+    __assign$7 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54452,7 +54739,7 @@ var __assign$8 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$8.apply(this, arguments);
+    return __assign$7.apply(this, arguments);
 };
 var __rest$7 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54477,7 +54764,7 @@ var RefreshIconButton = function (props) {
         }
     }, [refresh, onClick]);
     return (React__namespace.createElement(Tooltip$1, { title: label && translate(label, { _: 'Refresh' }) },
-        React__namespace.createElement(IconButton$1, __assign$8({ "aria-label": label && translate(label, { _: 'Refresh' }), className: className, color: "inherit", onClick: handleClick }, rest), icon)));
+        React__namespace.createElement(IconButton$1, __assign$7({ "aria-label": label && translate(label, { _: 'Refresh' }), className: className, color: "inherit", onClick: handleClick }, rest), icon)));
 };
 var defaultIcon = React__namespace.createElement(default_1$1, null);
 RefreshIconButton.propTypes = {
@@ -54536,8 +54823,8 @@ var skipToContent = function () {
     element.removeAttribute('tabIndex');
 };
 
-var __assign$7 = (undefined && undefined.__assign) || function () {
-    __assign$7 = Object.assign || function(t) {
+var __assign$6 = (undefined && undefined.__assign) || function () {
+    __assign$6 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54545,7 +54832,7 @@ var __assign$7 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$7.apply(this, arguments);
+    return __assign$6.apply(this, arguments);
 };
 var __rest$6 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54561,11 +54848,11 @@ var __rest$6 = (undefined && undefined.__rest) || function (s, e) {
 var AuthError = function (props) {
     var className = props.className, _a = props.title, title = _a === void 0 ? 'ra.page.error' : _a, _b = props.message, message = _b === void 0 ? 'ra.message.auth_error' : _b, rest = __rest$6(props, ["className", "title", "message"]);
     var translate = useTranslate();
-    return (React__namespace.createElement(Root$1, __assign$7({ className: className }, rest),
+    return (React__namespace.createElement(Root$1, __assign$6({ className: className }, rest),
         React__namespace.createElement("div", { className: AuthErrorClasses.message },
             React__namespace.createElement("h1", null, translate(title, { _: title })),
             React__namespace.createElement("div", null, translate(message, { _: message })),
-            React__namespace.createElement(Button, { to: "/login", label: "ra.auth.sign_in" },
+            React__namespace.createElement(Button, { component: Link, to: "/login", label: "ra.auth.sign_in" },
                 React__namespace.createElement(default_1$h, null)))));
 };
 AuthError.propTypes = {
@@ -54622,11 +54909,10 @@ var Root$1 = styled$1('div', {
  */
 var AuthCallback = function () {
     var error = useHandleAuthCallback().error;
-    var hasOneSecondPassed = useTimeout(1000);
     if (error) {
         return (React__namespace.createElement(AuthError, { message: error ? error.message : undefined }));
     }
-    return hasOneSecondPassed ? React__namespace.createElement(Loading, null) : null;
+    return React__namespace.createElement(Loading, null);
 };
 
 var InputHelperText = function (props) {
@@ -54683,8 +54969,8 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("p
 }), 'Clear');
 default_1 = Clear.default = _default;
 
-var __assign$6 = (undefined && undefined.__assign) || function () {
-    __assign$6 = Object.assign || function(t) {
+var __assign$5 = (undefined && undefined.__assign) || function () {
+    __assign$5 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54692,7 +54978,7 @@ var __assign$6 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$6.apply(this, arguments);
+    return __assign$5.apply(this, arguments);
 };
 var __rest$4 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54766,7 +55052,7 @@ var ResettableTextField = React.forwardRef(function (props, ref) {
                             _a)) }))));
         }
     };
-    return (React__namespace.createElement(StyledTextField, __assign$6({ value: value, InputProps: __assign$6({ classes: props.select && variant === 'filled'
+    return (React__namespace.createElement(StyledTextField, __assign$5({ value: value, InputProps: __assign$5({ classes: props.select && variant === 'filled'
                 ? { adornedEnd: inputAdornedEnd }
                 : {}, endAdornment: getEndAdornment() }, InputPropsWithoutEndAdornment), disabled: disabled, variant: variant, margin: margin, className: className, size: "small" }, rest, { onFocus: handleFocus, onBlur: handleBlur, inputRef: ref })));
 });
@@ -54818,8 +55104,8 @@ var StyledTextField = styled$1(TextField$1, {
     overridesResolver: function (props, styles) { return styles.root; },
 })(ResettableTextFieldStyles);
 
-var __assign$5 = (undefined && undefined.__assign) || function () {
-    __assign$5 = Object.assign || function(t) {
+var __assign$4 = (undefined && undefined.__assign) || function () {
+    __assign$4 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54827,7 +55113,7 @@ var __assign$5 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$5.apply(this, arguments);
+    return __assign$4.apply(this, arguments);
 };
 var __rest$3 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -54855,9 +55141,9 @@ var __rest$3 = (undefined && undefined.__rest) || function (s, e) {
  */
 var TextInput = function (props) {
     var className = props.className, defaultValue = props.defaultValue, label = props.label, format = props.format, helperText = props.helperText, onBlur = props.onBlur, onChange = props.onChange, parse = props.parse, resource = props.resource, source = props.source, validate = props.validate, rest = __rest$3(props, ["className", "defaultValue", "label", "format", "helperText", "onBlur", "onChange", "parse", "resource", "source", "validate"]);
-    var _a = useInput(__assign$5({ defaultValue: defaultValue, format: format, parse: parse, resource: resource, source: source, type: 'text', validate: validate, onBlur: onBlur, onChange: onChange }, rest)), field = _a.field, _b = _a.fieldState, error = _b.error, invalid = _b.invalid, isTouched = _b.isTouched, isSubmitted = _a.formState.isSubmitted, id = _a.id, isRequired = _a.isRequired;
+    var _a = useInput(__assign$4({ defaultValue: defaultValue, format: format, parse: parse, resource: resource, source: source, type: 'text', validate: validate, onBlur: onBlur, onChange: onChange }, rest)), field = _a.field, _b = _a.fieldState, error = _b.error, invalid = _b.invalid, isTouched = _b.isTouched, isSubmitted = _a.formState.isSubmitted, id = _a.id, isRequired = _a.isRequired;
     var renderHelperText = helperText !== false || ((isTouched || isSubmitted) && invalid);
-    return (React__namespace.createElement(ResettableTextField, __assign$5({ id: id }, field, { className: clsx('ra-input', "ra-input-".concat(source), className), label: label !== '' && label !== false ? (React__namespace.createElement(FieldTitle$1, { label: label, source: source, resource: resource, isRequired: isRequired })) : null, error: (isTouched || isSubmitted) && invalid, helperText: renderHelperText ? (React__namespace.createElement(InputHelperText, { touched: isTouched || isSubmitted, error: error === null || error === void 0 ? void 0 : error.message, helperText: helperText })) : null }, sanitizeInputRestProps(rest))));
+    return (React__namespace.createElement(ResettableTextField, __assign$4({ id: id }, field, { className: clsx('ra-input', "ra-input-".concat(source), className), label: label !== '' && label !== false ? (React__namespace.createElement(FieldTitle$1, { label: label, source: source, resource: resource, isRequired: isRequired })) : null, error: (isTouched || isSubmitted) && invalid, helperText: renderHelperText ? (React__namespace.createElement(InputHelperText, { touched: isTouched || isSubmitted, error: error === null || error === void 0 ? void 0 : error.message, helperText: helperText })) : null }, sanitizeInputRestProps(rest))));
 };
 TextInput.propTypes = {
     className: PropTypes.string,
@@ -54934,8 +55220,8 @@ LoginForm.propTypes = {
     redirectTo: PropTypes.string,
 };
 
-var __assign$4 = (undefined && undefined.__assign) || function () {
-    __assign$4 = Object.assign || function(t) {
+var __assign$3 = (undefined && undefined.__assign) || function () {
+    __assign$3 = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -54943,7 +55229,7 @@ var __assign$4 = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign$4.apply(this, arguments);
+    return __assign$3.apply(this, arguments);
 };
 var __rest$2 = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
@@ -55009,7 +55295,7 @@ var Login = function (props) {
             lazyLoadBackgroundImage();
         }
     });
-    return (React__namespace.createElement(Root, __assign$4({}, rest, { ref: containerRef }),
+    return (React__namespace.createElement(Root, __assign$3({}, rest, { ref: containerRef }),
         React__namespace.createElement(Card$1, { className: LoginClasses.card },
             React__namespace.createElement("div", { className: LoginClasses.avatar },
                 React__namespace.createElement(Avatar$1, { className: LoginClasses.icon },
@@ -55059,100 +55345,6 @@ Login.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
 };
-
-var __assign$3 = (undefined && undefined.__assign) || function () {
-    __assign$3 = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign$3.apply(this, arguments);
-};
-var defaultThemeInvariants = {
-    typography: {
-        h6: {
-            fontWeight: 400,
-        },
-    },
-    sidebar: {
-        width: 240,
-        closedWidth: 50,
-    },
-    components: {
-        MuiAutocomplete: {
-            variants: [
-                {
-                    props: {},
-                    style: function (_a) {
-                        var _b;
-                        var theme = _a.theme;
-                        return (_b = {},
-                            _b[theme.breakpoints.down('sm')] = { width: '100%' },
-                            _b);
-                    },
-                },
-            ],
-        },
-        MuiTextField: {
-            defaultProps: {
-                variant: 'filled',
-                margin: 'dense',
-                size: 'small',
-            },
-            variants: [
-                {
-                    props: {},
-                    style: function (_a) {
-                        var _b;
-                        var theme = _a.theme;
-                        return (_b = {},
-                            _b[theme.breakpoints.down('sm')] = { width: '100%' },
-                            _b);
-                    },
-                },
-            ],
-        },
-        MuiFormControl: {
-            defaultProps: {
-                variant: 'filled',
-                margin: 'dense',
-                size: 'small',
-            },
-        },
-    },
-};
-var defaultLightTheme = __assign$3(__assign$3({ palette: {
-        background: {
-            default: '#fafafb',
-        },
-        secondary: {
-            light: '#6ec6ff',
-            main: '#2196f3',
-            dark: '#0069c0',
-            contrastText: '#fff',
-        },
-    } }, defaultThemeInvariants), { components: __assign$3(__assign$3({}, defaultThemeInvariants.components), { MuiFilledInput: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                    '&$disabled': {
-                        backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                    },
-                },
-            },
-        } }) });
-__assign$3({ palette: {
-        mode: 'dark',
-        primary: {
-            main: '#90caf9',
-        },
-        background: {
-            default: '#313131',
-        },
-    } }, defaultThemeInvariants);
 
 var __assign$2 = (undefined && undefined.__assign) || function () {
     __assign$2 = Object.assign || function(t) {
@@ -55255,7 +55447,7 @@ var englishMessages = {
             move_up: 'Move up',
             move_down: 'Move down',
             open: 'Open',
-            toggle_theme: 'Toggle Theme',
+            toggle_theme: 'Toggle light/dark mode',
             select_columns: 'Columns',
             update_application: 'Reload Application',
         },
@@ -55309,7 +55501,7 @@ var englishMessages = {
             details: 'Details',
             error: "A client error occurred and your request couldn't be completed.",
             invalid_form: 'The form is not valid. Please check for errors',
-            loading: 'The page is loading, just a moment please',
+            loading: 'Please wait',
             no: 'No',
             not_found: 'Either you typed a wrong URL, or you followed a bad link.',
             yes: 'Yes',
@@ -55557,7 +55749,7 @@ function requireImplementation () {
 	return implementation$b;
 }
 
-var slice$1 = Array.prototype.slice;
+var slice = Array.prototype.slice;
 var isArgs = isArguments;
 
 var origKeys = Object.keys;
@@ -55575,7 +55767,7 @@ keysShim.shim = function shimObjectKeys() {
 		if (!keysWorksWithArguments) {
 			Object.keys = function keys(object) { // eslint-disable-line func-name-matching
 				if (isArgs(object)) {
-					return originalKeys(slice$1.call(object));
+					return originalKeys(slice.call(object));
 				}
 				return originalKeys(object);
 			};
@@ -55654,43 +55846,75 @@ var hasProto$1 = function hasProto() {
 /* eslint no-invalid-this: 1 */
 
 var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
-var slice = Array.prototype.slice;
 var toStr$1 = Object.prototype.toString;
+var max = Math.max;
 var funcType = '[object Function]';
+
+var concatty = function concatty(a, b) {
+    var arr = [];
+
+    for (var i = 0; i < a.length; i += 1) {
+        arr[i] = a[i];
+    }
+    for (var j = 0; j < b.length; j += 1) {
+        arr[j + a.length] = b[j];
+    }
+
+    return arr;
+};
+
+var slicy = function slicy(arrLike, offset) {
+    var arr = [];
+    for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
+        arr[j] = arrLike[i];
+    }
+    return arr;
+};
+
+var joiny = function (arr, joiner) {
+    var str = '';
+    for (var i = 0; i < arr.length; i += 1) {
+        str += arr[i];
+        if (i + 1 < arr.length) {
+            str += joiner;
+        }
+    }
+    return str;
+};
 
 var implementation$a = function bind(that) {
     var target = this;
-    if (typeof target !== 'function' || toStr$1.call(target) !== funcType) {
+    if (typeof target !== 'function' || toStr$1.apply(target) !== funcType) {
         throw new TypeError(ERROR_MESSAGE + target);
     }
-    var args = slice.call(arguments, 1);
+    var args = slicy(arguments, 1);
 
     var bound;
     var binder = function () {
         if (this instanceof bound) {
             var result = target.apply(
                 this,
-                args.concat(slice.call(arguments))
+                concatty(args, arguments)
             );
             if (Object(result) === result) {
                 return result;
             }
             return this;
-        } else {
-            return target.apply(
-                that,
-                args.concat(slice.call(arguments))
-            );
         }
+        return target.apply(
+            that,
+            concatty(args, arguments)
+        );
+
     };
 
-    var boundLength = Math.max(0, target.length - args.length);
+    var boundLength = max(0, target.length - args.length);
     var boundArgs = [];
     for (var i = 0; i < boundLength; i++) {
-        boundArgs.push('$' + i);
+        boundArgs[i] = '$' + i;
     }
 
-    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+    bound = Function('binder', 'return function (' + joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
 
     if (target.prototype) {
         var Empty = function Empty() {};
@@ -55706,15 +55930,18 @@ var implementation$9 = implementation$a;
 
 var functionBind = Function.prototype.bind || implementation$9;
 
-var bind$1 = functionBind;
+var hasOwnProperty = {}.hasOwnProperty;
+var call = Function.prototype.call;
 
-var src = bind$1.call(Function.call, Object.prototype.hasOwnProperty);
+var src = call.bind ? call.bind(hasOwnProperty) : function (O, P) {
+  return call.call(hasOwnProperty, O, P);
+};
 
 var undefined$1;
 
-var $SyntaxError = SyntaxError;
+var $SyntaxError$1 = SyntaxError;
 var $Function = Function;
-var $TypeError$3 = TypeError;
+var $TypeError$4 = TypeError;
 
 // eslint-disable-next-line consistent-return
 var getEvalledConstructor = function (expressionSyntax) {
@@ -55733,7 +55960,7 @@ if ($gOPD) {
 }
 
 var throwTypeError = function () {
-	throw new $TypeError$3();
+	throw new $TypeError$4();
 };
 var ThrowTypeError = $gOPD
 	? (function () {
@@ -55820,10 +56047,10 @@ var INTRINSICS = {
 	'%String%': String,
 	'%StringIteratorPrototype%': hasSymbols$1 && getProto ? getProto(''[Symbol.iterator]()) : undefined$1,
 	'%Symbol%': hasSymbols$1 ? Symbol : undefined$1,
-	'%SyntaxError%': $SyntaxError,
+	'%SyntaxError%': $SyntaxError$1,
 	'%ThrowTypeError%': ThrowTypeError,
 	'%TypedArray%': TypedArray,
-	'%TypeError%': $TypeError$3,
+	'%TypeError%': $TypeError$4,
 	'%Uint8Array%': typeof Uint8Array === 'undefined' ? undefined$1 : Uint8Array,
 	'%Uint8ClampedArray%': typeof Uint8ClampedArray === 'undefined' ? undefined$1 : Uint8ClampedArray,
 	'%Uint16Array%': typeof Uint16Array === 'undefined' ? undefined$1 : Uint16Array,
@@ -55938,9 +56165,9 @@ var stringToPath = function stringToPath(string) {
 	var first = $strSlice(string, 0, 1);
 	var last = $strSlice(string, -1);
 	if (first === '%' && last !== '%') {
-		throw new $SyntaxError('invalid intrinsic syntax, expected closing `%`');
+		throw new $SyntaxError$1('invalid intrinsic syntax, expected closing `%`');
 	} else if (last === '%' && first !== '%') {
-		throw new $SyntaxError('invalid intrinsic syntax, expected opening `%`');
+		throw new $SyntaxError$1('invalid intrinsic syntax, expected opening `%`');
 	}
 	var result = [];
 	$replace$1(string, rePropName, function (match, number, quote, subString) {
@@ -55964,7 +56191,7 @@ var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
 			value = doEval(intrinsicName);
 		}
 		if (typeof value === 'undefined' && !allowMissing) {
-			throw new $TypeError$3('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
+			throw new $TypeError$4('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
 		}
 
 		return {
@@ -55974,19 +56201,19 @@ var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
 		};
 	}
 
-	throw new $SyntaxError('intrinsic ' + name + ' does not exist!');
+	throw new $SyntaxError$1('intrinsic ' + name + ' does not exist!');
 };
 
 var getIntrinsic = function GetIntrinsic(name, allowMissing) {
 	if (typeof name !== 'string' || name.length === 0) {
-		throw new $TypeError$3('intrinsic name must be a non-empty string');
+		throw new $TypeError$4('intrinsic name must be a non-empty string');
 	}
 	if (arguments.length > 1 && typeof allowMissing !== 'boolean') {
-		throw new $TypeError$3('"allowMissing" argument must be a boolean');
+		throw new $TypeError$4('"allowMissing" argument must be a boolean');
 	}
 
 	if ($exec(/^%?[^%]*%?$/, name) === null) {
-		throw new $SyntaxError('`%` may not be present anywhere but at the beginning and end of the intrinsic name');
+		throw new $SyntaxError$1('`%` may not be present anywhere but at the beginning and end of the intrinsic name');
 	}
 	var parts = stringToPath(name);
 	var intrinsicBaseName = parts.length > 0 ? parts[0] : '';
@@ -56013,7 +56240,7 @@ var getIntrinsic = function GetIntrinsic(name, allowMissing) {
 			)
 			&& first !== last
 		) {
-			throw new $SyntaxError('property names with quotes must have matching quotes');
+			throw new $SyntaxError$1('property names with quotes must have matching quotes');
 		}
 		if (part === 'constructor' || !isOwn) {
 			skipFurtherCaching = true;
@@ -56027,7 +56254,7 @@ var getIntrinsic = function GetIntrinsic(name, allowMissing) {
 		} else if (value != null) {
 			if (!(part in value)) {
 				if (!allowMissing) {
-					throw new $TypeError$3('base intrinsic for ' + name + ' exists, but the property is not available.');
+					throw new $TypeError$4('base intrinsic for ' + name + ' exists, but the property is not available.');
 				}
 				return void undefined$1;
 			}
@@ -56060,14 +56287,14 @@ var getIntrinsic = function GetIntrinsic(name, allowMissing) {
 	return value;
 };
 
-var GetIntrinsic$4 = getIntrinsic;
+var GetIntrinsic$5 = getIntrinsic;
 
-var $defineProperty = GetIntrinsic$4('%Object.defineProperty%', true);
+var $defineProperty$1 = GetIntrinsic$5('%Object.defineProperty%', true);
 
 var hasPropertyDescriptors$1 = function hasPropertyDescriptors() {
-	if ($defineProperty) {
+	if ($defineProperty$1) {
 		try {
-			$defineProperty({}, 'a', { value: 1 });
+			$defineProperty$1({}, 'a', { value: 1 });
 			return true;
 		} catch (e) {
 			// IE 8 has a broken defineProperty
@@ -56083,7 +56310,7 @@ hasPropertyDescriptors$1.hasArrayLengthDefineBug = function hasArrayLengthDefine
 		return null;
 	}
 	try {
-		return $defineProperty([], 'length', { value: 1 }).length !== 1;
+		return $defineProperty$1([], 'length', { value: 1 }).length !== 1;
 	} catch (e) {
 		// In Firefox 4-22, defining length on an array throws an exception.
 		return true;
@@ -56092,20 +56319,109 @@ hasPropertyDescriptors$1.hasArrayLengthDefineBug = function hasArrayLengthDefine
 
 var hasPropertyDescriptors_1 = hasPropertyDescriptors$1;
 
+var gopd$1;
+var hasRequiredGopd;
+
+function requireGopd () {
+	if (hasRequiredGopd) return gopd$1;
+	hasRequiredGopd = 1;
+
+	var GetIntrinsic = getIntrinsic;
+
+	var $gOPD = GetIntrinsic('%Object.getOwnPropertyDescriptor%', true);
+
+	if ($gOPD) {
+		try {
+			$gOPD([], 'length');
+		} catch (e) {
+			// IE 8 has a broken gOPD
+			$gOPD = null;
+		}
+	}
+
+	gopd$1 = $gOPD;
+	return gopd$1;
+}
+
+var hasPropertyDescriptors = hasPropertyDescriptors_1();
+
+var GetIntrinsic$4 = getIntrinsic;
+
+var $defineProperty = hasPropertyDescriptors && GetIntrinsic$4('%Object.defineProperty%', true);
+if ($defineProperty) {
+	try {
+		$defineProperty({}, 'a', { value: 1 });
+	} catch (e) {
+		// IE 8 has a broken defineProperty
+		$defineProperty = false;
+	}
+}
+
+var $SyntaxError = GetIntrinsic$4('%SyntaxError%');
+var $TypeError$3 = GetIntrinsic$4('%TypeError%');
+
+var gopd = requireGopd();
+
+/** @type {(obj: Record<PropertyKey, unknown>, property: PropertyKey, value: unknown, nonEnumerable?: boolean | null, nonWritable?: boolean | null, nonConfigurable?: boolean | null, loose?: boolean) => void} */
+var defineDataProperty$1 = function defineDataProperty(
+	obj,
+	property,
+	value
+) {
+	if (!obj || (typeof obj !== 'object' && typeof obj !== 'function')) {
+		throw new $TypeError$3('`obj` must be an object or a function`');
+	}
+	if (typeof property !== 'string' && typeof property !== 'symbol') {
+		throw new $TypeError$3('`property` must be a string or a symbol`');
+	}
+	if (arguments.length > 3 && typeof arguments[3] !== 'boolean' && arguments[3] !== null) {
+		throw new $TypeError$3('`nonEnumerable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 4 && typeof arguments[4] !== 'boolean' && arguments[4] !== null) {
+		throw new $TypeError$3('`nonWritable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 5 && typeof arguments[5] !== 'boolean' && arguments[5] !== null) {
+		throw new $TypeError$3('`nonConfigurable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 6 && typeof arguments[6] !== 'boolean') {
+		throw new $TypeError$3('`loose`, if provided, must be a boolean');
+	}
+
+	var nonEnumerable = arguments.length > 3 ? arguments[3] : null;
+	var nonWritable = arguments.length > 4 ? arguments[4] : null;
+	var nonConfigurable = arguments.length > 5 ? arguments[5] : null;
+	var loose = arguments.length > 6 ? arguments[6] : false;
+
+	/* @type {false | TypedPropertyDescriptor<unknown>} */
+	var desc = !!gopd && gopd(obj, property);
+
+	if ($defineProperty) {
+		$defineProperty(obj, property, {
+			configurable: nonConfigurable === null && desc ? desc.configurable : !nonConfigurable,
+			enumerable: nonEnumerable === null && desc ? desc.enumerable : !nonEnumerable,
+			value: value,
+			writable: nonWritable === null && desc ? desc.writable : !nonWritable
+		});
+	} else if (loose || (!nonEnumerable && !nonWritable && !nonConfigurable)) {
+		// must fall back to [[Set]], and was not explicitly asked to make non-enumerable, non-writable, or non-configurable
+		obj[property] = value; // eslint-disable-line no-param-reassign
+	} else {
+		throw new $SyntaxError('This environment does not support defining a property as non-configurable, non-writable, or non-enumerable.');
+	}
+};
+
 var keys = objectKeys;
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
 
 var toStr = Object.prototype.toString;
 var concat = Array.prototype.concat;
-var origDefineProperty = Object.defineProperty;
+var defineDataProperty = defineDataProperty$1;
 
 var isFunction = function (fn) {
 	return typeof fn === 'function' && toStr.call(fn) === '[object Function]';
 };
 
-var hasPropertyDescriptors = hasPropertyDescriptors_1();
-
-var supportsDescriptors = origDefineProperty && hasPropertyDescriptors;
+var supportsDescriptors = hasPropertyDescriptors_1();
 
 var defineProperty = function (object, name, value, predicate) {
 	if (name in object) {
@@ -56117,15 +56433,11 @@ var defineProperty = function (object, name, value, predicate) {
 			return;
 		}
 	}
+
 	if (supportsDescriptors) {
-		origDefineProperty(object, name, {
-			configurable: true,
-			enumerable: false,
-			value: value,
-			writable: true
-		});
+		defineDataProperty(object, name, value, true);
 	} else {
-		object[name] = value; // eslint-disable-line no-param-reassign
+		defineDataProperty(object, name, value);
 	}
 };
 
@@ -56224,7 +56536,7 @@ var CheckObjectCoercible = function CheckObjectCoercible(value, optMessage) {
 	return value;
 };
 
-var RequireObjectCoercible$5 = CheckObjectCoercible;
+var RequireObjectCoercible$4 = CheckObjectCoercible;
 
 var IsArray$1;
 var hasRequiredIsArray$1;
@@ -56542,6 +56854,13 @@ function requireObjectInspect () {
 	    }
 	    if (isString(obj)) {
 	        return markBoxed(inspect(String(obj)));
+	    }
+	    if (obj === commonjsGlobal) {
+	        /* eslint-env browser */
+	        if (typeof window !== 'undefined') {
+	            return '{ [object Window] }';
+	        }
+	        return '{ [object global] }';
 	    }
 	    if (!isDate(obj) && !isRegExp(obj)) {
 	        var ys = arrObjKeys(obj, inspect);
@@ -57081,56 +57400,8 @@ function requireMaxSafeInteger () {
 	if (hasRequiredMaxSafeInteger) return maxSafeInteger;
 	hasRequiredMaxSafeInteger = 1;
 
-	var GetIntrinsic = getIntrinsic;
-
-	var $Math = GetIntrinsic('%Math%');
-	var $Number = GetIntrinsic('%Number%');
-
-	maxSafeInteger = $Number.MAX_SAFE_INTEGER || $Math.pow(2, 53) - 1;
+	maxSafeInteger = Number.MAX_SAFE_INTEGER || 9007199254740991; // Math.pow(2, 53) - 1;
 	return maxSafeInteger;
-}
-
-var abs;
-var hasRequiredAbs;
-
-function requireAbs () {
-	if (hasRequiredAbs) return abs;
-	hasRequiredAbs = 1;
-
-	var GetIntrinsic = getIntrinsic;
-
-	var $abs = GetIntrinsic('%Math.abs%');
-
-	// http://262.ecma-international.org/5.1/#sec-5.2
-
-	abs = function abs(x) {
-		return $abs(x);
-	};
-	return abs;
-}
-
-var floor;
-var hasRequiredFloor;
-
-function requireFloor () {
-	if (hasRequiredFloor) return floor;
-	hasRequiredFloor = 1;
-
-	var Type = requireType();
-
-	// var modulo = require('./modulo');
-	var $floor = Math.floor;
-
-	// http://262.ecma-international.org/11.0/#eqn-floor
-
-	floor = function floor(x) {
-		// return x - modulo(x, 1);
-		if (Type(x) === 'BigInt') {
-			return x;
-		}
-		return $floor(x);
-	};
-	return floor;
 }
 
 var isPrimitive$1;
@@ -57456,7 +57727,7 @@ var ToString$2 = function ToString(argument) {
 	return $String(argument);
 };
 
-var RequireObjectCoercible$4 = RequireObjectCoercible$5;
+var RequireObjectCoercible$3 = RequireObjectCoercible$4;
 var ToString$1 = ToString$2;
 var callBound$3 = callBound$4;
 var $replace = callBound$3('String.prototype.replace');
@@ -57472,7 +57743,7 @@ var rightWhitespace = mvsIsWS
 /* eslint-enable no-control-regex */
 
 var implementation$8 = function trim() {
-	var S = ToString$1(RequireObjectCoercible$4(this));
+	var S = ToString$1(RequireObjectCoercible$3(this));
 	return $replace($replace(S, leftWhitespace, ''), rightWhitespace, '');
 };
 
@@ -57509,7 +57780,7 @@ var shim$5 = function shimStringTrim() {
 
 var callBind$2 = callBindExports;
 var define$3 = defineProperties_1;
-var RequireObjectCoercible$3 = RequireObjectCoercible$5;
+var RequireObjectCoercible$2 = RequireObjectCoercible$4;
 
 var implementation$6 = implementation$8;
 var getPolyfill$3 = polyfill$4;
@@ -57517,7 +57788,7 @@ var shim$4 = shim$5;
 
 var bound$1 = callBind$2(getPolyfill$3());
 var boundMethod = function trim(receiver) {
-	RequireObjectCoercible$3(receiver);
+	RequireObjectCoercible$2(receiver);
 	return bound$1(receiver);
 };
 
@@ -57616,6 +57887,55 @@ function requireToNumber () {
 	return ToNumber;
 }
 
+var floor;
+var hasRequiredFloor;
+
+function requireFloor () {
+	if (hasRequiredFloor) return floor;
+	hasRequiredFloor = 1;
+
+	var Type = requireType();
+
+	// var modulo = require('./modulo');
+	var $floor = Math.floor;
+
+	// http://262.ecma-international.org/11.0/#eqn-floor
+
+	floor = function floor(x) {
+		// return x - modulo(x, 1);
+		if (Type(x) === 'BigInt') {
+			return x;
+		}
+		return $floor(x);
+	};
+	return floor;
+}
+
+var truncate;
+var hasRequiredTruncate;
+
+function requireTruncate () {
+	if (hasRequiredTruncate) return truncate;
+	hasRequiredTruncate = 1;
+
+	var GetIntrinsic = getIntrinsic;
+
+	var floor = requireFloor();
+
+	var $TypeError = GetIntrinsic('%TypeError%');
+
+	// https://262.ecma-international.org/14.0/#eqn-truncate
+
+	truncate = function truncate(x) {
+		if (typeof x !== 'number' && typeof x !== 'bigint') {
+			throw new $TypeError('argument must be a Number or a BigInt');
+		}
+		var result = x < 0 ? -floor(-x) : floor(x);
+		return result === 0 ? 0 : result; // in the spec, these are math values, so we filter out -0 here
+	};
+	return truncate;
+}
+
 var _isNaN;
 var hasRequired_isNaN;
 
@@ -57642,19 +57962,6 @@ function require_isFinite () {
 	return _isFinite;
 }
 
-var sign;
-var hasRequiredSign;
-
-function requireSign () {
-	if (hasRequiredSign) return sign;
-	hasRequiredSign = 1;
-
-	sign = function sign(number) {
-		return number >= 0 ? 1 : -1;
-	};
-	return sign;
-}
-
 var ToIntegerOrInfinity;
 var hasRequiredToIntegerOrInfinity;
 
@@ -57662,23 +57969,19 @@ function requireToIntegerOrInfinity () {
 	if (hasRequiredToIntegerOrInfinity) return ToIntegerOrInfinity;
 	hasRequiredToIntegerOrInfinity = 1;
 
-	var abs = requireAbs();
-	var floor = requireFloor();
 	var ToNumber = requireToNumber();
+	var truncate = requireTruncate();
 
 	var $isNaN = require_isNaN();
 	var $isFinite = require_isFinite();
-	var $sign = requireSign();
 
-	// https://262.ecma-international.org/12.0/#sec-tointegerorinfinity
+	// https://262.ecma-international.org/14.0/#sec-tointegerorinfinity
 
 	ToIntegerOrInfinity = function ToIntegerOrInfinity(value) {
 		var number = ToNumber(value);
 		if ($isNaN(number) || number === 0) { return 0; }
 		if (!$isFinite(number)) { return number; }
-		var integer = floor(abs(number));
-		if (integer === 0) { return 0; }
-		return $sign(number) * integer;
+		return truncate(number);
 	};
 	return ToIntegerOrInfinity;
 }
@@ -57742,7 +58045,7 @@ function requireToObject () {
 
 	var $Object = GetIntrinsic('%Object%');
 
-	var RequireObjectCoercible = RequireObjectCoercible$5;
+	var RequireObjectCoercible = RequireObjectCoercible$4;
 
 	// https://262.ecma-international.org/6.0/#sec-toobject
 
@@ -57899,7 +58202,7 @@ function requireShim () {
 var define$2 = defineProperties_1;
 var callBind$1 = callBindExports;
 var callBound$1 = callBound$4;
-var RequireObjectCoercible$2 = RequireObjectCoercible$5;
+var RequireObjectCoercible$1 = RequireObjectCoercible$4;
 
 var implementation$3 = implementation$5;
 var getPolyfill$2 = polyfill$3;
@@ -57911,7 +58214,7 @@ var $slice = callBound$1('Array.prototype.slice');
 var bound = callBind$1.apply(polyfill$2);
 // eslint-disable-next-line no-unused-vars
 var boundCoercible = function forEach(array, callbackfn) {
-	RequireObjectCoercible$2(array);
+	RequireObjectCoercible$1(array);
 	return bound(array, $slice(arguments, 1));
 };
 
@@ -57923,9 +58226,7 @@ define$2(boundCoercible, {
 
 var array_prototype_foreach = boundCoercible;
 
-var RequireObjectCoercible$1 = CheckObjectCoercible;
-
-var RequireObjectCoercible = RequireObjectCoercible$1;
+var RequireObjectCoercible = RequireObjectCoercible$4;
 var callBound = callBound$4;
 var $isEnumerable = callBound('Object.prototype.propertyIsEnumerable');
 var $push = callBound('Array.prototype.push');
