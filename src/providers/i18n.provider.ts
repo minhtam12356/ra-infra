@@ -5,7 +5,7 @@ type TListLanguage = {
   name: string;
 };
 
-const [language] = (navigator?.language || 'ko-KR').split('-');
+const [language] = (navigator?.language || 'en-US').split('-');
 
 export const getI18nProvider = (opts: { i18n: Record<string | symbol, any>; listLanguages?: TListLanguage[] }) => {
   const { i18n: i18nSources, listLanguages } = opts;
@@ -18,8 +18,8 @@ export const getI18nProvider = (opts: { i18n: Record<string | symbol, any>; list
     listLanguages?.length
       ? listLanguages
       : {
-        allowMissing: true,
-        onMissingKey: (key: string, _: any, __: any) => key,
-      },
+          allowMissing: true,
+          onMissingKey: (key: string, _: any, __: any) => key,
+        },
   );
 };

@@ -58978,7 +58978,7 @@ var getDataProvider = function (opts) {
     };
 };
 
-var language = ((navigator === null || navigator === void 0 ? void 0 : navigator.language) || 'ko-KR').split('-')[0];
+var language = ((navigator === null || navigator === void 0 ? void 0 : navigator.language) || 'en-US').split('-')[0];
 var getI18nProvider = function (opts) {
     var i18nSources = opts.i18n, listLanguages = opts.listLanguages;
     return polyglotI18nProvider(function (locale) {
