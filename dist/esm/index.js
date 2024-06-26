@@ -23321,7 +23321,7 @@ if (process.env.NODE_ENV === 'production') {
   reactIs$4.exports = requireReactIs_development$3();
 }
 
-var reactIsExports$3 = reactIs$4.exports;
+var reactIsExports$2 = reactIs$4.exports;
 
 /**
  * Context to store the current resource name.
@@ -23380,7 +23380,7 @@ var getElement = function (ElementOrComponent) {
     if (isValidElement(ElementOrComponent)) {
         return ElementOrComponent;
     }
-    if (reactIsExports$3.isValidElementType(ElementOrComponent)) {
+    if (reactIsExports$2.isValidElementType(ElementOrComponent)) {
         return React$1.createElement(ElementOrComponent, null);
     }
     return null;
@@ -24741,7 +24741,7 @@ var onlyDigits = function (s) {
 };
 
 var ComponentPropType = (function (props, propName, componentName) {
-    if (props[propName] && !reactIsExports$3.isValidElementType(props[propName])) {
+    if (props[propName] && !reactIsExports$2.isValidElementType(props[propName])) {
         return new Error("Invalid prop '".concat(propName, "' supplied to '").concat(componentName, "': the prop is not a valid React component"));
     }
 });
@@ -28767,15 +28767,21 @@ function requireReactIs_development$2 () {
 	return reactIs_development$2;
 }
 
-if (process.env.NODE_ENV === 'production') {
-  reactIs$3.exports = requireReactIs_production_min$2();
-} else {
-  reactIs$3.exports = requireReactIs_development$2();
+var hasRequiredReactIs;
+
+function requireReactIs () {
+	if (hasRequiredReactIs) return reactIs$3.exports;
+	hasRequiredReactIs = 1;
+
+	if (process.env.NODE_ENV === 'production') {
+	  reactIs$3.exports = requireReactIs_production_min$2();
+	} else {
+	  reactIs$3.exports = requireReactIs_development$2();
+	}
+	return reactIs$3.exports;
 }
 
-var reactIsExports$2 = reactIs$3.exports;
-
-var reactIs$2 = reactIsExports$2;
+var reactIs$2 = requireReactIs();
 var FORWARD_REF_STATICS = {
   '$$typeof': true,
   render: true,
@@ -30288,7 +30294,7 @@ function requireFactoryWithTypeCheckers () {
 	if (hasRequiredFactoryWithTypeCheckers) return factoryWithTypeCheckers;
 	hasRequiredFactoryWithTypeCheckers = 1;
 
-	var ReactIs = reactIsExports$2;
+	var ReactIs = requireReactIs();
 	var assign = requireObjectAssign();
 
 	var ReactPropTypesSecret = requireReactPropTypesSecret();
@@ -30971,7 +30977,7 @@ function requireFactoryWithThrowingShims () {
  */
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactIs = reactIsExports$2;
+  var ReactIs = requireReactIs();
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
