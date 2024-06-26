@@ -4,6 +4,6 @@ type TListLanguage = {
 };
 export declare const getI18nProvider: (opts: {
     i18n: Record<string | symbol, any>;
-    listLanguages?: TListLanguage[] | undefined;
+    listLanguages?: TListLanguage[];
 }) => import("ra-core").I18nProvider;
 export {};

@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import React$1 from 'react';
 import { AuthProvider, AdminProps, ResourceProps, LegacyDataProvider } from 'react-admin';
 import * as ra_core from 'ra-core';
@@ -71,7 +70,7 @@ declare const LbProviderGetter: (opts: {
 declare const AuthProviderGetter: (opts: {
     dataProvider: IDataProvider;
     authPath: string;
-    checkAuth?: (() => Promise<void>) | undefined;
+    checkAuth?: () => Promise<void>;
 }) => AuthProvider;
 
 interface IApplicationContext {
@@ -133,7 +132,7 @@ type TListLanguage = {
 };
 declare const getI18nProvider: (opts: {
     i18n: Record<string | symbol, any>;
-    listLanguages?: TListLanguage[] | undefined;
+    listLanguages?: TListLanguage[];
 }) => ra_core.I18nProvider;
 
 declare const getAuthProvider: (opts: {

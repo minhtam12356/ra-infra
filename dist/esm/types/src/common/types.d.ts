@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { AdminProps, LegacyDataProvider, ResourceProps } from 'react-admin';
 export type TRoute = {
     path: string;
