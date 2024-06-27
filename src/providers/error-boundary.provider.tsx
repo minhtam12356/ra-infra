@@ -12,15 +12,15 @@ export interface ErrorBoundaryConfig {
   apiKey: string;
   secretKey: string;
   projectId: number;
-  children: React.ReactNode;
 }
 
 export interface ErrorBoundaryProps {
   config: ErrorBoundaryConfig;
+  children: React.ReactNode;
 }
 
-export const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ config }) => {
-  const { endPoint = crashReportBaseUrl, environment = '', apiKey, secretKey, projectId, children } = config;
+export const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ config, children }) => {
+  const { endPoint = crashReportBaseUrl, environment = '', apiKey, secretKey, projectId } = config;
   const dataProvider = useMemo(() => {
     return getDataProvider({ baseUrl: endPoint, authPath: '' });
   }, [endPoint, getDataProvider]);

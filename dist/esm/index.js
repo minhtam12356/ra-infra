@@ -60291,8 +60291,8 @@ var getAuthProvider = function (opts) {
 var crashReportBaseUrl = 'http://170.187.198.24:1198/v1/api/';
 var regexFilterUrl = /http[^\n]*/;
 var ErrorBoundary = function (_a) {
-    var config = _a.config;
-    var _b = config.endPoint, endPoint = _b === void 0 ? crashReportBaseUrl : _b, _c = config.environment, environment = _c === void 0 ? '' : _c, apiKey = config.apiKey, secretKey = config.secretKey, projectId = config.projectId, children = config.children;
+    var config = _a.config, children = _a.children;
+    var _b = config.endPoint, endPoint = _b === void 0 ? crashReportBaseUrl : _b, _c = config.environment, environment = _c === void 0 ? '' : _c, apiKey = config.apiKey, secretKey = config.secretKey, projectId = config.projectId;
     var dataProvider = useMemo(function () {
         return getDataProvider({ baseUrl: endPoint, authPath: '' });
     }, [endPoint, getDataProvider]);

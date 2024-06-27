@@ -147,10 +147,10 @@ interface ErrorBoundaryConfig {
     apiKey: string;
     secretKey: string;
     projectId: number;
-    children: React$1.ReactNode;
 }
 interface ErrorBoundaryProps {
     config: ErrorBoundaryConfig;
+    children: React$1.ReactNode;
 }
 declare const ErrorBoundary: React$1.FC<ErrorBoundaryProps>;
 

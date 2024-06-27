@@ -5,9 +5,9 @@ export interface ErrorBoundaryConfig {
     apiKey: string;
     secretKey: string;
     projectId: number;
-    children: React.ReactNode;
 }
 export interface ErrorBoundaryProps {
     config: ErrorBoundaryConfig;
+    children: React.ReactNode;
 }
 export declare const ErrorBoundary: React.FC<ErrorBoundaryProps>;
