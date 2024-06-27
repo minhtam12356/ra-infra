@@ -141,6 +141,19 @@ declare const getAuthProvider: (opts: {
     checkAuth?: () => Promise<void>;
 }) => AuthProvider;
 
+interface ErrorBoundaryConfig {
+    endPoint?: string;
+    environment?: string;
+    apiKey: string;
+    secretKey: string;
+    projectId: number;
+    children: React$1.ReactNode;
+}
+interface ErrorBoundaryProps {
+    config: ErrorBoundaryConfig;
+}
+declare const ErrorBoundary: React$1.FC<ErrorBoundaryProps>;
+
 declare class AuthService {
     private static instance;
     static getInstance(): AuthService;
@@ -166,4 +179,4 @@ declare const ApplicationWrapper: React$1.FC<{
 }>;
 declare const Ra: React$1.FC<IApplication>;
 
-export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IDispatchAction, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TDataProvider, TRequestMethod, TRoute, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };
+export { Application, ApplicationContext, ApplicationWrapper, AuthProviderGetter, AuthService, Authentication, CREATE, DELETE, DELETE_MANY, ErrorBoundary, ErrorBoundaryConfig, ErrorBoundaryProps, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, IApplication, IDataProvider, IDispatchAction, IParam, IRequestProps, LbProviderGetter, LocalStorageKeys, Logger, Ra, SEND, TDataProvider, TRequestMethod, TRoute, UPDATE, UPDATE_MANY, getAuthProvider, getDataProvider, getI18nProvider };

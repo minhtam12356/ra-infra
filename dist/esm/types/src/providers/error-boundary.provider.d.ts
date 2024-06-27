@@ -1,5 +1,5 @@
 import React from 'react';
-export interface ErrorBoundaryProps {
+export interface ErrorBoundaryConfig {
     endPoint?: string;
     environment?: string;
     apiKey: string;
@@ -7,10 +7,7 @@ export interface ErrorBoundaryProps {
     projectId: number;
     children: React.ReactNode;
 }
-export declare class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
-    dataProvider: any;
-    baseUrl: string;
-    constructor(props: ErrorBoundaryProps);
-    componentDidCatch(error: Error): void;
-    render(): React.ReactNode;
+export interface ErrorBoundaryProps {
+    config: ErrorBoundaryConfig;
 }
+export declare const ErrorBoundary: React.FC<ErrorBoundaryProps>;

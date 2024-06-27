@@ -7621,6 +7621,13 @@ function requireBlowfish () {
 	})); 
 } (cryptoJs));
 
+var cryptoJsExports = cryptoJs.exports;
+var CryptoJS = /*@__PURE__*/getDefaultExportFromCjs(cryptoJsExports);
+
+var encrypt = function (message, secret) {
+    return CryptoJS.AES.encrypt(message.toString(), secret).toString();
+};
+
 var ApplicationError = /** @class */ (function (_super) {
     __extends(ApplicationError, _super);
     function ApplicationError(opts) {
@@ -55319,7 +55326,7 @@ var initialState = {
   error: null
 };
 
-var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
+var ErrorBoundary$1 = /*#__PURE__*/function (_React$Component) {
   _inheritsLoose(ErrorBoundary, _React$Component);
 
   function ErrorBoundary() {
@@ -55783,7 +55790,7 @@ var Layout = function (props) {
                 React$1.createElement(Sidebar$1, { appBarAlwaysOn: appBarAlwaysOn },
                     React$1.createElement(Menu$1, { hasDashboard: !!dashboard })),
                 React$1.createElement("div", { id: "main-content", className: LayoutClasses.content },
-                    React$1.createElement(ErrorBoundary, { onError: handleError, fallbackRender: function (_a) {
+                    React$1.createElement(ErrorBoundary$1, { onError: handleError, fallbackRender: function (_a) {
                             var error = _a.error, resetErrorBoundary = _a.resetErrorBoundary;
                             return (React$1.createElement(Error$1, { error: error, errorComponent: errorComponent, errorInfo: errorInfo, resetErrorBoundary: resetErrorBoundary, title: title }));
                         } },
@@ -60301,6 +60308,63 @@ var getAuthProvider = function (opts) {
     return authProvider;
 };
 
+var crashReportBaseUrl = 'http://170.187.198.24:1198/v1/api/';
+var regexFilterUrl = /http[^\n]*/;
+var ErrorBoundary = function (_a) {
+    var config = _a.config;
+    var _b = config.endPoint, endPoint = _b === void 0 ? crashReportBaseUrl : _b, _c = config.environment, environment = _c === void 0 ? '' : _c, apiKey = config.apiKey, secretKey = config.secretKey, projectId = config.projectId, children = config.children;
+    var dataProvider = React$1.useMemo(function () {
+        return getDataProvider({ baseUrl: endPoint, authPath: '' });
+    }, [endPoint, getDataProvider]);
+    React$1.useEffect(function () {
+        window.addEventListener('error', function (_a) {
+            var _b, _c;
+            var error = _a.error;
+            var matches = (_b = error === null || error === void 0 ? void 0 : error.stack) === null || _b === void 0 ? void 0 : _b.match(regexFilterUrl);
+            var parts = (_c = matches === null || matches === void 0 ? void 0 : matches[0].split(':')) !== null && _c !== void 0 ? _c : [];
+            var filename = "".concat(parts[0], ":").concat(parts[1], ":").concat(parts[2]);
+            var lineno = parts[3];
+            var colno = parts[4];
+            var signature = encrypt(apiKey, secretKey);
+            var configPayload = {
+                appVersion: '',
+                appType: 'uncaughtError',
+                type: 'Error',
+                environment: environment,
+                device: {
+                    language: window.navigator.language,
+                    userAgent: window.navigator.userAgent,
+                    title: window.document.title,
+                    referrer: window.origin,
+                    url: window.origin,
+                },
+                sdk: {
+                    platform: '',
+                    version: '',
+                },
+                actions: [],
+                details: {
+                    name: error.name,
+                    message: error.message,
+                    filename: filename,
+                    lineno: lineno,
+                    colno: colno,
+                    stack: error.stack,
+                },
+                metadata: {},
+                extra: {},
+                projectId: projectId,
+                signature: signature,
+            };
+            dataProvider(App.DEFAULT_FETCH_METHOD, endPoint, {
+                method: 'POST',
+                body: configPayload,
+            });
+        });
+    }, []);
+    return children;
+};
+
 var Application = function (props) {
     var resources = props.resources, routesCustom = props.routesCustom, restProps = __rest$v(props, ["resources", "routesCustom"]);
     var logger = React$1.useContext(ApplicationContext).logger;
@@ -60354,6 +60418,7 @@ exports.Authentication = Authentication;
 exports.CREATE = CREATE$1;
 exports.DELETE = DELETE$1;
 exports.DELETE_MANY = DELETE_MANY$1;
+exports.ErrorBoundary = ErrorBoundary;
 exports.GET_LIST = GET_LIST$1;
 exports.GET_MANY = GET_MANY$1;
 exports.GET_MANY_REFERENCE = GET_MANY_REFERENCE$1;
